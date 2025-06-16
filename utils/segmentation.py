@@ -20,8 +20,8 @@ def process_image(image_path):
     """
     try:
         # Configuration
-        GENERAL_MODEL_PATH = "best_1750053814972.pt"
-        PORTS_MODEL_PATH = "port_best_1750053814972.pt"
+        GENERAL_MODEL_PATH = "best.pt"
+        PORTS_MODEL_PATH = "port_best.pt"
         OUTPUT_DIR = "static/segmented_outputs"
         CONF_THRESHOLD = 0.2
         COORDINATES_FILE = "static/segmented_outputs/coordinates.json"
