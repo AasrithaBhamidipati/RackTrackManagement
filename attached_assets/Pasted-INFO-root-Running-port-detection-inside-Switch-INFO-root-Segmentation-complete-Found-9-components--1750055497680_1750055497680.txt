@@ -1,0 +1,29 @@
+INFO:root:Running port detection inside Switch
+INFO:root:Segmentation complete. Found 9 components
+DEBUG:faiss.loader:Environment variable FAISS_OPT_LEVEL is not set, so let's pick the instruction set according to the current CPU
+INFO:faiss.loader:Loading faiss with AVX2 support.
+INFO:faiss.loader:Successfully loaded faiss with AVX2 support.
+INFO:faiss:Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes. This is only an error if you're trying to use GPU Faiss.
+[INFO] Loading CLIP model...
+INFO:root:Comparing with catalog embeddings...
+INFO:root:Generating embeddings for segmented images...
+[INFO] Processing category: Cable
+[INFO] Found 3 images in static/segmented_outputs\Cable
+[Cable]: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:00<00:00, 17.68it/s] 
+[INFO] Processing category: Port
+[INFO] Found 12 images in static/segmented_outputs\Port
+[Port]: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 12/12 [00:00<00:00, 19.07it/s] 
+[INFO] Processing category: Rack
+[INFO] Found 1 images in static/segmented_outputs\Rack
+[Rack]: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00, 14.99it/s] 
+[INFO] Processing category: Switch
+[INFO] Found 5 images in static/segmented_outputs\Switch
+[Switch]: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:00<00:00, 16.47it/s] 
+INFO:root:Loading catalog embeddings and metadata...
+h:\FGDHERH\FGDHERH\utils\embedding_comparison.py:11: RuntimeWarning: invalid value encountered in divide
+  return x / np.linalg.norm(x, axis=1, keepdims=True)
+OMP: Error #15: Initializing libomp140.x86_64.dll, but found libiomp5md.dll already initialized.
+OMP: Hint This means that multiple copies of the OpenMP runtime have been linked into the program. That is dangerous, since it can degrade performance or cause incorrect results. The best thing to do is to ensure that only a single OpenMP runtime is linked into the process, e.g. by avoiding static linking of the OpenMP runtime in any library. As an unsafe, unsupported, undocumented workaround you can set the environment variable KMP_DUPLICATE_LIB_OK=TRUE to allow the program to continue to execute, but that may cause crashes or silently produce incorrect results. For more information, please see http://openmp.llvm.org/
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 126-329-152

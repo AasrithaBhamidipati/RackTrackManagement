@@ -2,6 +2,9 @@ import os
 import logging
 from flask import Flask
 
+# Fix OpenMP library conflict before importing any ML libraries
+os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
+
 # Configure logging
 logging.basicConfig(level=logging.DEBUG)
 
