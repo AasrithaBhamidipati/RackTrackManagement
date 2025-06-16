@@ -65,89 +65,9 @@
     {% endfor %}
 </div>
 
-<!-- Detailed Results -->
-{% for class_name, images in results.grouped_images.items() %}
-<div class="card mb-4">
-    <div class="card-header">
-        <h4 class="mb-0">
-            {% if class_name == 'Rack' %}
-                <i class="fas fa-server text-info me-2"></i>
-            {% elif class_name == 'Switch' %}
-                <i class="fas fa-ethernet text-success me-2"></i>
-            {% elif class_name == 'Port' %}
-                <i class="fas fa-plug text-primary me-2"></i>
-            {% elif class_name == 'Cable' %}
-                <i class="fas fa-cable text-warning me-2"></i>
-            {% endif %}
-            {{ class_name }} Components ({{ images|length }})
-        </h4>
-    </div>
-    <div class="card-body">
-        <div class="row">
-            {% for image in images %}
-            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                <div class="card h-100">
-                    <div class="position-relative">
-                        <img src="{{ url_for('static', filename=image.path.replace('static/', '')) }}" 
-                             class="card-img-top" 
-                             alt="{{ image.original_class }}"
-                             style="height: 200px; object-fit: cover;">
-                        <span class="position-absolute top-0 end-0 badge bg-primary m-2">
-                            {{ "%.1f"|format(image.confidence * 100) }}%
-                        </span>
-                    </div>
-                    <div class="card-body">
-                        <h6 class="card-title">{{ image.original_class }}</h6>
-                        <p class="card-text small text-muted">
-                            <strong>Confidence:</strong> {{ "%.1f"|format(image.confidence * 100) }}%<br>
-                            <strong>Coordinates:</strong> 
-                            ({{ image.coordinates.x1 }}, {{ image.coordinates.y1 }}) - 
-                            ({{ image.coordinates.x2 }}, {{ image.coordinates.y2 }})<br>
-                            {% if image.parent %}
-                                <strong>Parent:</strong> {{ image.parent }}
-                            {% endif %}
-                        </p>
-                    </div>
-                    <div class="card-footer">
-                        <a href="{{ url_for('download_results', filename=image.path) }}" 
-                           class="btn btn-sm btn-outline-primary w-100">
-                            <i class="fas fa-download me-1"></i>
-                            Download
-                        </a>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
-</div>
-{% endfor %}
 
-<!-- Coordinates Data -->
-<div class="card">
-    <div class="card-header">
-        <h4 class="mb-0">
-            <i class="fas fa-map-marker-alt text-info me-2"></i>
-            Coordinate Data
-        </h4>
-    </div>
-    <div class="card-body">
-        <p class="text-muted">
-            Complete coordinate data has been saved and can be downloaded as part of the results package.
-        </p>
-        <div class="d-flex justify-content-between">
-            <span>
-                <i class="fas fa-file-code me-1"></i>
-                <strong>File:</strong> coordinates.json
-            </span>
-            <a href="{{ url_for('download_results', filename=results.coordinates_file) }}" 
-               class="btn btn-sm btn-outline-secondary">
-                <i class="fas fa-download me-1"></i>
-                Download JSON
-            </a>
-        </div>
-    </div>
-</div>
+
+
 
 <!-- Catalog Matching Results -->
 {% if results.comparison_results %}
