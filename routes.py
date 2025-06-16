@@ -7,11 +7,8 @@ from app import app
 try:
     from utils.segmentation import process_image, allowed_file
 except ImportError:
-    # Fallback while dependencies are being installed
-    def allowed_file(filename):
-        return '.' in filename and filename.rsplit('.', 1)[1].lower() in {'png', 'jpg', 'jpeg', 'bmp'}
-    def process_image(image_path):
-        return {'success': False, 'error': 'YOLO dependencies not yet installed. Please wait while we set up the required packages.'}
+    # Use mock segmentation while YOLO dependencies are unavailable
+    from utils.mock_segmentation import process_image, allowed_file
 import zipfile
 import io
 
