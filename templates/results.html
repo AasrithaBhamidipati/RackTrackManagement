@@ -86,61 +86,69 @@
         <div class="row">
             {% for match in results.comparison_results %}
             <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card h-100 {% if match.similarity_score > 0.7 %}border-success{% elif match.similarity_score > 0.5 %}border-warning{% else %}border-secondary{% endif %}">
-                    <div class="row g-0 h-100">
-                        <div class="col-6">
-                            <div class="p-2">
-                                <label class="small text-muted">Detected Component</label>
-                                <img src="{{ url_for('static', filename=match.cropped_image.replace('static/', '')) }}" 
-                                     class="img-fluid rounded" 
-                                     alt="Detected {{ match.category }}"
-                                     style="height: 120px; width: 100%; object-fit: cover;">
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="p-2">
-                                <label class="small text-muted">Catalog Match</label>
-                                {% if match.matched_image %}
-                                <img src="{{ match.matched_image }}" 
-                                     class="img-fluid rounded" 
-                                     alt="Catalog {{ match.name }}"
-                                     style="height: 120px; width: 100%; object-fit: cover;"
-                                     onerror="this.src='/static/images/no-match.png'; this.alt='No catalog image';">
-                                {% else %}
-                                <div class="d-flex align-items-center justify-content-center bg-light rounded" style="height: 120px;">
-                                    <i class="fas fa-question-circle text-muted fa-2x"></i>
-                                </div>
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body pt-2">
-                        <div class="d-flex justify-content-between align-items-start mb-2">
-                            <h6 class="card-title mb-1">{{ match.name }}</h6>
+                <div class="card h-100 clickable-card {% if match.similarity_score > 0.7 %}border-success{% elif match.similarity_score > 0.5 %}border-warning{% else %}border-secondary{% endif %}"
+                     style="cursor: pointer; transition: transform 0.2s;"
+                     data-original-image="{{ results.original_image if results.original_image else '' }}"
+                     data-coordinates='{{ match.coordinates | tojson if match.coordinates else "{}" }}'
+                     data-component-name="{{ match.name }}">
+                    
+                    <div class="card-header bg-transparent">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <h6 class="card-title mb-0">{{ match.name }}</h6>
                             {% if match.similarity_score > 0 %}
                             <span class="badge {% if match.similarity_score > 0.7 %}bg-success{% elif match.similarity_score > 0.5 %}bg-warning{% else %}bg-secondary{% endif %}">
                                 {{ "%.1f"|format(match.similarity_score * 100) }}%
                             </span>
                             {% endif %}
                         </div>
-                        
+                    </div>
+                    
+                    <div class="row g-0">
+                        <div class="col-6">
+                            <div class="p-2">
+                                <label class="small text-muted">Detected</label>
+                                <img src="{{ url_for('static', filename=match.cropped_image.replace('static/', '')) }}" 
+                                     class="img-fluid rounded" 
+                                     alt="Detected {{ match.category }}"
+                                     style="height: 100px; width: 100%; object-fit: cover;">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="p-2">
+                                <label class="small text-muted">Catalog</label>
+                                {% if match.matched_image %}
+                                <img src="{{ match.matched_image }}" 
+                                     class="img-fluid rounded" 
+                                     alt="Catalog {{ match.name }}"
+                                     style="height: 100px; width: 100%; object-fit: cover;"
+                                     onerror="this.src='/static/images/no-match.png'; this.alt='No catalog image';">
+                                {% else %}
+                                <div class="d-flex align-items-center justify-content-center bg-light rounded" style="height: 100px;">
+                                    <i class="fas fa-question-circle text-muted fa-2x"></i>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-body pt-2">
                         <p class="card-text small text-muted mb-2">
                             <strong>Category:</strong> {{ match.category }}<br>
-                            <strong>Description:</strong> {{ match.description[:100] }}{% if match.description|length > 100 %}...{% endif %}
+                            <strong>Description:</strong> {{ match.description[:80] }}{% if match.description|length > 80 %}...{% endif %}
                         </p>
                         
                         {% if match.coordinates %}
                         <div class="small text-muted">
-                            <strong>Position:</strong> ({{ match.coordinates.x1 }}, {{ match.coordinates.y1 }}) - ({{ match.coordinates.x2 }}, {{ match.coordinates.y2 }})<br>
                             <strong>Size:</strong> {{ match.coordinates.width }}×{{ match.coordinates.height }}px
                             {% if match.coordinates.confidence %}
-                            <br><strong>Detection Confidence:</strong> {{ "%.1f"|format(match.coordinates.confidence * 100) }}%
+                            | <strong>Confidence:</strong> {{ "%.1f"|format(match.coordinates.confidence * 100) }}%
                             {% endif %}
                         </div>
                         {% endif %}
                     </div>
+                    
                     <div class="card-footer bg-transparent">
-                        <div class="d-flex justify-content-between">
+                        <div class="d-flex justify-content-between align-items-center">
                             <small class="text-muted">
                                 {% if match.similarity_score > 0.7 %}
                                     <i class="fas fa-check-circle text-success me-1"></i>Strong Match
@@ -150,11 +158,9 @@
                                     <i class="fas fa-times-circle text-secondary me-1"></i>No Match
                                 {% endif %}
                             </small>
-                            <a href="{{ url_for('download_results', filename=match.cropped_image) }}" 
-                               class="btn btn-sm btn-outline-primary">
-                                <i class="fas fa-download me-1"></i>
-                                Download
-                            </a>
+                            <small class="text-primary">
+                                <i class="fas fa-search-plus me-1"></i>Click to view
+                            </small>
                         </div>
                     </div>
                 </div>
@@ -170,31 +176,126 @@
 
 {% block scripts %}
 <script>
-    // Add click handlers for image modal viewing
     document.addEventListener('DOMContentLoaded', function() {
-        const images = document.querySelectorAll('.card-img-top');
-        images.forEach(img => {
-            img.style.cursor = 'pointer';
-            img.addEventListener('click', function() {
-                // Create modal for larger image view
+        // Add hover effects for clickable cards
+        const clickableCards = document.querySelectorAll('.clickable-card');
+        clickableCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px)';
+                this.style.boxShadow = '0 4px 8px rgba(0,0,0,0.12)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = '';
+            });
+            
+            // Click handler for showing original image with highlighted region
+            card.addEventListener('click', function() {
+                const originalImage = this.dataset.originalImage;
+                const coordinatesStr = this.dataset.coordinates;
+                const componentName = this.dataset.componentName;
+                
+                let coordinates = {};
+                try {
+                    coordinates = JSON.parse(coordinatesStr);
+                } catch (e) {
+                    console.warn('Invalid coordinates data:', e);
+                }
+                
+                if (!originalImage) {
+                    alert('Original image not available');
+                    return;
+                }
+                
+                // Create modal with original image and highlight overlay
                 const modal = document.createElement('div');
                 modal.className = 'modal fade';
                 modal.innerHTML = `
-                    <div class="modal-dialog modal-lg">
+                    <div class="modal-dialog modal-xl">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title">Component Detail</h5>
+                                <h5 class="modal-title">
+                                    <i class="fas fa-search-plus me-2"></i>
+                                    ${componentName} - Location in Original Image
+                                </h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                             </div>
-                            <div class="modal-body text-center">
-                                <img src="${this.src}" class="img-fluid" alt="${this.alt}">
+                            <div class="modal-body text-center p-0">
+                                <div class="position-relative d-inline-block">
+                                    <img id="originalImage" src="${originalImage}" class="img-fluid" alt="Original Image" style="max-height: 80vh;">
+                                    ${coordinates.x1 !== undefined ? `
+                                        <div class="highlight-box" style="
+                                            position: absolute;
+                                            left: ${coordinates.x1}px;
+                                            top: ${coordinates.y1}px;
+                                            width: ${coordinates.width || (coordinates.x2 - coordinates.x1)}px;
+                                            height: ${coordinates.height || (coordinates.y2 - coordinates.y1)}px;
+                                            border: 3px solid #ff0000;
+                                            background: rgba(255, 0, 0, 0.1);
+                                            box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+                                            pointer-events: none;
+                                        "></div>
+                                        <div class="component-label" style="
+                                            position: absolute;
+                                            left: ${coordinates.x1}px;
+                                            top: ${coordinates.y1 - 25}px;
+                                            background: #ff0000;
+                                            color: white;
+                                            padding: 2px 8px;
+                                            border-radius: 4px;
+                                            font-size: 12px;
+                                            font-weight: bold;
+                                            pointer-events: none;
+                                        ">${componentName}</div>
+                                    ` : ''}
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <div class="w-100 text-center">
+                                    <small class="text-muted">
+                                        ${coordinates.x1 !== undefined ? 
+                                            `Detected at coordinates (${coordinates.x1}, ${coordinates.y1}) - Size: ${coordinates.width || (coordinates.x2 - coordinates.x1)}×${coordinates.height || (coordinates.y2 - coordinates.y1)}px` : 
+                                            'Location coordinates not available'
+                                        }
+                                        ${coordinates.confidence ? ` | Confidence: ${(coordinates.confidence * 100).toFixed(1)}%` : ''}
+                                    </small>
+                                </div>
                             </div>
                         </div>
                     </div>
                 `;
+                
                 document.body.appendChild(modal);
                 const bsModal = new bootstrap.Modal(modal);
                 bsModal.show();
+                
+                // Scale coordinates based on actual image display size
+                bsModal._element.addEventListener('shown.bs.modal', function() {
+                    const img = document.getElementById('originalImage');
+                    const highlightBox = modal.querySelector('.highlight-box');
+                    const componentLabel = modal.querySelector('.component-label');
+                    
+                    if (img && highlightBox && coordinates.x1 !== undefined) {
+                        const scaleX = img.clientWidth / img.naturalWidth;
+                        const scaleY = img.clientHeight / img.naturalHeight;
+                        
+                        const scaledX1 = coordinates.x1 * scaleX;
+                        const scaledY1 = coordinates.y1 * scaleY;
+                        const scaledWidth = (coordinates.width || (coordinates.x2 - coordinates.x1)) * scaleX;
+                        const scaledHeight = (coordinates.height || (coordinates.y2 - coordinates.y1)) * scaleY;
+                        
+                        highlightBox.style.left = scaledX1 + 'px';
+                        highlightBox.style.top = scaledY1 + 'px';
+                        highlightBox.style.width = scaledWidth + 'px';
+                        highlightBox.style.height = scaledHeight + 'px';
+                        
+                        if (componentLabel) {
+                            componentLabel.style.left = scaledX1 + 'px';
+                            componentLabel.style.top = (scaledY1 - 25) + 'px';
+                        }
+                    }
+                });
                 
                 // Remove modal from DOM when hidden
                 modal.addEventListener('hidden.bs.modal', function() {

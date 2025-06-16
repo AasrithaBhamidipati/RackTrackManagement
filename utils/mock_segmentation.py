@@ -93,6 +93,19 @@ def process_image(image_path):
         
         logging.info(f"Demo segmentation complete. Created {len(segmented_images)} mock detections")
         
+        # Create mock comparison results for demo
+        comparison_results = []
+        for img_data in segmented_images:
+            comparison_results.append({
+                'cropped_image': img_data['path'],
+                'category': img_data['class'],
+                'name': f"Sample {img_data['class']} Component",
+                'description': f"This is a demo {img_data['class'].lower()} component detected in your network infrastructure image.",
+                'similarity_score': 0.85 + (len(comparison_results) * 0.02),  # Vary scores slightly
+                'matched_image': f"/static/catalog/{img_data['class'].lower()}_sample.jpg",
+                'coordinates': img_data['coordinates']
+            })
+
         return {
             'success': True,
             'total_components': len(segmented_images),
@@ -100,6 +113,7 @@ def process_image(image_path):
             'grouped_images': grouped_images,
             'coordinates_file': COORDINATES_FILE,
             'original_image': image_path,
+            'comparison_results': comparison_results,
             'demo_mode': True
         }
         

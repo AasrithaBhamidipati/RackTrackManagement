@@ -100,6 +100,12 @@ This is a Flask-based web application that uses YOLO (You Only Look Once) deep l
 - Results displayed in card format with similarity scores
 - Automatic cleanup of previous outputs on each upload
 - Support for catalog files: all_categories_data.pkl and metadata.pkl
+- June 16, 2025: Updated results interface per user requirements:
+  - Removed individual cropped component display
+  - Simplified to show only comparison result cards
+  - Implemented clickable cards that show original image with highlighted detected regions
+  - Added modal overlay with red bounding boxes and component labels
+  - Enhanced user experience with hover effects and responsive design
 
 ## Changelog
 - June 16, 2025. Initial setup
