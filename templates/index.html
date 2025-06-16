@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="text-center mb-5">
+            <h1 class="display-4 mb-3">
+                <i class="fas fa-upload text-primary me-3"></i>
+                Network Infrastructure Segmentation
+            </h1>
+            <p class="lead text-muted">
+                Upload an image to automatically detect and segment network components including Racks, Switches, Ports, and Cables using advanced YOLO models.
+            </p>
+        </div>
+
+        <div class="card shadow-lg">
+            <div class="card-header bg-primary text-white">
+                <h5 class="card-title mb-0">
+                    <i class="fas fa-camera me-2"></i>
+                    Upload Image for Analysis
+                </h5>
+            </div>
+            <div class="card-body">
+                <form id="uploadForm" action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data">
+                    <div class="mb-4">
+                        <label for="fileInput" class="form-label">Select Image File</label>
+                        <input type="file" class="form-control form-control-lg" id="fileInput" name="file" accept="image/*" required>
+                        <div class="form-text">
+                            Supported formats: JPG, JPEG, PNG, BMP (Max size: 16MB)
+                        </div>
+                    </div>
+                    
+                    <div id="imagePreview" class="mb-4" style="display: none;">
+                        <label class="form-label">Preview:</label>
+                        <div class="text-center">
+                            <img id="previewImg" class="img-fluid rounded border" style="max-height: 300px;">
+                        </div>
+                    </div>
+                    
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary btn-lg" id="uploadBtn">
+                            <i class="fas fa-cogs me-2"></i>
+                            Process Image
+                        </button>
+                    </div>
+                </form>
+                
+                <div id="progressContainer" class="mt-4" style="display: none;">
+                    <div class="text-center mb-3">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Processing...</span>
+                        </div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%">
+                            Processing your image...
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-md-6">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-server fa-3x text-info mb-3"></i>
+                        <h5 class="card-title">Rack Detection</h5>
+                        <p class="card-text text-muted">Identifies server racks and fuse boxes in your network infrastructure.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-ethernet fa-3x text-success mb-3"></i>
+                        <h5 class="card-title">Switch & Port Detection</h5>
+                        <p class="card-text text-muted">Locates network switches and individual ports for detailed analysis.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row mt-3">
+            <div class="col-md-6">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-plug fa-3x text-warning mb-3"></i>
+                        <h5 class="card-title">Cable Detection</h5>
+                        <p class="card-text text-muted">Identifies network cables and their connections throughout the infrastructure.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-download fa-3x text-secondary mb-3"></i>
+                        <h5 class="card-title">Export Results</h5>
+                        <p class="card-text text-muted">Download segmented images and coordinate data for further analysis.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
