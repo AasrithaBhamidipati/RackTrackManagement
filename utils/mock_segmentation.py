@@ -36,11 +36,14 @@ def process_image(image_path):
         for category in categories:
             os.makedirs(os.path.join(OUTPUT_DIR, category), exist_ok=True)
         
+        # Copy original image to static folder for web access
+        base_name = os.path.splitext(os.path.basename(image_path))[0]
+        original_static_path = f"static/segmented_outputs/original_{base_name}.jpg"
+        shutil.copy2(image_path, original_static_path)
+        
         # Create demo segmented images by copying the original
         segmented_images = []
         coordinates_data = {}
-        
-        base_name = os.path.splitext(os.path.basename(image_path))[0]
         
         # Create mock detections for demo
         mock_detections = [
@@ -102,7 +105,7 @@ def process_image(image_path):
                 'name': f"Sample {img_data['class']} Component",
                 'description': f"This is a demo {img_data['class'].lower()} component detected in your network infrastructure image.",
                 'similarity_score': 0.85 + (len(comparison_results) * 0.02),  # Vary scores slightly
-                'matched_image': f"/static/catalog/{img_data['class'].lower()}_sample.jpg",
+                'matched_image': None,  # No catalog images in demo mode
                 'coordinates': img_data['coordinates']
             })
 
@@ -112,7 +115,7 @@ def process_image(image_path):
             'segmented_images': segmented_images,
             'grouped_images': grouped_images,
             'coordinates_file': COORDINATES_FILE,
-            'original_image': image_path,
+            'original_image': '/' + original_static_path,
             'comparison_results': comparison_results,
             'demo_mode': True
         }
