@@ -55,7 +55,11 @@ def process_image(image_path):
             'fuse': 'Rack'
         }
         
-        # Prepare output folders
+        # Clear previous outputs and prepare fresh output folders
+        import shutil
+        if os.path.exists(OUTPUT_DIR):
+            shutil.rmtree(OUTPUT_DIR)
+        
         for folder in set(TARGET_CLASS_MAP.values()):
             os.makedirs(os.path.join(OUTPUT_DIR, folder), exist_ok=True)
         
@@ -170,13 +174,27 @@ def process_image(image_path):
         
         logging.info(f"Segmentation complete. Found {object_counter} components")
         
+        # Generate embeddings and comparisons
+        comparison_results = None
+        try:
+            from utils.embedding_comparison import compare_with_catalog
+            
+            # Compare with catalog embeddings
+            logging.info("Comparing with catalog embeddings...")
+            comparison_results = compare_with_catalog(OUTPUT_DIR)
+            
+        except Exception as e:
+            logging.error(f"Error in embeddings/comparison: {str(e)}")
+            comparison_results = None
+        
         return {
             'success': True,
             'total_components': object_counter,
             'segmented_images': segmented_images,
             'grouped_images': grouped_images,
             'coordinates_file': COORDINATES_FILE,
-            'original_image': image_path
+            'original_image': image_path,
+            'comparison_results': comparison_results
         }
         
     except Exception as e:

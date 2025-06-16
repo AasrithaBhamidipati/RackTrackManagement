@@ -149,6 +149,102 @@
     </div>
 </div>
 
+<!-- Catalog Matching Results -->
+{% if results.comparison_results %}
+<div class="card mb-4">
+    <div class="card-header">
+        <h4 class="mb-0">
+            <i class="fas fa-search text-primary me-2"></i>
+            Catalog Matching Results
+        </h4>
+    </div>
+    <div class="card-body">
+        <p class="text-muted mb-4">
+            Components matched against catalog database using AI embeddings for precise identification.
+        </p>
+        
+        <div class="row">
+            {% for match in results.comparison_results %}
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card h-100 {% if match.similarity_score > 0.7 %}border-success{% elif match.similarity_score > 0.5 %}border-warning{% else %}border-secondary{% endif %}">
+                    <div class="row g-0 h-100">
+                        <div class="col-6">
+                            <div class="p-2">
+                                <label class="small text-muted">Detected Component</label>
+                                <img src="{{ url_for('static', filename=match.cropped_image.replace('static/', '')) }}" 
+                                     class="img-fluid rounded" 
+                                     alt="Detected {{ match.category }}"
+                                     style="height: 120px; width: 100%; object-fit: cover;">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="p-2">
+                                <label class="small text-muted">Catalog Match</label>
+                                {% if match.matched_image %}
+                                <img src="{{ match.matched_image }}" 
+                                     class="img-fluid rounded" 
+                                     alt="Catalog {{ match.name }}"
+                                     style="height: 120px; width: 100%; object-fit: cover;"
+                                     onerror="this.src='/static/images/no-match.png'; this.alt='No catalog image';">
+                                {% else %}
+                                <div class="d-flex align-items-center justify-content-center bg-light rounded" style="height: 120px;">
+                                    <i class="fas fa-question-circle text-muted fa-2x"></i>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body pt-2">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <h6 class="card-title mb-1">{{ match.name }}</h6>
+                            {% if match.similarity_score > 0 %}
+                            <span class="badge {% if match.similarity_score > 0.7 %}bg-success{% elif match.similarity_score > 0.5 %}bg-warning{% else %}bg-secondary{% endif %}">
+                                {{ "%.1f"|format(match.similarity_score * 100) }}%
+                            </span>
+                            {% endif %}
+                        </div>
+                        
+                        <p class="card-text small text-muted mb-2">
+                            <strong>Category:</strong> {{ match.category }}<br>
+                            <strong>Description:</strong> {{ match.description[:100] }}{% if match.description|length > 100 %}...{% endif %}
+                        </p>
+                        
+                        {% if match.coordinates %}
+                        <div class="small text-muted">
+                            <strong>Position:</strong> ({{ match.coordinates.x1 }}, {{ match.coordinates.y1 }}) - ({{ match.coordinates.x2 }}, {{ match.coordinates.y2 }})<br>
+                            <strong>Size:</strong> {{ match.coordinates.width }}×{{ match.coordinates.height }}px
+                            {% if match.coordinates.confidence %}
+                            <br><strong>Detection Confidence:</strong> {{ "%.1f"|format(match.coordinates.confidence * 100) }}%
+                            {% endif %}
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="card-footer bg-transparent">
+                        <div class="d-flex justify-content-between">
+                            <small class="text-muted">
+                                {% if match.similarity_score > 0.7 %}
+                                    <i class="fas fa-check-circle text-success me-1"></i>Strong Match
+                                {% elif match.similarity_score > 0.5 %}
+                                    <i class="fas fa-exclamation-triangle text-warning me-1"></i>Partial Match
+                                {% else %}
+                                    <i class="fas fa-times-circle text-secondary me-1"></i>No Match
+                                {% endif %}
+                            </small>
+                            <a href="{{ url_for('download_results', filename=match.cropped_image) }}" 
+                               class="btn btn-sm btn-outline-primary">
+                                <i class="fas fa-download me-1"></i>
+                                Download
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endif %}
+
 {% endif %}
 {% endblock %}
 
