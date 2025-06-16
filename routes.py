@@ -4,7 +4,14 @@ import logging
 from flask import render_template, request, redirect, url_for, flash, jsonify, send_file
 from werkzeug.utils import secure_filename
 from app import app
-from utils.segmentation import process_image, allowed_file
+try:
+    from utils.segmentation import process_image, allowed_file
+except ImportError:
+    # Fallback while dependencies are being installed
+    def allowed_file(filename):
+        return '.' in filename and filename.rsplit('.', 1)[1].lower() in {'png', 'jpg', 'jpeg', 'bmp'}
+    def process_image(image_path):
+        return {'success': False, 'error': 'YOLO dependencies not yet installed. Please wait while we set up the required packages.'}
 import zipfile
 import io
 
