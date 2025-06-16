@@ -93,6 +93,14 @@ This is a Flask-based web application that uses YOLO (You Only Look Once) deep l
 - CUDA support optional (falls back to CPU)
 - Sufficient storage for model files and temporary processing
 
+## Recent Changes
+- June 16, 2025: Extended segmentation pipeline with embedding comparison system
+- Added catalog matching using CLIP embeddings and FAISS similarity search
+- Integrated cropped_embeddings.py and comparison.py for component identification
+- Results displayed in card format with similarity scores
+- Automatic cleanup of previous outputs on each upload
+- Support for catalog files: all_categories_data.pkl and metadata.pkl
+
 ## Changelog
 - June 16, 2025. Initial setup
 
