@@ -63,6 +63,11 @@ def process_image(image_path):
         for folder in set(TARGET_CLASS_MAP.values()):
             os.makedirs(os.path.join(OUTPUT_DIR, folder), exist_ok=True)
         
+        # Copy original image to static folder for web access
+        base_name = os.path.splitext(os.path.basename(image_path))[0]
+        original_static_path = f"static/segmented_outputs/original_{base_name}.jpg"
+        shutil.copy2(image_path, original_static_path)
+        
         # Load models
         logging.info("Loading YOLO models...")
         general_model = YOLO(GENERAL_MODEL_PATH)
@@ -193,7 +198,7 @@ def process_image(image_path):
             'segmented_images': segmented_images,
             'grouped_images': grouped_images,
             'coordinates_file': COORDINATES_FILE,
-            'original_image': image_path,
+            'original_image': '/' + original_static_path,
             'comparison_results': comparison_results
         }
         
