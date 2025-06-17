@@ -106,7 +106,8 @@ def detect_ports_and_cables(image: np.ndarray) -> Dict[str, Any]:
             detected_ports = estimated_ports
             # Estimate connected ports based on overall image complexity
             complexity = np.std(gray)
-            connected_count = int(estimated_ports * min(0.9, complexity / 100.0))
+            complexity_ratio = float(complexity) / 100.0
+            connected_count = int(estimated_ports * min(0.9, complexity_ratio))
         else:
             detected_ports = len(port_regions)
             
