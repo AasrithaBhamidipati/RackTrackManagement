@@ -103,32 +103,11 @@
                         </div>
                     </div>
                     
-                    <div class="row g-0">
-                        <div class="col-6">
-                            <div class="p-2">
-                                <label class="small text-muted">Detected</label>
-                                <img src="{{ url_for('static', filename=match.cropped_image.replace('static/', '')) }}" 
-                                     class="img-fluid rounded" 
-                                     alt="Detected {{ match.category }}"
-                                     style="height: 100px; width: 100%; object-fit: cover;">
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="p-2">
-                                <label class="small text-muted">Catalog</label>
-                                {% if match.matched_image %}
-                                <img src="{{ match.matched_image }}" 
-                                     class="img-fluid rounded" 
-                                     alt="Catalog {{ match.name }}"
-                                     style="height: 100px; width: 100%; object-fit: cover;"
-                                     onerror="this.src='/static/images/no-match.svg'; this.alt='No catalog image';">
-                                {% else %}
-                                <div class="d-flex align-items-center justify-content-center bg-light rounded" style="height: 100px;">
-                                    <i class="fas fa-question-circle text-muted fa-2x"></i>
-                                </div>
-                                {% endif %}
-                            </div>
-                        </div>
+                    <div class="p-3">
+                        <img src="{{ url_for('static', filename=match.cropped_image.replace('static/', '')) }}" 
+                             class="img-fluid rounded" 
+                             alt="Detected {{ match.category }}"
+                             style="height: 120px; width: 100%; object-fit: cover;">
                     </div>
                     
                     <div class="card-body pt-2">
