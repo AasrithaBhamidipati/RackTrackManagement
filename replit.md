@@ -1,8 +1,8 @@
-# Network Infrastructure Segmentation Application
+# Image Analysis & Segmentation Application
 
 ## Overview
 
-This is a Flask-based web application that uses YOLO (You Only Look Once) deep learning models to automatically detect and segment network infrastructure components in uploaded images. The application can identify and extract Racks, Switches, Ports, and Cables from images, providing detailed segmentation results with downloadable outputs.
+This is a Flask-based web application that uses AI deep learning models to automatically detect and segment components in uploaded images. The application provides detailed analysis results with downloadable outputs and features a modern sky blue and white themed interface.
 
 ## System Architecture
 
@@ -15,9 +15,10 @@ This is a Flask-based web application that uses YOLO (You Only Look Once) deep l
 
 ### Frontend Architecture
 - **Template Engine**: Jinja2 (Flask's default)
-- **CSS Framework**: Bootstrap 5 with dark theme
+- **CSS Framework**: Bootstrap 5 with custom sky blue and white theme
 - **JavaScript**: Vanilla JS for file upload handling and preview
 - **Icons**: Font Awesome for UI elements
+- **Design**: Sky blue gradient background with translucent white cards
 
 ### Model Architecture
 - **General Model**: `best.pt` - Detects Cable, Switch, Rack, and Fuse components
@@ -94,18 +95,20 @@ This is a Flask-based web application that uses YOLO (You Only Look Once) deep l
 - Sufficient storage for model files and temporary processing
 
 ## Recent Changes
+- June 17, 2025: Complete UI redesign with sky blue and white theme
+  - Implemented gradient background (white to sky blue to deeper blue)
+  - Updated to light Bootstrap theme with custom CSS overrides
+  - Removed network infrastructure specific content and branding
+  - Changed from "Network Infrastructure Segmentation" to generic "Image Analysis & Segmentation"
+  - Applied translucent white cards with blue accent borders
+  - Updated buttons, headers, and UI elements with sky blue color scheme
+  - Maintained existing functionality while modernizing visual design
 - June 16, 2025: Extended segmentation pipeline with embedding comparison system
 - Added catalog matching using CLIP embeddings and FAISS similarity search
 - Integrated cropped_embeddings.py and comparison.py for component identification
 - Results displayed in card format with similarity scores
 - Automatic cleanup of previous outputs on each upload
 - Support for catalog files: all_categories_data.pkl and metadata.pkl
-- June 16, 2025: Updated results interface per user requirements:
-  - Removed individual cropped component display
-  - Simplified to show only comparison result cards
-  - Implemented clickable cards that show original image with highlighted detected regions
-  - Added modal overlay with red bounding boxes and component labels
-  - Enhanced user experience with hover effects and responsive design
 
 ## Changelog
 - June 16, 2025. Initial setup

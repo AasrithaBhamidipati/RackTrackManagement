@@ -102,8 +102,18 @@ body {
 }
 
 .card-footer {
-    background-color: var(--bs-light);
-    border-top: 1px solid var(--bs-border-color);
+    background: rgba(135, 206, 235, 0.1);
+    border-top: 1px solid rgba(74, 144, 226, 0.2);
+}
+
+.card-header {
+    background: linear-gradient(135deg, #4a90e2, #87ceeb) !important;
+    border-bottom: 1px solid rgba(74, 144, 226, 0.3);
+    color: white !important;
+}
+
+.card-header .card-title {
+    color: white !important;
 }
 
 /* Responsive adjustments */
@@ -126,6 +136,50 @@ body {
 /* Footer styling */
 footer {
     margin-top: auto;
+}
+
+/* Text color overrides for better contrast */
+.text-primary {
+    color: #4a90e2 !important;
+}
+
+.text-info {
+    color: #2980b9 !important;
+}
+
+.text-success {
+    color: #27ae60 !important;
+}
+
+.text-warning {
+    color: #f39c12 !important;
+}
+
+/* Alert styling */
+.alert-success {
+    background: rgba(135, 206, 235, 0.1);
+    border-color: rgba(74, 144, 226, 0.3);
+    color: #2980b9;
+}
+
+.alert-danger {
+    background: rgba(231, 76, 60, 0.1);
+    border-color: rgba(231, 76, 60, 0.3);
+    color: #c0392b;
+}
+
+/* Badge styling */
+.badge {
+    font-weight: 500;
+}
+
+.bg-primary {
+    background: linear-gradient(135deg, #4a90e2, #2980b9) !important;
+}
+
+.bg-secondary {
+    background: rgba(255, 255, 255, 0.9) !important;
+    color: #4a90e2 !important;
 }
 
 /* Alert styling */
