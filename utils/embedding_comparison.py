@@ -6,6 +6,7 @@ import os
 import json
 import logging
 from cropped_embeddings import generate_category_embeddings
+from utils.switch_analyzer import analyze_switch_image, format_cable_distribution, format_led_status
 
 def l2_normalize(x):
     return x / np.linalg.norm(x, axis=1, keepdims=True)
@@ -117,6 +118,19 @@ def compare_with_catalog(segmented_outputs_dir):
                 'similarity_score': 0.0,
                 'coordinates': coords
             }
+            
+            # Add dynamic switch analysis for switch components
+            if category.lower() == 'switch':
+                # Get the actual image path for analysis
+                actual_image_path = img_info['original_path']
+                if actual_image_path.startswith('static/'):
+                    actual_image_path = actual_image_path
+                elif not actual_image_path.startswith('/'):
+                    actual_image_path = f"static/{actual_image_path}"
+                
+                switch_analysis = analyze_switch_image(actual_image_path)
+                if switch_analysis:
+                    result_data['switch_analysis'] = switch_analysis
             
             # Check if we have catalog data for this category
             if category in catalog_data and category in metadata:
