@@ -1,20 +1,38 @@
-/* Custom styles for the network segmentation application */
+/* Custom styles for the segmentation application */
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #ffffff 0%, #87ceeb 50%, #4a90e2 100%);
+    min-height: 100vh;
+    color: #2c3e50;
 }
 
 .navbar {
+    background: rgba(255, 255, 255, 0.95) !important;
     box-shadow: 0 2px 4px rgba(0,0,0,.1);
+    backdrop-filter: blur(10px);
+}
+
+.navbar-brand {
+    color: #4a90e2 !important;
+    font-weight: 600;
+}
+
+.navbar-brand:hover {
+    color: #2980b9 !important;
 }
 
 .card {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(135, 206, 235, 0.3);
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 .card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0,0,0,.15);
+    box-shadow: 0 8px 25px rgba(74, 144, 226, 0.2);
+    border-color: rgba(74, 144, 226, 0.5);
 }
 
 .card-img-top {
@@ -48,8 +66,34 @@ body {
 
 /* Upload form enhancements */
 .form-control:focus {
-    border-color: var(--bs-primary);
-    box-shadow: 0 0 0 0.2rem rgba(var(--bs-primary-rgb), 0.25);
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 0.2rem rgba(74, 144, 226, 0.25);
+}
+
+/* Primary button styling */
+.btn-primary {
+    background: linear-gradient(135deg, #4a90e2, #2980b9);
+    border-color: #4a90e2;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #2980b9, #1e6091);
+    border-color: #2980b9;
+    transform: translateY(-1px);
+}
+
+/* Secondary button styling */
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(135, 206, 235, 0.5);
+    color: #4a90e2;
+}
+
+.btn-secondary:hover {
+    background: rgba(135, 206, 235, 0.2);
+    border-color: #4a90e2;
+    color: #2980b9;
 }
 
 /* Results page enhancements */
