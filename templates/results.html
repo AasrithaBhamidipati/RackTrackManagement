@@ -96,7 +96,13 @@
                      style="cursor: pointer; transition: transform 0.2s;"
                      data-original-image="{{ results.original_image if results.original_image else '' }}"
                      data-coordinates='{{ match.coordinates | tojson if match.coordinates else "{}" }}'
-                     data-component-name="{{ match.name }}">
+                     data-component-name="{{ match.name }}"
+                     data-component-category="{{ match.category }}"
+                     data-component-description="{{ match.description }}"
+                     data-similarity-score="{{ match.similarity_score }}"
+                     data-cropped-image="{{ url_for('static', filename=match.cropped_image.replace('static/', '')) }}"
+                     data-matched-image="{{ match.matched_image if match.matched_image else '' }}"
+                     data-switch-analysis='{{ match.switch_analysis | tojson if match.switch_analysis else "{}" }}'>
                     
                     <div class="card-header bg-transparent">
                         <div class="d-flex justify-content-between align-items-start">
@@ -311,17 +317,30 @@
                 this.style.boxShadow = '';
             });
             
-            // Click handler for showing original image with highlighted region
+            // Click handler for showing original image with highlighted region and component details
             card.addEventListener('click', function() {
                 const originalImage = this.dataset.originalImage;
                 const coordinatesStr = this.dataset.coordinates;
                 const componentName = this.dataset.componentName;
+                const componentCategory = this.dataset.componentCategory;
+                const componentDescription = this.dataset.componentDescription;
+                const similarityScore = parseFloat(this.dataset.similarityScore);
+                const croppedImage = this.dataset.croppedImage;
+                const matchedImage = this.dataset.matchedImage;
+                const switchAnalysisStr = this.dataset.switchAnalysis;
                 
                 let coordinates = {};
+                let switchAnalysis = {};
                 try {
                     coordinates = JSON.parse(coordinatesStr);
                 } catch (e) {
                     console.warn('Invalid coordinates data:', e);
+                }
+                
+                try {
+                    switchAnalysis = JSON.parse(switchAnalysisStr);
+                } catch (e) {
+                    // Switch analysis is optional
                 }
                 
                 if (!originalImage) {
@@ -329,63 +348,208 @@
                     return;
                 }
                 
-                // Create modal with original image and highlight overlay
-                const modal = document.createElement('div');
-                modal.className = 'modal fade';
-                modal.innerHTML = `
-                    <div class="modal-dialog modal-xl">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">
-                                    <i class="fas fa-search-plus me-2"></i>
-                                    ${componentName} - Location in Original Image
-                                </h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                // Create detailed component information panel
+                const detailsPanel = `
+                    <div class="component-details p-4" style="background: #f8f9fa; border-radius: 8px;">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6 class="text-primary mb-3">
+                                    <i class="fas fa-info-circle me-2"></i>Component Details
+                                </h6>
+                                <div class="mb-3">
+                                    <strong>Category:</strong> 
+                                    <span class="badge bg-primary ms-2">${componentCategory}</span>
+                                </div>
+                                <div class="mb-3">
+                                    <strong>Name:</strong> ${componentName}
+                                </div>
+                                <div class="mb-3">
+                                    <strong>Description:</strong>
+                                    <p class="text-muted mt-1 mb-0">${componentDescription}</p>
+                                </div>
+                                ${similarityScore > 0 ? `
+                                <div class="mb-3">
+                                    <strong>Match Confidence:</strong>
+                                    <div class="progress mt-1" style="height: 20px;">
+                                        <div class="progress-bar ${similarityScore > 0.7 ? 'bg-success' : similarityScore > 0.5 ? 'bg-warning' : 'bg-secondary'}" 
+                                             style="width: ${similarityScore * 100}%">
+                                            ${(similarityScore * 100).toFixed(1)}%
+                                        </div>
+                                    </div>
+                                </div>
+                                ` : ''}
+                                ${coordinates.x1 !== undefined ? `
+                                <div class="mb-3">
+                                    <strong>Position:</strong> (${coordinates.x1}, ${coordinates.y1})
+                                    <br><strong>Size:</strong> ${coordinates.width || (coordinates.x2 - coordinates.x1)}×${coordinates.height || (coordinates.y2 - coordinates.y1)}px
+                                    ${coordinates.confidence ? `<br><strong>Detection Confidence:</strong> ${(coordinates.confidence * 100).toFixed(1)}%` : ''}
+                                </div>
+                                ` : ''}
                             </div>
-                            <div class="modal-body text-center p-0">
-                                <div class="position-relative d-inline-block">
-                                    <img id="originalImage" src="${originalImage}" class="img-fluid" alt="Original Image" style="max-height: 80vh;">
-                                    ${coordinates.x1 !== undefined ? `
-                                        <div class="highlight-box" style="
-                                            position: absolute;
-                                            left: ${coordinates.x1}px;
-                                            top: ${coordinates.y1}px;
-                                            width: ${coordinates.width || (coordinates.x2 - coordinates.x1)}px;
-                                            height: ${coordinates.height || (coordinates.y2 - coordinates.y1)}px;
-                                            border: 3px solid #ff0000;
-                                            background: rgba(255, 0, 0, 0.1);
-                                            box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
-                                            pointer-events: none;
-                                        "></div>
-                                        <div class="component-label" style="
-                                            position: absolute;
-                                            left: ${coordinates.x1}px;
-                                            top: ${coordinates.y1 - 25}px;
-                                            background: #ff0000;
-                                            color: white;
-                                            padding: 2px 8px;
-                                            border-radius: 4px;
-                                            font-size: 12px;
-                                            font-weight: bold;
-                                            pointer-events: none;
-                                        ">${componentName}</div>
+                            <div class="col-md-6">
+                                <h6 class="text-primary mb-3">
+                                    <i class="fas fa-images me-2"></i>Component Images
+                                </h6>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="text-center mb-3">
+                                            <small class="text-muted d-block mb-2">Detected Component</small>
+                                            <img src="${croppedImage}" class="img-fluid rounded border" 
+                                                 style="max-height: 100px; width: 100%; object-fit: cover;" 
+                                                 alt="Detected ${componentCategory}">
+                                        </div>
+                                    </div>
+                                    ${matchedImage ? `
+                                    <div class="col-6">
+                                        <div class="text-center mb-3">
+                                            <small class="text-muted d-block mb-2">Catalog Match</small>
+                                            <img src="${matchedImage}" class="img-fluid rounded border" 
+                                                 style="max-height: 100px; width: 100%; object-fit: cover;" 
+                                                 alt="Catalog ${componentCategory}">
+                                        </div>
+                                    </div>
                                     ` : ''}
                                 </div>
-                            </div>
-                            <div class="modal-footer">
-                                <div class="w-100 text-center">
-                                    <small class="text-muted">
-                                        ${coordinates.x1 !== undefined ? 
-                                            `Detected at coordinates (${coordinates.x1}, ${coordinates.y1}) - Size: ${coordinates.width || (coordinates.x2 - coordinates.x1)}×${coordinates.height || (coordinates.y2 - coordinates.y1)}px` : 
-                                            'Location coordinates not available'
-                                        }
-                                        ${coordinates.confidence ? ` | Confidence: ${(coordinates.confidence * 100).toFixed(1)}%` : ''}
-                                    </small>
+                                ${switchAnalysis.total_ports ? `
+                                <div class="mt-3 p-3 bg-white rounded border">
+                                    <h6 class="text-success mb-2">
+                                        <i class="fas fa-ethernet me-1"></i>Switch Analysis
+                                    </h6>
+                                    <div class="row text-center mb-2">
+                                        <div class="col-4">
+                                            <div class="h6 mb-0 text-info">${switchAnalysis.total_ports}</div>
+                                            <small class="text-muted">Ports</small>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="h6 mb-0 text-success">${switchAnalysis.connected_ports}</div>
+                                            <small class="text-muted">Connected</small>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="h6 mb-0 text-warning">${switchAnalysis.utilization_rate}%</div>
+                                            <small class="text-muted">Usage</small>
+                                        </div>
+                                    </div>
+                                    ${switchAnalysis.cable_distribution ? `
+                                    <div class="mb-2">
+                                        <small class="text-muted d-block mb-1">Cable Colors:</small>
+                                        <div class="d-flex flex-wrap gap-1">
+                                            ${Object.entries(switchAnalysis.cable_distribution).map(([color, count]) => 
+                                                `<span class="badge bg-secondary small">${color}: ${count}</span>`
+                                            ).join('')}
+                                        </div>
+                                    </div>
+                                    ` : ''}
                                 </div>
+                                ` : ''}
                             </div>
                         </div>
                     </div>
                 `;
+                
+                // Create modal with original image and comprehensive component details
+                const modal = document.createElement('div');
+                modal.className = 'modal fade';
+                modal.innerHTML = `
+                    <div class="modal-dialog modal-fullscreen-lg-down modal-xl">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">
+                                    <i class="fas fa-search-plus me-2"></i>
+                                    ${componentName} - Detailed Analysis
+                                </h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body p-0">
+                                <div class="row g-0">
+                                    <div class="col-lg-8">
+                                        <div class="p-3 text-center">
+                                            <h6 class="text-muted mb-3">Location in Original Image</h6>
+                                            <div class="position-relative d-inline-block">
+                                                <img id="originalImage" src="${originalImage}" class="img-fluid rounded" alt="Original Image" style="max-height: 70vh; max-width: 100%;">
+                                                ${coordinates.x1 !== undefined ? `
+                                                    <div class="highlight-box" style="
+                                                        position: absolute;
+                                                        left: ${coordinates.x1}px;
+                                                        top: ${coordinates.y1}px;
+                                                        width: ${coordinates.width || (coordinates.x2 - coordinates.x1)}px;
+                                                        height: ${coordinates.height || (coordinates.y2 - coordinates.y1)}px;
+                                                        border: 3px solid #0d6efd;
+                                                        background: rgba(13, 110, 253, 0.1);
+                                                        box-shadow: 0 0 15px rgba(13, 110, 253, 0.6);
+                                                        pointer-events: none;
+                                                        animation: pulse 2s infinite;
+                                                    "></div>
+                                                    <div class="component-label" style="
+                                                        position: absolute;
+                                                        left: ${coordinates.x1}px;
+                                                        top: ${coordinates.y1 - 30}px;
+                                                        background: #0d6efd;
+                                                        color: white;
+                                                        padding: 4px 12px;
+                                                        border-radius: 20px;
+                                                        font-size: 12px;
+                                                        font-weight: bold;
+                                                        pointer-events: none;
+                                                        box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+                                                    ">${componentName}</div>
+                                                ` : ''}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 border-start">
+                                        <div class="p-4" style="max-height: 70vh; overflow-y: auto;">
+                                            ${detailsPanel}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <style>
+                        @keyframes pulse {
+                            0% { box-shadow: 0 0 15px rgba(13, 110, 253, 0.6); }
+                            50% { box-shadow: 0 0 25px rgba(13, 110, 253, 0.8); }
+                            100% { box-shadow: 0 0 15px rgba(13, 110, 253, 0.6); }
+                        }
+                    </style>
+                `;
+                
+                document.body.appendChild(modal);
+                const bsModal = new bootstrap.Modal(modal);
+                bsModal.show();
+                
+                // Scale coordinates based on actual image display size
+                bsModal._element.addEventListener('shown.bs.modal', function() {
+                    const img = document.getElementById('originalImage');
+                    const highlightBox = modal.querySelector('.highlight-box');
+                    const componentLabel = modal.querySelector('.component-label');
+                    
+                    if (img && highlightBox && coordinates.x1 !== undefined) {
+                        const scaleX = img.clientWidth / img.naturalWidth;
+                        const scaleY = img.clientHeight / img.naturalHeight;
+                        
+                        const scaledX1 = coordinates.x1 * scaleX;
+                        const scaledY1 = coordinates.y1 * scaleY;
+                        const scaledWidth = (coordinates.width || (coordinates.x2 - coordinates.x1)) * scaleX;
+                        const scaledHeight = (coordinates.height || (coordinates.y2 - coordinates.y1)) * scaleY;
+                        
+                        highlightBox.style.left = scaledX1 + 'px';
+                        highlightBox.style.top = scaledY1 + 'px';
+                        highlightBox.style.width = scaledWidth + 'px';
+                        highlightBox.style.height = scaledHeight + 'px';
+                        
+                        if (componentLabel) {
+                            componentLabel.style.left = scaledX1 + 'px';
+                            componentLabel.style.top = (scaledY1 - 30) + 'px';
+                        }
+                    }
+                });
+                
+                // Remove modal from DOM when hidden
+                modal.addEventListener('hidden.bs.modal', function() {
+                    document.body.removeChild(modal);
+                });
+            });
                 
                 document.body.appendChild(modal);
                 const bsModal = new bootstrap.Modal(modal);
