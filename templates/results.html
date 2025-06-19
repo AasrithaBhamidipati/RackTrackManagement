@@ -124,18 +124,8 @@
                     
                     <div class="card-body pt-2">
                         <p class="card-text small text-muted mb-2">
-                            <strong>Category:</strong> {{ match.category }}<br>
-                            <strong>Description:</strong> {{ match.description[:80] }}{% if match.description|length > 80 %}...{% endif %}
+                            <strong>Category:</strong> {{ match.category }}
                         </p>
-                        
-                        {% if match.coordinates %}
-                        <div class="small text-muted">
-                            <strong>Size:</strong> {{ match.coordinates.width }}×{{ match.coordinates.height }}px
-                            {% if match.coordinates.confidence %}
-                            | <strong>Confidence:</strong> {{ "%.1f"|format(match.coordinates.confidence * 100) }}%
-                            {% endif %}
-                        </div>
-                        {% endif %}
                         
                         {% if match.switch_analysis and match.category.lower() == 'switch' %}
                         <div class="mt-3 p-2 bg-light rounded">
