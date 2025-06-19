@@ -106,7 +106,7 @@
                     
                     <div class="card-header bg-transparent">
                         <div class="d-flex justify-content-between align-items-start">
-                            <h6 class="card-title mb-0">{{ match.name }}</h6>
+                            <h6 class="card-title mb-0">{{ match.category }}</h6>
                             {% if match.similarity_score > 0 %}
                             <span class="badge {% if match.similarity_score > 0.7 %}bg-success{% elif match.similarity_score > 0.5 %}bg-warning{% else %}bg-secondary{% endif %}">
                                 {{ "%.1f"|format(match.similarity_score * 100) }}%
@@ -124,7 +124,7 @@
                     
                     <div class="card-body pt-2">
                         <p class="card-text small text-muted mb-2">
-                            <strong>Category:</strong> {{ match.category }}
+                            <strong>Name:</strong> {{ match.name }}
                         </p>
                         
                         {% if match.switch_analysis and match.category.lower() == 'switch' %}
@@ -404,24 +404,6 @@
                                                     <strong>Description:</strong>
                                                     <p class="text-muted mt-1 mb-0">${componentDescription}</p>
                                                 </div>
-                                                ${similarityScore > 0 ? `
-                                                <div class="mb-3">
-                                                    <strong>Match Confidence:</strong>
-                                                    <div class="progress mt-1" style="height: 20px;">
-                                                        <div class="progress-bar ${similarityScore > 0.7 ? 'bg-success' : similarityScore > 0.5 ? 'bg-warning' : 'bg-secondary'}" 
-                                                             style="width: ${similarityScore * 100}%">
-                                                            ${(similarityScore * 100).toFixed(1)}%
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                ` : ''}
-                                                ${coordinates.x1 !== undefined ? `
-                                                <div class="mb-3">
-                                                    <strong>Position:</strong> (${coordinates.x1}, ${coordinates.y1})<br>
-                                                    <strong>Size:</strong> ${coordinates.width || (coordinates.x2 - coordinates.x1)}×${coordinates.height || (coordinates.y2 - coordinates.y1)}px
-                                                    ${coordinates.confidence ? `<br><strong>Detection Confidence:</strong> ${(coordinates.confidence * 100).toFixed(1)}%` : ''}
-                                                </div>
-                                                ` : ''}
                                                 <div class="mb-3">
                                                     <strong>Detected Component:</strong><br>
                                                     <img src="${croppedImage}" class="img-fluid rounded border mt-1" 
