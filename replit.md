@@ -1,8 +1,8 @@
-# Image Analysis & Segmentation Application
+# RackTrack - Rack Component Analysis & Segmentation Application
 
 ## Overview
 
-This is a Flask-based web application that uses AI deep learning models to automatically detect and segment components in uploaded images. The application provides detailed analysis results with downloadable outputs and features a modern sky blue and white themed interface.
+RackTrack is a Flask-based web application that uses AI deep learning models to automatically detect and segment rack components in uploaded images. The application provides detailed analysis results with downloadable outputs and features a modern sky blue and white themed interface.
 
 ## System Architecture
 
@@ -95,20 +95,23 @@ This is a Flask-based web application that uses AI deep learning models to autom
 - Sufficient storage for model files and temporary processing
 
 ## Recent Changes
+- June 19, 2025: Rebranded application to "RackTrack"
+  - Updated application name across all interfaces and documentation
+  - Changed icons from generic images to server/rack specific icons
+  - Enhanced catalog matching modal with comprehensive component details
+  - Added side-by-side layout showing highlighted original image and detailed component information
+  - Fixed JavaScript errors preventing modal functionality
+  - Improved robustness of upload.js to prevent errors on results pages
 - June 17, 2025: Complete UI redesign with sky blue and white theme
   - Implemented gradient background (white to sky blue to deeper blue)
   - Updated to light Bootstrap theme with custom CSS overrides
-  - Removed network infrastructure specific content and branding
-  - Changed from "Network Infrastructure Segmentation" to generic "Image Analysis & Segmentation"
   - Applied translucent white cards with blue accent borders
   - Updated buttons, headers, and UI elements with sky blue color scheme
-  - Maintained existing functionality while modernizing visual design
 - June 16, 2025: Extended segmentation pipeline with embedding comparison system
-- Added catalog matching using CLIP embeddings and FAISS similarity search
-- Integrated cropped_embeddings.py and comparison.py for component identification
-- Results displayed in card format with similarity scores
-- Automatic cleanup of previous outputs on each upload
-- Support for catalog files: all_categories_data.pkl and metadata.pkl
+  - Added catalog matching using CLIP embeddings and FAISS similarity search
+  - Integrated cropped_embeddings.py and comparison.py for component identification
+  - Results displayed in card format with similarity scores
+  - Support for catalog files: all_categories_data.pkl and metadata.pkl
 
 ## Changelog
 - June 16, 2025. Initial setup

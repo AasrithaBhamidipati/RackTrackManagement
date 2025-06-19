@@ -5,6 +5,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const uploadForm = document.getElementById('uploadForm');
     const uploadBtn = document.getElementById('uploadBtn');
     const progressContainer = document.getElementById('progressContainer');
+    
+    // Only run upload functionality if elements exist (i.e., on upload page)
+    if (!fileInput || !uploadForm) {
+        return;
+    }
 
     // File input change handler
     fileInput.addEventListener('change', function(e) {
@@ -72,42 +77,44 @@ document.addEventListener('DOMContentLoaded', function() {
     // Drag and drop functionality
     const dropZone = document.querySelector('.card-body');
     
-    ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
-        dropZone.addEventListener(eventName, preventDefaults, false);
-    });
+    if (dropZone) {
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            dropZone.addEventListener(eventName, preventDefaults, false);
+        });
 
     function preventDefaults(e) {
         e.preventDefault();
         e.stopPropagation();
     }
 
-    ['dragenter', 'dragover'].forEach(eventName => {
-        dropZone.addEventListener(eventName, highlight, false);
-    });
+        ['dragenter', 'dragover'].forEach(eventName => {
+            dropZone.addEventListener(eventName, highlight, false);
+        });
 
-    ['dragleave', 'drop'].forEach(eventName => {
-        dropZone.addEventListener(eventName, unhighlight, false);
-    });
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropZone.addEventListener(eventName, unhighlight, false);
+        });
 
-    function highlight(e) {
-        dropZone.classList.add('border-primary');
-    }
+        function highlight(e) {
+            dropZone.classList.add('border-primary');
+        }
 
-    function unhighlight(e) {
-        dropZone.classList.remove('border-primary');
-    }
+        function unhighlight(e) {
+            dropZone.classList.remove('border-primary');
+        }
 
-    dropZone.addEventListener('drop', handleDrop, false);
+        dropZone.addEventListener('drop', handleDrop, false);
 
-    function handleDrop(e) {
-        const dt = e.dataTransfer;
-        const files = dt.files;
-        
-        if (files.length > 0) {
-            fileInput.files = files;
-            // Trigger change event
-            const event = new Event('change', { bubbles: true });
-            fileInput.dispatchEvent(event);
+        function handleDrop(e) {
+            const dt = e.dataTransfer;
+            const files = dt.files;
+            
+            if (files.length > 0) {
+                fileInput.files = files;
+                // Trigger change event
+                const event = new Event('change', { bubbles: true });
+                fileInput.dispatchEvent(event);
+            }
         }
     }
 
