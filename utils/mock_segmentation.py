@@ -5,6 +5,13 @@ from PIL import Image
 import shutil
 from utils.cable_port_lookup import get_cable_port_connections
 
+try:
+    from utils.detailed_switch_analyzer import DetailedSwitchPortAnalyzer
+    DETAILED_ANALYSIS_AVAILABLE = True
+except ImportError:
+    DETAILED_ANALYSIS_AVAILABLE = False
+    logging.warning("Detailed switch analyzer not available in mock mode")
+
 # Allowed file extensions
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'bmp'}
 
@@ -117,6 +124,10 @@ def process_image(image_path):
                 if port_connections:
                     result['cable_port_info'] = port_connections
             
+            # Add detailed switch analysis for switch components
+            elif img_data['class'].lower() == 'switch':
+                result['switch_analysis'] = _create_mock_switch_analysis()
+            
             comparison_results.append(result)
 
         return {
@@ -133,3 +144,91 @@ def process_image(image_path):
     except Exception as e:
         logging.error(f"Error in mock process_image: {str(e)}")
         return {'success': False, 'error': str(e)}
+
+def _create_mock_switch_analysis():
+    """Create realistic mock switch analysis data"""
+    import random
+    
+    # Generate realistic port data
+    total_ports = random.choice([24, 48])
+    connected_ports = random.randint(int(total_ports * 0.4), int(total_ports * 0.8))
+    empty_ports = total_ports - connected_ports
+    utilization_rate = round((connected_ports / total_ports) * 100, 1)
+    
+    # Generate cable color distribution
+    cable_colors = ['blue', 'yellow', 'green', 'red', 'orange', 'purple', 'teal', 'black']
+    cable_distribution = {}
+    remaining_connected = connected_ports
+    
+    for i, color in enumerate(cable_colors):
+        if remaining_connected <= 0:
+            break
+        if i == len(cable_colors) - 1:  # Last color gets remaining
+            count = remaining_connected
+        else:
+            max_count = min(remaining_connected, random.randint(1, 8))
+            count = random.randint(0, max_count)
+        
+        if count > 0:
+            cable_distribution[color] = count
+            remaining_connected -= count
+    
+    # Generate LED status distribution
+    led_distribution = {
+        'active': random.randint(int(connected_ports * 0.6), connected_ports),
+        'link': random.randint(0, int(connected_ports * 0.2)),
+        'inactive': empty_ports
+    }
+    
+    # Add some activity/error LEDs
+    if random.random() > 0.7:
+        led_distribution['activity'] = random.randint(1, 3)
+    if random.random() > 0.9:
+        led_distribution['error'] = random.randint(1, 2)
+    
+    # Generate individual port data
+    ports = []
+    port_num = 1
+    
+    # Connected ports with cables
+    for color, count in cable_distribution.items():
+        for _ in range(count):
+            ports.append({
+                'port_number': port_num,
+                'bbox': [10 + (port_num % 12) * 20, 10 + (port_num // 12) * 15, 18, 12],
+                'has_cable': True,
+                'cable_color': color,
+                'cable_confidence': round(random.uniform(0.7, 0.95), 3),
+                'led_status': random.choice(['active', 'link', 'activity']),
+                'led_confidence': round(random.uniform(0.6, 0.9), 3)
+            })
+            port_num += 1
+    
+    # Empty ports
+    while port_num <= total_ports:
+        ports.append({
+            'port_number': port_num,
+            'bbox': [10 + (port_num % 12) * 20, 10 + (port_num // 12) * 15, 18, 12],
+            'has_cable': False,
+            'cable_color': None,
+            'cable_confidence': 0.0,
+            'led_status': 'inactive',
+            'led_confidence': 0.8
+        })
+        port_num += 1
+    
+    return {
+        'switch_info': {
+            'name': 'Demo Switch',
+            'analysis_method': 'mock_detailed_analysis'
+        },
+        'summary': {
+            'total_ports': total_ports,
+            'connected_ports': connected_ports,
+            'empty_ports': empty_ports,
+            'utilization_rate': utilization_rate,
+            'cable_distribution': cable_distribution,
+            'led_distribution': led_distribution
+        },
+        'ports': ports
+    }
