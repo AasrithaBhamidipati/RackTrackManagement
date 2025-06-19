@@ -3,6 +3,7 @@ import json
 import logging
 from PIL import Image
 import shutil
+from utils.cable_port_lookup import get_cable_port_connections
 
 # Allowed file extensions
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'bmp'}
@@ -99,7 +100,7 @@ def process_image(image_path):
         # Create mock comparison results for demo
         comparison_results = []
         for img_data in segmented_images:
-            comparison_results.append({
+            result = {
                 'cropped_image': img_data['path'],
                 'category': img_data['class'],
                 'name': f"Sample {img_data['class']} Component",
@@ -107,7 +108,16 @@ def process_image(image_path):
                 'similarity_score': 0.85 + (len(comparison_results) * 0.02),  # Vary scores slightly
                 'matched_image': None,  # No catalog images in demo mode
                 'coordinates': img_data['coordinates']
-            })
+            }
+            
+            # Add cable port information for cable components
+            if img_data['class'].lower() == 'cable':
+                cable_name = result['name']
+                port_connections = get_cable_port_connections(cable_name)
+                if port_connections:
+                    result['cable_port_info'] = port_connections
+            
+            comparison_results.append(result)
 
         return {
             'success': True,
