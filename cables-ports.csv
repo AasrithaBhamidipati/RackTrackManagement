@@ -1,0 +1,9 @@
+Name,Port 1,Port 2
+Ethernet Cable Blue,Switch-A Port 1,Server NIC 1
+Power Cable Red,PDU Port 3,Server Power 1
+Fiber Optic Cable Yellow,Router Port 2,Switch Fiber 1
+USB Cable Black,Server USB 1,Device USB
+HDMI Cable White,Display Port 1,Monitor HDMI
+Network Cable Green,Switch-B Port 5,Router LAN 2
+Console Cable Gray,Console Port,Management Port
+Patch Cable Orange,Patch Panel A1,Switch Port 12

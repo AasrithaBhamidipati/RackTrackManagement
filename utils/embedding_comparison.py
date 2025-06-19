@@ -7,6 +7,7 @@ import json
 import logging
 from cropped_embeddings import generate_category_embeddings
 from utils.switch_analyzer import analyze_switch_image, format_cable_distribution, format_led_status
+from utils.cable_port_lookup import get_cable_port_connections
 
 def l2_normalize(x):
     return x / np.linalg.norm(x, axis=1, keepdims=True)
@@ -172,6 +173,21 @@ def compare_with_catalog(segmented_outputs_dir):
                             'matched_image': matched_img,
                             'similarity_score': best_score
                         })
+                        
+                        # Add cable port information for cable components
+                        if category.lower() == 'cable':
+                            cable_name = meta_row['Name']
+                            port_connections = get_cable_port_connections(cable_name)
+                            if port_connections:
+                                result_data['cable_port_info'] = port_connections
+            
+            # If no catalog match found but it's a cable, still try to get port info
+            if category.lower() == 'cable' and 'cable_port_info' not in result_data:
+                # Try with the detected component name if available
+                if result_data.get('name') and result_data['name'] != 'No match found':
+                    port_connections = get_cable_port_connections(result_data['name'])
+                    if port_connections:
+                        result_data['cable_port_info'] = port_connections
             
             results.append(result_data)
         
