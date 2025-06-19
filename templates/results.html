@@ -44,7 +44,7 @@
 <div class="row mb-4">
     {% for class_name, images in results.grouped_images.items() %}
     <div class="col-md-3 mb-3">
-        <div class="card text-center">
+        <div class="card text-center filter-card" data-category="{{ class_name }}" style="cursor: pointer; transition: transform 0.2s;">
             <div class="card-body">
                 {% if class_name == 'Rack' %}
                     <i class="fas fa-server fa-2x text-info mb-2"></i>
@@ -53,7 +53,7 @@
                 {% elif class_name == 'Port' %}
                     <i class="fas fa-plug fa-2x text-primary mb-2"></i>
                 {% elif class_name == 'Cable' %}
-                    <i class="fas fa-cable fa-2x text-warning mb-2"></i>
+                    <i class="fas fa-ethernet fa-2x text-warning mb-2"></i>
                 {% endif %}
                 <h5 class="card-title">{{ class_name }}</h5>
                 <p class="card-text">
@@ -73,10 +73,16 @@
 {% if results.comparison_results %}
 <div class="card mb-4">
     <div class="card-header">
-        <h4 class="mb-0">
-            <i class="fas fa-search text-primary me-2"></i>
-            Catalog Matching Results
-        </h4>
+        <div class="d-flex justify-content-between align-items-center">
+            <h4 class="mb-0">
+                <i class="fas fa-search text-primary me-2"></i>
+                Catalog Matching Results
+                <span id="filterStatus" class="badge bg-secondary ms-2" style="display: none;"></span>
+            </h4>
+            <button id="clearFilter" class="btn btn-outline-secondary btn-sm" style="display: none;">
+                <i class="fas fa-times me-1"></i>Show All
+            </button>
+        </div>
     </div>
     <div class="card-body">
         <p class="text-muted mb-4">
@@ -85,7 +91,7 @@
         
         <div class="row">
             {% for match in results.comparison_results %}
-            <div class="col-lg-4 col-md-6 mb-4">
+            <div class="col-lg-4 col-md-6 mb-4 catalog-item" data-category="{{ match.category }}">
                 <div class="card h-100 clickable-card {% if match.similarity_score > 0.7 %}border-success{% elif match.similarity_score > 0.5 %}border-warning{% else %}border-secondary{% endif %}"
                      style="cursor: pointer; transition: transform 0.2s;"
                      data-original-image="{{ results.original_image if results.original_image else '' }}"
@@ -215,6 +221,83 @@
 {% block scripts %}
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+        // Filter functionality for summary cards
+        const filterCards = document.querySelectorAll('.filter-card');
+        const catalogItems = document.querySelectorAll('.catalog-item');
+        const filterStatus = document.getElementById('filterStatus');
+        const clearFilterBtn = document.getElementById('clearFilter');
+        let currentFilter = null;
+
+        // Add hover effects for filter cards
+        filterCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px)';
+                this.style.boxShadow = '0 4px 8px rgba(0,0,0,0.12)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = '';
+            });
+
+            // Add click handler for filtering
+            card.addEventListener('click', function() {
+                const category = this.dataset.category;
+                filterByCategory(category);
+            });
+        });
+
+        // Clear filter functionality
+        clearFilterBtn.addEventListener('click', function() {
+            clearFilter();
+        });
+
+        function filterByCategory(category) {
+            currentFilter = category;
+            
+            catalogItems.forEach(item => {
+                if (item.dataset.category === category) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            // Update filter status
+            const visibleCount = document.querySelectorAll(`.catalog-item[data-category="${category}"]`).length;
+            filterStatus.textContent = `Showing ${category} (${visibleCount})`;
+            filterStatus.style.display = 'inline-block';
+            clearFilterBtn.style.display = 'inline-block';
+
+            // Highlight active filter card
+            filterCards.forEach(card => {
+                if (card.dataset.category === category) {
+                    card.style.backgroundColor = 'rgba(13, 110, 253, 0.1)';
+                    card.style.borderColor = '#0d6efd';
+                } else {
+                    card.style.backgroundColor = '';
+                    card.style.borderColor = '';
+                }
+            });
+        }
+
+        function clearFilter() {
+            currentFilter = null;
+            
+            catalogItems.forEach(item => {
+                item.style.display = 'block';
+            });
+
+            filterStatus.style.display = 'none';
+            clearFilterBtn.style.display = 'none';
+
+            // Remove highlight from filter cards
+            filterCards.forEach(card => {
+                card.style.backgroundColor = '';
+                card.style.borderColor = '';
+            });
+        }
+
         // Add hover effects for clickable cards
         const clickableCards = document.querySelectorAll('.clickable-card');
         clickableCards.forEach(card => {
