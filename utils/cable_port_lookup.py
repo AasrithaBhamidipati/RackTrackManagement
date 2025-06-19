@@ -13,21 +13,53 @@ def get_cable_port_connections(cable_name):
         dict: Dictionary with port1 and port2 connections, or None if not found
     """
     try:
-        # Check if the CSV file exists (fallback to Excel if available)
+        # Check for available data files (prefer CSV for reliability, fallback to Excel)
         csv_file = "cables-ports.csv"
-        excel_file = "Cables-ports.xlsx"
+        excel_files = ["Cables-ports 1.xlsx", "Cables-ports.xlsx"]
         
         data_file = None
+        file_type = None
+        
+        # Check for CSV file first (more reliable)
         if os.path.exists(csv_file):
             data_file = csv_file
-        elif os.path.exists(excel_file):
-            data_file = excel_file
+            file_type = 'csv'
         else:
+            # Fallback to Excel files
+            for excel_file in excel_files:
+                if os.path.exists(excel_file):
+                    data_file = excel_file
+                    file_type = 'excel'
+                    break
+        
+        if not data_file:
             logging.warning(f"Cable-port mapping file not found")
             return None
         
-        # Read the CSV file
-        if data_file.endswith('.csv'):
+        # Read the data file
+        if file_type == 'excel':
+            try:
+                # Try to import pandas dynamically
+                import pandas as pd
+                df = pd.read_excel(data_file)
+                # Find exact or partial match
+                matches = df[df['Name'].str.strip().str.lower() == cable_name.strip().lower()]
+                
+                if not matches.empty:
+                    row = matches.iloc[0]  # Get first match
+                    return {
+                        'port1': str(row['Port 1']).strip(),
+                        'port2': str(row['Port 2']).strip(),
+                        'cable_name': str(row['Name']).strip()
+                    }
+            except ImportError:
+                logging.warning(f"pandas not available, cannot read Excel file {data_file}")
+                return None
+            except Exception as e:
+                logging.error(f"Error reading Excel file {data_file}: {str(e)}")
+                return None
+                
+        elif file_type == 'csv':
             with open(data_file, 'r', newline='', encoding='utf-8') as f:
                 reader = csv.DictReader(f)
                 for row in reader:
@@ -37,10 +69,6 @@ def get_cable_port_connections(cable_name):
                             'port2': row['Port 2'].strip(),
                             'cable_name': row['Name'].strip()
                         }
-        else:
-            # Excel file handling would require pandas, skip for now
-            logging.warning(f"Excel file found but pandas not available")
-            return None
             
         logging.info(f"No port connections found for cable: {cable_name}")
         return None
