@@ -131,20 +131,27 @@
                         {% if match.switch_analysis and match.category.lower() == 'switch' %}
                         <div class="mt-3 p-2 bg-light rounded">
                             <h6 class="text-primary mb-2">
-                                <i class="fas fa-ethernet me-1"></i>Port Analysis
+                                <i class="fas fa-ethernet me-1"></i>Switch Port Analysis
                             </h6>
                             
-                            <div class="row g-2 mb-2">
-                                <div class="col-6">
+                            <!-- Summary Overview -->
+                            <div class="row g-2 mb-3">
+                                <div class="col-4">
                                     <div class="text-center">
-                                        <div class="h5 mb-0 text-success">{{ match.switch_analysis.total_ports }}</div>
+                                        <div class="h5 mb-0 text-success">{{ match.switch_analysis.summary.total_ports if match.switch_analysis.summary else match.switch_analysis.total_ports }}</div>
                                         <small class="text-muted">Total Ports</small>
                                     </div>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-4">
                                     <div class="text-center">
-                                        <div class="h5 mb-0 text-info">{{ match.switch_analysis.connected_ports }}</div>
+                                        <div class="h5 mb-0 text-info">{{ match.switch_analysis.summary.connected_ports if match.switch_analysis.summary else match.switch_analysis.connected_ports }}</div>
                                         <small class="text-muted">Connected</small>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="text-center">
+                                        <div class="h5 mb-0 text-warning">{{ match.switch_analysis.summary.empty_ports if match.switch_analysis.summary else match.switch_analysis.empty_ports }}</div>
+                                        <small class="text-muted">Empty</small>
                                     </div>
                                 </div>
                             </div>
@@ -152,35 +159,79 @@
                             <div class="mb-2">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <small class="text-muted">Utilization:</small>
-                                    <span class="badge {% if match.switch_analysis.utilization_rate > 80 %}bg-danger{% elif match.switch_analysis.utilization_rate > 60 %}bg-warning{% else %}bg-success{% endif %}">
-                                        {{ match.switch_analysis.utilization_rate }}%
+                                    {% set utilization = match.switch_analysis.summary.utilization_rate if match.switch_analysis.summary else match.switch_analysis.utilization_rate %}
+                                    <span class="badge {% if utilization > 80 %}bg-danger{% elif utilization > 60 %}bg-warning{% else %}bg-success{% endif %}">
+                                        {{ utilization }}%
                                     </span>
                                 </div>
                             </div>
                             
-                            {% if match.switch_analysis.cable_distribution %}
+                            <!-- Cable Distribution -->
+                            {% set cable_dist = match.switch_analysis.summary.cable_distribution if match.switch_analysis.summary else match.switch_analysis.cable_distribution %}
+                            {% if cable_dist %}
                             <div class="mb-2">
                                 <small class="text-muted d-block">Cable Colors:</small>
                                 <div class="d-flex flex-wrap gap-1">
-                                    {% for color, count in match.switch_analysis.cable_distribution.items() %}
-                                    <span class="badge bg-{% if color == 'black' %}dark{% elif color == 'white' %}light text-dark{% elif color == 'yellow' %}warning{% elif color == 'blue' %}primary{% elif color == 'green' %}success{% elif color == 'red' %}danger{% else %}secondary{% endif %} small">
-                                        {{ color }}: {{ count }}
+                                    {% for color, count in cable_dist.items() %}
+                                    <span class="badge bg-{% if color == 'black' %}dark{% elif color == 'white' %}light text-dark{% elif color == 'yellow' %}warning{% elif color == 'blue' %}primary{% elif color == 'green' %}success{% elif color == 'red' %}danger{% elif color == 'orange' %}warning{% elif color == 'purple' %}secondary{% elif color == 'teal' %}info{% else %}secondary{% endif %} small">
+                                        {{ color.capitalize() }}: {{ count }}
                                     </span>
                                     {% endfor %}
                                 </div>
                             </div>
                             {% endif %}
                             
-                            {% if match.switch_analysis.led_distribution %}
-                            <div>
+                            <!-- LED Status Distribution -->
+                            {% set led_dist = match.switch_analysis.summary.led_distribution if match.switch_analysis.summary else match.switch_analysis.led_distribution %}
+                            {% if led_dist %}
+                            <div class="mb-2">
                                 <small class="text-muted d-block">LED Status:</small>
                                 <div class="d-flex flex-wrap gap-1">
-                                    {% for status, count in match.switch_analysis.led_distribution.items() %}
-                                    <span class="badge bg-{% if status == 'link' %}success{% elif status == 'activity' %}primary{% else %}secondary{% endif %} small">
-                                        <i class="fas {% if status == 'link' %}fa-link{% elif status == 'activity' %}fa-bolt{% else %}fa-circle{% endif %} me-1"></i>
-                                        {{ status }}: {{ count }}
+                                    {% for status, count in led_dist.items() %}
+                                    <span class="badge bg-{% if status == 'active' %}success{% elif status == 'link' %}info{% elif status == 'activity' %}primary{% elif status == 'error' %}danger{% else %}secondary{% endif %} small">
+                                        <i class="fas {% if status == 'active' %}fa-check-circle{% elif status == 'link' %}fa-link{% elif status == 'activity' %}fa-bolt{% elif status == 'error' %}fa-exclamation-triangle{% else %}fa-circle{% endif %} me-1"></i>
+                                        {{ status.capitalize() }}: {{ count }}
                                     </span>
                                     {% endfor %}
+                                </div>
+                            </div>
+                            {% endif %}
+                            
+                            <!-- Detailed Port Information (if available) -->
+                            {% if match.switch_analysis.ports %}
+                            <div class="mt-3">
+                                <button class="btn btn-sm btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#portDetails{{ loop.index }}" aria-expanded="false">
+                                    <i class="fas fa-list me-1"></i>View Port Details
+                                </button>
+                                <div class="collapse mt-2" id="portDetails{{ loop.index }}">
+                                    <div class="card card-body bg-white" style="max-height: 200px; overflow-y: auto;">
+                                        <small>
+                                            {% for port in match.switch_analysis.ports[:12] %}
+                                            <div class="d-flex justify-content-between align-items-center py-1 {% if not loop.last %}border-bottom{% endif %}">
+                                                <span>Port {{ port.port_number }}:</span>
+                                                <div>
+                                                    {% if port.has_cable %}
+                                                        <span class="badge bg-{% if port.cable_color == 'yellow' %}warning{% elif port.cable_color == 'blue' %}primary{% elif port.cable_color == 'green' %}success{% elif port.cable_color == 'red' %}danger{% else %}secondary{% endif %} me-1">
+                                                            {{ port.cable_color.capitalize() if port.cable_color else 'Cable' }}
+                                                        </span>
+                                                    {% else %}
+                                                        <span class="badge bg-light text-dark me-1">Empty</span>
+                                                    {% endif %}
+                                                    {% if port.led_status != 'inactive' %}
+                                                        <span class="badge bg-{% if port.led_status == 'active' %}success{% elif port.led_status == 'link' %}info{% elif port.led_status == 'error' %}danger{% else %}primary{% endif %}">
+                                                            {{ port.led_status.capitalize() }}
+                                                        </span>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                            {% endfor %}
+                                            {% if match.switch_analysis.ports|length > 12 %}
+                                            <div class="text-center py-1 text-muted">
+                                                <small>... and {{ match.switch_analysis.ports|length - 12 }} more ports</small>
+                                            </div>
+                                            {% endif %}
+                                        </small>
+                                    </div>
                                 </div>
                             </div>
                             {% endif %}

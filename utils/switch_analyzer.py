@@ -4,6 +4,13 @@ import os
 import logging
 from typing import Dict, Optional, Any, List, Tuple
 
+try:
+    from utils.detailed_switch_analyzer import DetailedSwitchPortAnalyzer
+    DETAILED_ANALYSIS_AVAILABLE = True
+except ImportError:
+    DETAILED_ANALYSIS_AVAILABLE = False
+    logging.warning("Detailed switch analyzer not available, using basic analysis")
+
 def analyze_switch_image(image_path: str) -> Optional[Dict[str, Any]]:
     """
     Dynamically analyze a segmented switch image to extract port and cable information
@@ -24,7 +31,21 @@ def analyze_switch_image(image_path: str) -> Optional[Dict[str, Any]]:
         if image is None:
             logging.warning(f"Could not load switch image: {image_path}")
             return None
-            
+        
+        # Try detailed port analysis first
+        if DETAILED_ANALYSIS_AVAILABLE:
+            try:
+                analyzer = DetailedSwitchPortAnalyzer(debug_mode=False)
+                switch_name = os.path.basename(image_path)
+                detailed_results = analyzer.analyze_switch_image(image_path, switch_name)
+                
+                if detailed_results and detailed_results.get('summary'):
+                    return detailed_results
+                    
+            except Exception as e:
+                logging.warning(f"Detailed analysis failed, falling back to basic: {str(e)}")
+        
+        # Fallback to basic analysis
         height, width = image.shape[:2]
         
         # Analyze the switch image
