@@ -13,8 +13,24 @@ import zipfile
 import io
 
 @app.route('/')
-def index():
-    return render_template('index.html')
+def home():
+    return render_template('home.html')
+
+@app.route('/analyze')
+def analyze():
+    return render_template('analyze.html')
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+@app.route('/features')
+def features():
+    return render_template('features.html')
+
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
@@ -50,15 +66,15 @@ def upload_file():
                                      original_filename=filename)
             else:
                 flash(f'Error processing image: {results["error"]}', 'error')
-                return redirect(url_for('index'))
+                return redirect(url_for('analyze'))
                 
         except Exception as e:
             logging.error(f"Error processing upload: {str(e)}")
             flash(f'Error processing image: {str(e)}', 'error')
-            return redirect(url_for('index'))
+            return redirect(url_for('analyze'))
     else:
         flash('Invalid file type. Please upload JPG, JPEG, PNG, or BMP images.', 'error')
-        return redirect(url_for('index'))
+        return redirect(url_for('analyze'))
 
 @app.route('/download_results/<path:filename>')
 def download_results(filename):
@@ -68,7 +84,7 @@ def download_results(filename):
     except Exception as e:
         logging.error(f"Error downloading file {filename}: {str(e)}")
         flash('File not found', 'error')
-        return redirect(url_for('index'))
+        return redirect(url_for('analyze'))
 
 @app.route('/download_all_results')
 def download_all_results():
@@ -79,7 +95,7 @@ def download_all_results():
         
         if not os.path.exists(coordinates_file):
             flash('No results to download', 'error')
-            return redirect(url_for('index'))
+            return redirect(url_for('analyze'))
         
         # Create a ZIP file in memory
         memory_file = io.BytesIO()
@@ -110,15 +126,15 @@ def download_all_results():
     except Exception as e:
         logging.error(f"Error creating ZIP file: {str(e)}")
         flash('Error creating download file', 'error')
-        return redirect(url_for('index'))
+        return redirect(url_for('analyze'))
 
 @app.errorhandler(413)
 def too_large(e):
     flash('File is too large. Maximum size is 16MB.', 'error')
-    return redirect(url_for('index'))
+    return redirect(url_for('analyze'))
 
 @app.errorhandler(500)
 def internal_error(e):
     logging.error(f"Internal server error: {str(e)}")
     flash('An internal error occurred. Please try again.', 'error')
-    return redirect(url_for('index'))
+    return redirect(url_for('analyze'))

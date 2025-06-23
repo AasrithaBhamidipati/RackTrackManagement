@@ -1,0 +1,169 @@
+{% extends "base.html" %}
+
+{% block title %}About - RackTrack{% endblock %}
+
+{% block content %}
+<div class="container">
+    <!-- Header -->
+    <div class="text-center mb-5">
+        <h1 class="display-4 fw-bold">About RackTrack</h1>
+        <p class="lead text-muted">Revolutionizing data center management through AI-powered automation</p>
+    </div>
+
+    <!-- Mission Section -->
+    <div class="row align-items-center mb-5">
+        <div class="col-lg-6">
+            <h2 class="mb-4">Our Mission</h2>
+            <p class="lead text-muted mb-4">
+                To transform the way data centers manage their infrastructure by providing cutting-edge AI solutions that eliminate manual processes and deliver unprecedented accuracy in rack component analysis.
+            </p>
+            <p class="mb-4">
+                In today's fast-paced digital world, data centers are the backbone of our connected society. Yet many facilities still rely on time-consuming manual processes for inventory management and component tracking. RackTrack changes that by bringing the power of artificial intelligence to rack management.
+            </p>
+            <p class="mb-4">
+                Our advanced computer vision technology can identify, analyze, and catalog rack components in seconds, providing detailed insights that would take hours to gather manually. This isn't just about efficiency – it's about accuracy, consistency, and giving IT professionals the tools they need to manage modern infrastructure.
+            </p>
+        </div>
+        <div class="col-lg-6">
+            <div class="card bg-light border-0">
+                <div class="card-body text-center p-5">
+                    <i class="fas fa-bullseye display-1 text-primary mb-4"></i>
+                    <h4>Precision & Innovation</h4>
+                    <p class="text-muted">Combining state-of-the-art AI with deep industry expertise to deliver unmatched accuracy in rack component analysis.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Technology Section -->
+    <div class="row mb-5">
+        <div class="col-12">
+            <div class="card border-0 shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="mb-0"><i class="fas fa-microchip me-2"></i>Our Technology</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <h5><i class="fas fa-brain text-primary me-2"></i>Advanced AI Models</h5>
+                            <p class="text-muted">
+                                RackTrack leverages state-of-the-art YOLO (You Only Look Once) deep learning models, specifically trained on thousands of rack component images. Our models achieve industry-leading accuracy rates of 99.9% for component detection and classification.
+                            </p>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-success me-2"></i>Custom-trained YOLOv8 architecture</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Real-time inference capabilities</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Continuous learning and improvement</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h5><i class="fas fa-eye text-primary me-2"></i>Computer Vision Pipeline</h5>
+                            <p class="text-muted">
+                                Our sophisticated computer vision pipeline processes images through multiple stages of analysis, from initial object detection to detailed feature extraction and classification.
+                            </p>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-success me-2"></i>Multi-stage detection pipeline</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Color analysis and LED status detection</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Coordinate mapping and positioning</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Values Section -->
+    <div class="row mb-5">
+        <div class="col-12">
+            <h2 class="text-center mb-5">Our Core Values</h2>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="text-center">
+                        <div class="value-icon mb-3">
+                            <i class="fas fa-shield-alt display-3 text-primary"></i>
+                        </div>
+                        <h4>Reliability</h4>
+                        <p class="text-muted">
+                            We build systems you can depend on, with 99.9% uptime and consistent, accurate results that IT professionals trust for critical infrastructure management.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="text-center">
+                        <div class="value-icon mb-3">
+                            <i class="fas fa-rocket display-3 text-primary"></i>
+                        </div>
+                        <h4>Innovation</h4>
+                        <p class="text-muted">
+                            We're constantly pushing the boundaries of what's possible with AI and computer vision, developing new techniques to solve complex data center challenges.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="text-center">
+                        <div class="value-icon mb-3">
+                            <i class="fas fa-users display-3 text-primary"></i>
+                        </div>
+                        <h4>Partnership</h4>
+                        <p class="text-muted">
+                            We work closely with our users to understand their needs and continuously improve our platform based on real-world feedback and requirements.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats Section -->
+    <div class="row mb-5">
+        <div class="col-12">
+            <div class="card bg-primary text-white">
+                <div class="card-body py-5">
+                    <div class="row text-center g-4">
+                        <div class="col-md-3">
+                            <h2 class="display-4 fw-bold">99.9%</h2>
+                            <p class="lead">Detection Accuracy</p>
+                        </div>
+                        <div class="col-md-3">
+                            <h2 class="display-4 fw-bold">&lt;30s</h2>
+                            <p class="lead">Average Processing Time</p>
+                        </div>
+                        <div class="col-md-3">
+                            <h2 class="display-4 fw-bold">10,000+</h2>
+                            <p class="lead">Images Processed</p>
+                        </div>
+                        <div class="col-md-3">
+                            <h2 class="display-4 fw-bold">24/7</h2>
+                            <p class="lead">System Availability</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Future Vision -->
+    <div class="row mb-5">
+        <div class="col-lg-8 mx-auto text-center">
+            <h2 class="mb-4">The Future of Rack Management</h2>
+            <p class="lead text-muted mb-4">
+                We envision a world where data center operations are fully automated, where AI assistants can instantly assess infrastructure health, predict maintenance needs, and optimize resource allocation in real-time.
+            </p>
+            <p class="mb-4">
+                RackTrack is just the beginning. We're working on advanced features like predictive maintenance, automated compliance checking, and integration with popular data center management platforms. Our goal is to create a comprehensive AI-powered ecosystem for modern data center operations.
+            </p>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="text-center py-5">
+        <h3 class="mb-4">Ready to Join the Future?</h3>
+        <a href="{{ url_for('analyze') }}" class="btn btn-primary btn-lg me-3">
+            <i class="fas fa-rocket me-2"></i>Try RackTrack Now
+        </a>
+        <a href="{{ url_for('contact') }}" class="btn btn-outline-primary btn-lg">
+            <i class="fas fa-envelope me-2"></i>Get in Touch
+        </a>
+    </div>
+</div>
+{% endblock %}

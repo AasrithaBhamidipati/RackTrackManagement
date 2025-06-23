@@ -1,0 +1,163 @@
+{% extends "base.html" %}
+
+{% block title %}Features - RackTrack{% endblock %}
+
+{% block content %}
+<div class="container">
+    <!-- Header -->
+    <div class="text-center mb-5">
+        <h1 class="display-4 fw-bold">Powerful Features</h1>
+        <p class="lead text-muted">Discover what makes RackTrack the leading AI-powered rack analysis platform</p>
+    </div>
+
+    <!-- Main Features -->
+    <div class="row g-5 mb-5">
+        <div class="col-lg-6">
+            <div class="feature-detail">
+                <div class="feature-icon mb-4">
+                    <i class="fas fa-brain display-2 text-primary"></i>
+                </div>
+                <h3>Advanced AI Detection</h3>
+                <p class="text-muted mb-4">Our state-of-the-art YOLO models are specifically trained for rack component recognition, delivering industry-leading accuracy rates of 99.9% for component detection and classification.</p>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Cable identification and color analysis</li>
+                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Switch and port detection</li>
+                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Rack structure analysis</li>
+                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Fuse and electrical component recognition</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card bg-light border-0 h-100">
+                <div class="card-body d-flex align-items-center justify-content-center">
+                    <div class="text-center">
+                        <i class="fas fa-network-wired display-1 text-primary mb-3"></i>
+                        <h5>Smart Component Recognition</h5>
+                        <p class="text-muted">Instantly identifies and catalogs all rack components</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-5 mb-5">
+        <div class="col-lg-6 order-lg-2">
+            <div class="feature-detail">
+                <div class="feature-icon mb-4">
+                    <i class="fas fa-tachometer-alt display-2 text-primary"></i>
+                </div>
+                <h3>Lightning-Fast Processing</h3>
+                <p class="text-muted mb-4">Transform hours of manual inventory work into seconds of automated analysis. Our optimized processing pipeline delivers results in under 30 seconds for most rack images.</p>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Real-time image processing</li>
+                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Parallel component analysis</li>
+                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Instant results delivery</li>
+                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Batch processing capabilities</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-6 order-lg-1">
+            <div class="card bg-light border-0 h-100">
+                <div class="card-body d-flex align-items-center justify-content-center">
+                    <div class="text-center">
+                        <i class="fas fa-stopwatch display-1 text-primary mb-3"></i>
+                        <h5>Sub-30 Second Analysis</h5>
+                        <p class="text-muted">Get comprehensive results faster than ever</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-5 mb-5">
+        <div class="col-lg-6">
+            <div class="feature-detail">
+                <div class="feature-icon mb-4">
+                    <i class="fas fa-chart-bar display-2 text-primary"></i>
+                </div>
+                <h3>Comprehensive Analytics</h3>
+                <p class="text-muted mb-4">Get detailed insights into your rack infrastructure with comprehensive reports, component distributions, and status indicators that help you make informed decisions.</p>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Cable color distribution analysis</li>
+                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Port status and LED monitoring</li>
+                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Coordinate mapping and positioning</li>
+                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Exportable data formats (JSON, CSV)</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card bg-light border-0 h-100">
+                <div class="card-body d-flex align-items-center justify-content-center">
+                    <div class="text-center">
+                        <i class="fas fa-analytics display-1 text-primary mb-3"></i>
+                        <h5>Detailed Reporting</h5>
+                        <p class="text-muted">Complete analytics dashboard with actionable insights</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Technical Specifications -->
+    <div class="row mb-5">
+        <div class="col-12">
+            <div class="card border-0 shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0"><i class="fas fa-cogs me-2"></i>Technical Specifications</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row g-4">
+                        <div class="col-md-3">
+                            <h6 class="text-primary">Supported Formats</h6>
+                            <ul class="list-unstyled small">
+                                <li>JPG/JPEG</li>
+                                <li>PNG</li>
+                                <li>BMP</li>
+                                <li>Max: 16MB</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3">
+                            <h6 class="text-primary">Detection Models</h6>
+                            <ul class="list-unstyled small">
+                                <li>YOLOv8 Architecture</li>
+                                <li>Custom Training Data</li>
+                                <li>Real-time Inference</li>
+                                <li>GPU Acceleration</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3">
+                            <h6 class="text-primary">Output Formats</h6>
+                            <ul class="list-unstyled small">
+                                <li>JSON Coordinates</li>
+                                <li>Segmented Images</li>
+                                <li>Analysis Reports</li>
+                                <li>ZIP Downloads</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3">
+                            <h6 class="text-primary">Performance</h6>
+                            <ul class="list-unstyled small">
+                                <li>99.9% Accuracy</li>
+                                <li>&lt;30s Processing</li>
+                                <li>24/7 Availability</li>
+                                <li>Scalable Infrastructure</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="text-center py-5">
+        <h3 class="mb-4">Ready to Experience These Features?</h3>
+        <a href="{{ url_for('analyze') }}" class="btn btn-primary btn-lg me-3">
+            <i class="fas fa-rocket me-2"></i>Start Analysis
+        </a>
+        <a href="{{ url_for('contact') }}" class="btn btn-outline-primary btn-lg">
+            <i class="fas fa-envelope me-2"></i>Contact Us
+        </a>
+    </div>
+</div>
+{% endblock %}

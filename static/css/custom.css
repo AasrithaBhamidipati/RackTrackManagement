@@ -1,10 +1,12 @@
-/* Custom styles for the segmentation application */
+/* Custom styles for RackTrack - Professional Website */
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #ffffff 0%, #87ceeb 50%, #4a90e2 100%);
     min-height: 100vh;
     color: #2c3e50;
+    display: flex;
+    flex-direction: column;
 }
 
 .navbar {
@@ -19,6 +21,29 @@ body {
 }
 
 .navbar-brand:hover {
+    color: #2980b9 !important;
+}
+
+.navbar-toggler {
+    border: none;
+    color: #4a90e2;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2874, 144, 226, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.nav-link {
+    color: #4a90e2 !important;
+    font-weight: 500;
+    transition: color 0.2s ease-in-out;
+}
+
+.nav-link:hover {
     color: #2980b9 !important;
 }
 
@@ -125,6 +150,24 @@ body {
     .card-body {
         padding: 1rem;
     }
+    
+    .hero-section {
+        padding: 60px 0;
+    }
+    
+    .feature-stat h3 {
+        font-size: 1.5rem;
+    }
+    
+    .step-number .badge {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+    
+    .hero-card {
+        margin-top: 2rem;
+    }
 }
 
 /* Loading spinner customization */
@@ -133,9 +176,110 @@ body {
     height: 3rem;
 }
 
+/* Hero Section Styles */
+.hero-section {
+    padding: 100px 0;
+}
+
+.hero-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(135, 206, 235, 0.3);
+    border-radius: 1rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+.hero-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-stat h3 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+/* Feature Cards */
+.feature-icon {
+    padding: 20px;
+    background: rgba(74, 144, 226, 0.1);
+    border-radius: 50%;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.step-number .badge {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+/* Value Icons */
+.value-icon {
+    padding: 20px;
+    background: rgba(74, 144, 226, 0.1);
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* Feature Detail Pages */
+.feature-detail h3 {
+    color: #2c3e50;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.feature-detail .feature-icon {
+    background: rgba(74, 144, 226, 0.1);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    display: inline-block;
+}
+
+/* Contact Form Styling */
+.contact-item {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(74, 144, 226, 0.1);
+}
+
+.contact-item:last-child {
+    border-bottom: none;
+}
+
+.accordion-button {
+    background: rgba(255, 255, 255, 0.95);
+    border: none;
+    color: #2c3e50;
+    font-weight: 500;
+}
+
+.accordion-button:not(.collapsed) {
+    background: linear-gradient(135deg, #4a90e2, #87ceeb);
+    color: white;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+    border-color: rgba(74, 144, 226, 0.25);
+}
+
 /* Footer styling */
 footer {
     margin-top: auto;
+    background: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(135, 206, 235, 0.3);
+}
+
+.social-links a {
+    font-size: 1.2rem;
+    transition: color 0.2s ease-in-out;
+}
+
+.social-links a:hover {
+    color: #4a90e2 !important;
 }
 
 /* Text color overrides for better contrast */
