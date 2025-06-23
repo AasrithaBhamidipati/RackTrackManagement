@@ -44,10 +44,12 @@ body {
     color: var(--text-primary);
     display: flex;
     flex-direction: column;
-    line-height: 1.6;
+    line-height: 1.65;
     font-weight: 400;
-    padding-top: 50px; /* Account for compact fixed header height */
+    font-size: 16px;
+    padding-top: 60px; /* Account for enhanced header height */
     width: 100%;
+    letter-spacing: -0.01em;
 }
 
 .font-semibold {
@@ -90,8 +92,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.75rem 0;
-    min-height: 50px;
+    padding: 1rem 0;
+    min-height: 60px;
 }
 
 /* Brand Section */
@@ -124,10 +126,10 @@ body {
 }
 
 .brand-name {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     font-weight: 800;
     color: var(--text-primary);
-    letter-spacing: -0.025em;
+    letter-spacing: -0.04em;
 }
 
 /* Header Right Container */
@@ -148,11 +150,12 @@ body {
     color: var(--text-secondary);
     text-decoration: none;
     font-weight: 500;
-    font-size: 0.95rem;
-    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    padding: 0.75rem 1.25rem;
     position: relative;
     transition: all 0.3s ease;
-    border-radius: 8px;
+    border-radius: 12px;
+    letter-spacing: -0.02em;
 }
 
 .nav-item:hover {
@@ -186,15 +189,16 @@ body {
 .btn-analyze {
     background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
     color: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: 25px;
+    padding: 0.875rem 2rem;
+    border-radius: 30px;
     text-decoration: none;
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 1rem;
     transition: all 0.3s ease;
     display: inline-block;
     box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
     border: none;
+    letter-spacing: -0.01em;
 }
 
 .btn-analyze:hover {
@@ -957,20 +961,23 @@ footer p {
 }
 
 .hero-title {
-    font-size: 3.5rem;
+    font-size: 4rem;
     font-weight: 900;
-    line-height: 1.1;
+    line-height: 1.05;
     color: var(--text-primary);
-    margin-bottom: 1.5rem;
-    letter-spacing: -0.02em;
+    margin-bottom: 2rem;
+    letter-spacing: -0.04em;
+    font-feature-settings: 'ss01', 'cv01';
 }
 
 .hero-subtitle {
-    font-size: 1.25rem;
+    font-size: 1.375rem;
     color: var(--text-secondary);
-    margin-bottom: 2rem;
-    line-height: 1.6;
-    font-weight: 400;
+    margin-bottom: 2.5rem;
+    line-height: 1.65;
+    font-weight: 450;
+    letter-spacing: -0.01em;
+    max-width: 90%;
 }
 
 .hero-cta {
@@ -991,16 +998,18 @@ footer p {
 }
 
 .stat-number {
-    font-size: 2rem;
+    font-size: 2.25rem;
     font-weight: 800;
     color: var(--primary-color);
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.03em;
 }
 
 .stat-label {
-    font-size: 0.875rem;
+    font-size: 0.9rem;
     color: var(--text-muted);
     font-weight: 500;
+    letter-spacing: 0.01em;
 }
 
 .hero-card {
@@ -1052,6 +1061,56 @@ footer p {
     box-shadow: 0 20px 50px -10px rgba(37, 99, 235, 0.3);
 }
 
+/* Enhanced Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+}
+
+h2 {
+    font-size: 2.75rem;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+}
+
+h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+}
+
+h4 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.35;
+    letter-spacing: -0.015em;
+}
+
+p {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.005em;
+}
+
+.lead {
+    font-size: 1.375rem;
+    font-weight: 450;
+    line-height: 1.65;
+    letter-spacing: -0.01em;
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
     .header-right {
@@ -1059,11 +1118,31 @@ footer p {
     }
     
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 2.75rem;
     }
     
     .hero-subtitle {
-        font-size: 1.125rem;
+        font-size: 1.25rem;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    h2 {
+        font-size: 2rem;
+    }
+    
+    h3 {
+        font-size: 1.5rem;
+    }
+    
+    h4 {
+        font-size: 1.25rem;
+    }
+    
+    p {
+        font-size: 1rem;
     }
     
     .hero-cta {
