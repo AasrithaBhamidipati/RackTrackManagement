@@ -145,3 +145,32 @@ document.addEventListener('DOMContentLoaded', function() {
     if (progressText) progressText.textContent = `Uploading... ${percent}%`;
     if (progressPercent) progressPercent.textContent = `${percent}%`;
 });
+
+// Update filter status
+function updateFilterStatus(category, count) {
+    const filterStatus = document.getElementById('filterStatus');
+    const clearFilterBtn = document.getElementById('clearFilter');
+
+    if (filterStatus && clearFilterBtn) {
+        filterStatus.textContent = `Showing ${category} (${count})`;
+        filterStatus.style.display = 'inline-block';
+        clearFilterBtn.style.display = 'inline-block';
+    }
+}
+
+// Clear filter
+function clearFilter() {
+    currentFilter = null;
+    const catalogItems = document.querySelectorAll('.catalog-item');
+    const filterStatus = document.getElementById('filterStatus');
+    const clearFilterBtn = document.getElementById('clearFilter');
+
+    catalogItems.forEach(item => {
+        item.style.display = 'block';
+    });
+
+    if (filterStatus && clearFilterBtn) {
+        filterStatus.style.display = 'none';
+        clearFilterBtn.style.display = 'none';
+    }
+}
