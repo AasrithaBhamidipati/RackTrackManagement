@@ -1,9 +1,12 @@
 import os
 import json
 import logging
-from flask import render_template, request, redirect, url_for, flash, jsonify, send_file
+import io
+import zipfile
+from functools import wraps
+from flask import render_template, request, redirect, url_for, flash, jsonify, send_file, session
 from werkzeug.utils import secure_filename
-from app import app
+from app import app, VALID_CREDENTIALS
 try:
     from utils.segmentation import process_image, allowed_file
 except ImportError:
@@ -16,7 +19,54 @@ import io
 def home():
     return render_template('home.html')
 
+# Simple authentication decorator
+def login_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if not session.get('logged_in'):
+            return redirect(url_for('login', next=request.url))
+        return f(*args, **kwargs)
+    return decorated_function
+
+# Mock current_user for template compatibility
+class MockUser:
+    @property
+    def is_authenticated(self):
+        return session.get('logged_in', False)
+
+# Make current_user available to templates
+@app.context_processor
+def inject_user():
+    return dict(current_user=MockUser())
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if session.get('logged_in'):
+        return redirect(url_for('analyze'))
+    
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        
+        if username in VALID_CREDENTIALS and VALID_CREDENTIALS[username] == password:
+            session['logged_in'] = True
+            session['username'] = username
+            next_page = request.args.get('next')
+            return redirect(next_page) if next_page else redirect(url_for('analyze'))
+        else:
+            flash('Invalid username or password', 'error')
+    
+    return render_template('login.html')
+
+@app.route('/logout')
+@login_required
+def logout():
+    session.pop('logged_in', None)
+    session.pop('username', None)
+    return redirect(url_for('home'))
+
 @app.route('/analyze')
+@login_required
 def analyze():
     return render_template('analyze.html')
 
@@ -33,6 +83,7 @@ def contact():
     return render_template('contact.html')
 
 @app.route('/upload', methods=['POST'])
+@login_required  
 def upload_file():
     if 'file' not in request.files:
         flash('No file selected', 'error')
@@ -77,6 +128,7 @@ def upload_file():
         return redirect(url_for('analyze'))
 
 @app.route('/download_results/<path:filename>')
+@login_required
 def download_results(filename):
     """Download individual segmented images"""
     try:
@@ -87,6 +139,7 @@ def download_results(filename):
         return redirect(url_for('analyze'))
 
 @app.route('/download_all_results')
+@login_required
 def download_all_results():
     """Download all segmented results as a ZIP file"""
     try:

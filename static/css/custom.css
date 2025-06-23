@@ -170,6 +170,19 @@ body {
     box-shadow: var(--shadow-md);
 }
 
+.btn-analyze.btn-secondary {
+    background: var(--bg-light);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+}
+
+.btn-analyze.btn-secondary:hover {
+    background: var(--secondary-color);
+    color: var(--text-primary);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+}
+
 /* Mobile Menu */
 .mobile-toggle {
     display: none;
@@ -239,6 +252,17 @@ body {
     background: var(--primary-dark);
     color: white;
     text-decoration: none;
+}
+
+.mobile-btn-secondary {
+    background: var(--bg-light) !important;
+    color: var(--text-secondary) !important;
+    border: 1px solid var(--border-color);
+}
+
+.mobile-btn-secondary:hover {
+    background: var(--secondary-color) !important;
+    color: var(--text-primary) !important;
 }
 
 /* Responsive Design */

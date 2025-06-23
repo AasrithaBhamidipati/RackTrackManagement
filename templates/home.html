@@ -16,9 +16,15 @@
                         Leverage cutting-edge computer vision and machine learning to automatically detect, analyze, and catalog rack components with unprecedented accuracy and speed.
                     </p>
                     <div class="hero-cta">
-                        <a href="{{ url_for('analyze') }}" class="btn btn-primary-gradient">
-                            <i class="fas fa-rocket me-2"></i>Start Free Analysis
-                        </a>
+                        {% if current_user.is_authenticated %}
+                            <a href="{{ url_for('analyze') }}" class="btn btn-primary-gradient">
+                                <i class="fas fa-rocket me-2"></i>Start Analysis
+                            </a>
+                        {% else %}
+                            <a href="{{ url_for('login') }}" class="btn btn-primary-gradient">
+                                <i class="fas fa-rocket me-2"></i>Get Started
+                            </a>
+                        {% endif %}
                         <a href="{{ url_for('features') }}" class="btn btn-outline-primary">
                             <i class="fas fa-play me-2"></i>See How It Works
                         </a>
@@ -175,9 +181,15 @@
                 <h2 style="font-size: 2.5rem; font-weight: 800; color: white; margin-bottom: 1.5rem; line-height: 1.2;">Ready to Transform Your Infrastructure Management?</h2>
                 <p style="font-size: 1.125rem; color: rgba(255, 255, 255, 0.9); margin-bottom: 2.5rem; line-height: 1.6;">Join hundreds of data center professionals who trust RackTrack for accurate, fast, and reliable rack component analysis.</p>
                 <div style="display: flex; gap: 1rem; justify-content: center; align-items: center; flex-wrap: wrap;">
-                    <a href="{{ url_for('analyze') }}" style="background: white; color: var(--primary-color); padding: 1rem 2.5rem; border-radius: 1rem; font-weight: 700; text-decoration: none; box-shadow: var(--shadow-lg); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
-                        <i class="fas fa-rocket me-2"></i>Start Free Analysis
-                    </a>
+                    {% if current_user.is_authenticated %}
+                        <a href="{{ url_for('analyze') }}" style="background: white; color: var(--primary-color); padding: 1rem 2.5rem; border-radius: 1rem; font-weight: 700; text-decoration: none; box-shadow: var(--shadow-lg); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+                            <i class="fas fa-rocket me-2"></i>Start Analysis
+                        </a>
+                    {% else %}
+                        <a href="{{ url_for('login') }}" style="background: white; color: var(--primary-color); padding: 1rem 2.5rem; border-radius: 1rem; font-weight: 700; text-decoration: none; box-shadow: var(--shadow-lg); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+                            <i class="fas fa-rocket me-2"></i>Get Started
+                        </a>
+                    {% endif %}
                     <a href="{{ url_for('contact') }}" style="background: rgba(255, 255, 255, 0.1); color: white; padding: 1rem 2.5rem; border-radius: 1rem; font-weight: 600; text-decoration: none; border: 2px solid rgba(255, 255, 255, 0.3); transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255, 255, 255, 0.2)'" onmouseout="this.style.background='rgba(255, 255, 255, 0.1)'">
                         <i class="fas fa-envelope me-2"></i>Contact Sales
                     </a>

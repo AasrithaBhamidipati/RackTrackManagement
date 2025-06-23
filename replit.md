@@ -95,6 +95,13 @@ RackTrack is a Flask-based web application that uses AI deep learning models to 
 - Sufficient storage for model files and temporary processing
 
 ## Recent Changes
+- June 23, 2025: Added authentication system with login/logout functionality
+  - Removed "Analyze" from header navigation for non-authenticated users
+  - Replaced "Get Started" with "Sign In" button in header
+  - Created professional login page with demo credentials (1234/1234)
+  - Protected analyze page and upload functionality with login requirements
+  - Added Flask-Login for session management and user authentication
+  - Updated navigation to show different options for authenticated/guest users
 - June 23, 2025: Complete white and blue theme redesign with enhanced UX
   - Transformed entire website to clean white and blue color scheme (#2563eb primary)
   - Fixed JavaScript errors in upload interface with null-safe element checking

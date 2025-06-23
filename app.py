@@ -21,5 +21,10 @@ app.config['SEGMENTED_OUTPUTS'] = 'static/segmented_outputs'
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 os.makedirs(app.config['SEGMENTED_OUTPUTS'], exist_ok=True)
 
+# Simple authentication credentials
+VALID_CREDENTIALS = {
+    '1234': '1234'
+}
+
 # Import routes after app creation to avoid circular imports
 from routes import *

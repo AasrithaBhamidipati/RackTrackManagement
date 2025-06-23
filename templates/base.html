@@ -46,17 +46,25 @@
                 <!-- Navigation -->
                 <nav class="header-nav">
                     <a href="{{ url_for('home') }}" class="nav-item">Home</a>
-                    <a href="{{ url_for('analyze') }}" class="nav-item">Analyze</a>
                     <a href="{{ url_for('features') }}" class="nav-item">Features</a>
                     <a href="{{ url_for('about') }}" class="nav-item">About</a>
                     <a href="{{ url_for('contact') }}" class="nav-item">Contact</a>
+                    {% if current_user.is_authenticated %}
+                        <a href="{{ url_for('analyze') }}" class="nav-item">Analyze</a>
+                    {% endif %}
                 </nav>
 
                 <!-- Action Button -->
                 <div class="header-actions">
-                    <a href="{{ url_for('analyze') }}" class="btn-analyze">
-                        Get Started
-                    </a>
+                    {% if current_user.is_authenticated %}
+                        <a href="{{ url_for('logout') }}" class="btn-analyze btn-secondary">
+                            Logout
+                        </a>
+                    {% else %}
+                        <a href="{{ url_for('login') }}" class="btn-analyze">
+                            Sign In
+                        </a>
+                    {% endif %}
                 </div>
 
                 <!-- Mobile Menu Toggle -->
@@ -70,11 +78,15 @@
             <!-- Mobile Menu -->
             <div class="mobile-menu" id="mobileMenu">
                 <a href="{{ url_for('home') }}" class="mobile-nav-item">Home</a>
-                <a href="{{ url_for('analyze') }}" class="mobile-nav-item">Analyze</a>
                 <a href="{{ url_for('features') }}" class="mobile-nav-item">Features</a>
                 <a href="{{ url_for('about') }}" class="mobile-nav-item">About</a>
                 <a href="{{ url_for('contact') }}" class="mobile-nav-item">Contact</a>
-                <a href="{{ url_for('analyze') }}" class="mobile-btn">Get Started</a>
+                {% if current_user.is_authenticated %}
+                    <a href="{{ url_for('analyze') }}" class="mobile-nav-item">Analyze</a>
+                    <a href="{{ url_for('logout') }}" class="mobile-btn mobile-btn-secondary">Logout</a>
+                {% else %}
+                    <a href="{{ url_for('login') }}" class="mobile-btn">Sign In</a>
+                {% endif %}
             </div>
         </div>
     </header>
