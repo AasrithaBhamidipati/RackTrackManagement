@@ -130,6 +130,13 @@ body {
     letter-spacing: -0.025em;
 }
 
+/* Header Right Container */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
 /* Navigation */
 .header-nav {
     display: flex;
@@ -141,15 +148,17 @@ body {
     color: var(--text-secondary);
     text-decoration: none;
     font-weight: 500;
-    font-size: 0.9rem;
-    padding: 0.25rem 0;
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem;
     position: relative;
     transition: all 0.3s ease;
+    border-radius: 8px;
 }
 
 .nav-item:hover {
     color: var(--primary-color);
     text-decoration: none;
+    background: rgba(37, 99, 235, 0.05);
 }
 
 .nav-item::after {
@@ -162,10 +171,11 @@ body {
     background: var(--primary-color);
     transition: all 0.3s ease;
     transform: translateX(-50%);
+    border-radius: 1px;
 }
 
 .nav-item:hover::after {
-    width: 100%;
+    width: 80%;
 }
 
 /* Action Button */
@@ -174,23 +184,25 @@ body {
 }
 
 .btn-analyze {
-    background: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
     color: white;
-    padding: 0.5rem 1.25rem;
-    border-radius: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
     text-decoration: none;
     font-weight: 600;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     transition: all 0.3s ease;
     display: inline-block;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
+    border: none;
 }
 
 .btn-analyze:hover {
-    background: var(--primary-dark);
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
     color: white;
     text-decoration: none;
-    transform: translateY(-1px);
-    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
 }
 
 .btn-analyze.btn-secondary {
@@ -1042,6 +1054,10 @@ footer p {
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
+    .header-right {
+        display: none;
+    }
+    
     .hero-title {
         font-size: 2.5rem;
     }
@@ -1065,6 +1081,12 @@ footer p {
     .hero-stats {
         justify-content: center;
         gap: 1.5rem;
+    }
+}
+
+@media (min-width: 769px) {
+    .mobile-toggle {
+        display: none;
     }
 }
 

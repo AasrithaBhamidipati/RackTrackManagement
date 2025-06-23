@@ -43,28 +43,31 @@
                     </a>
                 </div>
 
-                <!-- Navigation -->
-                <nav class="header-nav">
-                    <a href="{{ url_for('home') }}" class="nav-item">Home</a>
-                    <a href="{{ url_for('features') }}" class="nav-item">Features</a>
-                    <a href="{{ url_for('about') }}" class="nav-item">About</a>
-                    <a href="{{ url_for('contact') }}" class="nav-item">Contact</a>
-                    {% if current_user.is_authenticated %}
-                        <a href="{{ url_for('analyze') }}" class="nav-item">Analyze</a>
-                    {% endif %}
-                </nav>
+                <!-- Right side container for nav and actions -->
+                <div class="header-right">
+                    <!-- Navigation -->
+                    <nav class="header-nav">
+                        <a href="{{ url_for('home') }}" class="nav-item">Home</a>
+                        <a href="{{ url_for('features') }}" class="nav-item">Features</a>
+                        <a href="{{ url_for('about') }}" class="nav-item">About</a>
+                        <a href="{{ url_for('contact') }}" class="nav-item">Contact</a>
+                        {% if current_user.is_authenticated %}
+                            <a href="{{ url_for('analyze') }}" class="nav-item">Analyze</a>
+                        {% endif %}
+                    </nav>
 
-                <!-- Action Button -->
-                <div class="header-actions">
-                    {% if current_user.is_authenticated %}
-                        <a href="{{ url_for('logout') }}" class="btn-analyze btn-secondary">
-                            Logout
-                        </a>
-                    {% else %}
-                        <a href="{{ url_for('login') }}" class="btn-analyze">
-                            Sign In
-                        </a>
-                    {% endif %}
+                    <!-- Action Button -->
+                    <div class="header-actions">
+                        {% if current_user.is_authenticated %}
+                            <a href="{{ url_for('logout') }}" class="btn-analyze btn-secondary">
+                                Logout
+                            </a>
+                        {% else %}
+                            <a href="{{ url_for('login') }}" class="btn-analyze">
+                                Sign In
+                            </a>
+                        {% endif %}
+                    </div>
                 </div>
 
                 <!-- Mobile Menu Toggle -->
