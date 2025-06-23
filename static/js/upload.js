@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const uploadForm = document.getElementById('uploadForm');
     const uploadBtn = document.getElementById('uploadBtn');
     const progressContainer = document.getElementById('progressContainer');
-    
+
     // Only run upload functionality if elements exist (i.e., on upload page)
     if (!fileInput || !uploadForm) {
         return;
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // File input change handler
     fileInput.addEventListener('change', function(e) {
         const file = e.target.files[0];
-        
+
         if (file) {
             // Validate file type
             const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/bmp'];
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 imagePreview.style.display = 'none';
                 return;
             }
-            
+
             // Validate file size (16MB limit)
             const maxSize = 16 * 1024 * 1024; // 16MB in bytes
             if (file.size > maxSize) {
@@ -33,13 +33,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 imagePreview.style.display = 'none';
                 return;
             }
-            
+
             // Show image preview
             const reader = new FileReader();
             reader.onload = function(e) {
                 previewImg.src = e.target.result;
                 imagePreview.style.display = 'block';
-                
+
                 // Smooth scroll to preview
                 imagePreview.scrollIntoView({ 
                     behavior: 'smooth', 
@@ -55,18 +55,18 @@ document.addEventListener('DOMContentLoaded', function() {
     // Form submission handler
     uploadForm.addEventListener('submit', function(e) {
         const file = fileInput.files[0];
-        
+
         if (!file) {
             e.preventDefault();
             alert('Please select an image file first');
             return;
         }
-        
+
         // Show progress indicator
         uploadBtn.disabled = true;
         uploadBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Processing...';
         progressContainer.style.display = 'block';
-        
+
         // Smooth scroll to progress
         progressContainer.scrollIntoView({ 
             behavior: 'smooth', 
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Drag and drop functionality
     const dropZone = document.querySelector('.card-body');
-    
+
     if (dropZone) {
         ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
             dropZone.addEventListener(eventName, preventDefaults, false);
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
         function handleDrop(e) {
             const dt = e.dataTransfer;
             const files = dt.files;
-            
+
             if (files.length > 0) {
                 fileInput.files = files;
                 // Trigger change event
