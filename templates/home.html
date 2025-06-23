@@ -3,53 +3,65 @@
 {% block title %}RackTrack - AI-Powered Rack Component Analysis{% endblock %}
 
 {% block content %}
-<!-- Hero Section -->
-<section class="hero-section py-5">
+<!-- Modern Hero Section -->
+<section class="hero-section">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6">
-                <h1 class="display-4 fw-bold mb-4">
-                    Revolutionize Your <span class="text-primary">Rack Management</span>
-                </h1>
-                <p class="lead mb-4">
-                    RackTrack uses cutting-edge AI and computer vision to automatically detect, analyze, and catalog rack components. Transform hours of manual inventory into seconds of automated precision.
-                </p>
-                <div class="d-flex gap-3 mb-4">
-                    <a href="{{ url_for('analyze') }}" class="btn btn-primary btn-lg">
-                        <i class="fas fa-rocket me-2"></i>Start Free Analysis
-                    </a>
-                    <a href="{{ url_for('features') }}" class="btn btn-outline-primary btn-lg">
-                        <i class="fas fa-play me-2"></i>See Features
-                    </a>
-                </div>
-                <div class="row g-3 text-center">
-                    <div class="col-4">
-                        <div class="feature-stat">
-                            <h3 class="text-primary mb-1">99.9%</h3>
-                            <small class="text-muted">Accuracy</small>
-                        </div>
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        Transform Your <span style="background: linear-gradient(135deg, var(--primary-color), var(--primary-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Rack Management</span> with AI
+                    </h1>
+                    <p class="hero-subtitle">
+                        Leverage cutting-edge computer vision and machine learning to automatically detect, analyze, and catalog rack components with unprecedented accuracy and speed.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="{{ url_for('analyze') }}" class="btn btn-primary-gradient">
+                            <i class="fas fa-rocket me-2"></i>Start Free Analysis
+                        </a>
+                        <a href="{{ url_for('features') }}" class="btn btn-outline-primary">
+                            <i class="fas fa-play me-2"></i>See How It Works
+                        </a>
                     </div>
-                    <div class="col-4">
-                        <div class="feature-stat">
-                            <h3 class="text-primary mb-1">10x</h3>
-                            <small class="text-muted">Faster</small>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">99.9%</div>
+                            <div class="stat-label">Detection Accuracy</div>
                         </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="feature-stat">
-                            <h3 class="text-primary mb-1">24/7</h3>
-                            <small class="text-muted">Available</small>
+                        <div class="stat-item">
+                            <div class="stat-number">30s</div>
+                            <div class="stat-label">Average Processing</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">System Availability</div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6">
-                <div class="hero-image text-center">
-                    <div class="position-relative">
-                        <div class="hero-card p-4 shadow-lg">
-                            <i class="fas fa-server display-1 text-primary mb-3"></i>
-                            <h4>AI-Powered Detection</h4>
-                            <p class="mb-0">Advanced YOLO models identify cables, switches, ports, racks, and fuses with incredible precision.</p>
+                <div class="hero-visual">
+                    <div class="hero-card">
+                        <div class="text-center">
+                            <div style="background: linear-gradient(135deg, var(--primary-color), var(--primary-light)); width: 80px; height: 80px; border-radius: 20px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+                                <i class="fas fa-brain text-white" style="font-size: 2.5rem;"></i>
+                            </div>
+                            <h3 class="font-bold mb-3" style="color: var(--text-primary);">AI-Powered Analysis</h3>
+                            <p style="color: var(--text-secondary); margin-bottom: 2rem;">Advanced neural networks trained specifically for rack component recognition and analysis.</p>
+                            <div class="d-flex justify-content-between text-center">
+                                <div>
+                                    <div class="font-bold" style="color: var(--accent-color); font-size: 1.5rem;">5+</div>
+                                    <small style="color: var(--text-muted);">Component Types</small>
+                                </div>
+                                <div>
+                                    <div class="font-bold" style="color: var(--accent-color); font-size: 1.5rem;">10k+</div>
+                                    <small style="color: var(--text-muted);">Images Processed</small>
+                                </div>
+                                <div>
+                                    <div class="font-bold" style="color: var(--accent-color); font-size: 1.5rem;">∞</div>
+                                    <small style="color: var(--text-muted);">Scalability</small>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -58,44 +70,56 @@
     </div>
 </section>
 
-<!-- Features Overview -->
-<section class="py-5 bg-light">
+<!-- Modern Features Section -->
+<section style="padding: 80px 0; background: var(--bg-primary);">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="display-5 fw-bold">Why Choose RackTrack?</h2>
-            <p class="lead text-muted">Powerful features designed for modern data centers</p>
+            <h2 style="font-size: 2.5rem; font-weight: 800; color: var(--text-primary); margin-bottom: 1rem;">Why Choose RackTrack?</h2>
+            <p style="font-size: 1.125rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto;">Powerful AI-driven features designed for modern data center operations and infrastructure management.</p>
         </div>
         <div class="row g-4">
             <div class="col-lg-4 col-md-6">
-                <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body text-center p-4">
-                        <div class="feature-icon mb-3">
-                            <i class="fas fa-brain display-4 text-primary"></i>
+                <div class="card-modern h-100">
+                    <div class="p-4">
+                        <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary-color), var(--primary-light)); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                            <i class="fas fa-brain text-white" style="font-size: 1.5rem;"></i>
                         </div>
-                        <h4>AI-Powered Detection</h4>
-                        <p class="text-muted">Advanced deep learning models automatically identify and classify rack components with industry-leading accuracy.</p>
+                        <h4 style="font-weight: 700; color: var(--text-primary); margin-bottom: 1rem;">AI-Powered Detection</h4>
+                        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Advanced neural networks automatically identify and classify rack components with 99.9% accuracy using state-of-the-art computer vision.</p>
+                        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <span style="background: var(--secondary-color); color: var(--primary-color); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">YOLO v8</span>
+                            <span style="background: var(--secondary-color); color: var(--primary-color); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">Deep Learning</span>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">
-                <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body text-center p-4">
-                        <div class="feature-icon mb-3">
-                            <i class="fas fa-bolt display-4 text-primary"></i>
+                <div class="card-modern h-100">
+                    <div class="p-4">
+                        <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--accent-color), #0891b2); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                            <i class="fas fa-bolt text-white" style="font-size: 1.5rem;"></i>
                         </div>
-                        <h4>Lightning Fast</h4>
-                        <p class="text-muted">Process rack images in seconds, not hours. Get instant results with detailed component analysis and coordinates.</p>
+                        <h4 style="font-weight: 700; color: var(--text-primary); margin-bottom: 1rem;">Lightning Fast Processing</h4>
+                        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Process complex rack images in under 30 seconds with real-time analysis and instant results delivery.</p>
+                        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <span style="background: var(--secondary-color); color: var(--accent-color); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">Real-time</span>
+                            <span style="background: var(--secondary-color); color: var(--accent-color); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">GPU Accelerated</span>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">
-                <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body text-center p-4">
-                        <div class="feature-icon mb-3">
-                            <i class="fas fa-chart-line display-4 text-primary"></i>
+                <div class="card-modern h-100">
+                    <div class="p-4">
+                        <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #8b5cf6, #a855f7); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                            <i class="fas fa-chart-line text-white" style="font-size: 1.5rem;"></i>
                         </div>
-                        <h4>Detailed Analytics</h4>
-                        <p class="text-muted">Comprehensive reports with cable distributions, port status, LED indicators, and component locations.</p>
+                        <h4 style="font-weight: 700; color: var(--text-primary); margin-bottom: 1rem;">Comprehensive Analytics</h4>
+                        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Detailed reports with cable distributions, port status, LED indicators, and precise coordinate mapping.</p>
+                        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <span style="background: var(--secondary-color); color: #8b5cf6; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">JSON Export</span>
+                            <span style="background: var(--secondary-color); color: #8b5cf6; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">Coordinates</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -142,16 +166,36 @@
     </div>
 </section>
 
-<!-- CTA Section -->
-<section class="py-5 bg-primary text-white">
-    <div class="container text-center">
+<!-- Modern CTA Section -->
+<section style="padding: 80px 0; background: linear-gradient(135deg, var(--primary-color), var(--primary-light)); position: relative; overflow: hidden;">
+    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><defs><pattern id=\"grain\" width=\"100\" height=\"100\" patternUnits=\"userSpaceOnUse\"><circle cx=\"50\" cy=\"50\" r=\"1\" fill=\"white\" opacity=\"0.1\"/></pattern></defs><rect width=\"100\" height=\"100\" fill=\"url(%23grain)\"/></svg>'); opacity: 0.3;"></div>
+    <div class="container text-center" style="position: relative; z-index: 2;">
         <div class="row justify-content-center">
             <div class="col-lg-8">
-                <h2 class="display-5 fw-bold mb-4">Ready to Transform Your Rack Management?</h2>
-                <p class="lead mb-4">Join thousands of data center professionals who trust RackTrack for accurate, fast rack component analysis.</p>
-                <a href="{{ url_for('analyze') }}" class="btn btn-light btn-lg">
-                    <i class="fas fa-rocket me-2"></i>Start Your Free Analysis
-                </a>
+                <h2 style="font-size: 2.5rem; font-weight: 800; color: white; margin-bottom: 1.5rem; line-height: 1.2;">Ready to Transform Your Infrastructure Management?</h2>
+                <p style="font-size: 1.125rem; color: rgba(255, 255, 255, 0.9); margin-bottom: 2.5rem; line-height: 1.6;">Join hundreds of data center professionals who trust RackTrack for accurate, fast, and reliable rack component analysis.</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; align-items: center; flex-wrap: wrap;">
+                    <a href="{{ url_for('analyze') }}" style="background: white; color: var(--primary-color); padding: 1rem 2.5rem; border-radius: 1rem; font-weight: 700; text-decoration: none; box-shadow: var(--shadow-lg); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <i class="fas fa-rocket me-2"></i>Start Free Analysis
+                    </a>
+                    <a href="{{ url_for('contact') }}" style="background: rgba(255, 255, 255, 0.1); color: white; padding: 1rem 2.5rem; border-radius: 1rem; font-weight: 600; text-decoration: none; border: 2px solid rgba(255, 255, 255, 0.3); transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255, 255, 255, 0.2)'" onmouseout="this.style.background='rgba(255, 255, 255, 0.1)'">
+                        <i class="fas fa-envelope me-2"></i>Contact Sales
+                    </a>
+                </div>
+                <div style="margin-top: 3rem; display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 1.5rem; font-weight: 800; color: white;">10,000+</div>
+                        <div style="color: rgba(255, 255, 255, 0.8); font-size: 0.875rem;">Images Analyzed</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 1.5rem; font-weight: 800; color: white;">99.9%</div>
+                        <div style="color: rgba(255, 255, 255, 0.8); font-size: 0.875rem;">Accuracy Rate</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 1.5rem; font-weight: 800; color: white;">24/7</div>
+                        <div style="color: rgba(255, 255, 255, 0.8); font-size: 0.875rem;">Support</div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
