@@ -139,4 +139,9 @@ document.addEventListener('DOMContentLoaded', function() {
             `;
         }
     });
+    // Update progress text
+    const progressText = document.getElementById('progressText');
+    const progressPercent = document.getElementById('progressPercent');
+    if (progressText) progressText.textContent = `Uploading... ${percent}%`;
+    if (progressPercent) progressPercent.textContent = `${percent}%`;
 });
