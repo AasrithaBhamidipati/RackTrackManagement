@@ -4,195 +4,352 @@
 
 {% block content %}
 <style>
-.compact-features {
-    height: 100vh;
-    overflow: hidden;
-    padding: 1rem 0;
+.features-page {
+    padding: 2rem 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
 }
 
-.feature-grid {
+.features-hero {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem 0;
+}
+
+.features-hero h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.features-hero p {
+    font-size: 1.1rem;
+    color: #6c757d;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.features-layout {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    height: calc(100vh - 150px);
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.main-features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
 }
 
 .feature-card {
-    background: linear-gradient(135deg, rgba(74, 144, 226, 0.05) 0%, rgba(135, 206, 235, 0.1) 100%);
-    border: 1px solid rgba(74, 144, 226, 0.2);
+    background: white;
     border-radius: 1rem;
-    padding: 1.5rem;
-    text-align: center;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    border-left: 4px solid #4a90e2;
 }
 
 .feature-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(74, 144, 226, 0.15);
+    box-shadow: 0 8px 30px rgba(74, 144, 226, 0.15);
 }
 
-.feature-icon {
-    font-size: 3rem;
-    color: #4a90e2;
+.feature-header {
+    display: flex;
+    align-items: center;
     margin-bottom: 1rem;
 }
 
+.feature-icon {
+    font-size: 2rem;
+    color: #4a90e2;
+    margin-right: 1rem;
+    width: 60px;
+    height: 60px;
+    background: rgba(74, 144, 226, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .feature-title {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: 600;
     color: #2c3e50;
-    margin-bottom: 0.8rem;
+    margin: 0;
 }
 
 .feature-desc {
-    font-size: 0.9rem;
     color: #6c757d;
-    line-height: 1.4;
+    line-height: 1.6;
+    margin-bottom: 1rem;
 }
 
-.stats-row {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-    margin-bottom: 1.5rem;
+.feature-highlights {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-.stat-box {
-    background: linear-gradient(135deg, #4a90e2, #87ceeb);
-    color: white;
-    padding: 1rem;
-    border-radius: 0.75rem;
-    text-align: center;
+.feature-highlights li {
+    padding: 0.25rem 0;
+    color: #495057;
+    font-size: 0.9rem;
 }
 
-.stat-number {
-    font-size: 1.5rem;
+.feature-highlights li:before {
+    content: "✓";
+    color: #28a745;
     font-weight: bold;
-    margin-bottom: 0.25rem;
+    margin-right: 0.5rem;
 }
 
-.stat-label {
-    font-size: 0.85rem;
-    opacity: 0.9;
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
-.header-compact {
-    text-align: center;
+.tech-specs {
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.specs-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2c3e50;
     margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
 }
 
-.cta-compact {
-    position: fixed;
-    bottom: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1000;
+.specs-title i {
+    margin-right: 0.5rem;
+    color: #4a90e2;
+}
+
+.spec-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.spec-item:last-child {
+    border-bottom: none;
+}
+
+.spec-label {
+    font-weight: 500;
+    color: #495057;
+}
+
+.spec-value {
+    color: #4a90e2;
+    font-weight: 600;
+}
+
+.cta-section {
+    background: linear-gradient(135deg, #4a90e2, #87ceeb);
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: center;
+    color: white;
+}
+
+.cta-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.cta-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.btn-cta {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-cta.primary {
+    background: white;
+    color: #4a90e2;
+}
+
+.btn-cta.secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 992px) {
+    .features-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .main-features {
+        grid-template-columns: 1fr;
+    }
+    
+    .sidebar {
+        grid-template-columns: repeat(2, 1fr);
+        flex-direction: row;
+    }
 }
 
 @media (max-width: 768px) {
-    .feature-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.75rem;
+    .sidebar {
+        grid-template-columns: 1fr;
+        flex-direction: column;
     }
     
-    .stats-row {
-        grid-template-columns: repeat(2, 1fr);
+    .features-hero h1 {
+        font-size: 2rem;
     }
     
     .feature-card {
-        padding: 1rem;
-    }
-    
-    .feature-icon {
-        font-size: 2.5rem;
-    }
-    
-    .feature-title {
-        font-size: 1rem;
-    }
-    
-    .feature-desc {
-        font-size: 0.8rem;
+        padding: 1.5rem;
     }
 }
 </style>
 
-<div class="container-fluid compact-features">
-    <!-- Compact Header -->
-    <div class="header-compact">
-        <h1 class="h2 fw-bold mb-2">RackTrack Features</h1>
-    </div>
-
-
-
-    <!-- Feature Grid -->
-    <div class="feature-grid">
-        <div class="feature-card">
-            <i class="fas fa-brain feature-icon"></i>
-            <h3 class="feature-title">AI Detection</h3>
-            <p class="feature-desc">YOLOv8-powered component recognition with industry-leading accuracy for cables, switches, ports, and racks</p>
+<div class="features-page">
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="features-hero">
+            <h1>Powerful Features</h1>
+            <p>Discover the cutting-edge AI capabilities that make RackTrack the leading solution for rack component analysis</p>
         </div>
 
-        <div class="feature-card">
-            <i class="fas fa-tachometer-alt feature-icon"></i>
-            <h3 class="feature-title">Lightning Speed</h3>
-            <p class="feature-desc">Transform hours of manual work into seconds with real-time processing and instant results delivery</p>
-        </div>
+        <!-- Main Layout -->
+        <div class="features-layout">
+            <!-- Main Features -->
+            <div class="main-features">
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <div class="feature-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3 class="feature-title">AI Detection</h3>
+                    </div>
+                    <p class="feature-desc">Advanced YOLOv8 neural networks trained specifically for rack component recognition with industry-leading accuracy.</p>
+                    <ul class="feature-highlights">
+                        <li>Cable identification & color analysis</li>
+                        <li>Switch & port detection</li>
+                        <li>Rack structure analysis</li>
+                        <li>Electrical component recognition</li>
+                    </ul>
+                </div>
 
-        <div class="feature-card">
-            <i class="fas fa-chart-bar feature-icon"></i>
-            <h3 class="feature-title">Smart Analytics</h3>
-            <p class="feature-desc">Comprehensive insights with cable color analysis, port status monitoring, and coordinate mapping</p>
-        </div>
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <div class="feature-icon">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <h3 class="feature-title">Lightning Speed</h3>
+                    </div>
+                    <p class="feature-desc">Transform hours of manual inventory work into seconds with our optimized processing pipeline.</p>
+                    <ul class="feature-highlights">
+                        <li>Real-time image processing</li>
+                        <li>Parallel component analysis</li>
+                        <li>Instant results delivery</li>
+                        <li>Batch processing capabilities</li>
+                    </ul>
+                </div>
 
-        <div class="feature-card">
-            <i class="fas fa-network-wired feature-icon"></i>
-            <h3 class="feature-title">Component ID</h3>
-            <p class="feature-desc">Automatically identifies and catalogs cables, switches, ports, racks, and electrical components</p>
-        </div>
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h3 class="feature-title">Smart Analytics</h3>
+                    </div>
+                    <p class="feature-desc">Comprehensive insights with detailed reports, component distributions, and status indicators.</p>
+                    <ul class="feature-highlights">
+                        <li>Cable color distribution analysis</li>
+                        <li>Port status & LED monitoring</li>
+                        <li>Coordinate mapping & positioning</li>
+                        <li>Exportable data formats</li>
+                    </ul>
+                </div>
 
-        <div class="feature-card">
-            <i class="fas fa-download feature-icon"></i>
-            <h3 class="feature-title">Export Ready</h3>
-            <p class="feature-desc">Multiple output formats including JSON coordinates, segmented images, and downloadable ZIP files</p>
-        </div>
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <div class="feature-icon">
+                            <i class="fas fa-download"></i>
+                        </div>
+                        <h3 class="feature-title">Export Ready</h3>
+                    </div>
+                    <p class="feature-desc">Multiple output formats and seamless integration with your existing infrastructure management tools.</p>
+                    <ul class="feature-highlights">
+                        <li>JSON coordinate data</li>
+                        <li>Segmented image outputs</li>
+                        <li>Comprehensive analysis reports</li>
+                        <li>ZIP download packages</li>
+                    </ul>
+                </div>
+            </div>
 
-        <div class="feature-card">
-            <i class="fas fa-palette feature-icon"></i>
-            <h3 class="feature-title">Color Analysis</h3>
-            <p class="feature-desc">Advanced cable color detection and distribution analysis with LED status indicator recognition</p>
-        </div>
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Technical Specifications -->
+                <div class="tech-specs">
+                    <h4 class="specs-title">
+                        <i class="fas fa-cogs"></i>
+                        Technical Specs
+                    </h4>
+                    <div class="spec-item">
+                        <span class="spec-label">Accuracy Rate</span>
+                        <span class="spec-value">99.9%</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Processing Time</span>
+                        <span class="spec-value">&lt;30s</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Max File Size</span>
+                        <span class="spec-value">16MB</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Supported Formats</span>
+                        <span class="spec-value">JPG, PNG, BMP</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Availability</span>
+                        <span class="spec-value">24/7</span>
+                    </div>
+                </div>
 
-        <div class="feature-card">
-            <i class="fas fa-file-image feature-icon"></i>
-            <h3 class="feature-title">Multi-Format</h3>
-            <p class="feature-desc">Supports JPG, PNG, BMP formats up to 16MB with optimized processing for various image qualities</p>
+                <!-- CTA Section -->
+                <div class="cta-section">
+                    <h4 class="cta-title">Ready to Get Started?</h4>
+                    <p style="margin-bottom: 1.5rem; opacity: 0.9;">Experience the power of AI-driven rack analysis</p>
+                    <div class="cta-buttons">
+                        <a href="{{ url_for('analyze') }}" class="btn-cta primary">
+                            <i class="fas fa-rocket me-2"></i>Start Analysis
+                        </a>
+                        <a href="{{ url_for('contact') }}" class="btn-cta secondary">
+                            <i class="fas fa-envelope me-2"></i>Contact Us
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="feature-card">
-            <i class="fas fa-server feature-icon"></i>
-            <h3 class="feature-title">GPU Accelerated</h3>
-            <p class="feature-desc">High-performance inference with GPU acceleration and scalable cloud infrastructure</p>
-        </div>
-
-        <div class="feature-card">
-            <i class="fas fa-map-marked-alt feature-icon"></i>
-            <h3 class="feature-title">Precise Mapping</h3>
-            <p class="feature-desc">Detailed coordinate tracking and spatial analysis for accurate component positioning and layout</p>
-        </div>
-    </div>
-
-    <!-- Floating CTA -->
-    <div class="cta-compact">
-        <a href="{{ url_for('analyze') }}" class="btn btn-primary btn-lg me-2">
-            <i class="fas fa-rocket me-1"></i>Try Now
-        </a>
-        <a href="{{ url_for('contact') }}" class="btn btn-outline-primary btn-lg">
-            <i class="fas fa-envelope me-1"></i>Contact
-        </a>
     </div>
 </div>
 {% endblock %}
