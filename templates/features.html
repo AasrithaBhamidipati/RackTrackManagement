@@ -4,349 +4,231 @@
 
 {% block content %}
 <style>
-.features-page {
-    padding: 2rem 0;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+.features-container {
+    padding: 3rem 0;
+    background: #fff;
 }
 
-.features-hero {
+.features-header {
     text-align: center;
-    margin-bottom: 3rem;
-    padding: 2rem 0;
+    margin-bottom: 4rem;
 }
 
-.features-hero h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
+.features-header h1 {
+    font-size: 3rem;
+    font-weight: 300;
     color: #2c3e50;
     margin-bottom: 1rem;
+    letter-spacing: -1px;
 }
 
-.features-hero p {
-    font-size: 1.1rem;
-    color: #6c757d;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.features-layout {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
+.features-list {
+    display: flex;
+    flex-direction: column;
     gap: 3rem;
-    max-width: 1400px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
-.main-features {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-}
-
-.feature-card {
-    background: white;
-    border-radius: 1rem;
-    padding: 2rem;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
-    border-left: 4px solid #4a90e2;
-}
-
-.feature-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 30px rgba(74, 144, 226, 0.15);
-}
-
-.feature-header {
+.feature-item {
     display: flex;
-    align-items: center;
-    margin-bottom: 1rem;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid #eee;
 }
 
-.feature-icon {
-    font-size: 2rem;
-    color: #4a90e2;
-    margin-right: 1rem;
-    width: 60px;
-    height: 60px;
-    background: rgba(74, 144, 226, 0.1);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.feature-item:last-child {
+    border-bottom: none;
 }
 
-.feature-title {
-    font-size: 1.3rem;
+.feature-number {
+    font-size: 4rem;
+    font-weight: 100;
+    color: #ddd;
+    line-height: 1;
+    min-width: 80px;
+}
+
+.feature-content {
+    flex: 1;
+}
+
+.feature-name {
+    font-size: 1.5rem;
     font-weight: 600;
     color: #2c3e50;
-    margin: 0;
+    margin-bottom: 0.5rem;
 }
 
-.feature-desc {
+.feature-description {
+    font-size: 1rem;
     color: #6c757d;
     line-height: 1.6;
     margin-bottom: 1rem;
 }
 
-.feature-highlights {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.feature-highlights li {
-    padding: 0.25rem 0;
-    color: #495057;
-    font-size: 0.9rem;
-}
-
-.feature-highlights li:before {
-    content: "✓";
-    color: #28a745;
-    font-weight: bold;
-    margin-right: 0.5rem;
-}
-
-.sidebar {
+.feature-tags {
     display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
 }
 
-.tech-specs {
-    background: white;
+.feature-tag {
+    background: #f8f9fa;
+    color: #495057;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.85rem;
+    border: 1px solid #e9ecef;
+}
+
+.tech-summary {
+    background: #f8f9fa;
     border-radius: 1rem;
     padding: 2rem;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-}
-
-.specs-title {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #2c3e50;
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-}
-
-.specs-title i {
-    margin-right: 0.5rem;
-    color: #4a90e2;
-}
-
-.spec-item {
-    display: flex;
-    justify-content: space-between;
-    padding: 0.75rem 0;
-    border-bottom: 1px solid #e9ecef;
-}
-
-.spec-item:last-child {
-    border-bottom: none;
-}
-
-.spec-label {
-    font-weight: 500;
-    color: #495057;
-}
-
-.spec-value {
-    color: #4a90e2;
-    font-weight: 600;
-}
-
-.cta-section {
-    background: linear-gradient(135deg, #4a90e2, #87ceeb);
-    border-radius: 1rem;
-    padding: 2rem;
+    margin-top: 4rem;
     text-align: center;
-    color: white;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.cta-title {
+.tech-summary h3 {
     font-size: 1.3rem;
     font-weight: 600;
+    color: #2c3e50;
     margin-bottom: 1rem;
 }
 
-.cta-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
 }
 
-.btn-cta {
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.3s ease;
+.tech-stat {
+    text-align: center;
 }
 
-.btn-cta.primary {
-    background: white;
+.tech-value {
+    font-size: 1.5rem;
+    font-weight: 700;
     color: #4a90e2;
+    display: block;
 }
 
-.btn-cta.secondary {
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-}
-
-@media (max-width: 992px) {
-    .features-layout {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    .main-features {
-        grid-template-columns: 1fr;
-    }
-    
-    .sidebar {
-        grid-template-columns: repeat(2, 1fr);
-        flex-direction: row;
-    }
+.tech-label {
+    font-size: 0.85rem;
+    color: #6c757d;
+    margin-top: 0.25rem;
 }
 
 @media (max-width: 768px) {
-    .sidebar {
-        grid-template-columns: 1fr;
+    .features-header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .feature-item {
         flex-direction: column;
+        gap: 1rem;
     }
     
-    .features-hero h1 {
-        font-size: 2rem;
+    .feature-number {
+        font-size: 3rem;
+        min-width: auto;
     }
     
-    .feature-card {
-        padding: 1.5rem;
+    .tech-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 }
 </style>
 
-<div class="features-page">
+<div class="features-container">
     <div class="container">
-        <!-- Hero Section -->
-        <div class="features-hero">
-            <h1>Powerful Features</h1>
-            <p>Discover the cutting-edge AI capabilities that make RackTrack the leading solution for rack component analysis</p>
+        <!-- Header -->
+        <div class="features-header">
+            <h1>Features</h1>
         </div>
 
-        <!-- Main Layout -->
-        <div class="features-layout">
-            <!-- Main Features -->
-            <div class="main-features">
-                <div class="feature-card">
-                    <div class="feature-header">
-                        <div class="feature-icon">
-                            <i class="fas fa-brain"></i>
-                        </div>
-                        <h3 class="feature-title">AI Detection</h3>
+        <!-- Features List -->
+        <div class="features-list">
+            <div class="feature-item">
+                <div class="feature-number">01</div>
+                <div class="feature-content">
+                    <h3 class="feature-name">AI Component Detection</h3>
+                    <p class="feature-description">Advanced YOLOv8 neural networks analyze rack images to identify and classify components with precision. Our models are specifically trained on data center equipment for optimal accuracy.</p>
+                    <div class="feature-tags">
+                        <span class="feature-tag">Cable Detection</span>
+                        <span class="feature-tag">Switch Recognition</span>
+                        <span class="feature-tag">Port Analysis</span>
+                        <span class="feature-tag">Color Classification</span>
                     </div>
-                    <p class="feature-desc">Advanced YOLOv8 neural networks trained specifically for rack component recognition with industry-leading accuracy.</p>
-                    <ul class="feature-highlights">
-                        <li>Cable identification & color analysis</li>
-                        <li>Switch & port detection</li>
-                        <li>Rack structure analysis</li>
-                        <li>Electrical component recognition</li>
-                    </ul>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-header">
-                        <div class="feature-icon">
-                            <i class="fas fa-tachometer-alt"></i>
-                        </div>
-                        <h3 class="feature-title">Lightning Speed</h3>
-                    </div>
-                    <p class="feature-desc">Transform hours of manual inventory work into seconds with our optimized processing pipeline.</p>
-                    <ul class="feature-highlights">
-                        <li>Real-time image processing</li>
-                        <li>Parallel component analysis</li>
-                        <li>Instant results delivery</li>
-                        <li>Batch processing capabilities</li>
-                    </ul>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-header">
-                        <div class="feature-icon">
-                            <i class="fas fa-chart-bar"></i>
-                        </div>
-                        <h3 class="feature-title">Smart Analytics</h3>
-                    </div>
-                    <p class="feature-desc">Comprehensive insights with detailed reports, component distributions, and status indicators.</p>
-                    <ul class="feature-highlights">
-                        <li>Cable color distribution analysis</li>
-                        <li>Port status & LED monitoring</li>
-                        <li>Coordinate mapping & positioning</li>
-                        <li>Exportable data formats</li>
-                    </ul>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-header">
-                        <div class="feature-icon">
-                            <i class="fas fa-download"></i>
-                        </div>
-                        <h3 class="feature-title">Export Ready</h3>
-                    </div>
-                    <p class="feature-desc">Multiple output formats and seamless integration with your existing infrastructure management tools.</p>
-                    <ul class="feature-highlights">
-                        <li>JSON coordinate data</li>
-                        <li>Segmented image outputs</li>
-                        <li>Comprehensive analysis reports</li>
-                        <li>ZIP download packages</li>
-                    </ul>
                 </div>
             </div>
 
-            <!-- Sidebar -->
-            <div class="sidebar">
-                <!-- Technical Specifications -->
-                <div class="tech-specs">
-                    <h4 class="specs-title">
-                        <i class="fas fa-cogs"></i>
-                        Technical Specs
-                    </h4>
-                    <div class="spec-item">
-                        <span class="spec-label">Accuracy Rate</span>
-                        <span class="spec-value">99.9%</span>
-                    </div>
-                    <div class="spec-item">
-                        <span class="spec-label">Processing Time</span>
-                        <span class="spec-value">&lt;30s</span>
-                    </div>
-                    <div class="spec-item">
-                        <span class="spec-label">Max File Size</span>
-                        <span class="spec-value">16MB</span>
-                    </div>
-                    <div class="spec-item">
-                        <span class="spec-label">Supported Formats</span>
-                        <span class="spec-value">JPG, PNG, BMP</span>
-                    </div>
-                    <div class="spec-item">
-                        <span class="spec-label">Availability</span>
-                        <span class="spec-value">24/7</span>
+            <div class="feature-item">
+                <div class="feature-number">02</div>
+                <div class="feature-content">
+                    <h3 class="feature-name">Real-Time Processing</h3>
+                    <p class="feature-description">Process complete rack images in under 30 seconds with our optimized inference pipeline. GPU acceleration ensures consistent performance regardless of image complexity.</p>
+                    <div class="feature-tags">
+                        <span class="feature-tag">GPU Accelerated</span>
+                        <span class="feature-tag">Parallel Processing</span>
+                        <span class="feature-tag">Instant Results</span>
+                        <span class="feature-tag">Batch Support</span>
                     </div>
                 </div>
+            </div>
 
-                <!-- CTA Section -->
-                <div class="cta-section">
-                    <h4 class="cta-title">Ready to Get Started?</h4>
-                    <p style="margin-bottom: 1.5rem; opacity: 0.9;">Experience the power of AI-driven rack analysis</p>
-                    <div class="cta-buttons">
-                        <a href="{{ url_for('analyze') }}" class="btn-cta primary">
-                            <i class="fas fa-rocket me-2"></i>Start Analysis
-                        </a>
-                        <a href="{{ url_for('contact') }}" class="btn-cta secondary">
-                            <i class="fas fa-envelope me-2"></i>Contact Us
-                        </a>
+            <div class="feature-item">
+                <div class="feature-number">03</div>
+                <div class="feature-content">
+                    <h3 class="feature-name">Comprehensive Analytics</h3>
+                    <p class="feature-description">Generate detailed reports with component coordinates, color distributions, and connection mappings. Export data in multiple formats for integration with existing systems.</p>
+                    <div class="feature-tags">
+                        <span class="feature-tag">JSON Export</span>
+                        <span class="feature-tag">Coordinate Mapping</span>
+                        <span class="feature-tag">Color Analysis</span>
+                        <span class="feature-tag">Status Reporting</span>
                     </div>
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-number">04</div>
+                <div class="feature-content">
+                    <h3 class="feature-name">Multi-Format Support</h3>
+                    <p class="feature-description">Upload images in JPG, PNG, or BMP formats up to 16MB. Optimized processing handles various image qualities and resolutions for consistent results across different capture devices.</p>
+                    <div class="feature-tags">
+                        <span class="feature-tag">JPG Support</span>
+                        <span class="feature-tag">PNG Support</span>
+                        <span class="feature-tag">BMP Support</span>
+                        <span class="feature-tag">16MB Limit</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technical Summary -->
+        <div class="tech-summary">
+            <h3>Technical Specifications</h3>
+            <p>Built for enterprise-scale data center management with industry-leading performance metrics.</p>
+            <div class="tech-grid">
+                <div class="tech-stat">
+                    <span class="tech-value">99.9%</span>
+                    <div class="tech-label">Detection Accuracy</div>
+                </div>
+                <div class="tech-stat">
+                    <span class="tech-value">&lt;30s</span>
+                    <div class="tech-label">Processing Time</div>
+                </div>
+                <div class="tech-stat">
+                    <span class="tech-value">24/7</span>
+                    <div class="tech-label">Availability</div>
                 </div>
             </div>
         </div>
