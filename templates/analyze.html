@@ -3,89 +3,213 @@
 {% block title %}Analyze Rack Components - RackTrack{% endblock %}
 
 {% block content %}
-<div class="row justify-content-center">
-    <div class="col-lg-8">
-        <div class="text-center mb-5">
-            <h1 class="display-4 mb-3">
-                <i class="fas fa-server text-primary me-3"></i>
-                AI Rack Analysis
-            </h1>
-            <p class="lead text-muted">
-                Upload an image to automatically detect and analyze rack components using advanced AI models.
-            </p>
-        </div>
-
-        <div class="card shadow-lg">
-            <div class="card-header bg-primary text-white">
-                <h5 class="card-title mb-0">
-                    <i class="fas fa-camera me-2"></i>
-                    Upload Rack Image for Analysis
-                </h5>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <!-- Header Section -->
+            <div class="text-center mb-5">
+                <h1 style="font-size: 2.5rem; font-weight: 800; color: var(--text-primary); margin-bottom: 1rem;">
+                    RackTrack
+                </h1>
+                <p style="font-size: 1.125rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto;">
+                    Upload network equipment images for component analysis and visualization
+                </p>
             </div>
-            <div class="card-body">
+
+            <!-- Modern Upload Card -->
+            <div class="upload-card">
                 <form id="uploadForm" action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data">
-                    <div class="mb-4">
-                        <label for="fileInput" class="form-label">Select Image File</label>
-                        <input type="file" class="form-control form-control-lg" id="fileInput" name="file" accept="image/*" required>
-                        <div class="form-text">
-                            Supported formats: JPG, JPEG, PNG, BMP (Max size: 16MB)
+                    <!-- Drag & Drop Zone -->
+                    <div class="upload-zone" id="uploadZone">
+                        <div class="upload-icon">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                        </div>
+                        <div class="upload-text">
+                            <h4>Drag & Drop image here or click to browse</h4>
+                            <p>Supported formats: JPEG, PNG, WebP</p>
+                        </div>
+                        <input type="file" id="fileInput" name="file" accept="image/*" required style="display: none;">
+                    </div>
+
+                    <!-- Preview Area -->
+                    <div id="imagePreview" class="image-preview" style="display: none;">
+                        <div class="preview-container">
+                            <img id="previewImg" alt="Preview">
+                            <button type="button" class="remove-image" id="removeImage">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div class="image-info">
+                            <span id="fileName"></span>
+                            <span id="fileSize"></span>
                         </div>
                     </div>
-                    
-                    <div id="imagePreview" class="mb-4" style="display: none;">
-                        <label class="form-label">Preview:</label>
-                        <div class="text-center">
-                            <img id="previewImg" class="img-fluid rounded border" style="max-height: 300px;">
-                        </div>
-                    </div>
-                    
-                    <div class="d-grid">
-                        <button type="submit" class="btn btn-primary btn-lg" id="uploadBtn">
-                            <i class="fas fa-cogs me-2"></i>
-                            Process Image
+
+                    <!-- Action Buttons -->
+                    <div class="upload-actions">
+                        <button type="submit" class="btn btn-primary-gradient" id="uploadBtn">
+                            <i class="fas fa-cloud-upload-alt me-2"></i>
+                            Upload Image
+                        </button>
+                        <button type="button" class="btn btn-outline-primary" id="cameraBtn">
+                            <i class="fas fa-camera me-2"></i>
+                            Use Camera
                         </button>
                     </div>
                 </form>
-                
-                <div id="progressContainer" class="mt-4" style="display: none;">
-                    <div class="text-center mb-3">
-                        <div class="spinner-border text-primary" role="status">
-                            <span class="visually-hidden">Processing...</span>
-                        </div>
-                    </div>
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%">
-                            Processing your image...
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <!-- Features Info -->
-        <div class="row mt-5">
-            <div class="col-md-4">
-                <div class="text-center">
-                    <i class="fas fa-eye display-4 text-primary mb-3"></i>
+                <!-- Progress Section -->
+                <div id="progressContainer" class="progress-section" style="display: none;">
+                    <div class="progress-content">
+                        <div class="spinner">
+                            <div class="double-bounce1"></div>
+                            <div class="double-bounce2"></div>
+                        </div>
+                        <h4>Processing your image...</h4>
+                        <p>Our AI is analyzing the rack components</p>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-modern">
+                            <div class="progress-fill"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features Info -->
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
                     <h5>Component Detection</h5>
-                    <p class="text-muted small">Automatically identifies cables, switches, ports, racks, and fuses</p>
+                    <p>Automatically identifies cables, switches, ports, racks, and fuses</p>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="text-center">
-                    <i class="fas fa-download display-4 text-primary mb-3"></i>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-download"></i>
+                    </div>
                     <h5>Detailed Reports</h5>
-                    <p class="text-muted small">Get comprehensive analysis with coordinates and metadata</p>
+                    <p>Get comprehensive analysis with coordinates and metadata</p>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="text-center">
-                    <i class="fas fa-clock display-4 text-primary mb-3"></i>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
                     <h5>Instant Results</h5>
-                    <p class="text-muted small">Processing typically completes in under 30 seconds</p>
+                    <p>Processing typically completes in under 30 seconds</p>
                 </div>
             </div>
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const uploadZone = document.getElementById('uploadZone');
+    const fileInput = document.getElementById('fileInput');
+    const imagePreview = document.getElementById('imagePreview');
+    const previewImg = document.getElementById('previewImg');
+    const fileName = document.getElementById('fileName');
+    const fileSize = document.getElementById('fileSize');
+    const removeImage = document.getElementById('removeImage');
+    const uploadForm = document.getElementById('uploadForm');
+    const uploadBtn = document.getElementById('uploadBtn');
+    const progressContainer = document.getElementById('progressContainer');
+
+    // Click to browse
+    uploadZone.addEventListener('click', () => fileInput.click());
+
+    // Drag and drop functionality
+    uploadZone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        uploadZone.classList.add('dragover');
+    });
+
+    uploadZone.addEventListener('dragleave', () => {
+        uploadZone.classList.remove('dragover');
+    });
+
+    uploadZone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        uploadZone.classList.remove('dragover');
+        
+        const files = e.dataTransfer.files;
+        if (files.length > 0) {
+            handleFileSelect(files[0]);
+        }
+    });
+
+    // File input change
+    fileInput.addEventListener('change', (e) => {
+        if (e.target.files.length > 0) {
+            handleFileSelect(e.target.files[0]);
+        }
+    });
+
+    // Remove image
+    removeImage.addEventListener('click', () => {
+        fileInput.value = '';
+        imagePreview.style.display = 'none';
+        uploadZone.style.display = 'flex';
+        uploadBtn.innerHTML = '<i class="fas fa-cloud-upload-alt me-2"></i>Upload Image';
+    });
+
+    // Handle file selection
+    function handleFileSelect(file) {
+        // Validate file type
+        if (!file.type.startsWith('image/')) {
+            alert('Please select a valid image file.');
+            return;
+        }
+
+        // Validate file size (16MB)
+        if (file.size > 16 * 1024 * 1024) {
+            alert('File size must be less than 16MB.');
+            return;
+        }
+
+        // Show preview
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            previewImg.src = e.target.result;
+            fileName.textContent = file.name;
+            fileSize.textContent = formatFileSize(file.size);
+            
+            uploadZone.style.display = 'none';
+            imagePreview.style.display = 'block';
+            uploadBtn.innerHTML = '<i class="fas fa-cogs me-2"></i>Process Image';
+        };
+        reader.readAsDataURL(file);
+    }
+
+    // Format file size
+    function formatFileSize(bytes) {
+        if (bytes === 0) return '0 Bytes';
+        const k = 1024;
+        const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
+        return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+    }
+
+    // Form submission
+    uploadForm.addEventListener('submit', (e) => {
+        if (!fileInput.files.length) {
+            e.preventDefault();
+            alert('Please select an image first.');
+            return;
+        }
+
+        // Show progress
+        progressContainer.style.display = 'block';
+        uploadBtn.disabled = true;
+        
+        // Simulate progress animation
+        const progressFill = document.querySelector('.progress-fill');
+        progressFill.style.width = '100%';
+    });
+});
+</script>
 {% endblock %}
