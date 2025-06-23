@@ -58,57 +58,118 @@
     </div>
 </section>
 
-<!-- Modern Features Section -->
-<section style="padding: 80px 0; background: var(--bg-primary);">
-    <div class="container">
-        <div class="text-center mb-5">
-            <h2 style="color: var(--text-primary); margin-bottom: 1.5rem;">Why Choose RackTrack?</h2>
-            <p class="lead" style="max-width: 650px; margin: 0 auto;">Powerful AI-driven features designed for modern data center operations and infrastructure management.</p>
+<!-- Creative Advertisement-Style Features Section -->
+<section class="features-advertisement" style="padding: 100px 0; position: relative; overflow: hidden;">
+    <div class="advertisement-bg"></div>
+    <div class="container" style="position: relative; z-index: 2;">
+        <!-- Hero Feature Banner -->
+        <div class="feature-hero-banner">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <div class="feature-content">
+                        <div class="feature-badge">🚀 REVOLUTIONARY AI TECHNOLOGY</div>
+                        <h2 class="feature-headline">
+                            <span class="highlight-text">99.9% Accuracy</span><br>
+                            In Rack Component Detection
+                        </h2>
+                        <p class="feature-description">
+                            Our cutting-edge YOLO v8 neural networks don't just see your rack components—they understand them. 
+                            Experience the future of data center management today.
+                        </p>
+                        <div class="feature-stats">
+                            <div class="stat-item">
+                                <div class="stat-number gradient-text">30s</div>
+                                <div class="stat-label">Processing Time</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number gradient-text">10,000+</div>
+                                <div class="stat-label">Components Analyzed</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number gradient-text">24/7</div>
+                                <div class="stat-label">Monitoring</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="feature-visual">
+                        <div class="tech-showcase">
+                            <div class="tech-item active">
+                                <div class="tech-icon">🧠</div>
+                                <div>
+                                    <div class="tech-name">AI Detection</div>
+                                    <div class="tech-power">YOLO v8</div>
+                                </div>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-icon">⚡</div>
+                                <div>
+                                    <div class="tech-name">Real-Time</div>
+                                    <div class="tech-power">GPU Boost</div>
+                                </div>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-icon">📊</div>
+                                <div>
+                                    <div class="tech-name">Analytics</div>
+                                    <div class="tech-power">Deep Insights</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="row g-4">
-            <div class="col-lg-4 col-md-6">
-                <div class="card-modern h-100 interactive-card depth-shadow">
-                    <div class="p-4">
-                        <div class="feature-icon-gradient">
-                            <i class="fas fa-brain text-white"></i>
-                        </div>
-                        <h4 style="color: var(--text-primary); margin-bottom: 1.25rem;">AI-Powered Detection</h4>
-                        <p style="margin-bottom: 1.75rem;">Advanced neural networks automatically identify and classify rack components with 99.9% accuracy using state-of-the-art computer vision.</p>
-                        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                            <span class="tech-badge">YOLO v8</span>
-                            <span class="tech-badge">Deep Learning</span>
-                        </div>
-                    </div>
+
+        <!-- Power Features Grid -->
+        <div class="power-features-grid">
+            <div class="power-feature spotlight">
+                <div class="power-icon">
+                    <div class="icon-glow"></div>
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h3>Lightning Speed</h3>
+                <p>Process thousands of rack components in seconds with our optimized AI pipeline</p>
+                <div class="feature-highlight">30x Faster</div>
+            </div>
+            
+            <div class="power-feature">
+                <div class="power-icon">
+                    <div class="icon-glow"></div>
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Enterprise Security</h3>
+                <p>Bank-level encryption and secure processing for your sensitive infrastructure data</p>
+                <div class="feature-highlight">256-bit SSL</div>
+            </div>
+            
+            <div class="power-feature">
+                <div class="power-icon">
+                    <div class="icon-glow"></div>
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <h3>Smart Integration</h3>
+                <p>Seamlessly connects with your existing DCIM and monitoring systems</p>
+                <div class="feature-highlight">API Ready</div>
+            </div>
+        </div>
+
+        <!-- Call to Action Banner -->
+        <div class="cta-advertisement">
+            <div class="cta-content">
+                <div class="cta-badge">⭐ LIMITED TIME OFFER</div>
+                <h3>Transform Your Data Center Today</h3>
+                <p>Join thousands of IT professionals already using RackTrack to revolutionize their infrastructure management</p>
+                <div class="cta-buttons">
+                    <a href="{{ url_for('analyze') }}" class="btn-cta primary">Start Free Analysis</a>
+                    <a href="{{ url_for('about') }}" class="btn-cta secondary">Learn More</a>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="card-modern h-100 interactive-card depth-shadow">
-                    <div class="p-4">
-                        <div class="feature-icon-gradient feature-icon-accent">
-                            <i class="fas fa-bolt text-white"></i>
-                        </div>
-                        <h4 style="color: var(--text-primary); margin-bottom: 1.25rem;">Lightning Fast Processing</h4>
-                        <p style="margin-bottom: 1.75rem;">Process complex rack images in under 30 seconds with real-time analysis and instant results delivery.</p>
-                        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                            <span class="tech-badge tech-badge-accent">Real-time</span>
-                            <span class="tech-badge tech-badge-accent">GPU Accelerated</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="card-modern h-100 interactive-card depth-shadow">
-                    <div class="p-4">
-                        <div class="feature-icon-gradient feature-icon-success">
-                            <i class="fas fa-chart-line text-white"></i>
-                        </div>
-                        <h4 style="color: var(--text-primary); margin-bottom: 1.25rem;">Comprehensive Analytics</h4>
-                        <p style="margin-bottom: 1.75rem;">Detailed reports with cable distributions, port status, LED indicators, and precise coordinate mapping.</p>
-                        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                            <span class="tech-badge tech-badge-success">JSON Export</span>
-                            <span class="tech-badge tech-badge-success">Coordinates</span>
-                        </div>
-                    </div>
+            <div class="cta-visual">
+                <div class="success-indicator">
+                    <div class="indicator-ring"></div>
+                    <i class="fas fa-check"></i>
                 </div>
             </div>
         </div>
