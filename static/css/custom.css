@@ -44,12 +44,12 @@ body {
     color: var(--text-primary);
     display: flex;
     flex-direction: column;
-    line-height: 1.65;
+    line-height: 1.6;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 15px;
     padding-top: 60px; /* Account for enhanced header height */
     width: 100%;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.005em;
 }
 
 .font-semibold {
@@ -126,10 +126,10 @@ body {
 }
 
 .brand-name {
-    font-size: 1.75rem;
-    font-weight: 800;
+    font-size: 1.5rem;
+    font-weight: 700;
     color: var(--text-primary);
-    letter-spacing: -0.04em;
+    letter-spacing: -0.025em;
 }
 
 /* Header Right Container */
@@ -150,12 +150,12 @@ body {
     color: var(--text-secondary);
     text-decoration: none;
     font-weight: 500;
-    font-size: 1rem;
-    padding: 0.75rem 1.25rem;
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
     position: relative;
     transition: all 0.3s ease;
-    border-radius: 12px;
-    letter-spacing: -0.02em;
+    border-radius: 8px;
+    letter-spacing: -0.01em;
 }
 
 .nav-item:hover {
@@ -189,16 +189,16 @@ body {
 .btn-analyze {
     background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
     color: white;
-    padding: 0.875rem 2rem;
-    border-radius: 30px;
+    padding: 0.7rem 1.5rem;
+    border-radius: 25px;
     text-decoration: none;
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 0.9rem;
     transition: all 0.3s ease;
     display: inline-block;
     box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
     border: none;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.005em;
 }
 
 .btn-analyze:hover {
@@ -961,22 +961,22 @@ footer p {
 }
 
 .hero-title {
-    font-size: 4rem;
-    font-weight: 900;
-    line-height: 1.05;
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.1;
     color: var(--text-primary);
-    margin-bottom: 2rem;
-    letter-spacing: -0.04em;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.03em;
     font-feature-settings: 'ss01', 'cv01';
 }
 
 .hero-subtitle {
-    font-size: 1.375rem;
+    font-size: 1.1rem;
     color: var(--text-secondary);
-    margin-bottom: 2.5rem;
-    line-height: 1.65;
-    font-weight: 450;
-    letter-spacing: -0.01em;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    font-weight: 400;
+    letter-spacing: -0.005em;
     max-width: 90%;
 }
 
@@ -998,18 +998,18 @@ footer p {
 }
 
 .stat-number {
-    font-size: 2.25rem;
-    font-weight: 800;
+    font-size: 1.75rem;
+    font-weight: 700;
     color: var(--primary-color);
-    margin-bottom: 0.5rem;
-    letter-spacing: -0.03em;
+    margin-bottom: 0.25rem;
+    letter-spacing: -0.02em;
 }
 
 .stat-label {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--text-muted);
     font-weight: 500;
-    letter-spacing: 0.01em;
+    letter-spacing: 0.005em;
 }
 
 .hero-card {
@@ -1069,46 +1069,46 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-size: 3.5rem;
-    font-weight: 900;
-    line-height: 1.1;
-    letter-spacing: -0.04em;
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
 }
 
 h2 {
-    font-size: 2.75rem;
-    font-weight: 800;
-    line-height: 1.15;
-    letter-spacing: -0.03em;
-}
-
-h3 {
     font-size: 2rem;
     font-weight: 700;
     line-height: 1.25;
     letter-spacing: -0.02em;
 }
 
-h4 {
+h3 {
     font-size: 1.5rem;
-    font-weight: 700;
-    line-height: 1.35;
+    font-weight: 600;
+    line-height: 1.3;
     letter-spacing: -0.015em;
 }
 
+h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+}
+
 p {
-    font-size: 1.125rem;
-    line-height: 1.7;
+    font-size: 1rem;
+    line-height: 1.6;
     color: var(--text-secondary);
-    margin-bottom: 1.25rem;
-    letter-spacing: -0.005em;
+    margin-bottom: 1rem;
+    letter-spacing: -0.002em;
 }
 
 .lead {
-    font-size: 1.375rem;
-    font-weight: 450;
-    line-height: 1.65;
-    letter-spacing: -0.01em;
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: -0.005em;
 }
 
 /* Mobile Responsiveness */
@@ -1118,31 +1118,31 @@ p {
     }
     
     .hero-title {
-        font-size: 2.75rem;
+        font-size: 2.25rem;
     }
     
     .hero-subtitle {
-        font-size: 1.25rem;
+        font-size: 1rem;
     }
     
     h1 {
-        font-size: 2.5rem;
-    }
-    
-    h2 {
         font-size: 2rem;
     }
     
-    h3 {
-        font-size: 1.5rem;
+    h2 {
+        font-size: 1.75rem;
     }
     
-    h4 {
+    h3 {
         font-size: 1.25rem;
     }
     
+    h4 {
+        font-size: 1.125rem;
+    }
+    
     p {
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
     
     .hero-cta {
