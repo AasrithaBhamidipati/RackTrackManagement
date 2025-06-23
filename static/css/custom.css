@@ -1018,6 +1018,24 @@ footer p {
     box-shadow: 0 30px 70px -15px rgba(37, 99, 235, 0.2);
 }
 
+.hero-image-container {
+    padding: 1rem;
+}
+
+.hero-main-image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 1.5rem;
+    box-shadow: 0 15px 40px -10px rgba(37, 99, 235, 0.2);
+    transition: all 0.3s ease;
+}
+
+.hero-main-image:hover {
+    transform: scale(1.02);
+    box-shadow: 0 20px 50px -10px rgba(37, 99, 235, 0.3);
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
     .hero-title {
