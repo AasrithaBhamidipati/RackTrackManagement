@@ -174,13 +174,13 @@ document.addEventListener('DOMContentLoaded', function() {
         // Show preview
         const reader = new FileReader();
         reader.onload = (e) => {
-            previewImg.src = e.target.result;
-            fileName.textContent = file.name;
-            fileSize.textContent = formatFileSize(file.size);
+            if (previewImg) previewImg.src = e.target.result;
+            if (fileName) fileName.textContent = file.name;
+            if (fileSize) fileSize.textContent = formatFileSize(file.size);
             
-            uploadZone.style.display = 'none';
-            imagePreview.style.display = 'block';
-            uploadBtn.innerHTML = '<i class="fas fa-cogs me-2"></i>Process Image';
+            if (uploadZone) uploadZone.style.display = 'none';
+            if (imagePreview) imagePreview.style.display = 'block';
+            if (uploadBtn) uploadBtn.innerHTML = '<i class="fas fa-cogs me-2"></i>Process Image';
         };
         reader.readAsDataURL(file);
     }

@@ -1,5 +1,5 @@
 {
-  "static/segmented_outputs/Rack/01e67da43417395e2dc0c5427d6148fd_1750657964_Rack_0.jpg": {
+  "static/segmented_outputs/Rack/1_1750664485_Rack_0.jpg": {
     "x1": 50,
     "y1": 50,
     "x2": 200,
@@ -9,7 +9,7 @@
     "confidence": 0.85,
     "class_name": "Rack"
   },
-  "static/segmented_outputs/Switch/01e67da43417395e2dc0c5427d6148fd_1750657964_Switch_1.jpg": {
+  "static/segmented_outputs/Switch/1_1750664485_Switch_1.jpg": {
     "x1": 220,
     "y1": 100,
     "x2": 400,
@@ -19,7 +19,7 @@
     "confidence": 0.92,
     "class_name": "Switch"
   },
-  "static/segmented_outputs/Cable/01e67da43417395e2dc0c5427d6148fd_1750657964_Cable_2.jpg": {
+  "static/segmented_outputs/Cable/1_1750664485_Cable_2.jpg": {
     "x1": 100,
     "y1": 320,
     "x2": 350,
@@ -29,7 +29,7 @@
     "confidence": 0.78,
     "class_name": "Cable"
   },
-  "static/segmented_outputs/Port/01e67da43417395e2dc0c5427d6148fd_1750657964_Port_3.jpg": {
+  "static/segmented_outputs/Port/1_1750664485_Port_3.jpg": {
     "x1": 250,
     "y1": 120,
     "x2": 280,

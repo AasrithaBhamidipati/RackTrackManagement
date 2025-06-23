@@ -1,21 +1,28 @@
-/* Custom styles for RackTrack - Modern SaaS Design */
+/* Custom styles for RackTrack - Clean White & Blue Theme */
 
 :root {
-    --primary-color: #6366f1;
-    --primary-dark: #4f46e5;
-    --primary-light: #8b5cf6;
-    --secondary-color: #f1f5f9;
-    --accent-color: #06b6d4;
-    --text-primary: #0f172a;
+    --primary-color: #2563eb;
+    --primary-dark: #1d4ed8;
+    --primary-light: #3b82f6;
+    --primary-lighter: #93c5fd;
+    --secondary-color: #f8fafc;
+    --accent-color: #0ea5e9;
+    --success-color: #10b981;
+    --warning-color: #f59e0b;
+    --danger-color: #ef4444;
+    --text-primary: #1e293b;
     --text-secondary: #64748b;
     --text-muted: #94a3b8;
     --bg-primary: #ffffff;
     --bg-secondary: #f8fafc;
+    --bg-light: #f1f5f9;
     --border-color: #e2e8f0;
+    --border-light: #f1f5f9;
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
     --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    --shadow-blue: 0 10px 25px -5px rgb(37 99 235 / 0.2), 0 4px 6px -2px rgb(37 99 235 / 0.05);
 }
 
 body {
@@ -113,7 +120,7 @@ body {
 
 .card-modern:hover {
     transform: translateY(-8px);
-    box-shadow: var(--shadow-xl);
+    box-shadow: var(--shadow-blue);
 }
 
 .card-img-top {
@@ -177,14 +184,20 @@ body {
     font-weight: 600;
     padding: 1rem 2.5rem;
     border-radius: 1rem;
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-blue);
     transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .btn-primary-gradient:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-xl);
     background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+    color: white;
+    text-decoration: none;
 }
 
 .btn-secondary {
@@ -278,7 +291,7 @@ body {
 /* Modern Hero Section */
 .hero-section {
     padding: 120px 0 80px;
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-light) 100%);
     position: relative;
     overflow: hidden;
 }
@@ -290,7 +303,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.05) 0%, transparent 70%);
+    background: radial-gradient(circle at 50% 50%, rgba(37, 99, 235, 0.03) 0%, transparent 70%);
     pointer-events: none;
 }
 
@@ -378,6 +391,88 @@ body {
     right: 0;
     height: 4px;
     background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+}
+
+.hero-visual-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    box-shadow: var(--shadow-blue);
+    font-size: 2.5rem;
+}
+
+.hero-stats-mini {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.stat-mini {
+    text-align: center;
+    flex: 1;
+}
+
+.stat-mini-number {
+    font-weight: 700;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.stat-mini-label {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.feature-icon-gradient {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow-blue);
+    font-size: 1.5rem;
+}
+
+.feature-icon-accent {
+    background: linear-gradient(135deg, var(--accent-color), var(--primary-lighter));
+}
+
+.feature-icon-success {
+    background: linear-gradient(135deg, var(--success-color), var(--accent-color));
+}
+
+.tech-badge {
+    background: var(--bg-light);
+    color: var(--primary-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: 1px solid var(--border-light);
+    display: inline-block;
+    margin: 0.125rem;
+}
+
+.tech-badge-accent {
+    color: var(--accent-color);
+    background: rgba(14, 165, 233, 0.1);
+    border-color: rgba(14, 165, 233, 0.2);
+}
+
+.tech-badge-success {
+    color: var(--success-color);
+    background: rgba(16, 185, 129, 0.1);
+    border-color: rgba(16, 185, 129, 0.2);
 }
 
 /* Feature Cards */
@@ -503,8 +598,9 @@ footer p {
 .upload-zone:hover,
 .upload-zone.dragover {
     border-color: var(--primary-color);
-    background: rgba(99, 102, 241, 0.05);
+    background: rgba(37, 99, 235, 0.05);
     transform: translateY(-2px);
+    box-shadow: var(--shadow-blue);
 }
 
 .upload-icon {
@@ -686,7 +782,7 @@ footer p {
 
 .feature-item:hover {
     transform: translateY(-4px);
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-blue);
 }
 
 .feature-icon {
