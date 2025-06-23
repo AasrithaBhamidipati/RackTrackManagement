@@ -3,160 +3,214 @@
 {% block title %}Features - RackTrack{% endblock %}
 
 {% block content %}
-<div class="container">
-    <!-- Header -->
-    <div class="text-center mb-5">
-        <h1 class="display-4 fw-bold">Powerful Features</h1>
-        <p class="lead text-muted">Discover what makes RackTrack the leading AI-powered rack analysis platform</p>
+<style>
+.compact-features {
+    height: 100vh;
+    overflow: hidden;
+    padding: 1rem 0;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    height: calc(100vh - 200px);
+}
+
+.feature-card {
+    background: linear-gradient(135deg, rgba(74, 144, 226, 0.05) 0%, rgba(135, 206, 235, 0.1) 100%);
+    border: 1px solid rgba(74, 144, 226, 0.2);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(74, 144, 226, 0.15);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    color: #4a90e2;
+    margin-bottom: 1rem;
+}
+
+.feature-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 0.8rem;
+}
+
+.feature-desc {
+    font-size: 0.9rem;
+    color: #6c757d;
+    line-height: 1.4;
+}
+
+.stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.stat-box {
+    background: linear-gradient(135deg, #4a90e2, #87ceeb);
+    color: white;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    opacity: 0.9;
+}
+
+.header-compact {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.cta-compact {
+    position: fixed;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+
+@media (max-width: 768px) {
+    .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+    
+    .stats-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .feature-card {
+        padding: 1rem;
+    }
+    
+    .feature-icon {
+        font-size: 2.5rem;
+    }
+    
+    .feature-title {
+        font-size: 1rem;
+    }
+    
+    .feature-desc {
+        font-size: 0.8rem;
+    }
+}
+</style>
+
+<div class="container-fluid compact-features">
+    <!-- Compact Header -->
+    <div class="header-compact">
+        <h1 class="h2 fw-bold mb-2">RackTrack Features</h1>
+        <p class="text-muted mb-0">AI-powered rack analysis at your fingertips</p>
     </div>
 
-    <!-- Main Features -->
-    <div class="row g-5 mb-5">
-        <div class="col-lg-6">
-            <div class="feature-detail">
-                <div class="feature-icon mb-4">
-                    <i class="fas fa-brain display-2 text-primary"></i>
-                </div>
-                <h3>Advanced AI Detection</h3>
-                <p class="text-muted mb-4">Our state-of-the-art YOLO models are specifically trained for rack component recognition, delivering industry-leading accuracy rates of 99.9% for component detection and classification.</p>
-                <ul class="list-unstyled">
-                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Cable identification and color analysis</li>
-                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Switch and port detection</li>
-                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Rack structure analysis</li>
-                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Fuse and electrical component recognition</li>
-                </ul>
-            </div>
+    <!-- Performance Stats -->
+    <div class="stats-row">
+        <div class="stat-box">
+            <div class="stat-number">99.9%</div>
+            <div class="stat-label">Accuracy</div>
         </div>
-        <div class="col-lg-6">
-            <div class="card bg-light border-0 h-100">
-                <div class="card-body d-flex align-items-center justify-content-center">
-                    <div class="text-center">
-                        <i class="fas fa-network-wired display-1 text-primary mb-3"></i>
-                        <h5>Smart Component Recognition</h5>
-                        <p class="text-muted">Instantly identifies and catalogs all rack components</p>
-                    </div>
-                </div>
-            </div>
+        <div class="stat-box">
+            <div class="stat-number">&lt;30s</div>
+            <div class="stat-label">Processing</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">24/7</div>
+            <div class="stat-label">Available</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">5+</div>
+            <div class="stat-label">Components</div>
         </div>
     </div>
 
-    <div class="row g-5 mb-5">
-        <div class="col-lg-6 order-lg-2">
-            <div class="feature-detail">
-                <div class="feature-icon mb-4">
-                    <i class="fas fa-tachometer-alt display-2 text-primary"></i>
-                </div>
-                <h3>Lightning-Fast Processing</h3>
-                <p class="text-muted mb-4">Transform hours of manual inventory work into seconds of automated analysis. Our optimized processing pipeline delivers results in under 30 seconds for most rack images.</p>
-                <ul class="list-unstyled">
-                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Real-time image processing</li>
-                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Parallel component analysis</li>
-                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Instant results delivery</li>
-                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Batch processing capabilities</li>
-                </ul>
-            </div>
+    <!-- Feature Grid -->
+    <div class="feature-grid">
+        <div class="feature-card">
+            <i class="fas fa-brain feature-icon"></i>
+            <h3 class="feature-title">AI Detection</h3>
+            <p class="feature-desc">YOLOv8-powered component recognition with industry-leading accuracy for cables, switches, ports, and racks</p>
         </div>
-        <div class="col-lg-6 order-lg-1">
-            <div class="card bg-light border-0 h-100">
-                <div class="card-body d-flex align-items-center justify-content-center">
-                    <div class="text-center">
-                        <i class="fas fa-stopwatch display-1 text-primary mb-3"></i>
-                        <h5>Sub-30 Second Analysis</h5>
-                        <p class="text-muted">Get comprehensive results faster than ever</p>
-                    </div>
-                </div>
-            </div>
+
+        <div class="feature-card">
+            <i class="fas fa-tachometer-alt feature-icon"></i>
+            <h3 class="feature-title">Lightning Speed</h3>
+            <p class="feature-desc">Transform hours of manual work into seconds with real-time processing and instant results delivery</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="fas fa-chart-bar feature-icon"></i>
+            <h3 class="feature-title">Smart Analytics</h3>
+            <p class="feature-desc">Comprehensive insights with cable color analysis, port status monitoring, and coordinate mapping</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="fas fa-network-wired feature-icon"></i>
+            <h3 class="feature-title">Component ID</h3>
+            <p class="feature-desc">Automatically identifies and catalogs cables, switches, ports, racks, and electrical components</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="fas fa-download feature-icon"></i>
+            <h3 class="feature-title">Export Ready</h3>
+            <p class="feature-desc">Multiple output formats including JSON coordinates, segmented images, and downloadable ZIP files</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="fas fa-palette feature-icon"></i>
+            <h3 class="feature-title">Color Analysis</h3>
+            <p class="feature-desc">Advanced cable color detection and distribution analysis with LED status indicator recognition</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="fas fa-file-image feature-icon"></i>
+            <h3 class="feature-title">Multi-Format</h3>
+            <p class="feature-desc">Supports JPG, PNG, BMP formats up to 16MB with optimized processing for various image qualities</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="fas fa-server feature-icon"></i>
+            <h3 class="feature-title">GPU Accelerated</h3>
+            <p class="feature-desc">High-performance inference with GPU acceleration and scalable cloud infrastructure</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="fas fa-map-marked-alt feature-icon"></i>
+            <h3 class="feature-title">Precise Mapping</h3>
+            <p class="feature-desc">Detailed coordinate tracking and spatial analysis for accurate component positioning and layout</p>
         </div>
     </div>
 
-    <div class="row g-5 mb-5">
-        <div class="col-lg-6">
-            <div class="feature-detail">
-                <div class="feature-icon mb-4">
-                    <i class="fas fa-chart-bar display-2 text-primary"></i>
-                </div>
-                <h3>Comprehensive Analytics</h3>
-                <p class="text-muted mb-4">Get detailed insights into your rack infrastructure with comprehensive reports, component distributions, and status indicators that help you make informed decisions.</p>
-                <ul class="list-unstyled">
-                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Cable color distribution analysis</li>
-                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Port status and LED monitoring</li>
-                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Coordinate mapping and positioning</li>
-                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Exportable data formats (JSON, CSV)</li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-lg-6">
-            <div class="card bg-light border-0 h-100">
-                <div class="card-body d-flex align-items-center justify-content-center">
-                    <div class="text-center">
-                        <i class="fas fa-analytics display-1 text-primary mb-3"></i>
-                        <h5>Detailed Reporting</h5>
-                        <p class="text-muted">Complete analytics dashboard with actionable insights</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Technical Specifications -->
-    <div class="row mb-5">
-        <div class="col-12">
-            <div class="card border-0 shadow-sm">
-                <div class="card-header bg-primary text-white">
-                    <h4 class="mb-0"><i class="fas fa-cogs me-2"></i>Technical Specifications</h4>
-                </div>
-                <div class="card-body">
-                    <div class="row g-4">
-                        <div class="col-md-3">
-                            <h6 class="text-primary">Supported Formats</h6>
-                            <ul class="list-unstyled small">
-                                <li>JPG/JPEG</li>
-                                <li>PNG</li>
-                                <li>BMP</li>
-                                <li>Max: 16MB</li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3">
-                            <h6 class="text-primary">Detection Models</h6>
-                            <ul class="list-unstyled small">
-                                <li>YOLOv8 Architecture</li>
-                                <li>Custom Training Data</li>
-                                <li>Real-time Inference</li>
-                                <li>GPU Acceleration</li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3">
-                            <h6 class="text-primary">Output Formats</h6>
-                            <ul class="list-unstyled small">
-                                <li>JSON Coordinates</li>
-                                <li>Segmented Images</li>
-                                <li>Analysis Reports</li>
-                                <li>ZIP Downloads</li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3">
-                            <h6 class="text-primary">Performance</h6>
-                            <ul class="list-unstyled small">
-                                <li>99.9% Accuracy</li>
-                                <li>&lt;30s Processing</li>
-                                <li>24/7 Availability</li>
-                                <li>Scalable Infrastructure</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- CTA Section -->
-    <div class="text-center py-5">
-        <h3 class="mb-4">Ready to Experience These Features?</h3>
-        <a href="{{ url_for('analyze') }}" class="btn btn-primary btn-lg me-3">
-            <i class="fas fa-rocket me-2"></i>Start Analysis
+    <!-- Floating CTA -->
+    <div class="cta-compact">
+        <a href="{{ url_for('analyze') }}" class="btn btn-primary btn-lg me-2">
+            <i class="fas fa-rocket me-1"></i>Try Now
         </a>
         <a href="{{ url_for('contact') }}" class="btn btn-outline-primary btn-lg">
-            <i class="fas fa-envelope me-2"></i>Contact Us
+            <i class="fas fa-envelope me-1"></i>Contact
         </a>
     </div>
 </div>
