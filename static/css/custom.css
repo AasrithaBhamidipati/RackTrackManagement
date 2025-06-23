@@ -1019,16 +1019,20 @@ footer p {
 }
 
 .hero-image-container {
-    padding: 1rem;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 350px;
 }
 
 .hero-main-image {
-    width: 100%;
-    max-width: 400px;
+    width: 90%;
     height: auto;
     border-radius: 1.5rem;
     box-shadow: 0 15px 40px -10px rgba(37, 99, 235, 0.2);
     transition: all 0.3s ease;
+    object-fit: cover;
 }
 
 .hero-main-image:hover {
