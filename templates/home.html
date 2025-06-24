@@ -2418,682 +2418,141 @@
     line-height: 1.5;
 }
 
-/* Revolutionary CTA Section */
-.revolutionary-cta-section {
-    position: relative;
-    padding: 8rem 0;
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #334155 50%, #1e293b 75%, #0f172a 100%);
-    color: white;
-    overflow: hidden;
+/* Simple CTA Section */
+.simple-cta-section {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(139, 92, 246, 0.1));
+    text-align: center;
 }
 
-.cta-background-effects {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    pointer-events: none;
-}
-
-.floating-elements {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-}
-
-.floating-element {
-    position: absolute;
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
-    border-radius: 50%;
-    animation: float 20s ease-in-out infinite;
-}
-
-.floating-element.element-1 {
-    width: 100px;
-    height: 100px;
-    top: 10%;
-    left: 10%;
-    animation-delay: 0s;
-}
-
-.floating-element.element-2 {
-    width: 150px;
-    height: 150px;
-    top: 20%;
-    right: 15%;
-    animation-delay: 5s;
-}
-
-.floating-element.element-3 {
-    width: 80px;
-    height: 80px;
-    bottom: 30%;
-    left: 20%;
-    animation-delay: 10s;
-}
-
-.floating-element.element-4 {
-    width: 120px;
-    height: 120px;
-    bottom: 20%;
-    right: 25%;
-    animation-delay: 15s;
-}
-
-.floating-element.element-5 {
-    width: 90px;
-    height: 90px;
-    top: 50%;
-    left: 50%;
-    animation-delay: 8s;
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
-    33% { transform: translateY(-20px) rotate(120deg); opacity: 0.6; }
-    66% { transform: translateY(10px) rotate(240deg); opacity: 0.4; }
-}
-
-.energy-waves {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-}
-
-.wave {
-    position: absolute;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
-    border-radius: 50%;
-    animation: waveMotion 15s linear infinite;
-}
-
-.wave.wave-1 {
-    top: -50%;
-    left: -50%;
-    animation-delay: 0s;
-}
-
-.wave.wave-2 {
-    top: -50%;
-    left: -50%;
-    animation-delay: 5s;
-}
-
-.wave.wave-3 {
-    top: -50%;
-    left: -50%;
-    animation-delay: 10s;
-}
-
-@keyframes waveMotion {
-    0% { transform: rotate(0deg) scale(0.5); opacity: 0; }
-    50% { opacity: 0.3; }
-    100% { transform: rotate(360deg) scale(1.5); opacity: 0; }
-}
-
-.cta-main-grid {
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    gap: 4rem;
-    max-width: 90vw;
+.cta-content {
+    max-width: 800px;
     margin: 0 auto;
     padding: 0 2rem;
-    position: relative;
-    z-index: 10;
 }
 
-.cta-proof-section {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-.live-stats-board {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    padding: 2rem;
-}
-
-.stats-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.5rem;
-}
-
-.live-indicator {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-weight: 600;
-    color: #10b981;
-}
-
-.pulse-dot {
-    width: 8px;
-    height: 8px;
-    background: #10b981;
-    border-radius: 50%;
-    animation: pulse 1.5s ease-in-out infinite;
-}
-
-.update-time {
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.6);
-}
-
-.live-metrics {
-    display: grid;
-    gap: 1rem;
-}
-
-.live-metric {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1rem;
-    background: rgba(99, 102, 241, 0.1);
-    border-radius: 12px;
-    border: 1px solid rgba(99, 102, 241, 0.2);
-}
-
-.live-metric .metric-icon {
-    font-size: 1.5rem;
-}
-
-.live-metric .metric-value {
-    font-size: 1.5rem;
+.cta-title {
+    font-size: 2.5rem;
     font-weight: 800;
-    color: white;
-    margin-bottom: 0.25rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    line-height: 1.2;
 }
 
-.live-metric .metric-label {
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.7);
-}
-
-.social-proof-cards {
-    display: grid;
-    gap: 1rem;
-}
-
-.proof-card {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1rem;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.proof-avatar {
-    width: 40px;
-    height: 40px;
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    color: white;
-}
-
-.proof-content {
-    flex: 1;
-}
-
-.proof-name {
-    font-weight: 600;
-    color: white;
-    font-size: 0.9rem;
-    margin-bottom: 0.25rem;
-}
-
-.proof-text {
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.7);
-}
-
-.proof-rating {
-    font-size: 0.8rem;
-}
-
-.urgency-indicators {
-    display: grid;
-    gap: 0.75rem;
-}
-
-.indicator-item {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0.75rem;
-    background: rgba(245, 158, 11, 0.1);
-    border-radius: 8px;
-    border: 1px solid rgba(245, 158, 11, 0.2);
-    color: #fbbf24;
-    font-size: 0.85rem;
-    font-weight: 500;
-}
-
-.indicator-item i {
-    color: #f59e0b;
-}
-
-.cta-main-content {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-}
-
-.headline-badge {
-    display: inline-block;
-    padding: 0.5rem 1.5rem;
-    background: rgba(99, 102, 241, 0.2);
-    border: 1px solid rgba(99, 102, 241, 0.3);
-    border-radius: 50px;
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    color: #a78bfa;
-    margin-bottom: 2rem;
-    text-transform: uppercase;
-}
-
-.revolutionary-title {
-    font-size: 3.5rem;
-    font-weight: 900;
-    line-height: 1.1;
-    margin-bottom: 1.5rem;
-    color: white;
-}
-
-.gradient-text {
-    background: linear-gradient(135deg, #6366f1, #8b5cf6, #06b6d4, #10b981);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    display: block;
-    margin-top: 0.5rem;
-}
-
-.cta-revolutionary-subtitle {
-    font-size: 1.3rem;
-    color: rgba(255, 255, 255, 0.8);
+.cta-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
     line-height: 1.6;
-    max-width: 600px;
-    margin: 0 auto;
 }
 
-.value-propositions {
+.cta-stats {
     display: grid;
-    gap: 1.5rem;
-    margin: 2rem 0;
-}
-
-.value-prop {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.value-icon {
-    font-size: 2rem;
-}
-
-.value-text {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-}
-
-.value-text strong {
-    color: white;
-    font-weight: 700;
-    margin-bottom: 0.25rem;
-}
-
-.value-text span {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.9rem;
-}
-
-.primary-actions {
-    display: flex;
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
-    justify-content: center;
-    margin-bottom: 2rem;
-    flex-wrap: wrap;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.btn-revolutionary {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 2rem 3rem;
-    border-radius: 20px;
-    text-decoration: none;
-    transition: all 0.4s ease;
-    position: relative;
-    overflow: hidden;
-    min-width: 200px;
+.cta-stats .stat-item {
+    text-align: center;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 16px;
+    transition: all 0.3s ease;
 }
 
-.btn-revolutionary.primary {
-    background: linear-gradient(135deg, #6366f1, #8b5cf6);
-    color: white;
-    border: 2px solid rgba(255, 255, 255, 0.2);
+.cta-stats .stat-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 30px rgba(99, 102, 241, 0.15);
 }
 
-.btn-revolutionary.secondary {
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-}
-
-.btn-revolutionary:hover {
-    transform: translateY(-4px) scale(1.05);
-    box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3);
-    color: white;
-    text-decoration: none;
-}
-
-.btn-revolutionary::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.6s;
-}
-
-.btn-revolutionary:hover::before {
-    left: 100%;
-}
-
-.btn-icon {
+.cta-stats .stat-number {
     font-size: 2rem;
+    font-weight: 800;
+    color: var(--primary-color);
     margin-bottom: 0.5rem;
 }
 
-.btn-text {
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin-bottom: 0.25rem;
+.cta-stats .stat-label {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 500;
 }
 
-.btn-subtitle {
-    font-size: 0.8rem;
-    opacity: 0.8;
-}
-
-.secondary-actions {
+.cta-buttons {
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem;
     justify-content: center;
+    margin-bottom: 3rem;
     flex-wrap: wrap;
 }
 
-.quick-link {
+.btn-simple {
+    display: inline-flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.btn-simple.primary {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    color: white;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+.btn-simple.secondary {
+    background: transparent;
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-simple:hover {
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+.btn-simple.primary:hover {
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+    color: white;
+}
+
+.btn-simple.secondary:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+.trust-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.trust-item {
     display: flex;
     align-items: center;
     gap: 0.5rem;
     padding: 0.75rem 1.5rem;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 50px;
-    color: rgba(255, 255, 255, 0.8);
-    text-decoration: none;
+    color: var(--text-secondary);
     font-size: 0.9rem;
     font-weight: 500;
-    transition: all 0.3s ease;
 }
 
-.quick-link:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-    text-decoration: none;
-    transform: translateY(-2px);
-}
-
-.cta-demo-section {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-.demo-preview-container {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    padding: 2rem;
-}
-
-.demo-preview-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.5rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.demo-title {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-weight: 600;
-    color: white;
-}
-
-.demo-status {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.7);
-}
-
-.status-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #10b981;
-}
-
-.status-dot.active {
-    animation: pulse 1.5s ease-in-out infinite;
-}
-
-.progress-steps {
-    display: grid;
-    gap: 1rem;
-    margin-bottom: 2rem;
-}
-
-.step {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 1rem;
-    border-radius: 12px;
-    transition: all 0.3s ease;
-}
-
-.step.completed {
-    background: rgba(16, 185, 129, 0.1);
-    border: 1px solid rgba(16, 185, 129, 0.2);
-    color: #10b981;
-}
-
-.step.active {
-    background: rgba(245, 158, 11, 0.1);
-    border: 1px solid rgba(245, 158, 11, 0.2);
-    color: #f59e0b;
-    animation: stepPulse 2s ease-in-out infinite;
-}
-
-.step.pending {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.5);
-}
-
-@keyframes stepPulse {
-    0%, 100% { opacity: 0.8; }
-    50% { opacity: 1; }
-}
-
-.live-analysis-feed {
-    display: grid;
-    gap: 0.75rem;
-    margin-bottom: 2rem;
-}
-
-.analysis-item {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 0.75rem;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 8px;
-}
-
-.analysis-item.processing {
-    animation: analyzing 2s ease-in-out infinite;
-}
-
-.item-icon {
-    font-size: 1.2rem;
-}
-
-.item-text {
-    flex: 1;
-    color: white;
-    font-size: 0.9rem;
-}
-
-.item-time {
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.6);
-    font-family: monospace;
-}
-
-.performance-indicators {
-    display: grid;
-    gap: 1rem;
-}
-
-.perf-indicator {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.perf-label {
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.8);
-    min-width: 60px;
-}
-
-.perf-bar {
-    flex: 1;
-    height: 8px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-.perf-fill {
-    height: 100%;
-    background: linear-gradient(90deg, #6366f1, #8b5cf6);
-    border-radius: 4px;
-    transition: width 2s ease-in-out;
-}
-
-.perf-value {
-    font-size: 0.9rem;
-    color: white;
-    font-weight: 600;
-    min-width: 40px;
-    text-align: right;
-}
-
-.trust-security-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 4rem;
-    padding: 2rem;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.trust-left {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-}
-
-.trust-text {
-    color: rgba(255, 255, 255, 0.8);
-    font-weight: 500;
-}
-
-.company-logos {
-    display: flex;
-    gap: 1rem;
-}
-
-.company-logo {
-    width: 40px;
-    height: 40px;
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: 700;
-    font-size: 0.8rem;
-}
-
-.security-badges {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
-.security-badge {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    background: rgba(16, 185, 129, 0.1);
-    border: 1px solid rgba(16, 185, 129, 0.2);
-    border-radius: 50px;
-    color: #10b981;
-    font-size: 0.8rem;
-    font-weight: 500;
+.trust-item i {
+    color: var(--accent-tertiary);
 }
 
 /* Enhanced Mobile Responsiveness */
@@ -3334,300 +2793,56 @@
         </div>
     </section>
 
-    <!-- Revolutionary CTA Section -->
-    <section class="revolutionary-cta-section">
-        <div class="cta-background-effects">
-            <div class="floating-elements">
-                <div class="floating-element element-1"></div>
-                <div class="floating-element element-2"></div>
-                <div class="floating-element element-3"></div>
-                <div class="floating-element element-4"></div>
-                <div class="floating-element element-5"></div>
-            </div>
-            <div class="energy-waves">
-                <div class="wave wave-1"></div>
-                <div class="wave wave-2"></div>
-                <div class="wave wave-3"></div>
-            </div>
-        </div>
-        
+    <!-- Simple CTA Section -->
+    <section class="simple-cta-section">
         <div class="container">
-            <div class="cta-main-grid">
-                <!-- Left: Dynamic Stats & Social Proof -->
-                <div class="cta-proof-section">
-                    <div class="live-stats-board">
-                        <div class="stats-header">
-                            <div class="live-indicator">
-                                <span class="pulse-dot"></span>
-                                <span>LIVE STATS</span>
-                            </div>
-                            <div class="update-time">Updated 3 seconds ago</div>
-                        </div>
-                        
-                        <div class="live-metrics">
-                            <div class="live-metric">
-                                <div class="metric-icon">⚡</div>
-                                <div class="metric-content">
-                                    <div class="metric-value" data-count="5247">0</div>
-                                    <div class="metric-label">Analyses Today</div>
-                                </div>
-                            </div>
-                            
-                            <div class="live-metric">
-                                <div class="metric-icon">🎯</div>
-                                <div class="metric-content">
-                                    <div class="metric-value" data-count="99.8">0</div>
-                                    <div class="metric-label">Accuracy %</div>
-                                </div>
-                            </div>
-                            
-                            <div class="live-metric">
-                                <div class="metric-icon">👥</div>
-                                <div class="metric-content">
-                                    <div class="metric-value" data-count="147">0</div>
-                                    <div class="metric-label">Active Users</div>
-                                </div>
-                            </div>
-                            
-                            <div class="live-metric">
-                                <div class="metric-icon">💰</div>
-                                <div class="metric-content">
-                                    <div class="metric-value">$2.4M</div>
-                                    <div class="metric-label">Saved This Month</div>
-                                </div>
-                            </div>
-                        </div>
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to Transform Your Infrastructure?</h2>
+                <p class="cta-subtitle">Join thousands of professionals who trust RackTrack for accurate, fast, and reliable rack component analysis.</p>
+                
+                <div class="cta-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">99.8%</div>
+                        <div class="stat-label">Accuracy</div>
                     </div>
-                    
-                    <div class="social-proof-cards">
-                        <div class="proof-card">
-                            <div class="proof-avatar">TC</div>
-                            <div class="proof-content">
-                                <div class="proof-name">TechCorp Global</div>
-                                <div class="proof-text">"Game-changing accuracy!"</div>
-                            </div>
-                            <div class="proof-rating">⭐⭐⭐⭐⭐</div>
-                        </div>
-                        
-                        <div class="proof-card">
-                            <div class="proof-avatar">CS</div>
-                            <div class="proof-content">
-                                <div class="proof-name">CloudScale Inc</div>
-                                <div class="proof-text">"Zero downtime achieved!"</div>
-                            </div>
-                            <div class="proof-rating">⭐⭐⭐⭐⭐</div>
-                        </div>
-                        
-                        <div class="proof-card">
-                            <div class="proof-avatar">FB</div>
-                            <div class="proof-content">
-                                <div class="proof-name">FinanceBank</div>
-                                <div class="proof-text">"Sub-millisecond performance!"</div>
-                            </div>
-                            <div class="proof-rating">⭐⭐⭐⭐⭐</div>
-                        </div>
+                    <div class="stat-item">
+                        <div class="stat-number">2s</div>
+                        <div class="stat-label">Processing</div>
                     </div>
-                    
-                    <div class="urgency-indicators">
-                        <div class="indicator-item">
-                            <i class="fas fa-fire"></i>
-                            <span>23 companies upgraded this week</span>
-                        </div>
-                        <div class="indicator-item">
-                            <i class="fas fa-clock"></i>
-                            <span>Limited-time enterprise discounts</span>
-                        </div>
-                        <div class="indicator-item">
-                            <i class="fas fa-shield-alt"></i>
-                            <span>SOC 2 certified & enterprise-ready</span>
-                        </div>
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Companies</div>
                     </div>
                 </div>
                 
-                <!-- Center: Main CTA Content -->
-                <div class="cta-main-content">
-                    <div class="cta-headline-section">
-                        <div class="headline-badge">TRANSFORM YOUR INFRASTRUCTURE</div>
-                        <h2 class="revolutionary-title">
-                            The Future of Rack Analysis
-                            <span class="gradient-text">Starts Now</span>
-                        </h2>
-                        <p class="cta-revolutionary-subtitle">
-                            Join the AI revolution that's transforming how Fortune 500 companies manage their infrastructure. 
-                            Experience quantum-speed analysis, predictive insights, and autonomous optimization.
-                        </p>
-                    </div>
-                    
-                    <div class="value-propositions">
-                        <div class="value-prop">
-                            <div class="value-icon">🚀</div>
-                            <div class="value-text">
-                                <strong>10x Faster Analysis</strong>
-                                <span>Than traditional methods</span>
-                            </div>
-                        </div>
-                        
-                        <div class="value-prop">
-                            <div class="value-icon">💡</div>
-                            <div class="value-text">
-                                <strong>AI-Powered Insights</strong>
-                                <span>Predictive maintenance & optimization</span>
-                            </div>
-                        </div>
-                        
-                        <div class="value-prop">
-                            <div class="value-icon">🔒</div>
-                            <div class="value-text">
-                                <strong>Enterprise Security</strong>
-                                <span>SOC 2, ISO 27001 certified</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="cta-action-section">
-                        <div class="primary-actions">
-                            {% if current_user.is_authenticated %}
-                                <a href="{{ url_for('analyze') }}" class="btn-revolutionary primary">
-                                    <span class="btn-icon">⚡</span>
-                                    <span class="btn-text">Start Analysis Now</span>
-                                    <span class="btn-subtitle">Instant results</span>
-                                </a>
-                            {% else %}
-                                <a href="{{ url_for('login') }}" class="btn-revolutionary primary">
-                                    <span class="btn-icon">🚀</span>
-                                    <span class="btn-text">Start Free Trial</span>
-                                    <span class="btn-subtitle">No credit card required</span>
-                                </a>
-                            {% endif %}
-                            
-                            <a href="{{ url_for('contact') }}" class="btn-revolutionary secondary">
-                                <span class="btn-icon">📞</span>
-                                <span class="btn-text">Schedule Demo</span>
-                                <span class="btn-subtitle">Personalized walkthrough</span>
-                            </a>
-                        </div>
-                        
-                        <div class="secondary-actions">
-                            <a href="{{ url_for('features') }}" class="quick-link">
-                                <i class="fas fa-play-circle"></i>
-                                <span>Watch 2-min Demo</span>
-                            </a>
-                            <a href="{{ url_for('contact') }}" class="quick-link">
-                                <i class="fas fa-download"></i>
-                                <span>Download Whitepaper</span>
-                            </a>
-                            <a href="{{ url_for('features') }}" class="quick-link">
-                                <i class="fas fa-calculator"></i>
-                                <span>ROI Calculator</span>
-                            </a>
-                        </div>
-                    </div>
+                <div class="cta-buttons">
+                    {% if current_user.is_authenticated %}
+                        <a href="{{ url_for('analyze') }}" class="btn-simple primary">
+                            <i class="fas fa-play me-2"></i>Start Analysis
+                        </a>
+                    {% else %}
+                        <a href="{{ url_for('login') }}" class="btn-simple primary">
+                            <i class="fas fa-rocket me-2"></i>Get Started Free
+                        </a>
+                    {% endif %}
+                    <a href="{{ url_for('contact') }}" class="btn-simple secondary">
+                        <i class="fas fa-calendar me-2"></i>Schedule Demo
+                    </a>
                 </div>
                 
-                <!-- Right: Interactive Demo Preview -->
-                <div class="cta-demo-section">
-                    <div class="demo-preview-container">
-                        <div class="demo-preview-header">
-                            <div class="demo-title">
-                                <i class="fas fa-bolt"></i>
-                                <span>Live AI Analysis</span>
-                            </div>
-                            <div class="demo-status">
-                                <span class="status-dot active"></span>
-                                <span>Processing</span>
-                            </div>
-                        </div>
-                        
-                        <div class="demo-preview-content">
-                            <div class="analysis-progress">
-                                <div class="progress-steps">
-                                    <div class="step completed">
-                                        <i class="fas fa-check"></i>
-                                        <span>Image Upload</span>
-                                    </div>
-                                    <div class="step active">
-                                        <i class="fas fa-brain"></i>
-                                        <span>AI Analysis</span>
-                                    </div>
-                                    <div class="step pending">
-                                        <i class="fas fa-chart-line"></i>
-                                        <span>Results</span>
-                                    </div>
-                                </div>
-                                
-                                <div class="live-analysis-feed">
-                                    <div class="analysis-item">
-                                        <div class="item-icon">🔌</div>
-                                        <div class="item-text">Detected: Cat6 Cable (99.4%)</div>
-                                        <div class="item-time">0.2s</div>
-                                    </div>
-                                    <div class="analysis-item">
-                                        <div class="item-icon">🌐</div>
-                                        <div class="item-text">Identified: Cisco Switch (98.7%)</div>
-                                        <div class="item-time">0.4s</div>
-                                    </div>
-                                    <div class="analysis-item processing">
-                                        <div class="item-icon">💾</div>
-                                        <div class="item-text">Analyzing: Storage Array...</div>
-                                        <div class="item-time">0.6s</div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="performance-indicators">
-                                <div class="perf-indicator">
-                                    <div class="perf-label">Speed</div>
-                                    <div class="perf-bar">
-                                        <div class="perf-fill" style="width: 95%"></div>
-                                    </div>
-                                    <div class="perf-value">1.2s</div>
-                                </div>
-                                
-                                <div class="perf-indicator">
-                                    <div class="perf-label">Accuracy</div>
-                                    <div class="perf-bar">
-                                        <div class="perf-fill" style="width: 99%"></div>
-                                    </div>
-                                    <div class="perf-value">99.8%</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Bottom: Trust & Security Bar -->
-            <div class="trust-security-bar">
-                <div class="trust-left">
-                    <span class="trust-text">Trusted by Fortune 500 companies worldwide</span>
-                    <div class="company-logos">
-                        <div class="company-logo">TC</div>
-                        <div class="company-logo">MS</div>
-                        <div class="company-logo">CS</div>
-                        <div class="company-logo">FB</div>
-                        <div class="company-logo">+500</div>
-                    </div>
-                </div>
-                
-                <div class="trust-right">
-                    <div class="security-badges">
-                        <div class="security-badge">
-                            <i class="fas fa-shield-alt"></i>
-                            <span>SOC 2 Type II</span>
-                        </div>
-                        <div class="security-badge">
-                            <i class="fas fa-lock"></i>
-                            <span>ISO 27001</span>
-                        </div>
-                        <div class="security-badge">
-                            <i class="fas fa-check-circle"></i>
-                            <span>GDPR Compliant</span>
-                        </div>
-                        <div class="security-badge">
-                            <i class="fas fa-clock"></i>
-                            <span>99.9% Uptime</span>
-                        </div>
-                    </div>
+                <div class="trust-indicators">
+                    <span class="trust-item">
+                        <i class="fas fa-shield-alt"></i>
+                        SOC 2 Certified
+                    </span>
+                    <span class="trust-item">
+                        <i class="fas fa-clock"></i>
+                        99.9% Uptime
+                    </span>
+                    <span class="trust-item">
+                        <i class="fas fa-users"></i>
+                        Fortune 500 Trusted
+                    </span>
                 </div>
             </div>
         </div>
@@ -3750,46 +2965,7 @@
             barObserver.observe(bar);
         });
 
-        // Animate live metrics counters
-        function animateLiveCounters() {
-            const liveCounters = document.querySelectorAll('.live-metric .metric-value[data-count]');
-            
-            liveCounters.forEach(counter => {
-                const target = parseFloat(counter.getAttribute('data-count'));
-                const increment = target / 50;
-                let current = 0;
-                
-                const timer = setInterval(() => {
-                    current += increment;
-                    if (current >= target) {
-                        current = target;
-                        clearInterval(timer);
-                    }
-                    
-                    if (target % 1 === 0) {
-                        counter.textContent = Math.floor(current).toLocaleString();
-                    } else {
-                        counter.textContent = current.toFixed(1);
-                    }
-                }, 30);
-            });
-        }
 
-        // Start live counter animation
-        setTimeout(animateLiveCounters, 2000);
-
-        // Simulate live updates for demo
-        setInterval(() => {
-            const analysisItems = document.querySelectorAll('.analysis-item');
-            analysisItems.forEach((item, index) => {
-                setTimeout(() => {
-                    item.style.opacity = '0.5';
-                    setTimeout(() => {
-                        item.style.opacity = '1';
-                    }, 200);
-                }, index * 100);
-            });
-        }, 5000);
     });
 </script>
 {% endblock %}
