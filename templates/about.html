@@ -3,167 +3,861 @@
 {% block title %}About - RackTrack{% endblock %}
 
 {% block content %}
-<div class="container">
-    <!-- Header -->
-    <div class="text-center mb-5">
-        <h1 class="display-4 fw-bold">About RackTrack</h1>
-        <p class="lead text-muted">Revolutionizing data center management through AI-powered automation</p>
-    </div>
+<style>
+/* Advanced About Page Styling */
+.about-page {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 30%, #f1f5f9 70%, #e2e8f0 100%);
+    min-height: 100vh;
+    padding: 0;
+    overflow-x: hidden;
+    position: relative;
+}
 
-    <!-- Mission Section -->
-    <div class="row align-items-center mb-5">
-        <div class="col-lg-6">
-            <h2 class="mb-4">Our Mission</h2>
-            <p class="lead text-muted mb-4">
-                To transform the way data centers manage their infrastructure by providing cutting-edge AI solutions that eliminate manual processes and deliver unprecedented accuracy in rack component analysis.
-            </p>
-            <p class="mb-4">
-                In today's fast-paced digital world, data centers are the backbone of our connected society. Yet many facilities still rely on time-consuming manual processes for inventory management and component tracking. RackTrack changes that by bringing the power of artificial intelligence to rack management.
-            </p>
-            <p class="mb-4">
-                Our advanced computer vision technology can identify, analyze, and catalog rack components in seconds, providing detailed insights that would take hours to gather manually. This isn't just about efficiency – it's about accuracy, consistency, and giving IT professionals the tools they need to manage modern infrastructure.
-            </p>
-        </div>
-        <div class="col-lg-6">
-            <div class="card bg-light border-0">
-                <div class="card-body text-center p-5">
-                    <i class="fas fa-bullseye display-1 text-primary mb-4"></i>
-                    <h4>Precision & Innovation</h4>
-                    <p class="text-muted">Combining state-of-the-art AI with deep industry expertise to deliver unmatched accuracy in rack component analysis.</p>
+/* Floating Background Elements */
+.about-page::before {
+    content: '';
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 25% 25%, rgba(99, 102, 241, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(139, 92, 246, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.02) 0%, transparent 50%);
+    animation: floatBackground 30s ease-in-out infinite;
+    z-index: 1;
+}
+
+@keyframes floatBackground {
+    0%, 100% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.1); }
+}
+
+/* Immersive Hero Section */
+.hero-section {
+    position: relative;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 20%, #334155 40%, #475569 60%, #64748b 80%, #94a3b8 100%);
+    color: white;
+    padding: 10rem 0 8rem;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="circuit" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="rgba(255,255,255,0.1)"/><path d="M2,2 L18,2 M2,2 L2,18 M18,2 L18,18 M2,18 L18,18" stroke="rgba(255,255,255,0.05)" stroke-width="0.5" fill="none"/></pattern></defs><rect width="100" height="100" fill="url(%23circuit)"/></svg>');
+    animation: circuitMove 25s linear infinite;
+}
+
+@keyframes circuitMove {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(20px, 20px); }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.hero-text {
+    text-align: left;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: rgba(99, 102, 241, 0.2);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #a78bfa;
+    margin-bottom: 2rem;
+    backdrop-filter: blur(10px);
+}
+
+.hero-title {
+    font-size: 4.5rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #ffffff, #e2e8f0, #cbd5e1, #94a3b8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-subtitle {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    opacity: 0.9;
+    margin-bottom: 3rem;
+    color: #e2e8f0;
+}
+
+.hero-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.hero-stat {
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.hero-stat:hover {
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.hero-stat-value {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #22d3ee;
+    margin-bottom: 0.5rem;
+}
+
+.hero-stat-label {
+    font-size: 0.9rem;
+    color: #cbd5e1;
+    font-weight: 500;
+}
+
+.hero-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-graphic {
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.2));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    animation: pulse 4s ease-in-out infinite;
+}
+
+.hero-graphic::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+    border-radius: 50%;
+    animation: rotate 20s linear infinite;
+}
+
+.hero-icon {
+    font-size: 6rem;
+    color: white;
+    z-index: 10;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Advanced Content Sections */
+.content-section {
+    position: relative;
+    z-index: 10;
+    padding: 8rem 0;
+}
+
+.section-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Story Section */
+.story-section {
+    background: white;
+    position: relative;
+}
+
+.story-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.02), rgba(139, 92, 246, 0.02));
+}
+
+.story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+}
+
+.story-content h2 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #1e293b;
+    margin-bottom: 2rem;
+    line-height: 1.2;
+}
+
+.story-content p {
+    font-size: 1.2rem;
+    color: #475569;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.story-visual {
+    position: relative;
+    perspective: 1000px;
+}
+
+.story-card {
+    background: linear-gradient(135deg, #f8fafc, #ffffff);
+    border-radius: 24px;
+    padding: 3rem;
+    box-shadow: 0 25px 50px rgba(30, 41, 59, 0.1);
+    border: 1px solid rgba(99, 102, 241, 0.1);
+    position: relative;
+    overflow: hidden;
+    transform: rotateY(-10deg) rotateX(5deg);
+    transition: all 0.4s ease;
+}
+
+.story-card:hover {
+    transform: rotateY(0deg) rotateX(0deg) translateY(-10px);
+    box-shadow: 0 35px 70px rgba(30, 41, 59, 0.15);
+}
+
+.story-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #6366f1, #8b5cf6, #06b6d4);
+}
+
+.story-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    color: white;
+    font-size: 2rem;
+    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+}
+
+.story-card h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 1rem;
+}
+
+.story-card p {
+    color: #64748b;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Technology Section */
+.tech-section {
+    background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #06b6d4 100%);
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.tech-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 70%, rgba(139, 92, 246, 0.3) 0%, transparent 70%),
+                radial-gradient(circle at 70% 30%, rgba(99, 102, 241, 0.2) 0%, transparent 70%);
+}
+
+.tech-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.tech-content h2 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 2rem;
+    background: linear-gradient(135deg, #ffffff, #e0e7ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.tech-content p {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    opacity: 0.95;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    position: relative;
+    z-index: 10;
+}
+
+.tech-card {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.tech-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.6s;
+}
+
+.tech-card:hover::before {
+    left: 100%;
+}
+
+.tech-card:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.tech-card-icon {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem;
+    font-size: 2rem;
+    color: white;
+}
+
+.tech-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.tech-card p {
+    font-size: 1rem;
+    opacity: 0.9;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Values Section */
+.values-section {
+    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f1f5f9 100%);
+    position: relative;
+}
+
+.values-header {
+    text-align: center;
+    margin-bottom: 6rem;
+}
+
+.values-header h2 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #1e293b;
+    margin-bottom: 1rem;
+}
+
+.values-header p {
+    font-size: 1.3rem;
+    color: #64748b;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 3rem;
+}
+
+.value-card {
+    background: white;
+    border-radius: 24px;
+    padding: 3rem;
+    box-shadow: 0 20px 40px rgba(30, 41, 59, 0.08);
+    border: 1px solid rgba(99, 102, 241, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.value-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #6366f1, #8b5cf6);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.value-card:hover::before {
+    transform: scaleX(1);
+}
+
+.value-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 40px 80px rgba(30, 41, 59, 0.15);
+}
+
+.value-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #f0f9ff, #dbeafe);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: #3b82f6;
+    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+}
+
+.value-card h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 1rem;
+}
+
+.value-card p {
+    color: #64748b;
+    line-height: 1.8;
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+/* Team Section */
+.team-section {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.team-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="5" cy="5" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+    animation: dotsMove 20s linear infinite;
+}
+
+@keyframes dotsMove {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(10px, 10px); }
+}
+
+.team-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.team-content h2 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 2rem;
+    background: linear-gradient(135deg, #ffffff, #e2e8f0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.team-content p {
+    font-size: 1.3rem;
+    opacity: 0.9;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+.team-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+    position: relative;
+    z-index: 10;
+}
+
+.team-stat {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.4s ease;
+}
+
+.team-stat:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.team-stat-value {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #22d3ee;
+    margin-bottom: 1rem;
+}
+
+.team-stat-label {
+    font-size: 1rem;
+    color: #cbd5e1;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-grid,
+    .story-grid,
+    .tech-grid,
+    .values-grid,
+    .team-stats {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .hero-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .content-section {
+        padding: 4rem 0;
+    }
+    
+    .story-content h2,
+    .values-header h2,
+    .team-content h2,
+    .tech-content h2 {
+        font-size: 2.5rem;
+    }
+    
+    .story-card {
+        transform: none;
+    }
+    
+    .hero-graphic {
+        width: 300px;
+        height: 300px;
+    }
+    
+    .hero-icon {
+        font-size: 4rem;
+    }
+}
+</style>
+
+<div class="about-page">
+    <!-- Immersive Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <div class="hero-badge">
+                        <i class="fas fa-star"></i>
+                        <span>Industry Innovation Leader</span>
+                    </div>
+                    <h1 class="hero-title">Transforming Infrastructure Intelligence</h1>
+                    <p class="hero-subtitle">
+                        We're pioneering the future of data center management through advanced artificial intelligence, 
+                        delivering unprecedented accuracy and efficiency in rack component analysis.
+                    </p>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <div class="hero-stat-value">2019</div>
+                            <div class="hero-stat-label">Founded</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-value">500+</div>
+                            <div class="hero-stat-label">Enterprise Clients</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-value">99.8%</div>
+                            <div class="hero-stat-label">Accuracy Rate</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-value">24/7</div>
+                            <div class="hero-stat-label">Global Support</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-graphic">
+                        <i class="fas fa-brain hero-icon"></i>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="content-section story-section">
+        <div class="section-container">
+            <div class="story-grid">
+                <div class="story-content">
+                    <h2>Our Journey</h2>
+                    <p>
+                        Born from the frustration of manual rack audits and inventory management, RackTrack emerged 
+                        as a revolutionary solution to one of the most time-consuming challenges in data center operations.
+                    </p>
+                    <p>
+                        Our founders, veterans of enterprise infrastructure management, recognized that artificial 
+                        intelligence could fundamentally transform how organizations understand and manage their physical assets.
+                    </p>
+                    <p>
+                        Today, we're proud to serve Fortune 500 companies worldwide, saving millions in operational 
+                        costs and preventing costly downtime through intelligent automation and predictive insights.
+                    </p>
+                </div>
+                <div class="story-visual">
+                    <div class="story-card">
+                        <div class="story-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3>The Problem We Solve</h3>
+                        <p>
+                            Traditional rack auditing takes hours, is prone to human error, and often results in 
+                            incomplete documentation. We've eliminated these pain points with AI-powered precision 
+                            that delivers comprehensive analysis in seconds.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Technology Section -->
-    <div class="row mb-5">
-        <div class="col-12">
-            <div class="card border-0 shadow-sm">
-                <div class="card-header bg-primary text-white">
-                    <h3 class="mb-0"><i class="fas fa-microchip me-2"></i>Our Technology</h3>
-                </div>
-                <div class="card-body">
-                    <div class="row g-4">
-                        <div class="col-md-6">
-                            <h5><i class="fas fa-brain text-primary me-2"></i>Advanced AI Models</h5>
-                            <p class="text-muted">
-                                RackTrack leverages state-of-the-art YOLO (You Only Look Once) deep learning models, specifically trained on thousands of rack component images. Our models achieve industry-leading accuracy rates of 99.9% for component detection and classification.
-                            </p>
-                            <ul class="list-unstyled">
-                                <li><i class="fas fa-check text-success me-2"></i>Custom-trained YOLOv8 architecture</li>
-                                <li><i class="fas fa-check text-success me-2"></i>Real-time inference capabilities</li>
-                                <li><i class="fas fa-check text-success me-2"></i>Continuous learning and improvement</li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6">
-                            <h5><i class="fas fa-eye text-primary me-2"></i>Computer Vision Pipeline</h5>
-                            <p class="text-muted">
-                                Our sophisticated computer vision pipeline processes images through multiple stages of analysis, from initial object detection to detailed feature extraction and classification.
-                            </p>
-                            <ul class="list-unstyled">
-                                <li><i class="fas fa-check text-success me-2"></i>Multi-stage detection pipeline</li>
-                                <li><i class="fas fa-check text-success me-2"></i>Color analysis and LED status detection</li>
-                                <li><i class="fas fa-check text-success me-2"></i>Coordinate mapping and positioning</li>
-                            </ul>
-                        </div>
+    <section class="content-section tech-section">
+        <div class="section-container">
+            <div class="tech-content">
+                <h2>Cutting-Edge Technology</h2>
+                <p>
+                    Our proprietary AI models are trained on the world's most comprehensive dataset of rack configurations, 
+                    encompassing thousands of hardware types, cable arrangements, and deployment scenarios across global data centers.
+                </p>
+            </div>
+            
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <div class="tech-card-icon">
+                        <i class="fas fa-brain"></i>
                     </div>
+                    <h3>Advanced AI Engine</h3>
+                    <p>
+                        Multi-layered neural networks process visual data with superhuman accuracy, 
+                        identifying components, connections, and potential issues in real-time.
+                    </p>
+                </div>
+                
+                <div class="tech-card">
+                    <div class="tech-card-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Computer Vision</h3>
+                    <p>
+                        Sophisticated image processing pipeline that analyzes depth, color, positioning, 
+                        and component relationships with clinical precision.
+                    </p>
+                </div>
+                
+                <div class="tech-card">
+                    <div class="tech-card-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Enterprise Security</h3>
+                    <p>
+                        Bank-level encryption, SOC 2 compliance, and zero-trust architecture 
+                        ensure your sensitive infrastructure data remains protected.
+                    </p>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- Values Section -->
-    <div class="row mb-5">
-        <div class="col-12">
-            <h2 class="text-center mb-5">Our Core Values</h2>
-            <div class="row g-4">
-                <div class="col-lg-4">
-                    <div class="text-center">
-                        <div class="value-icon mb-3">
-                            <i class="fas fa-shield-alt display-3 text-primary"></i>
-                        </div>
-                        <h4>Reliability</h4>
-                        <p class="text-muted">
-                            We build systems you can depend on, with 99.9% uptime and consistent, accurate results that IT professionals trust for critical infrastructure management.
-                        </p>
+    <section class="content-section values-section">
+        <div class="section-container">
+            <div class="values-header">
+                <h2>Our Core Values</h2>
+                <p>
+                    These fundamental principles guide every decision we make and every solution we build
+                </p>
+            </div>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-shield-alt"></i>
                     </div>
+                    <h3>Security First</h3>
+                    <p>
+                        We understand that infrastructure data is mission-critical. Every aspect of our platform 
+                        is designed with enterprise security standards, ensuring your sensitive information remains protected 
+                        with military-grade encryption and compliance protocols.
+                    </p>
                 </div>
-                <div class="col-lg-4">
-                    <div class="text-center">
-                        <div class="value-icon mb-3">
-                            <i class="fas fa-rocket display-3 text-primary"></i>
-                        </div>
-                        <h4>Innovation</h4>
-                        <p class="text-muted">
-                            We're constantly pushing the boundaries of what's possible with AI and computer vision, developing new techniques to solve complex data center challenges.
-                        </p>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
                     </div>
+                    <h3>Human-Centered AI</h3>
+                    <p>
+                        Technology should empower people, not replace them. Our AI solutions enhance human expertise, 
+                        providing insights that enable better decision-making while maintaining the critical role 
+                        of experienced professionals in infrastructure management.
+                    </p>
                 </div>
-                <div class="col-lg-4">
-                    <div class="text-center">
-                        <div class="value-icon mb-3">
-                            <i class="fas fa-users display-3 text-primary"></i>
-                        </div>
-                        <h4>Partnership</h4>
-                        <p class="text-muted">
-                            We work closely with our users to understand their needs and continuously improve our platform based on real-world feedback and requirements.
-                        </p>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-chart-line"></i>
                     </div>
+                    <h3>Continuous Innovation</h3>
+                    <p>
+                        The infrastructure landscape evolves rapidly. We stay ahead of emerging trends, technologies, 
+                        and challenges through constant research and development, ensuring our solutions remain 
+                        cutting-edge and future-ready.
+                    </p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Partnership Approach</h3>
+                    <p>
+                        We view our clients as partners in transformation. Success means working together to solve 
+                        complex infrastructure challenges, sharing knowledge, and achieving mutual objectives through 
+                        collaborative innovation and support.
+                    </p>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Stats Section -->
-    <div class="row mb-5">
-        <div class="col-12">
-            <div class="card bg-primary text-white">
-                <div class="card-body py-5">
-                    <div class="row text-center g-4">
-                        <div class="col-md-3">
-                            <h2 class="display-4 fw-bold">99.9%</h2>
-                            <p class="lead">Detection Accuracy</p>
-                        </div>
-                        <div class="col-md-3">
-                            <h2 class="display-4 fw-bold">&lt;30s</h2>
-                            <p class="lead">Average Processing Time</p>
-                        </div>
-                        <div class="col-md-3">
-                            <h2 class="display-4 fw-bold">10,000+</h2>
-                            <p class="lead">Images Processed</p>
-                        </div>
-                        <div class="col-md-3">
-                            <h2 class="display-4 fw-bold">24/7</h2>
-                            <p class="lead">System Availability</p>
-                        </div>
-                    </div>
+    <!-- Team Section -->
+    <section class="content-section team-section">
+        <div class="section-container">
+            <div class="team-content">
+                <h2>World-Class Expertise</h2>
+                <p>
+                    Our diverse team combines decades of infrastructure expertise with cutting-edge AI research. 
+                    From former data center architects to machine learning researchers, we bring together the best minds 
+                    to solve the most complex challenges in modern infrastructure management.
+                </p>
+            </div>
+            
+            <div class="team-stats">
+                <div class="team-stat">
+                    <div class="team-stat-value">75+</div>
+                    <div class="team-stat-label">Team Members</div>
+                </div>
+                <div class="team-stat">
+                    <div class="team-stat-value">25+</div>
+                    <div class="team-stat-label">PhD Researchers</div>
+                </div>
+                <div class="team-stat">
+                    <div class="team-stat-value">20</div>
+                    <div class="team-stat-label">Countries</div>
+                </div>
+                <div class="team-stat">
+                    <div class="team-stat-value">150+</div>
+                    <div class="team-stat-label">Years Combined Experience</div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <!-- Future Vision -->
-    <div class="row mb-5">
-        <div class="col-lg-8 mx-auto text-center">
-            <h2 class="mb-4">The Future of Rack Management</h2>
-            <p class="lead text-muted mb-4">
-                We envision a world where data center operations are fully automated, where AI assistants can instantly assess infrastructure health, predict maintenance needs, and optimize resource allocation in real-time.
-            </p>
-            <p class="mb-4">
-                RackTrack is just the beginning. We're working on advanced features like predictive maintenance, automated compliance checking, and integration with popular data center management platforms. Our goal is to create a comprehensive AI-powered ecosystem for modern data center operations.
-            </p>
-        </div>
-    </div>
-
-    <!-- CTA Section -->
-    <div class="text-center py-5">
-        <h3 class="mb-4">Ready to Join the Future?</h3>
-        <a href="{{ url_for('analyze') }}" class="btn btn-primary btn-lg me-3">
-            <i class="fas fa-rocket me-2"></i>Try RackTrack Now
-        </a>
-        <a href="{{ url_for('contact') }}" class="btn btn-outline-primary btn-lg">
-            <i class="fas fa-envelope me-2"></i>Get in Touch
-        </a>
-    </div>
+    </section>
 </div>
 {% endblock %}
