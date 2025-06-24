@@ -95,6 +95,11 @@ RackTrack is a Flask-based web application that uses AI deep learning models to 
 - Sufficient storage for model files and temporary processing
 
 ## Recent Changes
+- June 24, 2025: Updated About page layout to use 90% viewport width for full-screen viewing
+  - Changed all containers from 1200px max-width to 90vw for better space utilization
+  - Increased grid gaps for better spacing with wider layout
+  - Updated responsive breakpoints for optimal mobile display
+  - Applied user preference for maximum content display across full page width
 - June 24, 2025: Enhanced About page background with subtle gradients and geometric patterns
   - Added multi-layered gradient background from white to light blue tones
   - Implemented subtle radial gradient overlays for visual depth
@@ -202,7 +207,7 @@ RackTrack is a Flask-based web application that uses AI deep learning models to 
 - Design theme: Complete white and blue color scheme throughout entire website
 - UI/UX: User-friendly and appealing modern design with highlighted branding
 - Functionality: Complete drag-and-drop upload interface
-- Layout preference: 90% viewport width layout for maximum content display
+- Layout preference: 90% viewport width layout for maximum content display across all pages
 - Content preference: Clean, simple design that's not too heavy or overwhelming
 - Design approach: Elegant and lightweight with essential information only  
 - Page length preference: Shorter pages, dislikes overly long content
