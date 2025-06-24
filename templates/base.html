@@ -18,6 +18,10 @@
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='images/favicon.svg') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.svg') }}">
 </head>
 <body>
     <!-- Creative Background Art System -->
@@ -37,22 +41,158 @@
                 <div class="header-brand">
                     <a href="{{ url_for('home') }}" class="brand-link">
                         <div class="brand-icon-modern">
-                            <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect width="40" height="40" rx="12" fill="url(#modernGradient)"/>
-                                <rect x="8" y="12" width="24" height="2" rx="1" fill="white"/>
-                                <rect x="8" y="16" width="20" height="2" rx="1" fill="rgba(255,255,255,0.8)"/>
-                                <rect x="8" y="20" width="22" height="2" rx="1" fill="rgba(255,255,255,0.9)"/>
-                                <rect x="8" y="24" width="18" height="2" rx="1" fill="rgba(255,255,255,0.7)"/>
-                                <circle cx="32" cy="14" r="2" fill="#00ff88"/>
-                                <circle cx="32" cy="18" r="2" fill="#ff4757"/>
-                                <circle cx="32" cy="22" r="2" fill="#ffa502"/>
+                            <svg width="40" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Animated Background -->
+                                <rect width="48" height="48" rx="16" fill="url(#logoGradient)" opacity="0.95"/>
+                                <rect width="48" height="48" rx="16" fill="url(#logoShine)" opacity="0.6"/>
+                                
+                                <!-- Server Rack Structure -->
+                                <rect x="10" y="8" width="28" height="32" rx="2" fill="none" stroke="url(#rackStroke)" stroke-width="1.5"/>
+                                
+                                <!-- Rack Slots with Animation -->
+                                <g class="rack-slots">
+                                    <rect x="12" y="12" width="24" height="3" rx="1.5" fill="url(#slotGradient1)"/>
+                                    <rect x="12" y="17" width="20" height="3" rx="1.5" fill="url(#slotGradient2)"/>
+                                    <rect x="12" y="22" width="22" height="3" rx="1.5" fill="url(#slotGradient3)"/>
+                                    <rect x="12" y="27" width="18" height="3" rx="1.5" fill="url(#slotGradient4)"/>
+                                    <rect x="12" y="32" width="24" height="3" rx="1.5" fill="url(#slotGradient5)"/>
+                                </g>
+                                
+                                <!-- AI Neural Network Pattern -->
+                                <g class="neural-network" opacity="0.8">
+                                    <circle cx="38" cy="14" r="2.5" fill="url(#neuralGradient1)"/>
+                                    <circle cx="38" cy="20" r="2.5" fill="url(#neuralGradient2)"/>
+                                    <circle cx="38" cy="26" r="2.5" fill="url(#neuralGradient3)"/>
+                                    <circle cx="38" cy="32" r="2.5" fill="url(#neuralGradient4)"/>
+                                    
+                                    <!-- Connection Lines -->
+                                    <path d="M36 16 L36 18" stroke="url(#connectionGradient)" stroke-width="1.5" opacity="0.6"/>
+                                    <path d="M36 22 L36 24" stroke="url(#connectionGradient)" stroke-width="1.5" opacity="0.6"/>
+                                    <path d="M36 28 L36 30" stroke="url(#connectionGradient)" stroke-width="1.5" opacity="0.6"/>
+                                </g>
+                                
+                                <!-- Holographic Effect -->
+                                <rect width="48" height="48" rx="16" fill="url(#holographicOverlay)" opacity="0.3"/>
+                                
                                 <defs>
-                                    <linearGradient id="modernGradient" x1="0" y1="0" x2="40" y2="40">
-                                        <stop stop-color="#2563eb"/>
-                                        <stop offset="0.5" stop-color="#3b82f6"/>
-                                        <stop offset="1" stop-color="#1d4ed8"/>
+                                    <!-- Main Logo Gradient -->
+                                    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#6366f1"/>
+                                        <stop offset="30%" stop-color="#8b5cf6"/>
+                                        <stop offset="70%" stop-color="#06b6d4"/>
+                                        <stop offset="100%" stop-color="#10b981"/>
+                                    </linearGradient>
+                                    
+                                    <!-- Animated Shine Effect -->
+                                    <linearGradient id="logoShine" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" stop-color="transparent"/>
+                                        <stop offset="45%" stop-color="rgba(255,255,255,0.3)"/>
+                                        <stop offset="55%" stop-color="rgba(255,255,255,0.6)"/>
+                                        <stop offset="100%" stop-color="transparent"/>
+                                        <animateTransform
+                                            attributeName="gradientTransform"
+                                            type="translate"
+                                            values="-100 0; 150 0; -100 0"
+                                            dur="3s"
+                                            repeatCount="indefinite"/>
+                                    </linearGradient>
+                                    
+                                    <!-- Rack Structure -->
+                                    <linearGradient id="rackStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="rgba(255,255,255,0.9)"/>
+                                        <stop offset="100%" stop-color="rgba(255,255,255,0.6)"/>
+                                    </linearGradient>
+                                    
+                                    <!-- Slot Gradients with Different Colors -->
+                                    <linearGradient id="slotGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" stop-color="rgba(255,255,255,0.9)"/>
+                                        <stop offset="100%" stop-color="rgba(255,255,255,0.6)"/>
+                                    </linearGradient>
+                                    
+                                    <linearGradient id="slotGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" stop-color="rgba(16,185,129,0.8)"/>
+                                        <stop offset="100%" stop-color="rgba(16,185,129,0.4)"/>
+                                    </linearGradient>
+                                    
+                                    <linearGradient id="slotGradient3" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" stop-color="rgba(245,158,11,0.8)"/>
+                                        <stop offset="100%" stop-color="rgba(245,158,11,0.4)"/>
+                                    </linearGradient>
+                                    
+                                    <linearGradient id="slotGradient4" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" stop-color="rgba(6,182,212,0.8)"/>
+                                        <stop offset="100%" stop-color="rgba(6,182,212,0.4)"/>
+                                    </linearGradient>
+                                    
+                                    <linearGradient id="slotGradient5" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" stop-color="rgba(255,255,255,0.8)"/>
+                                        <stop offset="100%" stop-color="rgba(255,255,255,0.5)"/>
+                                    </linearGradient>
+                                    
+                                    <!-- Neural Network Node Gradients -->
+                                    <radialGradient id="neuralGradient1" cx="50%" cy="50%" r="50%">
+                                        <stop offset="0%" stop-color="#10b981"/>
+                                        <stop offset="100%" stop-color="#065f46"/>
+                                    </radialGradient>
+                                    
+                                    <radialGradient id="neuralGradient2" cx="50%" cy="50%" r="50%">
+                                        <stop offset="0%" stop-color="#f59e0b"/>
+                                        <stop offset="100%" stop-color="#92400e"/>
+                                    </radialGradient>
+                                    
+                                    <radialGradient id="neuralGradient3" cx="50%" cy="50%" r="50%">
+                                        <stop offset="0%" stop-color="#06b6d4"/>
+                                        <stop offset="100%" stop-color="#0e7490"/>
+                                    </radialGradient>
+                                    
+                                    <radialGradient id="neuralGradient4" cx="50%" cy="50%" r="50%">
+                                        <stop offset="0%" stop-color="#ef4444"/>
+                                        <stop offset="100%" stop-color="#991b1b"/>
+                                    </radialGradient>
+                                    
+                                    <!-- Connection Lines -->
+                                    <linearGradient id="connectionGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="rgba(255,255,255,0.8)"/>
+                                        <stop offset="100%" stop-color="rgba(255,255,255,0.3)"/>
+                                    </linearGradient>
+                                    
+                                    <!-- Holographic Overlay -->
+                                    <linearGradient id="holographicOverlay" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="rgba(255,255,255,0.2)"/>
+                                        <stop offset="50%" stop-color="transparent"/>
+                                        <stop offset="100%" stop-color="rgba(255,255,255,0.1)"/>
                                     </linearGradient>
                                 </defs>
+                                
+                                <!-- CSS Animation Styles -->
+                                <style>
+                                    .rack-slots rect {
+                                        animation: slotPulse 2s ease-in-out infinite;
+                                    }
+                                    .rack-slots rect:nth-child(1) { animation-delay: 0s; }
+                                    .rack-slots rect:nth-child(2) { animation-delay: 0.2s; }
+                                    .rack-slots rect:nth-child(3) { animation-delay: 0.4s; }
+                                    .rack-slots rect:nth-child(4) { animation-delay: 0.6s; }
+                                    .rack-slots rect:nth-child(5) { animation-delay: 0.8s; }
+                                    
+                                    .neural-network circle {
+                                        animation: neuralPulse 1.5s ease-in-out infinite;
+                                    }
+                                    .neural-network circle:nth-child(1) { animation-delay: 0s; }
+                                    .neural-network circle:nth-child(2) { animation-delay: 0.3s; }
+                                    .neural-network circle:nth-child(3) { animation-delay: 0.6s; }
+                                    .neural-network circle:nth-child(4) { animation-delay: 0.9s; }
+                                    
+                                    @keyframes slotPulse {
+                                        0%, 100% { opacity: 0.8; transform: scaleX(1); }
+                                        50% { opacity: 1; transform: scaleX(1.05); }
+                                    }
+                                    
+                                    @keyframes neuralPulse {
+                                        0%, 100% { opacity: 0.8; transform: scale(1); }
+                                        50% { opacity: 1; transform: scale(1.2); }
+                                    }
+                                </style>
                             </svg>
                         </div>
                         <span class="brand-name-modern">RackTrack</span>

@@ -582,12 +582,49 @@ body::after {
     align-items: center;
     justify-content: center;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    filter: drop-shadow(0 4px 8px rgba(37, 99, 235, 0.2));
+    filter: drop-shadow(0 6px 12px rgba(99, 102, 241, 0.25));
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+}
+
+.brand-icon-modern::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(from 0deg, transparent, rgba(99, 102, 241, 0.1), transparent);
+    animation: logoRotate 8s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.brand-link:hover .brand-icon-modern::before {
+    opacity: 1;
 }
 
 .brand-link:hover .brand-icon-modern {
-    transform: scale(1.08) rotate(2deg);
-    filter: drop-shadow(0 8px 16px rgba(37, 99, 235, 0.3));
+    transform: scale(1.1) rotate(5deg);
+    filter: 
+        drop-shadow(0 12px 24px rgba(99, 102, 241, 0.4))
+        drop-shadow(0 0 30px rgba(139, 92, 246, 0.3));
+}
+
+.brand-icon-modern svg {
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.brand-link:hover .brand-icon-modern svg {
+    transform: scale(1.05);
+}
+
+@keyframes logoRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 .brand-name-modern {
