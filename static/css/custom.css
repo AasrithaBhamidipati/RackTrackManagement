@@ -1,37 +1,37 @@
 /* Creative Modern Design System for RackTrack */
 
 :root {
-    /* Advanced Color Palette */
-    --primary-color: #6366f1;
-    --primary-dark: #4f46e5;
-    --primary-light: #8b5cf6;
-    --primary-lighter: #a78bfa;
-    --secondary-color: #f1f5f9;
-    --accent-color: #06b6d4;
-    --accent-secondary: #f59e0b;
-    --accent-tertiary: #10b981;
-    --success-color: #10b981;
-    --warning-color: #f59e0b;
-    --danger-color: #ef4444;
-    --text-primary: #0f172a;
-    --text-secondary: #475569;
+    /* White and Blue Theme */
+    --primary-color: #2563eb;
+    --primary-dark: #1d4ed8;
+    --primary-light: #3b82f6;
+    --primary-lighter: #60a5fa;
+    --secondary-color: #ffffff;
+    --accent-color: #2563eb;
+    --accent-secondary: #3b82f6;
+    --accent-tertiary: #60a5fa;
+    --success-color: #2563eb;
+    --warning-color: #2563eb;
+    --danger-color: #2563eb;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
     --text-muted: #94a3b8;
     --text-light: #cbd5e1;
     
-    /* Dynamic Backgrounds */
+    /* White and Blue Backgrounds */
     --bg-primary: #ffffff;
-    --bg-secondary: #f8fafc;
-    --bg-light: #f1f5f9;
-    --bg-dark: #0f172a;
-    --bg-gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    --bg-gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-    --bg-gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-    --bg-gradient-4: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    --bg-secondary: #ffffff;
+    --bg-light: #f8fafc;
+    --bg-dark: #ffffff;
+    --bg-gradient-1: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+    --bg-gradient-2: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    --bg-gradient-3: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    --bg-gradient-4: linear-gradient(135deg, #ffffff 0%, #e0e7ff 100%);
     
-    /* Creative Borders */
+    /* Clean White and Blue Borders */
     --border-color: #e2e8f0;
     --border-light: #f1f5f9;
-    --border-gradient: linear-gradient(90deg, #6366f1, #8b5cf6, #06b6d4);
+    --border-gradient: linear-gradient(90deg, #2563eb, #3b82f6, #60a5fa);
     
     /* Advanced Shadows */
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
@@ -1558,7 +1558,7 @@ body::after {
 /* Feature Cards */
 .feature-icon {
     padding: 20px;
-    background: rgba(74, 144, 226, 0.1);
+    background: rgba(37, 99, 235, 0.1);
     border-radius: 50%;
     display: inline-block;
     margin-bottom: 1rem;
@@ -1576,7 +1576,7 @@ body::after {
 /* Value Icons */
 .value-icon {
     padding: 20px;
-    background: rgba(74, 144, 226, 0.1);
+    background: rgba(37, 99, 235, 0.1);
     border-radius: 50%;
     display: inline-block;
 }
@@ -1589,7 +1589,7 @@ body::after {
 }
 
 .feature-detail .feature-icon {
-    background: rgba(74, 144, 226, 0.1);
+    background: rgba(37, 99, 235, 0.1);
     border-radius: 1rem;
     padding: 1.5rem;
     display: inline-block;
@@ -1598,7 +1598,7 @@ body::after {
 /* Contact Form Styling */
 .contact-item {
     padding: 0.5rem 0;
-    border-bottom: 1px solid rgba(74, 144, 226, 0.1);
+    border-bottom: 1px solid rgba(37, 99, 235, 0.1);
 }
 
 .contact-item:last-child {
@@ -1606,26 +1606,26 @@ body::after {
 }
 
 .accordion-button {
-    background: rgba(255, 255, 255, 0.95);
+    background: #ffffff;
     border: none;
-    color: #2c3e50;
+    color: var(--text-primary);
     font-weight: 500;
 }
 
 .accordion-button:not(.collapsed) {
-    background: linear-gradient(135deg, #4a90e2, #87ceeb);
+    background: var(--primary-color);
     color: white;
 }
 
 .accordion-button:focus {
     box-shadow: none;
-    border-color: rgba(74, 144, 226, 0.25);
+    border-color: rgba(37, 99, 235, 0.25);
 }
 
 /* Modern Footer */
 footer {
     margin-top: auto;
-    background: var(--bg-secondary) !important;
+    background: #ffffff !important;
     border-top: 1px solid var(--border-color);
     padding: 2rem 0;
 }
@@ -1651,7 +1651,7 @@ footer p {
 
 /* Modern Upload Interface */
 .upload-card {
-    background: rgba(255, 255, 255, 0.9);
+    background: #ffffff;
     backdrop-filter: blur(20px);
     border: 2px dashed rgba(37, 99, 235, 0.3);
     border-radius: 2rem;
@@ -1683,11 +1683,11 @@ footer p {
 /* Hero Section Styling */
 .hero-section {
     background: linear-gradient(135deg, 
-        rgba(255, 255, 255, 0.95) 0%, 
-        rgba(248, 250, 252, 0.9) 25%, 
-        rgba(230, 242, 255, 0.8) 50%, 
-        rgba(219, 234, 254, 0.7) 75%, 
-        rgba(191, 219, 254, 0.6) 100%);
+        #ffffff 0%, 
+        #f8fafc 25%, 
+        #e0e7ff 50%, 
+        #dbeafe 75%, 
+        #bfdbfe 100%);
     position: relative;
     overflow: hidden;
 }
@@ -2758,12 +2758,12 @@ p, .text-muted, .text-secondary {
 }
 
 .bg-primary {
-    background: linear-gradient(135deg, #4a90e2, #2980b9) !important;
+    background: var(--primary-color) !important;
 }
 
 .bg-secondary {
-    background: rgba(255, 255, 255, 0.9) !important;
-    color: #4a90e2 !important;
+    background: #ffffff !important;
+    color: var(--primary-color) !important;
 }
 
 /* Alert styling */

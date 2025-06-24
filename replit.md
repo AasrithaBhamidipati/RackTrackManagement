@@ -194,7 +194,7 @@ RackTrack is a Flask-based web application that uses AI deep learning models to 
 ## User Preferences
 
 - Preferred communication style: Simple, everyday language
-- Design theme: Clean white and blue color scheme with professional header
+- Design theme: Complete white and blue color scheme throughout entire website
 - UI/UX: User-friendly and appealing modern design with highlighted branding
 - Functionality: Complete drag-and-drop upload interface
 - Layout preference: 90% viewport width layout for maximum content display
@@ -202,3 +202,4 @@ RackTrack is a Flask-based web application that uses AI deep learning models to 
 - Design approach: Elegant and lightweight with essential information only  
 - Page length preference: Shorter pages, dislikes overly long content
 - Design style preference: Clean and minimal, dislikes complex/heavy designs
+- Color preference: Consistent white and blue theme across all pages and components
