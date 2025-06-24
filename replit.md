@@ -184,4 +184,5 @@ RackTrack is a Flask-based web application that uses AI deep learning models to 
 - Design theme: Clean white and blue color scheme with professional header
 - UI/UX: User-friendly and appealing modern design with highlighted branding
 - Functionality: Complete drag-and-drop upload interface
-- Layout preference: Full-width layout that utilizes complete page width when opened in new tabs
+- Layout preference: 90% viewport width layout for maximum content display
+- Content preference: Comprehensive, feature-rich content with multiple engaging sections
