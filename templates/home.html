@@ -4,16 +4,87 @@
 
 {% block content %}
 <style>
+/* Creative Variables */
+:root {
+    --neon-blue: #00f3ff;
+    --electric-purple: #bf00ff;
+    --cyber-green: #00ff88;
+    --hologram-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --glass-gradient: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+    --shadow-neon: 0 0 30px rgba(0, 243, 255, 0.3);
+    --shadow-electric: 0 0 25px rgba(191, 0, 255, 0.4);
+}
+
 .home-container {
     padding: 0;
     margin: 0;
-}
-
-.hero-section {
-    padding: 140px 0 100px;
-    background: linear-gradient(135deg, rgba(37, 99, 235, 0.08) 0%, rgba(255, 255, 255, 1) 50%, rgba(59, 130, 246, 0.05) 100%);
     position: relative;
     overflow: hidden;
+}
+
+/* Advanced Background with Particles */
+.home-container::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(0, 243, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(191, 0, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 60% 20%, rgba(0, 255, 136, 0.08) 0%, transparent 50%),
+        linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%);
+    z-index: -2;
+}
+
+/* Floating Particles */
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--neon-blue);
+    border-radius: 50%;
+    animation: float 6s infinite linear;
+    box-shadow: 0 0 10px var(--neon-blue);
+}
+
+.particle:nth-child(2n) {
+    background: var(--electric-purple);
+    box-shadow: 0 0 8px var(--electric-purple);
+    animation-duration: 8s;
+}
+
+.particle:nth-child(3n) {
+    background: var(--cyber-green);
+    box-shadow: 0 0 6px var(--cyber-green);
+    animation-duration: 10s;
+}
+
+@keyframes float {
+    0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+}
+
+/* Compact Hero Section */
+.hero-section {
+    padding: 100px 0 60px;
+    position: relative;
+    background: var(--glass-gradient);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .hero-content {
@@ -21,85 +92,119 @@
     margin: 0 auto;
     padding: 0 2rem;
     text-align: center;
+    position: relative;
+    z-index: 2;
 }
 
 .hero-badge {
     display: inline-block;
-    padding: 0.8rem 2rem;
-    background: rgba(37, 99, 235, 0.1);
-    border: 1px solid rgba(37, 99, 235, 0.2);
+    padding: 0.6rem 1.5rem;
+    background: var(--glass-gradient);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(0, 243, 255, 0.3);
     border-radius: 50px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: #2563eb;
-    margin-bottom: 2rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--neon-blue);
+    margin-bottom: 1.5rem;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.1em;
+    box-shadow: var(--shadow-neon);
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from { box-shadow: 0 0 20px rgba(0, 243, 255, 0.3); }
+    to { box-shadow: 0 0 30px rgba(0, 243, 255, 0.6); }
 }
 
 .hero-title {
-    font-size: 4.5rem;
+    font-size: 4rem;
     font-weight: 900;
-    background: linear-gradient(135deg, #1e293b, #2563eb, #3b82f6);
+    background: linear-gradient(135deg, #1e293b 0%, var(--neon-blue) 50%, var(--electric-purple) 100%);
+    background-size: 200% 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     line-height: 1.1;
-    letter-spacing: -0.02em;
+    animation: gradientShift 3s ease-in-out infinite;
+    text-shadow: 0 0 30px rgba(0, 243, 255, 0.5);
+}
+
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
 }
 
 .hero-subtitle {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: #64748b;
-    margin-bottom: 3rem;
-    max-width: 800px;
+    margin-bottom: 2.5rem;
+    max-width: 600px;
     margin-left: auto;
     margin-right: auto;
     line-height: 1.6;
-    font-weight: 400;
 }
 
 .hero-buttons {
     display: flex;
     gap: 1.5rem;
     justify-content: center;
-    margin-bottom: 4rem;
     flex-wrap: wrap;
 }
 
+/* Futuristic Buttons */
 .btn-primary {
-    background: linear-gradient(135deg, #2563eb, #3b82f6);
+    position: relative;
+    background: linear-gradient(135deg, var(--neon-blue), var(--electric-purple));
     color: white;
-    padding: 1.2rem 2.5rem;
-    border-radius: 16px;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
     text-decoration: none;
     font-weight: 700;
-    font-size: 1.1rem;
+    font-size: 1rem;
     border: none;
     transition: all 0.3s ease;
     display: inline-flex;
     align-items: center;
     gap: 0.8rem;
-    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+    box-shadow: var(--shadow-neon);
+    overflow: hidden;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: left 0.5s;
+}
+
+.btn-primary:hover::before {
+    left: 100%;
 }
 
 .btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 35px rgba(37, 99, 235, 0.4);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: var(--shadow-electric);
     color: white;
     text-decoration: none;
 }
 
 .btn-secondary {
-    background: rgba(255, 255, 255, 0.95);
+    background: var(--glass-gradient);
+    backdrop-filter: blur(15px);
     color: #2563eb;
-    padding: 1.2rem 2.5rem;
-    border-radius: 16px;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
     text-decoration: none;
     font-weight: 700;
-    font-size: 1.1rem;
-    border: 2px solid rgba(37, 99, 235, 0.2);
+    font-size: 1rem;
+    border: 1px solid rgba(37, 99, 235, 0.3);
     transition: all 0.3s ease;
     display: inline-flex;
     align-items: center;
@@ -108,75 +213,86 @@
 
 .btn-secondary:hover {
     background: rgba(37, 99, 235, 0.1);
+    border-color: var(--neon-blue);
     color: #2563eb;
     text-decoration: none;
     transform: translateY(-3px);
-    border-color: rgba(37, 99, 235, 0.4);
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.2);
 }
 
-
-
+/* Holographic Features Section */
 .features-section {
-    padding: 100px 0;
-    background: rgba(248, 250, 252, 0.8);
+    padding: 60px 0;
+    position: relative;
+    background: var(--glass-gradient);
+    backdrop-filter: blur(10px);
 }
 
 .section-container {
     max-width: 90vw;
     margin: 0 auto;
     padding: 0 2rem;
+    position: relative;
+    z-index: 2;
 }
 
 .section-header {
     text-align: center;
-    margin-bottom: 5rem;
+    margin-bottom: 3rem;
 }
 
 .section-badge {
     display: inline-block;
-    padding: 0.6rem 1.8rem;
-    background: rgba(16, 185, 129, 0.1);
-    border: 1px solid rgba(16, 185, 129, 0.2);
+    padding: 0.5rem 1.5rem;
+    background: var(--glass-gradient);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(0, 255, 136, 0.3);
     border-radius: 50px;
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     font-weight: 700;
-    color: #059669;
-    margin-bottom: 1.5rem;
+    color: var(--cyber-green);
+    margin-bottom: 1rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
 }
 
 .section-title {
-    font-size: 3.5rem;
+    font-size: 2.8rem;
     font-weight: 900;
-    color: #1e293b;
-    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #1e293b, var(--neon-blue), var(--cyber-green));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
     line-height: 1.2;
 }
 
 .section-subtitle {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     color: #64748b;
-    max-width: 700px;
+    max-width: 600px;
     margin: 0 auto;
     line-height: 1.6;
 }
 
+/* Holographic Feature Cards */
 .features-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 .feature-card {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(37, 99, 235, 0.1);
-    border-radius: 24px;
-    padding: 3rem;
-    transition: all 0.4s ease;
     position: relative;
+    background: var(--glass-gradient);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 2rem;
+    transition: all 0.4s ease;
     overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .feature-card::before {
@@ -185,197 +301,161 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, #2563eb, #3b82f6, #06b6d4);
+    height: 2px;
+    background: linear-gradient(90deg, var(--neon-blue), var(--electric-purple), var(--cyber-green));
     opacity: 0;
     transition: opacity 0.3s ease;
+}
+
+.feature-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(from 0deg, transparent, rgba(0, 243, 255, 0.1), transparent);
+    opacity: 0;
+    transition: all 0.3s ease;
+    animation: rotate 8s linear infinite;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 .feature-card:hover::before {
     opacity: 1;
 }
 
+.feature-card:hover::after {
+    opacity: 1;
+}
+
 .feature-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 25px 50px rgba(37, 99, 235, 0.2);
-    border-color: rgba(37, 99, 235, 0.3);
+    box-shadow: var(--shadow-neon);
+    border-color: rgba(0, 243, 255, 0.5);
 }
 
 .feature-header {
     display: flex;
     align-items: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 3;
 }
 
 .feature-icon {
-    width: 70px;
-    height: 70px;
-    border-radius: 20px;
-    background: linear-gradient(135deg, #2563eb, #3b82f6);
+    width: 50px;
+    height: 50px;
+    border-radius: 15px;
+    background: linear-gradient(135deg, var(--neon-blue), var(--electric-purple));
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.8rem;
+    font-size: 1.3rem;
     color: white;
-    margin-right: 1.5rem;
-    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+    margin-right: 1rem;
+    box-shadow: var(--shadow-neon);
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s;
+}
+
+.feature-card:hover .feature-icon::before {
+    transform: translateX(100%);
 }
 
 .feature-meta {
     flex: 1;
+    position: relative;
+    z-index: 3;
 }
 
 .feature-title {
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     font-weight: 800;
     color: #1e293b;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.3rem;
 }
 
 .feature-tag {
-    font-size: 0.8rem;
-    color: #2563eb;
-    background: rgba(37, 99, 235, 0.1);
-    padding: 0.3rem 0.8rem;
-    border-radius: 20px;
+    font-size: 0.7rem;
+    color: var(--electric-purple);
+    background: rgba(191, 0, 255, 0.1);
+    padding: 0.2rem 0.6rem;
+    border-radius: 15px;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    border: 1px solid rgba(191, 0, 255, 0.2);
 }
 
 .feature-desc {
     color: #64748b;
-    line-height: 1.7;
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 3;
 }
 
 .feature-benefits {
     display: grid;
-    gap: 1rem;
+    gap: 0.8rem;
+    position: relative;
+    z-index: 3;
 }
 
 .benefit-item {
     display: flex;
     align-items: center;
-    gap: 0.8rem;
+    gap: 0.6rem;
     font-weight: 500;
     color: #475569;
+    font-size: 0.9rem;
 }
 
 .benefit-item i {
-    color: #059669;
-    font-size: 1.2rem;
-    width: 20px;
+    color: var(--cyber-green);
+    font-size: 1rem;
+    width: 16px;
 }
 
-.technology-section {
-    padding: 100px 0;
-    background: linear-gradient(135deg, rgba(37, 99, 235, 0.03) 0%, rgba(255, 255, 255, 1) 50%, rgba(16, 185, 129, 0.03) 100%);
-}
-
-.tech-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: center;
-}
-
-.tech-content {
-    order: 1;
-}
-
-.tech-visual {
-    order: 2;
-    text-align: center;
-}
-
-.tech-diagram {
-    background: rgba(255, 255, 255, 0.9);
-    border: 2px solid rgba(37, 99, 235, 0.1);
-    border-radius: 24px;
-    padding: 3rem;
-    display: inline-block;
-    box-shadow: 0 20px 40px rgba(37, 99, 235, 0.1);
-}
-
-.process-flow {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    align-items: center;
-}
-
-.process-step {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1rem 1.5rem;
-    background: rgba(37, 99, 235, 0.05);
-    border-radius: 16px;
-    border: 1px solid rgba(37, 99, 235, 0.1);
-    min-width: 300px;
-}
-
-.step-number {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #2563eb, #3b82f6);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 1.1rem;
-}
-
-.step-text {
-    flex: 1;
-    font-weight: 600;
-    color: #1e293b;
-}
-
-.arrow-down {
-    color: #2563eb;
-    font-size: 1.5rem;
-}
-
-.tech-specs {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.spec-item {
-    background: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(37, 99, 235, 0.1);
-    border-radius: 16px;
-    padding: 1.5rem;
-    text-align: center;
-}
-
-.spec-value {
-    font-size: 2rem;
-    font-weight: 800;
-    color: #2563eb;
-    margin-bottom: 0.5rem;
-}
-
-.spec-label {
-    font-size: 0.9rem;
-    color: #64748b;
-    font-weight: 600;
-}
-
+/* Cyber CTA Section */
 .cta-section {
-    padding: 100px 0;
-    background: linear-gradient(135deg, #1e293b 0%, #2563eb 50%, #3b82f6 100%);
+    padding: 60px 0;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
     color: white;
     text-align: center;
     position: relative;
     overflow: hidden;
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 30% 40%, rgba(0, 243, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 70% 60%, rgba(191, 0, 255, 0.1) 0%, transparent 50%);
+    z-index: 1;
 }
 
 .cta-content {
@@ -387,16 +467,20 @@
 }
 
 .cta-title {
-    font-size: 3.5rem;
+    font-size: 2.8rem;
     font-weight: 900;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     line-height: 1.2;
+    background: linear-gradient(135deg, white, var(--neon-blue), var(--cyber-green));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .cta-subtitle {
-    font-size: 1.4rem;
-    margin-bottom: 3rem;
-    max-width: 700px;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
     margin-left: auto;
     margin-right: auto;
     opacity: 0.9;
@@ -411,84 +495,98 @@
 }
 
 .btn-white {
-    background: white;
-    color: #2563eb;
-    padding: 1.2rem 2.5rem;
-    border-radius: 16px;
+    background: linear-gradient(135deg, white, #f8fafc);
+    color: #1e293b;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
     text-decoration: none;
     font-weight: 700;
-    font-size: 1.1rem;
+    font-size: 1rem;
     transition: all 0.3s ease;
     display: inline-flex;
     align-items: center;
     gap: 0.8rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-white::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 243, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.btn-white:hover::before {
+    left: 100%;
 }
 
 .btn-white:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-    color: #2563eb;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    color: #1e293b;
     text-decoration: none;
 }
 
 .btn-outline {
     background: transparent;
     color: white;
-    padding: 1.2rem 2.5rem;
-    border-radius: 16px;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
     text-decoration: none;
     font-weight: 700;
-    font-size: 1.1rem;
+    font-size: 1rem;
     border: 2px solid rgba(255, 255, 255, 0.3);
     transition: all 0.3s ease;
     display: inline-flex;
     align-items: center;
     gap: 0.8rem;
+    position: relative;
+    overflow: hidden;
 }
 
 .btn-outline:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.8);
+    background: var(--glass-gradient);
+    backdrop-filter: blur(10px);
+    border-color: var(--neon-blue);
     color: white;
     text-decoration: none;
     transform: translateY(-3px);
+    box-shadow: var(--shadow-neon);
 }
 
+/* Responsive Design */
 @media (max-width: 1024px) {
-    .tech-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
-    
-    .tech-content {
-        order: 2;
-    }
-    
-    .tech-visual {
-        order: 1;
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 768px) {
     .hero-title {
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
     
     .section-title {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
     
     .cta-title {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
     
     .features-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
     }
     
-    .tech-specs {
-        grid-template-columns: 1fr;
+    .feature-card {
+        padding: 1.5rem;
     }
     
     .hero-buttons,
@@ -502,18 +600,40 @@
     .features-grid {
         grid-template-columns: 1fr;
     }
+    
+    .hero-section {
+        padding: 80px 0 40px;
+    }
+    
+    .features-section,
+    .cta-section {
+        padding: 40px 0;
+    }
 }
 </style>
 
+<!-- Floating Particles -->
+<div class="particles">
+    <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="particle" style="left: 20%; animation-delay: 1s;"></div>
+    <div class="particle" style="left: 30%; animation-delay: 2s;"></div>
+    <div class="particle" style="left: 40%; animation-delay: 3s;"></div>
+    <div class="particle" style="left: 50%; animation-delay: 4s;"></div>
+    <div class="particle" style="left: 60%; animation-delay: 5s;"></div>
+    <div class="particle" style="left: 70%; animation-delay: 0.5s;"></div>
+    <div class="particle" style="left: 80%; animation-delay: 1.5s;"></div>
+    <div class="particle" style="left: 90%; animation-delay: 2.5s;"></div>
+</div>
+
 <div class="home-container">
-    <!-- Hero Section -->
+    <!-- Compact Hero Section -->
     <section class="hero-section">
         <div class="hero-content">
-            <div class="hero-badge">Leading AI Technology</div>
-            <h1 class="hero-title">AI-Powered Rack Component Analysis</h1>
+            <div class="hero-badge">Next-Gen AI Technology</div>
+            <h1 class="hero-title">AI-Powered Rack Analysis</h1>
             <p class="hero-subtitle">
-                Transform your infrastructure management with cutting-edge computer vision technology. 
-                Automatically detect, analyze, and catalog rack components with unprecedented accuracy and speed.
+                Transform your infrastructure with cutting-edge computer vision. 
+                Automatically detect, analyze, and catalog rack components with unprecedented accuracy.
             </p>
             
             <div class="hero-buttons">
@@ -525,7 +645,7 @@
                 {% else %}
                     <a href="{{ url_for('login') }}" class="btn-primary">
                         <i class="fas fa-sign-in-alt"></i>
-                        Get Started Free
+                        Get Started
                     </a>
                 {% endif %}
                 <a href="{{ url_for('features') }}" class="btn-secondary">
@@ -533,20 +653,18 @@
                     Learn More
                 </a>
             </div>
-            
-
         </div>
     </section>
 
-    <!-- Features Section -->
+    <!-- Holographic Features Section -->
     <section class="features-section">
         <div class="section-container">
             <div class="section-header">
                 <div class="section-badge">Advanced AI Features</div>
                 <h2 class="section-title">Comprehensive Component Analysis</h2>
                 <p class="section-subtitle">
-                    Experience the next generation of infrastructure management with our state-of-the-art 
-                    computer vision technology designed specifically for data center and rack environments.
+                    Experience next-generation infrastructure management with our state-of-the-art 
+                    computer vision technology designed for data center environments.
                 </p>
             </div>
             
@@ -694,80 +812,13 @@
         </div>
     </section>
 
-    <!-- Technology Section -->
-    <section class="technology-section">
-        <div class="section-container">
-            <div class="tech-grid">
-                <div class="tech-content">
-                    <div class="section-badge">Technology Stack</div>
-                    <h2 class="section-title">How It Works</h2>
-                    <p class="section-subtitle">
-                        Our advanced AI pipeline combines multiple cutting-edge technologies to deliver 
-                        unparalleled accuracy in rack component analysis and identification.
-                    </p>
-                    
-                    <div class="tech-specs">
-                        <div class="spec-item">
-                            <div class="spec-value">YOLO v8</div>
-                            <div class="spec-label">Detection Model</div>
-                        </div>
-                        <div class="spec-item">
-                            <div class="spec-value">OpenCV</div>
-                            <div class="spec-label">Image Processing</div>
-                        </div>
-                        <div class="spec-item">
-                            <div class="spec-value">CLIP</div>
-                            <div class="spec-label">Feature Extraction</div>
-                        </div>
-                        <div class="spec-item">
-                            <div class="spec-value">FAISS</div>
-                            <div class="spec-label">Similarity Search</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="tech-visual">
-                    <div class="tech-diagram">
-                        <div class="process-flow">
-                            <div class="process-step">
-                                <div class="step-number">1</div>
-                                <div class="step-text">Image Upload & Preprocessing</div>
-                            </div>
-                            <div class="arrow-down">
-                                <i class="fas fa-arrow-down"></i>
-                            </div>
-                            <div class="process-step">
-                                <div class="step-number">2</div>
-                                <div class="step-text">YOLO Object Detection</div>
-                            </div>
-                            <div class="arrow-down">
-                                <i class="fas fa-arrow-down"></i>
-                            </div>
-                            <div class="process-step">
-                                <div class="step-number">3</div>
-                                <div class="step-text">Component Segmentation</div>
-                            </div>
-                            <div class="arrow-down">
-                                <i class="fas fa-arrow-down"></i>
-                            </div>
-                            <div class="process-step">
-                                <div class="step-number">4</div>
-                                <div class="step-text">Catalog Matching & Export</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Call to Action -->
+    <!-- Cyber CTA Section -->
     <section class="cta-section">
         <div class="cta-content">
-            <h2 class="cta-title">Transform Your Infrastructure Management</h2>
+            <h2 class="cta-title">Transform Your Infrastructure</h2>
             <p class="cta-subtitle">
-                Join thousands of data center professionals who rely on RackTrack for accurate, 
-                automated component analysis. Start your free analysis today.
+                Join thousands of professionals who rely on RackTrack for accurate, 
+                automated component analysis. Start your analysis today.
             </p>
             <div class="cta-buttons">
                 {% if current_user.is_authenticated %}
