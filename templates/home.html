@@ -861,34 +861,32 @@
                 <!-- Right Side Actions -->
                 <div class="col-lg-5">
                     <div class="hero-right">
-                        <div class="hero-action-card">
-                            <div class="hero-buttons-vertical">
-                                {% if current_user.is_authenticated %}
-                                    <a href="{{ url_for('analyze') }}" class="btn-primary btn-large">
-                                        <i class="fas fa-upload"></i>
-                                        <span>
-                                            <strong>Get Started</strong>
-                                            <small>Free Account Setup</small>
-                                        </span>
-                                    </a>
-                                {% else %}
-                                    <a href="{{ url_for('login') }}" class="btn-primary btn-large">
-                                        <i class="fas fa-sign-in-alt"></i>
-                                        <span>
-                                            <strong>Get Started</strong>
-                                            <small>Free Account Setup</small>
-                                        </span>
-                                    </a>
-                                {% endif %}
-                                
-                                <a href="{{ url_for('features') }}" class="btn-secondary btn-large">
-                                    <i class="fas fa-info-circle"></i>
+                        <div class="hero-buttons-vertical">
+                            {% if current_user.is_authenticated %}
+                                <a href="{{ url_for('analyze') }}" class="btn-primary btn-large">
+                                    <i class="fas fa-upload"></i>
                                     <span>
-                                        <strong>Learn More</strong>
-                                        <small>Features & Capabilities</small>
+                                        <strong>Get Started</strong>
+                                        <small>Free Account Setup</small>
                                     </span>
                                 </a>
-                            </div>
+                            {% else %}
+                                <a href="{{ url_for('login') }}" class="btn-primary btn-large">
+                                    <i class="fas fa-sign-in-alt"></i>
+                                    <span>
+                                        <strong>Get Started</strong>
+                                        <small>Free Account Setup</small>
+                                    </span>
+                                </a>
+                            {% endif %}
+                            
+                            <a href="{{ url_for('features') }}" class="btn-secondary btn-large">
+                                <i class="fas fa-info-circle"></i>
+                                <span>
+                                    <strong>Learn More</strong>
+                                    <small>Features & Capabilities</small>
+                                </span>
+                            </a>
                         </div>
                     </div>
                 </div>
