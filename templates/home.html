@@ -10,41 +10,59 @@
 }
 
 .hero-section {
-    padding: 120px 0 80px;
-    text-align: center;
-    background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(255, 255, 255, 1) 100%);
+    padding: 140px 0 100px;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.08) 0%, rgba(255, 255, 255, 1) 50%, rgba(59, 130, 246, 0.05) 100%);
+    position: relative;
+    overflow: hidden;
 }
 
 .hero-content {
     max-width: 90vw;
     margin: 0 auto;
     padding: 0 2rem;
+    text-align: center;
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background: rgba(37, 99, 235, 0.1);
+    border: 1px solid rgba(37, 99, 235, 0.2);
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #2563eb;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 .hero-title {
-    font-size: 3.5rem;
-    font-weight: 800;
-    background: linear-gradient(135deg, #2563eb, #3b82f6);
+    font-size: 4.5rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #1e293b, #2563eb, #3b82f6);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     line-height: 1.1;
+    letter-spacing: -0.02em;
 }
 
 .hero-subtitle {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     color: #64748b;
     margin-bottom: 3rem;
-    max-width: 600px;
+    max-width: 800px;
     margin-left: auto;
     margin-right: auto;
     line-height: 1.6;
+    font-weight: 400;
 }
 
 .hero-buttons {
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
     justify-content: center;
     margin-bottom: 4rem;
     flex-wrap: wrap;
@@ -53,222 +71,477 @@
 .btn-primary {
     background: linear-gradient(135deg, #2563eb, #3b82f6);
     color: white;
-    padding: 1rem 2rem;
-    border-radius: 12px;
+    padding: 1.2rem 2.5rem;
+    border-radius: 16px;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 700;
+    font-size: 1.1rem;
     border: none;
     transition: all 0.3s ease;
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.8rem;
+    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
 }
 
 .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(37, 99, 235, 0.4);
     color: white;
     text-decoration: none;
 }
 
 .btn-secondary {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
     color: #2563eb;
-    padding: 1rem 2rem;
-    border-radius: 12px;
+    padding: 1.2rem 2.5rem;
+    border-radius: 16px;
     text-decoration: none;
-    font-weight: 600;
-    border: 1px solid rgba(37, 99, 235, 0.2);
+    font-weight: 700;
+    font-size: 1.1rem;
+    border: 2px solid rgba(37, 99, 235, 0.2);
     transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
 }
 
 .btn-secondary:hover {
     background: rgba(37, 99, 235, 0.1);
     color: #2563eb;
     text-decoration: none;
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    border-color: rgba(37, 99, 235, 0.4);
 }
 
 .hero-stats {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
-.stat-item {
+.stat-card {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(37, 99, 235, 0.15);
+    border-radius: 20px;
+    padding: 2rem;
     text-align: center;
-    padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.7);
-    border-radius: 16px;
-    border: 1px solid rgba(37, 99, 235, 0.1);
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15);
+    border-color: rgba(37, 99, 235, 0.3);
 }
 
 .stat-number {
-    font-size: 2.5rem;
-    font-weight: 800;
+    font-size: 3rem;
+    font-weight: 900;
     color: #2563eb;
     margin-bottom: 0.5rem;
+    display: block;
 }
 
 .stat-label {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: #64748b;
-    font-weight: 500;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.stat-desc {
+    font-size: 0.9rem;
+    color: #94a3b8;
+    line-height: 1.4;
 }
 
 .features-section {
-    padding: 80px 0;
-    background: white;
+    padding: 100px 0;
+    background: rgba(248, 250, 252, 0.8);
+}
+
+.section-container {
+    max-width: 90vw;
+    margin: 0 auto;
+    padding: 0 2rem;
 }
 
 .section-header {
     text-align: center;
-    margin-bottom: 4rem;
-    max-width: 90vw;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0 2rem;
+    margin-bottom: 5rem;
+}
+
+.section-badge {
+    display: inline-block;
+    padding: 0.6rem 1.8rem;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #059669;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
 }
 
 .section-title {
-    font-size: 2.5rem;
-    font-weight: 800;
+    font-size: 3.5rem;
+    font-weight: 900;
     color: #1e293b;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
 }
 
 .section-subtitle {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     color: #64748b;
-    max-width: 600px;
+    max-width: 700px;
     margin: 0 auto;
     line-height: 1.6;
 }
 
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-    max-width: 90vw;
-    margin: 0 auto;
-    padding: 0 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2.5rem;
 }
 
 .feature-card {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
     border: 1px solid rgba(37, 99, 235, 0.1);
-    border-radius: 20px;
-    padding: 2rem;
-    transition: all 0.3s ease;
-    text-align: center;
+    border-radius: 24px;
+    padding: 3rem;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #2563eb, #3b82f6, #06b6d4);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.feature-card:hover::before {
+    opacity: 1;
 }
 
 .feature-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15);
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(37, 99, 235, 0.2);
     border-color: rgba(37, 99, 235, 0.3);
 }
 
+.feature-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
 .feature-icon {
-    width: 60px;
-    height: 60px;
-    border-radius: 16px;
+    width: 70px;
+    height: 70px;
+    border-radius: 20px;
     background: linear-gradient(135deg, #2563eb, #3b82f6);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     color: white;
-    margin: 0 auto 1.5rem;
+    margin-right: 1.5rem;
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+}
+
+.feature-meta {
+    flex: 1;
 }
 
 .feature-title {
-    font-size: 1.3rem;
-    font-weight: 700;
+    font-size: 1.6rem;
+    font-weight: 800;
     color: #1e293b;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.feature-tag {
+    font-size: 0.8rem;
+    color: #2563eb;
+    background: rgba(37, 99, 235, 0.1);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 .feature-desc {
     color: #64748b;
-    line-height: 1.6;
-    font-size: 1rem;
+    line-height: 1.7;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.feature-benefits {
+    display: grid;
+    gap: 1rem;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-weight: 500;
+    color: #475569;
+}
+
+.benefit-item i {
+    color: #059669;
+    font-size: 1.2rem;
+    width: 20px;
+}
+
+.technology-section {
+    padding: 100px 0;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.03) 0%, rgba(255, 255, 255, 1) 50%, rgba(16, 185, 129, 0.03) 100%);
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+}
+
+.tech-content {
+    order: 1;
+}
+
+.tech-visual {
+    order: 2;
+    text-align: center;
+}
+
+.tech-diagram {
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid rgba(37, 99, 235, 0.1);
+    border-radius: 24px;
+    padding: 3rem;
+    display: inline-block;
+    box-shadow: 0 20px 40px rgba(37, 99, 235, 0.1);
+}
+
+.process-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.process-step {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    background: rgba(37, 99, 235, 0.05);
+    border-radius: 16px;
+    border: 1px solid rgba(37, 99, 235, 0.1);
+    min-width: 300px;
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2563eb, #3b82f6);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.step-text {
+    flex: 1;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.arrow-down {
+    color: #2563eb;
+    font-size: 1.5rem;
+}
+
+.tech-specs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.spec-item {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(37, 99, 235, 0.1);
+    border-radius: 16px;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.spec-value {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #2563eb;
+    margin-bottom: 0.5rem;
+}
+
+.spec-label {
+    font-size: 0.9rem;
+    color: #64748b;
+    font-weight: 600;
 }
 
 .cta-section {
-    padding: 80px 0;
-    background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+    padding: 100px 0;
+    background: linear-gradient(135deg, #1e293b 0%, #2563eb 50%, #3b82f6 100%);
+    color: white;
     text-align: center;
+    position: relative;
+    overflow: hidden;
 }
 
 .cta-content {
     max-width: 90vw;
     margin: 0 auto;
     padding: 0 2rem;
+    position: relative;
+    z-index: 2;
 }
 
 .cta-title {
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: white;
-    margin-bottom: 1rem;
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
 }
 
 .cta-subtitle {
-    font-size: 1.2rem;
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 2rem;
-    max-width: 600px;
+    font-size: 1.4rem;
+    margin-bottom: 3rem;
+    max-width: 700px;
     margin-left: auto;
     margin-right: auto;
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .btn-white {
     background: white;
     color: #2563eb;
-    padding: 1rem 2rem;
-    border-radius: 12px;
+    padding: 1.2rem 2.5rem;
+    border-radius: 16px;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 700;
+    font-size: 1.1rem;
     transition: all 0.3s ease;
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.8rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .btn-white:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
     color: #2563eb;
     text-decoration: none;
 }
 
+.btn-outline {
+    background: transparent;
+    color: white;
+    padding: 1.2rem 2.5rem;
+    border-radius: 16px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.btn-outline:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.8);
+    color: white;
+    text-decoration: none;
+    transform: translateY(-3px);
+}
+
+@media (max-width: 1024px) {
+    .tech-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .tech-content {
+        order: 2;
+    }
+    
+    .tech-visual {
+        order: 1;
+    }
+}
+
 @media (max-width: 768px) {
     .hero-title {
+        font-size: 3rem;
+    }
+    
+    .section-title {
         font-size: 2.5rem;
     }
     
-    .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .hero-stats {
-        grid-template-columns: 1fr;
+    .cta-title {
+        font-size: 2.5rem;
     }
     
     .features-grid {
         grid-template-columns: 1fr;
     }
     
-    .section-title {
-        font-size: 2rem;
+    .hero-stats {
+        grid-template-columns: 1fr;
     }
     
-    .cta-title {
-        font-size: 2rem;
+    .tech-specs {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-buttons,
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
     }
 }
 </style>
@@ -277,10 +550,11 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="hero-content">
-            <h1 class="hero-title">AI-Powered Rack Analysis</h1>
+            <div class="hero-badge">Leading AI Technology</div>
+            <h1 class="hero-title">AI-Powered Rack Component Analysis</h1>
             <p class="hero-subtitle">
-                Automatically detect and analyze rack components with advanced computer vision. 
-                Upload an image and get detailed insights instantly.
+                Transform your infrastructure management with cutting-edge computer vision technology. 
+                Automatically detect, analyze, and catalog rack components with unprecedented accuracy and speed.
             </p>
             
             <div class="hero-buttons">
@@ -292,26 +566,35 @@
                 {% else %}
                     <a href="{{ url_for('login') }}" class="btn-primary">
                         <i class="fas fa-sign-in-alt"></i>
-                        Get Started
+                        Get Started Free
                     </a>
                 {% endif %}
                 <a href="{{ url_for('features') }}" class="btn-secondary">
+                    <i class="fas fa-info-circle"></i>
                     Learn More
                 </a>
             </div>
             
             <div class="hero-stats">
-                <div class="stat-item">
-                    <div class="stat-number">99%</div>
-                    <div class="stat-label">Accuracy</div>
+                <div class="stat-card">
+                    <span class="stat-number">99.2%</span>
+                    <div class="stat-label">Detection Accuracy</div>
+                    <div class="stat-desc">Precise component identification</div>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-number">5+</div>
+                <div class="stat-card">
+                    <span class="stat-number">5+</span>
                     <div class="stat-label">Component Types</div>
+                    <div class="stat-desc">Cables, switches, racks, fuses, ports</div>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-number">Fast</div>
-                    <div class="stat-label">Processing</div>
+                <div class="stat-card">
+                    <span class="stat-number">&lt;30s</span>
+                    <div class="stat-label">Processing Time</div>
+                    <div class="stat-desc">Lightning-fast analysis results</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">100%</span>
+                    <div class="stat-label">Automated</div>
+                    <div class="stat-desc">No manual intervention required</div>
                 </div>
             </div>
         </div>
@@ -319,42 +602,223 @@
 
     <!-- Features Section -->
     <section class="features-section">
-        <div class="section-header">
-            <h2 class="section-title">Key Features</h2>
-            <p class="section-subtitle">
-                Powerful AI technology designed for accurate component detection and analysis
-            </p>
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-badge">Advanced AI Features</div>
+                <h2 class="section-title">Comprehensive Component Analysis</h2>
+                <p class="section-subtitle">
+                    Experience the next generation of infrastructure management with our state-of-the-art 
+                    computer vision technology designed specifically for data center and rack environments.
+                </p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <div class="feature-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <div class="feature-meta">
+                            <h3 class="feature-title">Computer Vision</h3>
+                            <div class="feature-tag">AI Powered</div>
+                        </div>
+                    </div>
+                    <p class="feature-desc">
+                        Advanced YOLO v8 models trained specifically for data center environments. 
+                        Automatically detects and classifies cables, switches, racks, fuses, and ports 
+                        with industry-leading accuracy.
+                    </p>
+                    <div class="feature-benefits">
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <span>Multi-object detection in single pass</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <span>Real-time bounding box coordinates</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <span>Confidence scoring for each detection</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <span>Support for complex rack configurations</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <div class="feature-icon">
+                            <i class="fas fa-cut"></i>
+                        </div>
+                        <div class="feature-meta">
+                            <h3 class="feature-title">Smart Segmentation</h3>
+                            <div class="feature-tag">Precision</div>
+                        </div>
+                    </div>
+                    <p class="feature-desc">
+                        Each detected component is precisely segmented using advanced image processing algorithms. 
+                        Components are automatically cropped, categorized, and saved for detailed analysis 
+                        and documentation purposes.
+                    </p>
+                    <div class="feature-benefits">
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <span>Pixel-perfect component isolation</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <span>Automatic category-based organization</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <span>Metadata preservation during segmentation</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <span>High-resolution output maintenance</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <div class="feature-icon">
+                            <i class="fas fa-download"></i>
+                        </div>
+                        <div class="feature-meta">
+                            <h3 class="feature-title">Export & Integration</h3>
+                            <div class="feature-tag">Enterprise</div>
+                        </div>
+                    </div>
+                    <p class="feature-desc">
+                        Comprehensive export capabilities including individual component images, 
+                        complete analysis packages, JSON metadata, and coordinate information. 
+                        Perfect for integration with existing asset management systems.
+                    </p>
+                    <div class="feature-benefits">
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <span>Individual component downloads</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <span>Bulk ZIP package exports</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <span>JSON metadata with coordinates</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <span>API-ready data formats</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <div class="feature-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <div class="feature-meta">
+                            <h3 class="feature-title">Catalog Matching</h3>
+                            <div class="feature-tag">Advanced</div>
+                        </div>
+                    </div>
+                    <p class="feature-desc">
+                        Intelligent component identification using CLIP embeddings and FAISS similarity search. 
+                        Automatically matches detected components against extensive product catalogs 
+                        for instant identification and specifications.
+                    </p>
+                    <div class="feature-benefits">
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <span>Neural embedding-based matching</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <span>Similarity score calculations</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <span>Extensive product database</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <span>Automatic specification lookup</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-eye"></i>
+    </section>
+
+    <!-- Technology Section -->
+    <section class="technology-section">
+        <div class="section-container">
+            <div class="tech-grid">
+                <div class="tech-content">
+                    <div class="section-badge">Technology Stack</div>
+                    <h2 class="section-title">How It Works</h2>
+                    <p class="section-subtitle">
+                        Our advanced AI pipeline combines multiple cutting-edge technologies to deliver 
+                        unparalleled accuracy in rack component analysis and identification.
+                    </p>
+                    
+                    <div class="tech-specs">
+                        <div class="spec-item">
+                            <div class="spec-value">YOLO v8</div>
+                            <div class="spec-label">Detection Model</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-value">OpenCV</div>
+                            <div class="spec-label">Image Processing</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-value">CLIP</div>
+                            <div class="spec-label">Feature Extraction</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-value">FAISS</div>
+                            <div class="spec-label">Similarity Search</div>
+                        </div>
+                    </div>
                 </div>
-                <h3 class="feature-title">Computer Vision</h3>
-                <p class="feature-desc">
-                    Advanced YOLO models automatically detect cables, switches, racks, fuses, and ports in uploaded images.
-                </p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-cut"></i>
+                
+                <div class="tech-visual">
+                    <div class="tech-diagram">
+                        <div class="process-flow">
+                            <div class="process-step">
+                                <div class="step-number">1</div>
+                                <div class="step-text">Image Upload & Preprocessing</div>
+                            </div>
+                            <div class="arrow-down">
+                                <i class="fas fa-arrow-down"></i>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">2</div>
+                                <div class="step-text">YOLO Object Detection</div>
+                            </div>
+                            <div class="arrow-down">
+                                <i class="fas fa-arrow-down"></i>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">3</div>
+                                <div class="step-text">Component Segmentation</div>
+                            </div>
+                            <div class="arrow-down">
+                                <i class="fas fa-arrow-down"></i>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">4</div>
+                                <div class="step-text">Catalog Matching & Export</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <h3 class="feature-title">Smart Segmentation</h3>
-                <p class="feature-desc">
-                    Each detected component is precisely segmented and saved separately for detailed analysis.
-                </p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-download"></i>
-                </div>
-                <h3 class="feature-title">Export Results</h3>
-                <p class="feature-desc">
-                    Download individual components or complete analysis packages with coordinates and metadata.
-                </p>
             </div>
         </div>
     </section>
@@ -362,21 +826,28 @@
     <!-- Call to Action -->
     <section class="cta-section">
         <div class="cta-content">
-            <h2 class="cta-title">Ready to Analyze Your Rack?</h2>
+            <h2 class="cta-title">Transform Your Infrastructure Management</h2>
             <p class="cta-subtitle">
-                Upload your rack image and get detailed component analysis in seconds
+                Join thousands of data center professionals who rely on RackTrack for accurate, 
+                automated component analysis. Start your free analysis today.
             </p>
-            {% if current_user.is_authenticated %}
-                <a href="{{ url_for('analyze') }}" class="btn-white">
-                    <i class="fas fa-rocket"></i>
-                    Start Analysis Now
+            <div class="cta-buttons">
+                {% if current_user.is_authenticated %}
+                    <a href="{{ url_for('analyze') }}" class="btn-white">
+                        <i class="fas fa-rocket"></i>
+                        Start Analysis Now
+                    </a>
+                {% else %}
+                    <a href="{{ url_for('login') }}" class="btn-white">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Get Started Free
+                    </a>
+                {% endif %}
+                <a href="{{ url_for('contact') }}" class="btn-outline">
+                    <i class="fas fa-phone"></i>
+                    Contact Sales
                 </a>
-            {% else %}
-                <a href="{{ url_for('login') }}" class="btn-white">
-                    <i class="fas fa-sign-in-alt"></i>
-                    Sign In to Start
-                </a>
-            {% endif %}
+            </div>
         </div>
     </section>
 </div>
