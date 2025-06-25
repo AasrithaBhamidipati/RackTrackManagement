@@ -862,19 +862,13 @@
                 <div class="col-lg-5">
                     <div class="hero-right">
                         <div class="hero-action-card">
-                            <div class="action-header">
-                                <i class="fas fa-rocket"></i>
-                                <h3>Ready to Start?</h3>
-                                <p>Begin analyzing your rack infrastructure in seconds</p>
-                            </div>
-                            
                             <div class="hero-buttons-vertical">
                                 {% if current_user.is_authenticated %}
                                     <a href="{{ url_for('analyze') }}" class="btn-primary btn-large">
                                         <i class="fas fa-upload"></i>
                                         <span>
-                                            <strong>Start Analysis</strong>
-                                            <small>Upload & Analyze Now</small>
+                                            <strong>Get Started</strong>
+                                            <small>Free Account Setup</small>
                                         </span>
                                     </a>
                                 {% else %}
@@ -894,17 +888,6 @@
                                         <small>Features & Capabilities</small>
                                     </span>
                                 </a>
-                            </div>
-                            
-                            <div class="trust-indicators">
-                                <div class="trust-item">
-                                    <i class="fas fa-shield-alt"></i>
-                                    <span>Enterprise Security</span>
-                                </div>
-                                <div class="trust-item">
-                                    <i class="fas fa-clock"></i>
-                                    <span>24/7 Support</span>
-                                </div>
                             </div>
                         </div>
                     </div>
