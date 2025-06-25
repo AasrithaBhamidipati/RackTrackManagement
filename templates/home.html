@@ -94,11 +94,36 @@
 }
 
 .hero-right {
+    padding-left: 2rem;
+}
+
+.hero-subtitle-header {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--medium-blue);
+    margin-bottom: 1rem;
+}
+
+.hero-image-container {
+    padding: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
-    padding-left: 2rem;
+    min-height: 400px;
+}
+
+.hero-main-image {
+    width: 100%;
+    height: 400px;
+    border-radius: 1.5rem;
+    box-shadow: 0 15px 40px -10px rgba(37, 99, 235, 0.2);
+    transition: all 0.3s ease;
+    object-fit: cover;
+}
+
+.hero-main-image:hover {
+    transform: scale(1.02);
+    box-shadow: 0 20px 50px -10px rgba(37, 99, 235, 0.3);
 }
 
 .hero-action-card {
@@ -831,47 +856,36 @@
     <section class="hero-section">
         <div class="hero-content">
             <div class="row align-items-center">
-                <!-- Left Side Content -->
-                <div class="col-lg-7">
-                    <div class="hero-left">
+                <!-- Left Side Image -->
+                <div class="col-lg-6">
+                    <div class="hero-image-container">
+                        <img src="{{ url_for('static', filename='images/server-room.jpg') }}" alt="Data Center Server Room" class="hero-main-image">
+                    </div>
+                </div>
+
+                <!-- Right Side Content -->
+                <div class="col-lg-6">
+                    <div class="hero-right">
                         <div class="hero-badge">Next-Gen AI Technology</div>
-                        <h1 class="hero-title">AI-Powered Rack Analysis</h1>
+                        <h1 class="hero-title">SprintPark Rack Analysis</h1>
+                        <h2 class="hero-subtitle-header">Powered by AI</h2>
                         <p class="hero-subtitle">
                             Transform your infrastructure with cutting-edge computer vision. 
                             Automatically detect, analyze, and catalog rack components with unprecedented accuracy.
                         </p>
-                    </div>
-                </div>
-
-                <!-- Right Side Actions -->
-                <div class="col-lg-5">
-                    <div class="hero-right">
-                        <div class="hero-buttons-vertical">
+                        
+                        <div class="hero-cta">
                             {% if current_user.is_authenticated %}
-                                <a href="{{ url_for('analyze') }}" class="btn-primary btn-large">
-                                    <i class="fas fa-upload"></i>
-                                    <span>
-                                        <strong>Get Started</strong>
-                                        <small>Free Account Setup</small>
-                                    </span>
+                                <a href="{{ url_for('analyze') }}" class="btn-primary">
+                                    <i class="fas fa-rocket"></i>
+                                    Get Started
                                 </a>
                             {% else %}
-                                <a href="{{ url_for('login') }}" class="btn-primary btn-large">
+                                <a href="{{ url_for('login') }}" class="btn-primary">
                                     <i class="fas fa-sign-in-alt"></i>
-                                    <span>
-                                        <strong>Get Started</strong>
-                                        <small>Free Account Setup</small>
-                                    </span>
+                                    Get Started
                                 </a>
                             {% endif %}
-
-                            <a href="{{ url_for('features') }}" class="btn-secondary btn-large">
-                                <i class="fas fa-info-circle"></i>
-                                <span>
-                                    <strong>Learn More</strong>
-                                    <small>Features & Capabilities</small>
-                                </span>
-                            </a>
                         </div>
                     </div>
                 </div>
