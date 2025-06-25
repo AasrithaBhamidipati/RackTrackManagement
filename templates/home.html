@@ -24,7 +24,7 @@
     overflow: hidden;
 }
 
-/* Advanced Network Infrastructure Background Design */
+/* White and Blue Light Gradient Background */
 .home-container::before {
     content: '';
     position: fixed;
@@ -33,15 +33,15 @@
     width: 100%;
     height: 100%;
     background: 
-        radial-gradient(circle at 15% 15%, rgba(37, 99, 235, 0.4) 0%, transparent 35%),
-        radial-gradient(circle at 85% 85%, rgba(59, 130, 246, 0.3) 0%, transparent 40%),
-        radial-gradient(circle at 50% 30%, rgba(30, 58, 138, 0.5) 0%, transparent 45%),
-        radial-gradient(circle at 30% 80%, rgba(37, 99, 235, 0.35) 0%, transparent 50%),
-        linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #334155 40%, #1e40af 60%, #1e3a8a 80%, #0f172a 100%);
+        radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.2) 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(96, 165, 250, 0.15) 0%, transparent 45%),
+        radial-gradient(circle at 60% 40%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(147, 197, 253, 0.2) 0%, transparent 40%),
+        linear-gradient(135deg, #ffffff 0%, #f8fafc 20%, #e0e7ff 40%, #dbeafe 60%, #bfdbfe 80%, #ffffff 100%);
     z-index: -2;
 }
 
-/* Animated Network Grid Pattern */
+/* Subtle Network Grid Pattern */
 .home-container::after {
     content: '';
     position: fixed;
@@ -50,17 +50,17 @@
     width: 100%;
     height: 100%;
     background-image: 
-        linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
-    background-size: 100px 100px;
-    animation: gridMove 20s linear infinite;
+        linear-gradient(rgba(59, 130, 246, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59, 130, 246, 0.08) 1px, transparent 1px);
+    background-size: 80px 80px;
+    animation: lightGridMove 25s linear infinite;
     z-index: -1;
-    opacity: 0.3;
+    opacity: 0.4;
 }
 
-@keyframes gridMove {
+@keyframes lightGridMove {
     0% { transform: translate(0, 0); }
-    100% { transform: translate(100px, 100px); }
+    100% { transform: translate(80px, 80px); }
 }
 
 /* Floating Particles */
@@ -110,19 +110,19 @@
 
 .hw-element {
     position: absolute;
-    opacity: 0.15;
-    animation: hardwareFloat 30s infinite linear;
+    opacity: 0.25;
+    animation: hardwareFloat 35s infinite linear;
 }
 
 .hw-element.rack {
     width: 50px;
     height: 80px;
-    background: linear-gradient(180deg, rgba(59, 130, 246, 0.6), rgba(37, 99, 235, 0.4));
-    border: 2px solid rgba(59, 130, 246, 0.7);
+    background: linear-gradient(180deg, rgba(59, 130, 246, 0.4), rgba(96, 165, 250, 0.3));
+    border: 2px solid rgba(59, 130, 246, 0.5);
     border-radius: 8px;
     box-shadow: 
-        0 0 20px rgba(59, 130, 246, 0.5),
-        inset 0 0 10px rgba(255, 255, 255, 0.1);
+        0 0 15px rgba(59, 130, 246, 0.3),
+        inset 0 0 10px rgba(255, 255, 255, 0.2);
     position: relative;
 }
 
@@ -145,11 +145,11 @@
 .hw-element.switch {
     width: 70px;
     height: 25px;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0.4), rgba(59, 130, 246, 0.5));
-    border: 1px solid rgba(255, 255, 255, 0.6);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.6), rgba(96, 165, 250, 0.4));
+    border: 1px solid rgba(59, 130, 246, 0.4);
     border-radius: 4px;
     position: relative;
-    box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+    box-shadow: 0 0 12px rgba(59, 130, 246, 0.3);
 }
 
 .hw-element.switch::before {
@@ -174,38 +174,38 @@
     width: 100px;
     height: 5px;
     background: linear-gradient(90deg, 
-        rgba(59, 130, 246, 0.7) 0%, 
-        rgba(255, 255, 255, 0.9) 30%, 
-        rgba(37, 99, 235, 0.8) 60%,
-        rgba(255, 255, 255, 0.9) 90%);
+        rgba(59, 130, 246, 0.5) 0%, 
+        rgba(255, 255, 255, 0.8) 30%, 
+        rgba(96, 165, 250, 0.6) 60%,
+        rgba(255, 255, 255, 0.8) 90%);
     border-radius: 3px;
     transform: rotate(25deg);
     box-shadow: 
-        0 0 10px rgba(59, 130, 246, 0.6),
-        0 0 20px rgba(255, 255, 255, 0.3);
+        0 0 8px rgba(59, 130, 246, 0.4),
+        0 0 15px rgba(255, 255, 255, 0.2);
     animation: cablePulse 4s infinite;
 }
 
 .hw-element.port {
     width: 18px;
     height: 18px;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.6), rgba(59, 130, 246, 0.4));
-    border: 2px solid rgba(255, 255, 255, 0.8);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.8), rgba(96, 165, 250, 0.4));
+    border: 2px solid rgba(59, 130, 246, 0.5);
     border-radius: 50%;
     box-shadow: 
-        0 0 15px rgba(255, 255, 255, 0.6),
-        0 0 25px rgba(59, 130, 246, 0.4);
+        0 0 12px rgba(59, 130, 246, 0.4),
+        0 0 20px rgba(255, 255, 255, 0.3);
     animation: portGlow 3s infinite;
 }
 
 .hw-element.server {
     width: 60px;
     height: 35px;
-    background: linear-gradient(180deg, rgba(15, 23, 42, 0.9), rgba(59, 130, 246, 0.5));
-    border: 1px solid rgba(59, 130, 246, 0.7);
+    background: linear-gradient(180deg, rgba(248, 250, 252, 0.8), rgba(96, 165, 250, 0.4));
+    border: 1px solid rgba(59, 130, 246, 0.5);
     border-radius: 6px;
     position: relative;
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
 }
 
 .hw-element.server::before {
@@ -230,10 +230,10 @@
         opacity: 0;
     }
     10% {
-        opacity: 0.15;
+        opacity: 0.25;
     }
     90% {
-        opacity: 0.15;
+        opacity: 0.25;
     }
     100% {
         transform: translateY(-100px) rotate(360deg);
@@ -255,23 +255,23 @@
 
 @keyframes cablePulse {
     0%, 100% { 
-        box-shadow: 0 0 10px rgba(59, 130, 246, 0.6), 0 0 20px rgba(255, 255, 255, 0.3);
-        opacity: 0.15;
+        box-shadow: 0 0 8px rgba(59, 130, 246, 0.4), 0 0 15px rgba(255, 255, 255, 0.2);
+        opacity: 0.25;
     }
     50% { 
-        box-shadow: 0 0 20px rgba(59, 130, 246, 0.9), 0 0 40px rgba(255, 255, 255, 0.6);
-        opacity: 0.25;
+        box-shadow: 0 0 15px rgba(59, 130, 246, 0.6), 0 0 25px rgba(255, 255, 255, 0.4);
+        opacity: 0.35;
     }
 }
 
 @keyframes portGlow {
     0%, 100% { 
-        box-shadow: 0 0 15px rgba(255, 255, 255, 0.6), 0 0 25px rgba(59, 130, 246, 0.4);
+        box-shadow: 0 0 12px rgba(59, 130, 246, 0.4), 0 0 20px rgba(255, 255, 255, 0.3);
         transform: scale(1);
     }
     50% { 
-        box-shadow: 0 0 25px rgba(255, 255, 255, 0.9), 0 0 40px rgba(59, 130, 246, 0.7);
-        transform: scale(1.2);
+        box-shadow: 0 0 18px rgba(59, 130, 246, 0.6), 0 0 30px rgba(255, 255, 255, 0.5);
+        transform: scale(1.1);
     }
 }
 
