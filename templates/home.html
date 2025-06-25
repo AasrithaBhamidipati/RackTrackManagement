@@ -4,15 +4,17 @@
 
 {% block content %}
 <style>
-/* Creative Variables */
+/* Dark Blue, White & Black Theme */
 :root {
-    --neon-blue: #00f3ff;
-    --electric-purple: #bf00ff;
-    --cyber-green: #00ff88;
-    --hologram-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    --glass-gradient: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
-    --shadow-neon: 0 0 30px rgba(0, 243, 255, 0.3);
-    --shadow-electric: 0 0 25px rgba(191, 0, 255, 0.4);
+    --dark-blue: #1e3a8a;
+    --medium-blue: #3b82f6;
+    --light-blue: #60a5fa;
+    --pure-white: #ffffff;
+    --soft-white: #f8fafc;
+    --charcoal: #1f2937;
+    --glass-gradient: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
+    --shadow-blue: 0 0 30px rgba(59, 130, 246, 0.3);
+    --shadow-dark: 0 0 25px rgba(0, 0, 0, 0.4);
 }
 
 .home-container {
@@ -22,7 +24,7 @@
     overflow: hidden;
 }
 
-/* Advanced Background with Particles */
+/* Advanced Background with Dark Blue Theme */
 .home-container::before {
     content: '';
     position: fixed;
@@ -31,9 +33,9 @@
     width: 100%;
     height: 100%;
     background: 
-        radial-gradient(circle at 20% 30%, rgba(0, 243, 255, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 70%, rgba(191, 0, 255, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 60% 20%, rgba(0, 255, 136, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 20% 30%, rgba(30, 58, 138, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 60% 20%, rgba(31, 41, 55, 0.08) 0%, transparent 50%),
         linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%);
     z-index: -2;
 }
@@ -53,21 +55,21 @@
     position: absolute;
     width: 4px;
     height: 4px;
-    background: var(--neon-blue);
+    background: var(--medium-blue);
     border-radius: 50%;
     animation: float 6s infinite linear;
-    box-shadow: 0 0 10px var(--neon-blue);
+    box-shadow: 0 0 10px var(--medium-blue);
 }
 
 .particle:nth-child(2n) {
-    background: var(--electric-purple);
-    box-shadow: 0 0 8px var(--electric-purple);
+    background: var(--light-blue);
+    box-shadow: 0 0 8px var(--light-blue);
     animation-duration: 8s;
 }
 
 .particle:nth-child(3n) {
-    background: var(--cyber-green);
-    box-shadow: 0 0 6px var(--cyber-green);
+    background: var(--charcoal);
+    box-shadow: 0 0 6px var(--charcoal);
     animation-duration: 10s;
 }
 
@@ -101,27 +103,27 @@
     padding: 0.6rem 1.5rem;
     background: var(--glass-gradient);
     backdrop-filter: blur(15px);
-    border: 1px solid rgba(0, 243, 255, 0.3);
+    border: 1px solid rgba(59, 130, 246, 0.3);
     border-radius: 50px;
     font-size: 0.8rem;
     font-weight: 700;
-    color: var(--neon-blue);
+    color: var(--medium-blue);
     margin-bottom: 1.5rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    box-shadow: var(--shadow-neon);
+    box-shadow: var(--shadow-blue);
     animation: glow 2s ease-in-out infinite alternate;
 }
 
 @keyframes glow {
-    from { box-shadow: 0 0 20px rgba(0, 243, 255, 0.3); }
-    to { box-shadow: 0 0 30px rgba(0, 243, 255, 0.6); }
+    from { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
+    to { box-shadow: 0 0 30px rgba(59, 130, 246, 0.6); }
 }
 
 .hero-title {
     font-size: 4rem;
     font-weight: 900;
-    background: linear-gradient(135deg, #1e293b 0%, var(--neon-blue) 50%, var(--electric-purple) 100%);
+    background: linear-gradient(135deg, var(--charcoal) 0%, var(--dark-blue) 50%, var(--medium-blue) 100%);
     background-size: 200% 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -129,7 +131,7 @@
     margin-bottom: 1.5rem;
     line-height: 1.1;
     animation: gradientShift 3s ease-in-out infinite;
-    text-shadow: 0 0 30px rgba(0, 243, 255, 0.5);
+    text-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
 }
 
 @keyframes gradientShift {
@@ -154,11 +156,11 @@
     flex-wrap: wrap;
 }
 
-/* Futuristic Buttons */
+/* Elegant Dark Blue Buttons */
 .btn-primary {
     position: relative;
-    background: linear-gradient(135deg, var(--neon-blue), var(--electric-purple));
-    color: white;
+    background: linear-gradient(135deg, var(--dark-blue), var(--medium-blue));
+    color: var(--pure-white);
     padding: 1rem 2.5rem;
     border-radius: 50px;
     text-decoration: none;
@@ -169,7 +171,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.8rem;
-    box-shadow: var(--shadow-neon);
+    box-shadow: var(--shadow-blue);
     overflow: hidden;
 }
 
@@ -190,8 +192,8 @@
 
 .btn-primary:hover {
     transform: translateY(-3px) scale(1.05);
-    box-shadow: var(--shadow-electric);
-    color: white;
+    box-shadow: var(--shadow-dark);
+    color: var(--pure-white);
     text-decoration: none;
 }
 
@@ -213,8 +215,8 @@
 
 .btn-secondary:hover {
     background: rgba(37, 99, 235, 0.1);
-    border-color: var(--neon-blue);
-    color: #2563eb;
+    border-color: var(--medium-blue);
+    color: var(--dark-blue);
     text-decoration: none;
     transform: translateY(-3px);
     box-shadow: 0 10px 25px rgba(37, 99, 235, 0.2);
@@ -246,21 +248,21 @@
     padding: 0.5rem 1.5rem;
     background: var(--glass-gradient);
     backdrop-filter: blur(15px);
-    border: 1px solid rgba(0, 255, 136, 0.3);
+    border: 1px solid rgba(59, 130, 246, 0.3);
     border-radius: 50px;
     font-size: 0.75rem;
     font-weight: 700;
-    color: var(--cyber-green);
+    color: var(--medium-blue);
     margin-bottom: 1rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
 }
 
 .section-title {
     font-size: 2.8rem;
     font-weight: 900;
-    background: linear-gradient(135deg, #1e293b, var(--neon-blue), var(--cyber-green));
+    background: linear-gradient(135deg, var(--charcoal), var(--dark-blue), var(--medium-blue));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -302,7 +304,7 @@
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(90deg, var(--neon-blue), var(--electric-purple), var(--cyber-green));
+    background: linear-gradient(90deg, var(--dark-blue), var(--medium-blue), var(--light-blue));
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -314,7 +316,7 @@
     left: -50%;
     width: 200%;
     height: 200%;
-    background: conic-gradient(from 0deg, transparent, rgba(0, 243, 255, 0.1), transparent);
+    background: conic-gradient(from 0deg, transparent, rgba(59, 130, 246, 0.1), transparent);
     opacity: 0;
     transition: all 0.3s ease;
     animation: rotate 8s linear infinite;
@@ -335,8 +337,8 @@
 
 .feature-card:hover {
     transform: translateY(-10px);
-    box-shadow: var(--shadow-neon);
-    border-color: rgba(0, 243, 255, 0.5);
+    box-shadow: var(--shadow-blue);
+    border-color: rgba(59, 130, 246, 0.5);
 }
 
 .feature-header {
@@ -351,14 +353,14 @@
     width: 50px;
     height: 50px;
     border-radius: 15px;
-    background: linear-gradient(135deg, var(--neon-blue), var(--electric-purple));
+    background: linear-gradient(135deg, var(--dark-blue), var(--medium-blue));
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.3rem;
-    color: white;
+    color: var(--pure-white);
     margin-right: 1rem;
-    box-shadow: var(--shadow-neon);
+    box-shadow: var(--shadow-blue);
     position: relative;
     overflow: hidden;
 }
@@ -388,20 +390,20 @@
 .feature-title {
     font-size: 1.2rem;
     font-weight: 800;
-    color: #1e293b;
+    color: var(--charcoal);
     margin-bottom: 0.3rem;
 }
 
 .feature-tag {
     font-size: 0.7rem;
-    color: var(--electric-purple);
-    background: rgba(191, 0, 255, 0.1);
+    color: var(--dark-blue);
+    background: rgba(30, 58, 138, 0.1);
     padding: 0.2rem 0.6rem;
     border-radius: 15px;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    border: 1px solid rgba(191, 0, 255, 0.2);
+    border: 1px solid rgba(30, 58, 138, 0.2);
 }
 
 .feature-desc {
@@ -430,16 +432,16 @@
 }
 
 .benefit-item i {
-    color: var(--cyber-green);
+    color: var(--medium-blue);
     font-size: 1rem;
     width: 16px;
 }
 
-/* Cyber CTA Section */
+/* Elegant Dark Blue CTA Section */
 .cta-section {
     padding: 60px 0;
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
-    color: white;
+    background: linear-gradient(135deg, var(--charcoal) 0%, var(--dark-blue) 50%, #1e3a8a 100%);
+    color: var(--pure-white);
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -453,8 +455,8 @@
     right: 0;
     bottom: 0;
     background: 
-        radial-gradient(circle at 30% 40%, rgba(0, 243, 255, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 70% 60%, rgba(191, 0, 255, 0.1) 0%, transparent 50%);
+        radial-gradient(circle at 30% 40%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 70% 60%, rgba(30, 58, 138, 0.1) 0%, transparent 50%);
     z-index: 1;
 }
 
@@ -471,7 +473,7 @@
     font-weight: 900;
     margin-bottom: 1rem;
     line-height: 1.2;
-    background: linear-gradient(135deg, white, var(--neon-blue), var(--cyber-green));
+    background: linear-gradient(135deg, var(--pure-white), var(--light-blue), var(--medium-blue));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -495,8 +497,8 @@
 }
 
 .btn-white {
-    background: linear-gradient(135deg, white, #f8fafc);
-    color: #1e293b;
+    background: linear-gradient(135deg, var(--pure-white), var(--soft-white));
+    color: var(--charcoal);
     padding: 1rem 2.5rem;
     border-radius: 50px;
     text-decoration: none;
@@ -518,7 +520,7 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(0, 243, 255, 0.3), transparent);
+    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.3), transparent);
     transition: left 0.5s;
 }
 
@@ -529,13 +531,13 @@
 .btn-white:hover {
     transform: translateY(-3px) scale(1.05);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-    color: #1e293b;
+    color: var(--charcoal);
     text-decoration: none;
 }
 
 .btn-outline {
     background: transparent;
-    color: white;
+    color: var(--pure-white);
     padding: 1rem 2.5rem;
     border-radius: 50px;
     text-decoration: none;
@@ -553,11 +555,11 @@
 .btn-outline:hover {
     background: var(--glass-gradient);
     backdrop-filter: blur(10px);
-    border-color: var(--neon-blue);
-    color: white;
+    border-color: var(--light-blue);
+    color: var(--pure-white);
     text-decoration: none;
     transform: translateY(-3px);
-    box-shadow: var(--shadow-neon);
+    box-shadow: var(--shadow-blue);
 }
 
 /* Responsive Design */
