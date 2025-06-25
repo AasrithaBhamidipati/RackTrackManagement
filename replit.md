@@ -95,11 +95,11 @@ RackTrack is a Flask-based web application that uses AI deep learning models to 
 - Sufficient storage for model files and temporary processing
 
 ## Recent Changes
-- June 25, 2025: Updated Get Started button styling and positioning
-  - Moved Get Started button to right side of hero section
-  - Changed button styling to white background with blue text and border
-  - Added hover effects with blue glow and scale transformation
-  - Updated responsive design to center button on mobile devices
+- June 25, 2025: Updated AI vision diagram colors and section title
+  - Changed all orange colors in RackTrack AI Vision System diagram to blue
+  - Updated data streams, indicators, and processing elements to use blue color scheme
+  - Changed "Advanced Computer Vision AI" title font color to white with important flag
+  - Maintained white background in the visualization as requested
 - June 25, 2025: Created white and blue AI vision system visualization  
   - Built clean white background with blue accents and geometric grid pattern
   - Implemented hexagonal AI core with white centers and blue borders
