@@ -114,50 +114,7 @@
     border-color: rgba(37, 99, 235, 0.4);
 }
 
-.hero-stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    max-width: 1000px;
-    margin: 0 auto;
-}
 
-.stat-card {
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(37, 99, 235, 0.15);
-    border-radius: 20px;
-    padding: 2rem;
-    text-align: center;
-    transition: all 0.3s ease;
-}
-
-.stat-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15);
-    border-color: rgba(37, 99, 235, 0.3);
-}
-
-.stat-number {
-    font-size: 3rem;
-    font-weight: 900;
-    color: #2563eb;
-    margin-bottom: 0.5rem;
-    display: block;
-}
-
-.stat-label {
-    font-size: 1rem;
-    color: #64748b;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-}
-
-.stat-desc {
-    font-size: 0.9rem;
-    color: #94a3b8;
-    line-height: 1.4;
-}
 
 .features-section {
     padding: 100px 0;
@@ -207,8 +164,8 @@
 
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 2.5rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
 }
 
 .feature-card {
@@ -527,11 +484,7 @@
     }
     
     .features-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .hero-stats {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
     
     .tech-specs {
@@ -542,6 +495,12 @@
     .cta-buttons {
         flex-direction: column;
         align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .features-grid {
+        grid-template-columns: 1fr;
     }
 }
 </style>
@@ -575,28 +534,7 @@
                 </a>
             </div>
             
-            <div class="hero-stats">
-                <div class="stat-card">
-                    <span class="stat-number">99.2%</span>
-                    <div class="stat-label">Detection Accuracy</div>
-                    <div class="stat-desc">Precise component identification</div>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-number">5+</span>
-                    <div class="stat-label">Component Types</div>
-                    <div class="stat-desc">Cables, switches, racks, fuses, ports</div>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-number">&lt;30s</span>
-                    <div class="stat-label">Processing Time</div>
-                    <div class="stat-desc">Lightning-fast analysis results</div>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-number">100%</span>
-                    <div class="stat-label">Automated</div>
-                    <div class="stat-desc">No manual intervention required</div>
-                </div>
-            </div>
+
         </div>
     </section>
 
