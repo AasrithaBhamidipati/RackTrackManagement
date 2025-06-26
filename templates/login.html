@@ -4,32 +4,52 @@
 
 {% block content %}
 <div class="holographic-login-container">
-    <!-- Image Background -->
-    <div class="image-background">
-        <img src="{{ url_for('static', filename='images/login-background.png') }}" alt="Background" class="background-image">
-        <div class="image-overlay"></div>
+    <!-- Background Video -->
+    <video autoplay muted loop class="background-video">
+        <source src="{{ url_for('static', filename='videos/login-background.mp4') }}" type="video/mp4">
+    </video>
+    <div class="video-overlay"></div>
+
+    <!-- Left Isometric Image Overlay (70%) -->
+    <div class="left-image-overlay">
+        <img src="{{ url_for('static', filename='images/login-background.png') }}" alt="Data Center Infrastructure" class="isometric-image">
+        <div class="image-content-badge">
+            <div class="badge-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2"/>
+                    <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2"/>
+                    <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2"/>
+                </svg>
+            </div>
+            <div class="badge-text">
+                <h3>AI-Powered Infrastructure</h3>
+                <p>Advanced network analysis with intelligent port detection</p>
+            </div>
+        </div>
     </div>
 
-    <!-- Holographic Elements -->
-    <div class="holographic-elements">
-        <div class="floating-particles">
-            <div class="particle particle-1"></div>
-            <div class="particle particle-2"></div>
-            <div class="particle particle-3"></div>
-            <div class="particle particle-4"></div>
-            <div class="particle particle-5"></div>
-            <div class="particle particle-6"></div>
-        </div>
-        
-        <div class="energy-rings">
-            <div class="ring ring-1"></div>
-            <div class="ring ring-2"></div>
-            <div class="ring ring-3"></div>
-        </div>
-    </div>
+    <!-- Right Login Container (30%) -->
+    <div class="right-login-container">
+            <!-- Holographic Elements -->
+            <div class="holographic-elements">
+                <div class="floating-particles">
+                    <div class="particle particle-1"></div>
+                    <div class="particle particle-2"></div>
+                    <div class="particle particle-3"></div>
+                    <div class="particle particle-4"></div>
+                    <div class="particle particle-5"></div>
+                    <div class="particle particle-6"></div>
+                </div>
+                
+                <div class="energy-rings">
+                    <div class="ring ring-1"></div>
+                    <div class="ring ring-2"></div>
+                    <div class="ring ring-3"></div>
+                </div>
+            </div>
 
-    <!-- Main Login Interface -->
-    <div class="login-interface">
+            <!-- Main Login Interface -->
+            <div class="login-interface">
 
         <!-- Holographic Login Form -->
         <div class="holographic-form-container">
@@ -124,8 +144,6 @@
                 </div>
             </form>
         </div>
-
-
     </div>
 </div>
 
@@ -140,35 +158,118 @@
     overflow: hidden;
 }
 
-/* Image Background */
-.image-background {
+/* Background Video */
+.background-video {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    object-fit: cover;
     z-index: -2;
 }
 
-.background-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.7;
-}
-
-.image-overlay {
-    position: absolute;
+.video-overlay {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.3);
+    z-index: -1;
 }
 
-/* Enhanced Holographic Elements */
+/* Left Isometric Image Overlay (70%) */
+.left-image-overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 70%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.isometric-image {
+    width: auto;
+    height: 80vh;
+    max-width: 90%;
+    object-fit: contain;
+    filter: brightness(1.1) contrast(1.05) drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
+}
+
+.image-content-badge {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 20px 24px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    max-width: 400px;
+    animation: badgeSlideIn 1s ease-out 1.5s both;
+}
+
+.badge-icon {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, #2563eb, #3b82f6);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-shrink: 0;
+}
+
+.badge-text h3 {
+    margin: 0 0 4px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.badge-text p {
+    margin: 0;
+    font-size: 14px;
+    color: #64748b;
+    line-height: 1.4;
+}
+
+@keyframes badgeSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Right Login Container (30%) */
+.right-login-container {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 30%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+/* Enhanced Holographic Elements for Right Section */
 .holographic-elements {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -985,6 +1086,84 @@
         opacity: 1;
         transform: scale(1) translateY(0);
     }
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 1024px) {
+    .left-image-overlay {
+        width: 60%;
+    }
+    
+    .right-login-container {
+        width: 40%;
+    }
+    
+    .isometric-image {
+        height: 70vh;
+        max-width: 95%;
+    }
+    
+    .image-content-badge {
+        max-width: calc(60vw - 80px);
+    }
+}
+
+@media (max-width: 768px) {
+    .left-image-overlay {
+        width: 100%;
+        height: 40vh;
+        position: relative;
+    }
+    
+    .right-login-container {
+        width: 100%;
+        height: 60vh;
+        position: relative;
+        top: 40vh;
+    }
+    
+    .isometric-image {
+        height: 35vh;
+        max-width: 90%;
+    }
+    
+    .image-content-badge {
+        bottom: 20px;
+        left: 20px;
+        padding: 16px 20px;
+        max-width: calc(100vw - 40px);
+    }
+    
+    .badge-text h3 {
+        font-size: 16px;
+    }
+    
+    .badge-text p {
+        font-size: 13px;
+    }
+    
+    .holographic-form-container {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+    
+    .form-header h1 {
+        font-size: 2rem;
+    }
+    
+    .demo-access-panel {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    .floating-particles .particle {
+        width: 3px;
+        height: 3px;
+    }
+    
+    .ring-1 { width: 200px; height: 200px; margin: -100px 0 0 -100px; }
+    .ring-2 { width: 300px; height: 300px; margin: -150px 0 0 -150px; }
+    .ring-3 { width: 400px; height: 400px; margin: -200px 0 0 -200px; }
 }
 </style>
 
