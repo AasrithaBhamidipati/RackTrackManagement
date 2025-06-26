@@ -173,7 +173,7 @@
     height: 100%;
     object-fit: cover;
     object-position: center;
-    filter: blur(3px);
+    filter: blur(3px) brightness(0.7) contrast(1.1);
 }
 
 .image-overlay {
@@ -182,7 +182,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(59, 130, 246, 0.05), rgba(0, 0, 0, 0.4));
     z-index: -1;
 }
 
@@ -201,53 +201,69 @@
 
 .isometric-image {
     width: auto;
-    height: 80vh;
-    max-width: 90%;
+    height: 85vh;
+    max-width: 95%;
     object-fit: contain;
-    filter: brightness(1.1) contrast(1.05) drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
+    filter: brightness(1.2) contrast(1.15) saturate(1.1) drop-shadow(0 30px 60px rgba(37, 99, 235, 0.2)) drop-shadow(0 10px 30px rgba(0, 0, 0, 0.4));
+    animation: imageFloat 6s ease-in-out infinite;
+}
+
+@keyframes imageFloat {
+    0%, 100% { transform: translateY(0px) scale(1); }
+    50% { transform: translateY(-10px) scale(1.02); }
 }
 
 .image-content-badge {
     position: absolute;
-    bottom: 40px;
-    left: 40px;
+    bottom: 50px;
+    left: 50px;
     display: flex;
     align-items: center;
-    gap: 16px;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border-radius: 16px;
-    padding: 20px 24px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    max-width: 400px;
+    gap: 18px;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 24px 28px;
+    box-shadow: 
+        0 20px 60px rgba(37, 99, 235, 0.15),
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        0 0 0 1px rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(37, 99, 235, 0.1);
+    max-width: 420px;
     animation: badgeSlideIn 1s ease-out 1.5s both;
+    transform: translateZ(0);
 }
 
 .badge-icon {
-    width: 48px;
-    height: 48px;
-    background: linear-gradient(135deg, #2563eb, #3b82f6);
-    border-radius: 12px;
+    width: 52px;
+    height: 52px;
+    background: linear-gradient(135deg, #2563eb 0%, #3b82f6 50%, #60a5fa 100%);
+    border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
     flex-shrink: 0;
+    box-shadow: 
+        0 8px 24px rgba(37, 99, 235, 0.3),
+        0 4px 12px rgba(59, 130, 246, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .badge-text h3 {
-    margin: 0 0 4px 0;
-    font-size: 18px;
-    font-weight: 600;
+    margin: 0 0 6px 0;
+    font-size: 19px;
+    font-weight: 700;
     color: #1e293b;
+    letter-spacing: -0.02em;
 }
 
 .badge-text p {
     margin: 0;
-    font-size: 14px;
+    font-size: 15px;
     color: #64748b;
-    line-height: 1.4;
+    line-height: 1.5;
+    font-weight: 500;
 }
 
 @keyframes badgeSlideIn {
@@ -272,6 +288,12 @@
     align-items: center;
     justify-content: center;
     z-index: 2;
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0.05) 50%,
+        rgba(37, 99, 235, 0.02) 100%);
+    backdrop-filter: blur(15px);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Enhanced Holographic Elements for Right Section */
@@ -1171,6 +1193,52 @@
     .ring-1 { width: 200px; height: 200px; margin: -100px 0 0 -100px; }
     .ring-2 { width: 300px; height: 300px; margin: -150px 0 0 -150px; }
     .ring-3 { width: 400px; height: 400px; margin: -200px 0 0 -200px; }
+}
+
+/* Enhanced Visual Polish */
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.holographic-login-container::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, 
+        transparent 0%,
+        rgba(37, 99, 235, 0.02) 25%,
+        rgba(59, 130, 246, 0.01) 50%,
+        rgba(96, 165, 250, 0.02) 75%,
+        transparent 100%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Enhanced Input Focus States */
+.field-group:focus-within .field-icon {
+    color: #2563eb;
+    transform: scale(1.1) rotate(3deg);
+    filter: drop-shadow(0 2px 8px rgba(37, 99, 235, 0.3));
+}
+
+/* Subtle Hover Enhancement for Container */
+.holographic-form-container:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 35px 90px rgba(37, 99, 235, 0.15),
+        0 20px 50px rgba(0, 0, 0, 0.1),
+        0 0 0 1px rgba(255, 255, 255, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+/* Enhanced Demo Panel */
+.demo-access-panel:hover {
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 8px 32px rgba(37, 99, 235, 0.12);
 }
 </style>
 
