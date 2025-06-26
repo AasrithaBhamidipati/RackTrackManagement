@@ -14,26 +14,10 @@
 
     <!-- Login Content -->
     <div class="login-content-wrapper">
-        <div class="login-card-container">
-            <!-- Brand Header -->
-            <div class="brand-section">
-                <div class="brand-logo">
-                    <svg width="50" height="50" viewBox="0 0 100 100" class="logo-icon">
-                        <rect x="20" y="20" width="60" height="60" rx="8" fill="none" stroke="#2563eb" stroke-width="3"/>
-                        <rect x="30" y="30" width="40" height="8" rx="2" fill="#2563eb"/>
-                        <rect x="30" y="42" width="40" height="8" rx="2" fill="#3b82f6"/>
-                        <rect x="30" y="54" width="40" height="8" rx="2" fill="#60a5fa"/>
-                        <circle cx="15" cy="35" r="2" fill="#00ff88"/>
-                        <circle cx="15" cy="48" r="2" fill="#ffa500"/>
-                        <circle cx="15" cy="61" r="2" fill="#ff5555"/>
-                    </svg>
-                </div>
-                <h1 class="brand-title">Welcome to RackTrack</h1>
-                <p class="brand-subtitle">AI-Powered Network Infrastructure Analysis</p>
-            </div>
-
-            <!-- Login Form -->
-            <form method="POST" class="modern-login-form">
+        <div class="login-box">
+            <h2 class="login-title">LOGIN</h2>
+            
+            <form method="POST" class="login-form">
                 <div class="form-group">
                     <label for="username" class="form-label">Username</label>
                     <input type="text" 
@@ -73,49 +57,6 @@
                     </div>
                 </button>
             </form>
-
-            <!-- Demo Credentials -->
-            <div class="demo-section">
-                <div class="demo-header">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="demo-icon">
-                        <circle cx="12" cy="12" r="10" stroke="#2563eb" stroke-width="2"/>
-                        <path d="m9,12 2,2 4,-4" stroke="#2563eb" stroke-width="2" fill="none"/>
-                    </svg>
-                    <span class="demo-title">Demo Access</span>
-                </div>
-                <div class="demo-credentials">
-                    <div class="credential-row">
-                        <span class="credential-label">Username:</span>
-                        <code class="credential-value">1234</code>
-                    </div>
-                    <div class="credential-row">
-                        <span class="credential-label">Password:</span>
-                        <code class="credential-value">1234</code>
-                    </div>
-                </div>
-            </div>
-
-            <!-- AI Status Panel -->
-            <div class="ai-status-panel">
-                <div class="status-header">
-                    <div class="status-indicator active"></div>
-                    <span class="status-title">AI Vision System Active</span>
-                </div>
-                <div class="system-stats">
-                    <div class="stat-item">
-                        <span class="stat-label">Network Analysis:</span>
-                        <span class="stat-value">Ready</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-label">Port Detection:</span>
-                        <span class="stat-value">Online</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-label">Security Level:</span>
-                        <span class="stat-value">Maximum</span>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>
@@ -173,72 +114,50 @@
     position: relative;
     z-index: 1;
     width: 100%;
-    max-width: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.login-card-container {
+.login-box {
+    width: 400px;
+    height: 400px;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(20px);
-    border-radius: 20px;
-    padding: 3rem 2.5rem;
+    border-radius: 15px;
+    padding: 3rem;
     box-shadow: 
         0 25px 50px -12px rgba(37, 99, 235, 0.25),
         0 0 0 1px rgba(37, 99, 235, 0.1),
         inset 0 1px 0 rgba(255, 255, 255, 0.9);
     border: 1px solid rgba(37, 99, 235, 0.2);
-}
-
-/* Brand Section */
-.brand-section {
-    text-align: center;
-    margin-bottom: 2.5rem;
-}
-
-.brand-logo {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    margin-bottom: 1.5rem;
 }
 
-.logo-icon {
-    filter: drop-shadow(0 4px 8px rgba(37, 99, 235, 0.3));
-    animation: logoFloat 3s ease-in-out infinite;
-}
-
-@keyframes logoFloat {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-5px); }
-}
-
-.brand-title {
-    font-size: 2rem;
+.login-title {
+    text-align: center;
+    font-size: 1.5rem;
     font-weight: 700;
     color: #2563eb;
-    margin-bottom: 0.5rem;
-    background: linear-gradient(135deg, #2563eb, #3b82f6);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.brand-subtitle {
-    color: #64748b;
-    font-size: 1rem;
-    font-weight: 500;
-    margin: 0;
+    margin-bottom: 2rem;
+    margin-top: 0;
 }
 
 /* Form Styles */
-.modern-login-form {
-    margin-bottom: 2rem;
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
 .form-group {
-    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
 }
 
 .form-label {
-    display: block;
     font-size: 0.9rem;
     font-weight: 600;
     color: #374151;
@@ -247,13 +166,14 @@
 
 .form-input {
     width: 100%;
-    padding: 0.875rem 1rem;
+    padding: 0.75rem;
     font-size: 1rem;
     border: 2px solid #e5e7eb;
-    border-radius: 12px;
+    border-radius: 8px;
     background: rgba(255, 255, 255, 0.9);
     transition: all 0.3s ease;
     font-family: inherit;
+    box-sizing: border-box;
 }
 
 .form-input:focus {
@@ -270,7 +190,6 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    margin-bottom: 2rem;
 }
 
 .checkbox-wrapper {
@@ -323,10 +242,10 @@
 /* Sign In Button */
 .signin-button {
     width: 100%;
-    padding: 1rem;
+    padding: 0.75rem;
     background: linear-gradient(135deg, #2563eb, #3b82f6);
     border: none;
-    border-radius: 12px;
+    border-radius: 8px;
     color: white;
     font-size: 1rem;
     font-weight: 600;
@@ -337,7 +256,6 @@
     box-shadow: 
         0 8px 16px rgba(37, 99, 235, 0.3),
         0 0 0 1px rgba(37, 99, 235, 0.1);
-    margin-bottom: 2rem;
 }
 
 .signin-button:hover {
@@ -372,129 +290,6 @@
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
-}
-
-/* Demo Section */
-.demo-section {
-    background: rgba(37, 99, 235, 0.05);
-    border: 1px solid rgba(37, 99, 235, 0.2);
-    border-radius: 12px;
-    padding: 1.5rem;
-    margin-bottom: 2rem;
-}
-
-.demo-header {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-}
-
-.demo-icon {
-    color: #2563eb;
-}
-
-.demo-title {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: #2563eb;
-}
-
-.demo-credentials {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-}
-
-.credential-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.credential-label {
-    font-size: 0.85rem;
-    color: #6b7280;
-    font-weight: 500;
-}
-
-.credential-value {
-    background: rgba(37, 99, 235, 0.1);
-    color: #2563eb;
-    padding: 0.25rem 0.5rem;
-    border-radius: 6px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    border: 1px solid rgba(37, 99, 235, 0.2);
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.credential-value:hover {
-    background: rgba(37, 99, 235, 0.2);
-    transform: scale(1.05);
-}
-
-/* AI Status Panel */
-.ai-status-panel {
-    background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(37, 99, 235, 0.05));
-    border: 1px solid rgba(16, 185, 129, 0.2);
-    border-radius: 12px;
-    padding: 1.5rem;
-}
-
-.status-header {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 1rem;
-}
-
-.status-indicator {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: #10b981;
-    box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
-    animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.7; transform: scale(1.1); }
-}
-
-.status-title {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: #059669;
-}
-
-.system-stats {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.stat-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.8rem;
-}
-
-.stat-label {
-    color: #6b7280;
-    font-weight: 500;
-}
-
-.stat-value {
-    color: #059669;
-    font-weight: 600;
-    background: rgba(16, 185, 129, 0.1);
-    padding: 0.2rem 0.5rem;
-    border-radius: 4px;
-    border: 1px solid rgba(16, 185, 129, 0.2);
 }
 
 /* Responsive Design */
@@ -570,32 +365,11 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     // Form elements
-    const form = document.querySelector('.modern-login-form');
+    const form = document.querySelector('.login-form');
     const submitBtn = document.querySelector('.signin-button');
-    const inputs = document.querySelectorAll('.form-input');
-
-    // Auto-fill demo credentials
-    const credentialValues = document.querySelectorAll('.credential-value');
-    credentialValues.forEach(credValue => {
-        credValue.addEventListener('click', function() {
-            const isPassword = this.closest('.credential-row').querySelector('.credential-label').textContent.includes('Password');
-            
-            if (isPassword) {
-                document.getElementById('password').value = '1234';
-            } else {
-                document.getElementById('username').value = '1234';
-            }
-            
-            // Visual feedback
-            this.style.background = 'rgba(37, 99, 235, 0.3)';
-            setTimeout(() => {
-                this.style.background = 'rgba(37, 99, 235, 0.1)';
-            }, 200);
-        });
-    });
 
     // Enhanced form submission
-    if (form) {
+    if (form && submitBtn) {
         form.addEventListener('submit', function(e) {
             submitBtn.classList.add('loading');
             submitBtn.disabled = true;
@@ -607,21 +381,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 5000);
         });
     }
-
-    // Input validation and effects
-    inputs.forEach(input => {
-        input.addEventListener('focus', function() {
-            if (this.closest('.form-group')) {
-                this.closest('.form-group').classList.add('focused');
-            }
-        });
-        
-        input.addEventListener('blur', function() {
-            if (this.closest('.form-group')) {
-                this.closest('.form-group').classList.remove('focused');
-            }
-        });
-    });
 
     // Checkbox animation
     const checkbox = document.querySelector('.checkbox-input');
