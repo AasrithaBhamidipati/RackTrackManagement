@@ -4,132 +4,176 @@
 
 {% block content %}
 <style>
-/* Advanced About Page Styling */
+/* Modern About Page with Advanced Animations */
 :root {
     --primary-color: #2563eb;
     --primary-dark: #1d4ed8;
+    --primary-light: #3b82f6;
     --text-primary: #1e293b;
     --text-secondary: #64748b;
     --bg-light: #f8fafc;
     --bg-white: #ffffff;
-    --shadow-sm: 0 4px 20px rgba(37, 99, 235, 0.1);
-    --shadow-md: 0 8px 30px rgba(37, 99, 235, 0.15);
-    --shadow-lg: 0 12px 40px rgba(37, 99, 235, 0.2);
+    --gradient-blue: linear-gradient(135deg, #2563eb, #3b82f6, #60a5fa);
 }
 
 .about-page {
-    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #e0e7ff 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #e0f2fe 100%);
     min-height: 100vh;
-    padding: 0;
-    overflow-x: hidden;
     position: relative;
+    overflow-x: hidden;
 }
 
-.about-page::before {
-    content: '';
+/* Animated Background Particles */
+.floating-particles {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: 
-        radial-gradient(circle at 20% 20%, rgba(37, 99, 235, 0.03) 0%, transparent 40%),
-        radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.03) 0%, transparent 40%),
-        radial-gradient(circle at 40% 60%, rgba(96, 165, 250, 0.02) 0%, transparent 40%);
     pointer-events: none;
-    z-index: 1;
+    z-index: 0;
+    opacity: 0.4;
+}
+
+.particle {
+    position: absolute;
+    background: var(--primary-color);
+    border-radius: 50%;
+    animation: floatParticle 15s infinite ease-in-out;
+}
+
+.particle:nth-child(1) { width: 8px; height: 8px; top: 20%; left: 10%; animation-delay: 0s; }
+.particle:nth-child(2) { width: 6px; height: 6px; top: 60%; right: 15%; animation-delay: 3s; }
+.particle:nth-child(3) { width: 10px; height: 10px; bottom: 30%; left: 20%; animation-delay: 6s; }
+.particle:nth-child(4) { width: 4px; height: 4px; top: 40%; left: 70%; animation-delay: 9s; }
+.particle:nth-child(5) { width: 7px; height: 7px; bottom: 60%; right: 30%; animation-delay: 12s; }
+
+@keyframes floatParticle {
+    0%, 100% { transform: translateY(0px) scale(1); opacity: 0.3; }
+    50% { transform: translateY(-30px) scale(1.2); opacity: 0.8; }
 }
 
 /* Enhanced Hero Section */
 .hero-section {
-    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 25%, #e0e7ff 50%, #dbeafe 75%, #bfdbfe 100%);
-    color: #1e293b;
-    padding: 5rem 0;
-    text-align: center;
+    padding: 5rem 0 6rem;
     position: relative;
-    overflow: hidden;
+    z-index: 2;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(248, 250, 252, 0.8));
+    border-radius: 0 0 50px 50px;
+    margin-bottom: 4rem;
+    box-shadow: 0 20px 60px rgba(37, 99, 235, 0.1);
 }
 
-.hero-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: 
-        radial-gradient(circle at 25% 25%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 75% 75%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
-        linear-gradient(45deg, transparent 40%, rgba(37, 99, 235, 0.05) 50%, transparent 60%);
-    pointer-events: none;
-}
-
-.hero-content {
+.hero-container {
     max-width: 90vw;
     margin: 0 auto;
     padding: 0 2rem;
-    position: relative;
-    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.hero-left {
+    text-align: left;
+    animation: slideInLeft 1s ease-out;
+}
+
+.hero-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: slideInRight 1s ease-out;
+}
+
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
 }
 
 .hero-title {
-    font-size: 4rem;
-    font-weight: 800;
+    font-size: 3.5rem;
+    font-weight: 900;
     margin-bottom: 1.5rem;
     line-height: 1.1;
+    color: var(--text-primary);
 }
 
 .gradient-text {
-    color: #1e293b !important;
+    background: var(--gradient-blue);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
 }
-
-/* Clean white text without animations */
 
 .hero-subtitle {
-    font-size: 1.5rem;
-    color: #64748b;
-    margin-bottom: 3rem;
-    max-width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.4;
+    font-size: 1.3rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    line-height: 1.6;
 }
 
-.hero-stats {
+.hero-stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
-    margin-top: 2.5rem;
-    max-width: 85vw;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
 }
 
 .hero-stat {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
     text-align: center;
-    padding: 1.5rem;
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 16px;
-    box-shadow: 0 4px 20px rgba(37, 99, 235, 0.1);
+    box-shadow: 0 8px 32px rgba(37, 99, 235, 0.1);
+    border: 1px solid rgba(37, 99, 235, 0.1);
+    transition: all 0.3s ease;
+    animation: fadeInUp 1s ease-out;
+    animation-fill-mode: both;
+}
+
+.hero-stat:nth-child(1) { animation-delay: 0.2s; }
+.hero-stat:nth-child(2) { animation-delay: 0.4s; }
+.hero-stat:nth-child(3) { animation-delay: 0.6s; }
+.hero-stat:nth-child(4) { animation-delay: 0.8s; }
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-stat:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(37, 99, 235, 0.2);
 }
 
 .hero-stat-value {
     font-size: 2.2rem;
     font-weight: 900;
-    margin-bottom: 0.3rem;
-    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    background: var(--gradient-blue);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .hero-stat-label {
     font-size: 0.9rem;
-    color: #64748b;
-    font-weight: 500;
+    color: var(--text-secondary);
+    font-weight: 600;
 }
 
-/* Content Sections */
+/* Interactive Content Sections */
 .content-section {
-    padding: 4rem 0;
+    padding: 5rem 0;
+    position: relative;
+    z-index: 2;
 }
 
 .section-container {
@@ -139,35 +183,83 @@
 }
 
 .section-title {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     font-weight: 800;
     color: var(--text-primary);
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     text-align: center;
     position: relative;
+    animation: fadeInUp 0.8s ease-out;
 }
 
 .section-title::after {
     content: '';
     position: absolute;
-    bottom: -10px;
+    bottom: -15px;
     left: 50%;
     transform: translateX(-50%);
-    width: 60px;
+    width: 80px;
     height: 4px;
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    background: var(--gradient-blue);
     border-radius: 2px;
+    animation: expandLine 1s ease-out 0.5s both;
 }
 
-/* Mission Section */
+@keyframes expandLine {
+    from { width: 0; }
+    to { width: 80px; }
+}
+
+/* Mission Section with Split Layout */
 .mission-section {
     background: var(--bg-white);
 }
 
+.mission-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
 .mission-content {
-    max-width: 85vw;
-    margin: 0 auto;
-    text-align: center;
+    animation: slideInLeft 0.8s ease-out;
+}
+
+.mission-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: slideInRight 0.8s ease-out;
+}
+
+.mission-icon-display {
+    width: 300px;
+    height: 300px;
+    background: var(--gradient-blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    animation: rotateGlow 10s linear infinite;
+}
+
+@keyframes rotateGlow {
+    0% { box-shadow: 0 0 40px rgba(37, 99, 235, 0.3); }
+    50% { box-shadow: 0 0 60px rgba(59, 130, 246, 0.5); }
+    100% { box-shadow: 0 0 40px rgba(37, 99, 235, 0.3); }
+}
+
+.mission-icon-display i {
+    font-size: 6rem;
+    color: white;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
 }
 
 .lead-text {
@@ -182,32 +274,10 @@
     font-size: 1.1rem;
     color: var(--text-secondary);
     line-height: 1.8;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
-.precision-banner {
-    margin-top: 3rem;
-    padding: 2rem;
-    background: var(--primary-color);
-    border-radius: 20px;
-    color: white;
-    text-align: center;
-}
-
-.precision-banner h3 {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    color: white;
-}
-
-.precision-banner p {
-    font-size: 1.2rem;
-    color: white;
-    line-height: 1.6;
-}
-
-/* Technology Section */
+/* Technology Section with Interactive Cards */
 .technology-section {
     background: var(--bg-light);
 }
@@ -215,34 +285,57 @@
 .tech-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
+    gap: 2.5rem;
+    margin-top: 3rem;
 }
 
 .tech-card {
-    background: var(--bg-white);
-    padding: 2rem;
-    border-radius: 20px;
-    box-shadow: var(--shadow-sm);
+    background: white;
+    padding: 3rem;
+    border-radius: 25px;
+    box-shadow: 0 10px 40px rgba(37, 99, 235, 0.1);
     border: 1px solid rgba(37, 99, 235, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 0.8s ease-out;
 }
 
+.tech-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-blue);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
 
+.tech-card:hover::before {
+    transform: scaleX(1);
+}
 
-.tech-card.featured {
-    background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
-    border: 2px solid var(--primary-color);
+.tech-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(37, 99, 235, 0.2);
 }
 
 .tech-icon {
     width: 80px;
     height: 80px;
-    background: var(--primary-color);
+    background: var(--gradient-blue);
     border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 2rem;
+    transition: all 0.3s ease;
+}
+
+.tech-card:hover .tech-icon {
+    transform: scale(1.1) rotate(5deg);
 }
 
 .tech-icon i {
@@ -274,6 +367,7 @@
     color: var(--text-secondary);
     position: relative;
     padding-left: 2rem;
+    transition: all 0.3s ease;
 }
 
 .tech-features li::before {
@@ -283,9 +377,14 @@
     color: var(--primary-color);
     font-weight: bold;
     font-size: 1.2rem;
+    transition: all 0.3s ease;
 }
 
-/* Values Section */
+.tech-card:hover .tech-features li::before {
+    transform: scale(1.2);
+}
+
+/* Values Section with Animated Grid */
 .values-section {
     background: var(--bg-white);
 }
@@ -293,31 +392,68 @@
 .values-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 3rem;
-    margin-top: 2rem;
-    width: 100%;
+    gap: 2.5rem;
+    margin-top: 3rem;
 }
 
 .value-card {
     text-align: center;
-    padding: 2rem;
-    background: var(--bg-white);
-    border-radius: 20px;
-    box-shadow: var(--shadow-sm);
+    padding: 3rem 2rem;
+    background: white;
+    border-radius: 25px;
+    box-shadow: 0 10px 40px rgba(37, 99, 235, 0.08);
     border: 1px solid rgba(37, 99, 235, 0.1);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 0.8s ease-out;
+    animation-fill-mode: both;
 }
 
+.value-card:nth-child(1) { animation-delay: 0.1s; }
+.value-card:nth-child(2) { animation-delay: 0.2s; }
+.value-card:nth-child(3) { animation-delay: 0.3s; }
+.value-card:nth-child(4) { animation-delay: 0.4s; }
+.value-card:nth-child(5) { animation-delay: 0.5s; }
+.value-card:nth-child(6) { animation-delay: 0.6s; }
 
+.value-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(59, 130, 246, 0.02));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.value-card:hover::after {
+    opacity: 1;
+}
+
+.value-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(37, 99, 235, 0.15);
+}
 
 .value-icon {
     width: 80px;
     height: 80px;
-    background: var(--primary-color);
+    background: var(--gradient-blue);
     border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto 2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.value-card:hover .value-icon {
+    transform: scale(1.1) rotate(5deg);
 }
 
 .value-icon i {
@@ -330,36 +466,40 @@
     font-weight: 700;
     color: var(--text-primary);
     margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 2;
 }
 
 .value-card p {
     font-size: 1.1rem;
     color: var(--text-secondary);
     line-height: 1.7;
+    position: relative;
+    z-index: 2;
 }
 
-/* Vision Section */
+/* Vision Section with Future Features */
 .vision-section {
     background: var(--bg-light);
 }
 
 .vision-content {
-    max-width: 85vw;
-    margin: 0 auto;
     text-align: center;
+    margin-bottom: 3rem;
 }
 
 .vision-text p {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: var(--text-secondary);
     line-height: 1.8;
-    margin-bottom: 2rem;
+    max-width: 800px;
+    margin: 0 auto 2rem;
 }
 
 .future-features {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
+    gap: 2rem;
     margin-top: 3rem;
 }
 
@@ -367,43 +507,83 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
-    padding: 2rem;
-    background: var(--bg-white);
-    border-radius: 16px;
-    box-shadow: var(--shadow-sm);
+    gap: 1.5rem;
+    padding: 2.5rem 2rem;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(37, 99, 235, 0.1);
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.8s ease-out;
+    animation-fill-mode: both;
 }
 
+.future-feature:nth-child(1) { animation-delay: 0.1s; }
+.future-feature:nth-child(2) { animation-delay: 0.2s; }
+.future-feature:nth-child(3) { animation-delay: 0.3s; }
+.future-feature:nth-child(4) { animation-delay: 0.4s; }
 
+.future-feature:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(37, 99, 235, 0.15);
+}
 
 .future-feature i {
     font-size: 2.5rem;
     color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.future-feature:hover i {
+    transform: scale(1.2);
+    color: var(--primary-light);
 }
 
 .future-feature span {
     font-weight: 600;
     color: var(--text-primary);
+    font-size: 1.1rem;
 }
 
-/* CTA Section */
+/* CTA Section with Enhanced Design */
 .cta-section {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    background: var(--gradient-blue);
     color: white;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+}
+
+.cta-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
 }
 
 .cta-content h2 {
     font-size: 3rem;
     font-weight: 800;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    animation: fadeInUp 0.8s ease-out;
 }
 
 .cta-content p {
     font-size: 1.3rem;
-    color: white;
-    opacity: 1;
+    opacity: 0.95;
     margin-bottom: 3rem;
+    line-height: 1.6;
+    animation: fadeInUp 0.8s ease-out 0.2s both;
 }
 
 .cta-buttons {
@@ -411,62 +591,108 @@
     gap: 2rem;
     justify-content: center;
     flex-wrap: wrap;
+    animation: fadeInUp 0.8s ease-out 0.4s both;
 }
 
 .btn-cta {
     padding: 1.2rem 2.5rem;
-    border-radius: 16px;
+    border-radius: 50px;
     font-weight: 600;
     font-size: 1.1rem;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-cta:hover::before {
+    left: 100%;
 }
 
 .btn-cta.primary {
-    background: rgba(255, 255, 255, 0.95);
+    background: white;
     color: var(--primary-color);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
 }
 
 .btn-cta.secondary {
     background: rgba(255, 255, 255, 0.1);
     color: white;
     border: 2px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
 }
 
 .btn-cta:hover {
+    transform: translateY(-3px);
     text-decoration: none;
 }
 
 .btn-cta.primary:hover {
-    background: white;
-    color: var(--primary-color);
-    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 12px 35px rgba(255, 255, 255, 0.4);
 }
 
 .btn-cta.secondary:hover {
     background: rgba(255, 255, 255, 0.2);
-    color: white;
+    border-color: rgba(255, 255, 255, 0.5);
 }
 
-/* Mobile Responsiveness */
+/* Scroll Animations */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .hero-container,
+    .mission-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+    }
+    
+    .mission-icon-display {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .mission-icon-display i {
+        font-size: 4rem;
+    }
+}
+
 @media (max-width: 768px) {
     .hero-title {
         font-size: 2.5rem;
     }
     
-    .hero-subtitle {
-        font-size: 1.2rem;
-    }
-    
-    .hero-stats {
-        grid-template-columns: repeat(2, 1fr);
+    .hero-stats-grid {
+        grid-template-columns: 1fr;
         gap: 1rem;
     }
     
     .section-title {
-        font-size: 2rem;
+        font-size: 2.2rem;
     }
     
     .tech-grid,
@@ -483,95 +709,104 @@
         align-items: center;
     }
     
-    .content-section {
-        padding: 3rem 0;
-    }
-    
     .cta-content h2 {
-        font-size: 2rem;
-    }
-    
-    .lead-text {
-        font-size: 1.2rem;
+        font-size: 2.2rem;
     }
 }
 
 @media (max-width: 480px) {
-    .hero-stats {
-        grid-template-columns: 1fr;
+    .hero-title {
+        font-size: 2rem;
     }
     
     .future-features {
         grid-template-columns: 1fr;
     }
     
-    .hero-title {
-        font-size: 2rem;
-    }
-    
     .section-title {
         font-size: 1.8rem;
+    }
+    
+    .tech-card,
+    .value-card {
+        padding: 2rem 1.5rem;
     }
 }
 </style>
 
+<!-- Floating Background Particles -->
+<div class="floating-particles">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+</div>
+
 <div class="about-page">
-    <!-- Clean Hero Section -->
+    <!-- Enhanced Hero Section -->
     <section class="hero-section">
-        <div class="hero-content">
-            <h1 class="hero-title">
-                <span class="gradient-text">About RackTrack</span>
-            </h1>
-            <p class="hero-subtitle">
-                Revolutionizing data center management through AI-powered automation
-            </p>
+        <div class="hero-container">
+            <div class="hero-left">
+                <h1 class="hero-title">
+                    <span class="gradient-text">About RackTrack</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Revolutionizing data center management through AI-powered automation and intelligent infrastructure analysis.
+                </p>
+            </div>
             
-            <div class="hero-stats">
-                <div class="hero-stat">
-                    <div class="hero-stat-value">99.9%</div>
-                    <div class="hero-stat-label">Detection Accuracy</div>
-                </div>
-                <div class="hero-stat">
-                    <div class="hero-stat-value">&lt;30s</div>
-                    <div class="hero-stat-label">Processing Time</div>
-                </div>
-                <div class="hero-stat">
-                    <div class="hero-stat-value">10,000+</div>
-                    <div class="hero-stat-label">Images Processed</div>
-                </div>
-                <div class="hero-stat">
-                    <div class="hero-stat-value">24/7</div>
-                    <div class="hero-stat-label">System Availability</div>
+            <div class="hero-right">
+                <div class="hero-stats-grid">
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">99.9%</div>
+                        <div class="hero-stat-label">Detection Accuracy</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">&lt;30s</div>
+                        <div class="hero-stat-label">Processing Time</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">10,000+</div>
+                        <div class="hero-stat-label">Images Processed</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">24/7</div>
+                        <div class="hero-stat-label">System Availability</div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Mission Section -->
+    <!-- Mission Section with Split Layout -->
     <section class="content-section mission-section">
         <div class="section-container">
-            <div class="mission-content">
-                <h2 class="section-title">Our Mission</h2>
-                <div class="mission-text">
+            <h2 class="section-title">Our Mission</h2>
+            <div class="mission-container">
+                <div class="mission-content">
                     <p class="lead-text">
                         To transform the way data centers manage their infrastructure by providing cutting-edge AI solutions 
                         that eliminate manual processes and deliver unprecedented accuracy in rack component analysis.
                     </p>
-                    <p>
-                        In today's fast-paced digital world, data centers are the backbone of our connected society. 
-                        Yet many facilities still rely on time-consuming manual processes for inventory management and 
-                        component tracking. RackTrack changes that by bringing the power of artificial intelligence to rack management.
-                    </p>
-                    <p>
-                        Our advanced computer vision technology can identify, analyze, and catalog rack components in seconds, 
-                        providing detailed insights that would take hours to gather manually. This isn't just about efficiency – 
-                        it's about accuracy, consistency, and giving IT professionals the tools they need to manage modern infrastructure.
-                    </p>
+                    <div class="mission-text">
+                        <p>
+                            In today's fast-paced digital world, data centers are the backbone of our connected society. 
+                            Yet many facilities still rely on time-consuming manual processes for inventory management and 
+                            component tracking. RackTrack changes that by bringing the power of artificial intelligence to rack management.
+                        </p>
+                        <p>
+                            Our advanced computer vision technology can identify, analyze, and catalog rack components in seconds, 
+                            providing detailed insights that would take hours to gather manually. This isn't just about efficiency – 
+                            it's about accuracy, consistency, and giving IT professionals the tools they need to manage modern infrastructure.
+                        </p>
+                    </div>
                 </div>
                 
-                <div class="precision-banner">
-                    <h3>Precision & Innovation</h3>
-                    <p>Combining state-of-the-art AI with deep industry expertise to deliver unmatched accuracy in rack component analysis.</p>
+                <div class="mission-visual">
+                    <div class="mission-icon-display">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
                 </div>
             </div>
         </div>
@@ -583,7 +818,7 @@
             <h2 class="section-title">Our Technology</h2>
             
             <div class="tech-grid">
-                <div class="tech-card featured">
+                <div class="tech-card">
                     <div class="tech-icon">
                         <i class="fas fa-brain"></i>
                     </div>
@@ -648,70 +883,207 @@
                 
                 <div class="value-card">
                     <div class="value-icon">
-                        <i class="fas fa-handshake"></i>
+                        <i class="fas fa-users"></i>
                     </div>
-                    <h3>Partnership</h3>
+                    <h3>Customer Focus</h3>
                     <p>
-                        We work closely with our users to understand their needs and continuously improve 
-                        our platform based on real-world feedback and requirements.
+                        Every feature we develop is driven by real customer needs and feedback from data center 
+                        professionals who use our platform daily.
+                    </p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Security</h3>
+                    <p>
+                        We prioritize data security and privacy, ensuring that your sensitive infrastructure 
+                        information is protected with enterprise-grade security measures.
+                    </p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <h3>Excellence</h3>
+                    <p>
+                        We maintain the highest standards in everything we do, from code quality to customer 
+                        support, ensuring exceptional experiences at every touchpoint.
+                    </p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Growth</h3>
+                    <p>
+                        We're committed to continuous improvement and scaling our solutions to meet the evolving 
+                        needs of modern data center operations worldwide.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Future Vision Section -->
+    <!-- Vision Section -->
     <section class="content-section vision-section">
         <div class="section-container">
+            <h2 class="section-title">Our Vision</h2>
             <div class="vision-content">
-                <h2 class="section-title">The Future of Rack Management</h2>
                 <div class="vision-text">
-                    <p class="lead-text">
-                        We envision a world where data center operations are fully automated, where AI assistants 
-                        can instantly assess infrastructure health, predict maintenance needs, and optimize 
-                        resource allocation in real-time.
+                    <p>
+                        We envision a future where data center management is completely automated, intelligent, and predictive. 
+                        Where AI doesn't just analyze what exists, but anticipates what's needed next.
                     </p>
                     <p>
-                        RackTrack is just the beginning. We're working on advanced features like predictive maintenance, 
-                        automated compliance checking, and integration with popular data center management platforms. 
-                        Our goal is to create a comprehensive AI-powered ecosystem for modern data center operations.
+                        Our roadmap includes advanced features that will further revolutionize how data centers operate, 
+                        making them more efficient, reliable, and cost-effective than ever before.
                     </p>
                 </div>
                 
                 <div class="future-features">
                     <div class="future-feature">
                         <i class="fas fa-chart-line"></i>
-                        <span>Predictive Maintenance</span>
+                        <span>Predictive Analytics</span>
                     </div>
                     <div class="future-feature">
-                        <i class="fas fa-clipboard-check"></i>
-                        <span>Automated Compliance</span>
+                        <i class="fas fa-mobile-alt"></i>
+                        <span>Mobile Integration</span>
                     </div>
                     <div class="future-feature">
-                        <i class="fas fa-plug"></i>
-                        <span>Platform Integration</span>
+                        <i class="fas fa-cloud"></i>
+                        <span>Cloud Platform</span>
                     </div>
                     <div class="future-feature">
-                        <i class="fas fa-cogs"></i>
-                        <span>Resource Optimization</span>
+                        <i class="fas fa-robot"></i>
+                        <span>Automation Suite</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Call to Action Section -->
+    <!-- CTA Section -->
     <section class="content-section cta-section">
-        <div class="section-container">
-            <div class="cta-content">
-                <h2>Ready to Join the Future?</h2>
-                <p>Experience the power of AI-driven rack management today</p>
-                <div class="cta-buttons">
-                    <a href="{{ url_for('login') }}" class="btn btn-cta primary">Get Started</a>
-                    <a href="{{ url_for('contact') }}" class="btn btn-cta secondary">Contact Sales</a>
-                </div>
+        <div class="cta-content">
+            <h2>Ready to Transform Your Data Center?</h2>
+            <p>Join thousands of IT professionals who trust RackTrack for their infrastructure management needs.</p>
+            <div class="cta-buttons">
+                <a href="/analyze" class="btn-cta primary">
+                    <i class="fas fa-play"></i>
+                    Get Started Now
+                </a>
+                <a href="/contact" class="btn-cta secondary">
+                    <i class="fas fa-envelope"></i>
+                    Contact Sales
+                </a>
             </div>
         </div>
     </section>
 </div>
+
+<script>
+// Enhanced scroll animations and interactions
+document.addEventListener('DOMContentLoaded', function() {
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+            }
+        });
+    }, observerOptions);
+
+    // Observe all animated elements
+    const animatedElements = document.querySelectorAll('.tech-card, .value-card, .future-feature');
+    animatedElements.forEach(el => {
+        el.classList.add('scroll-reveal');
+        observer.observe(el);
+    });
+
+    // Enhanced card hover effects
+    const cards = document.querySelectorAll('.tech-card, .value-card');
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-10px) scale(1.02)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+
+    // Animate statistics on scroll
+    const stats = document.querySelectorAll('.hero-stat-value');
+    const statsObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateStatValue(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    stats.forEach(stat => {
+        statsObserver.observe(stat);
+    });
+
+    function animateStatValue(element) {
+        const text = element.textContent;
+        const hasPercent = text.includes('%');
+        const hasLessThan = text.includes('<');
+        const hasPlus = text.includes('+');
+        
+        let number;
+        if (hasPercent) {
+            number = parseFloat(text);
+        } else if (hasLessThan) {
+            number = parseInt(text.replace('<', '').replace('s', ''));
+        } else if (hasPlus) {
+            number = parseInt(text.replace('+', '').replace(',', ''));
+        } else {
+            return; // Skip non-numeric values like "24/7"
+        }
+
+        let current = 0;
+        const increment = number / 50;
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= number) {
+                current = number;
+                clearInterval(timer);
+            }
+            
+            let displayValue;
+            if (hasPercent) {
+                displayValue = current.toFixed(1) + '%';
+            } else if (hasLessThan) {
+                displayValue = '<' + Math.round(current) + 's';
+            } else if (hasPlus) {
+                displayValue = Math.round(current).toLocaleString() + '+';
+            }
+            
+            element.textContent = displayValue;
+        }, 20);
+    }
+
+    // Parallax effect for background particles
+    window.addEventListener('scroll', function() {
+        const scrolled = window.pageYOffset;
+        const particles = document.querySelectorAll('.particle');
+        
+        particles.forEach((particle, index) => {
+            const speed = 0.5 + (index * 0.1);
+            particle.style.transform = `translateY(${scrolled * speed}px)`;
+        });
+    });
+});
+</script>
 {% endblock %}
