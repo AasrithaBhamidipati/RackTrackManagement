@@ -91,6 +91,17 @@
     min-height: 40vh;
 }
 
+.hero-main-content {
+    width: 80%;
+    text-align: justify;
+}
+
+.hero-banner-section {
+    grid-column: 1 / -1;
+    width: 100%;
+    margin-top: 3rem;
+}
+
 @keyframes slideInLeft {
     from { opacity: 0; transform: translateX(-50px); }
     to { opacity: 1; transform: translateX(0); }
@@ -1078,9 +1089,13 @@
         margin-bottom: 1.5rem;
     }
     
-    .hero-stats {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
+    .hero-main-content {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .content-paragraph {
+        text-align: left;
     }
     
     .visual-element {
@@ -1173,23 +1188,20 @@
         <div class="hero-container">
             <div class="hero-split">
                 <div class="hero-left">
-                    <h1 class="hero-title">About RackTrack</h1>
-                    <p class="hero-subtitle">
-                        To transform the way data centers manage their infrastructure by providing cutting-edge AI solutions that eliminate manual processes and deliver unprecedented accuracy in rack component analysis.
-                    </p>
-                    
-                    <div class="hero-content-text">
-                        <p class="content-paragraph">
-                            In today's fast-paced digital world, data centers are the backbone of our connected society. Yet many facilities still rely on time-consuming manual processes for inventory management and component tracking. RackTrack changes that by bringing the power of artificial intelligence to rack management.
+                    <div class="hero-main-content">
+                        <h1 class="hero-title">About RackTrack</h1>
+                        <p class="hero-subtitle">
+                            To transform the way data centers manage their infrastructure by providing cutting-edge AI solutions that eliminate manual processes and deliver unprecedented accuracy in rack component analysis.
                         </p>
                         
-                        <p class="content-paragraph">
-                            Our advanced computer vision technology can identify, analyze, and catalog rack components in seconds, providing detailed insights that would take hours to gather manually. This isn't just about efficiency – it's about accuracy, consistency, and giving IT professionals the tools they need to manage modern infrastructure.
-                        </p>
-                        
-                        <div class="precision-banner">
-                            <h3 class="banner-title">Precision & Innovation</h3>
-                            <p class="banner-text">Combining state-of-the-art AI with deep industry expertise to deliver unmatched accuracy in rack component analysis.</p>
+                        <div class="hero-content-text">
+                            <p class="content-paragraph">
+                                In today's fast-paced digital world, data centers are the backbone of our connected society. Yet many facilities still rely on time-consuming manual processes for inventory management and component tracking. RackTrack changes that by bringing the power of artificial intelligence to rack management.
+                            </p>
+                            
+                            <p class="content-paragraph">
+                                Our advanced computer vision technology can identify, analyze, and catalog rack components in seconds, providing detailed insights that would take hours to gather manually. This isn't just about efficiency – it's about accuracy, consistency, and giving IT professionals the tools they need to manage modern infrastructure.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -1204,6 +1216,13 @@
                         <div class="inner-circle">
                             <i class="fas fa-brain center-icon"></i>
                         </div>
+                    </div>
+                </div>
+                
+                <div class="hero-banner-section">
+                    <div class="precision-banner">
+                        <h3 class="banner-title">Precision & Innovation</h3>
+                        <p class="banner-text">Combining state-of-the-art AI with deep industry expertise to deliver unmatched accuracy in rack component analysis.</p>
                     </div>
                 </div>
             </div>
