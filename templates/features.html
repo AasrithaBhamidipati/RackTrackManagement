@@ -53,47 +53,33 @@
 
 /* Hero Section with Interactive Demo */
 .hero-interactive {
-    padding: 3rem 0 4rem;
+    padding: 4rem 0 5rem;
     position: relative;
     z-index: 2;
     max-width: 90vw;
     margin: 0 auto;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.9));
+    border-radius: 30px;
+    margin-top: 2rem;
+    box-shadow: 0 20px 60px rgba(37, 99, 235, 0.08);
+    border: 1px solid rgba(37, 99, 235, 0.1);
 }
 
 .hero-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    gap: 4rem;
     align-items: center;
-}
-
-.hero-badge {
-    display: inline-block;
-    padding: 0.75rem 2rem;
-    background: linear-gradient(135deg, #dbeafe, #bfdbfe);
-    border: 2px solid #2563eb;
-    border-radius: 50px;
-    color: #1e40af;
-    font-weight: 700;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 2rem;
-    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
-    animation: badgeFloat 3s ease-in-out infinite;
-}
-
-@keyframes badgeFloat {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-5px); }
+    padding: 0 3rem;
 }
 
 .hero-title {
-    font-size: 3.5rem;
+    font-size: 4rem;
     font-weight: 900;
     color: #1e293b;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0;
     line-height: 1.1;
+    letter-spacing: -0.02em;
 }
 
 .hero-gradient-text {
@@ -101,23 +87,80 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    display: inline-block;
+    position: relative;
+}
+
+.hero-gradient-text::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(135deg, #1e40af, #3b82f6, #60a5fa);
+    opacity: 0.3;
+    border-radius: 2px;
 }
 
 .hero-left {
     text-align: left;
+    position: relative;
+}
+
+.hero-left::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(59, 130, 246, 0.05));
+    border-radius: 50%;
+    z-index: -1;
+    animation: heroAccent 4s ease-in-out infinite;
+}
+
+@keyframes heroAccent {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.3; }
+    50% { transform: scale(1.2) rotate(180deg); opacity: 0.6; }
 }
 
 .hero-right {
     display: flex;
     align-items: center;
     padding-left: 2rem;
+    position: relative;
+}
+
+.hero-right::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 2px;
+    height: 60px;
+    background: linear-gradient(180deg, transparent, #3b82f6, transparent);
+    transform: translateY(-50%);
 }
 
 .hero-subtitle {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     color: #64748b;
-    line-height: 1.6;
+    line-height: 1.7;
     margin: 0;
+    font-weight: 400;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.hero-subtitle::before {
+    content: '💡';
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.2rem;
+    opacity: 0.8;
 }
 
 /* Interactive Feature Cards System */
@@ -445,15 +488,36 @@
 }
 
 /* Responsive Design */
+@media (max-width: 992px) {
+    .hero-container {
+        padding: 0 2rem;
+        gap: 3rem;
+    }
+    
+    .hero-title {
+        font-size: 3.5rem;
+    }
+}
+
 @media (max-width: 768px) {
+    .hero-interactive {
+        margin-top: 1rem;
+        padding: 3rem 0 4rem;
+    }
+    
     .hero-container {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 2.5rem;
         text-align: center;
+        padding: 0 1.5rem;
     }
     
     .hero-left {
         text-align: center;
+    }
+    
+    .hero-left::before {
+        display: none;
     }
     
     .hero-right {
@@ -461,8 +525,22 @@
         justify-content: center;
     }
     
+    .hero-right::before {
+        display: none;
+    }
+    
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+        padding-left: 0;
+    }
+    
+    .hero-subtitle::before {
+        position: relative;
+        margin-right: 0.5rem;
     }
     
     .features-interactive-grid {
@@ -483,6 +561,20 @@
         grid-template-columns: 1fr;
     }
 }
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2.2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .hero-container {
+        padding: 0 1rem;
+    }
+}
 </style>
 
 <!-- Background Network Animation -->
@@ -501,9 +593,6 @@
     <section class="hero-interactive">
         <div class="hero-container">
             <div class="hero-left">
-                <div class="hero-badge">
-                    ⚡ NEXT-GENERATION AI PLATFORM
-                </div>
                 <h1 class="hero-title">
                     <span class="hero-gradient-text">Revolutionary</span><br>
                     Rack Intelligence
