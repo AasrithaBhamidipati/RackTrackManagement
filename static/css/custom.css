@@ -588,38 +588,51 @@ body::after {
     border-radius: 16px;
 }
 
-/* Logo Animation Classes */
-.logo-pulse {
-    animation: logoPulse 3s ease-in-out infinite;
+/* Advanced Logo Animation Classes */
+.hologram-pulse {
+    animation: hologramPulse 4s ease-in-out infinite;
 }
 
-.server-slot {
-    animation: serverActivity 2s ease-in-out infinite alternate;
+.rack-3d {
+    animation: rack3DFloat 5s ease-in-out infinite;
 }
 
-.led-indicator {
-    animation: ledBlink 1.5s ease-in-out infinite;
+.rack-body {
+    animation: rackBodyGlow 3s ease-in-out infinite alternate;
 }
 
-.neural-path {
-    stroke-dasharray: 5,3;
-    animation: dataFlow 3s linear infinite;
+.server-bay {
+    animation: serverBayActivity 2.5s ease-in-out infinite alternate;
 }
 
-.ai-node {
-    animation: nodeGlow 2s ease-in-out infinite alternate;
+.status-led {
+    animation: statusBlink 1.8s ease-in-out infinite;
 }
 
-.ai-core {
-    animation: coreRotate 4s linear infinite, corePulse 2s ease-in-out infinite alternate;
+.data-ring {
+    stroke-dasharray: 10,5;
+    animation: ringRotation 8s linear infinite;
 }
 
-.data-particle {
-    animation: particleFloat 3s ease-in-out infinite;
+.scan-line {
+    animation: scanPulse 3s ease-in-out infinite;
 }
 
-.rack-structure {
-    animation: rackGlow 4s ease-in-out infinite alternate;
+.data-node {
+    animation: nodeEnergyPulse 2s ease-in-out infinite alternate;
+}
+
+.neural-connection {
+    stroke-dasharray: 8,4;
+    animation: neuralFlow 4s linear infinite;
+}
+
+.ai-brain {
+    animation: brainRotation 6s linear infinite, brainPulse 2.5s ease-in-out infinite alternate;
+}
+
+.particle {
+    animation: energyParticleFlow 4s ease-in-out infinite;
 }
 
 /* Logo Animations */
@@ -751,41 +764,60 @@ body::after {
 }
 
 .brand-link:hover .brand-icon-modern svg {
-    transform: scale(1.1);
+    transform: scale(1.15);
 }
 
-.brand-link:hover .logo-pulse {
+.brand-link:hover .hologram-pulse {
+    animation-duration: 2s;
+    opacity: 1;
+}
+
+.brand-link:hover .rack-3d {
+    animation-duration: 3s;
+}
+
+.brand-link:hover .server-bay {
+    animation-duration: 1.5s;
+}
+
+.brand-link:hover .status-led {
+    animation-duration: 1s;
+}
+
+.brand-link:hover .data-ring {
+    animation-duration: 4s;
+    opacity: 1;
+}
+
+.brand-link:hover .scan-line {
     animation-duration: 1.5s;
     opacity: 1;
 }
 
-.brand-link:hover .server-slot {
+.brand-link:hover .data-node {
     animation-duration: 1s;
 }
 
-.brand-link:hover .led-indicator {
-    animation-duration: 0.8s;
-}
-
-.brand-link:hover .neural-path {
-    animation-duration: 1.5s;
+.brand-link:hover .neural-connection {
+    animation-duration: 2s;
     opacity: 1;
 }
 
-.brand-link:hover .ai-node {
-    animation-duration: 1s;
+.brand-link:hover .ai-brain {
+    animation-duration: 3s, 1.5s;
 }
 
-.brand-link:hover .ai-core {
-    animation-duration: 2s, 1s;
+.brand-link:hover .particle {
+    animation-duration: 2s;
 }
 
-.brand-link:hover .data-particle {
-    animation-duration: 1.5s;
+.brand-link:hover .brand-name-modern {
+    transform: translateY(-3px) scale(1.08);
+    filter: drop-shadow(0 8px 25px rgba(99, 102, 241, 0.8)) drop-shadow(0 0 50px rgba(168, 85, 247, 0.6));
 }
 
-.brand-link:hover .rack-structure {
-    filter: drop-shadow(0 0 20px rgba(99, 102, 241, 0.8));
+.brand-link:hover .brand-name-modern::after {
+    transform: scaleX(1);
 }
 
 @keyframes logoRotate {
@@ -794,21 +826,26 @@ body::after {
 }
 
 .brand-name-modern {
-    font-size: 1.6rem;
+    font-size: 2.2rem;
     font-weight: 900;
-    font-family: 'Inter', sans-serif;
-    background: linear-gradient(135deg, #2563eb 0%, #6366f1 25%, #8b5cf6 50%, #06b6d4 75%, #3b82f6 100%);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: linear-gradient(135deg, #0ea5e9 0%, #3b82f6 20%, #6366f1 40%, #8b5cf6 60%, #a855f7 80%, #06b6d4 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    background-size: 300% 300%;
-    animation: gradientShift 4s ease-in-out infinite, textGlow 2s ease-in-out infinite alternate;
-    letter-spacing: 0.08em;
+    background-size: 400% 400%;
+    animation: advancedGradientFlow 6s ease-in-out infinite, textMagnetism 3s ease-in-out infinite alternate;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     position: relative;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    filter: drop-shadow(0 2px 8px rgba(37, 99, 235, 0.4));
-    text-shadow: 0 0 20px rgba(37, 99, 235, 0.2);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: drop-shadow(0 4px 12px rgba(37, 99, 235, 0.5)) drop-shadow(0 0 20px rgba(139, 92, 246, 0.3));
+    text-shadow: 
+        0 0 30px rgba(37, 99, 235, 0.4),
+        0 0 60px rgba(139, 92, 246, 0.2),
+        0 2px 4px rgba(0, 0, 0, 0.1);
+    font-feature-settings: 'kern' 1, 'liga' 1;
+    font-variant: small-caps;
 }
 
 .brand-name-modern::before {
@@ -850,29 +887,172 @@ body::after {
     transition: transform 0.3s ease;
 }
 
-@keyframes gradientShift {
+@keyframes advancedGradientFlow {
     0%, 100% {
         background-position: 0% 50%;
     }
-    25% {
+    20% {
         background-position: 100% 0%;
     }
-    50% {
+    40% {
         background-position: 100% 100%;
     }
-    75% {
+    60% {
         background-position: 0% 100%;
+    }
+    80% {
+        background-position: 50% 50%;
     }
 }
 
-@keyframes textGlow {
+@keyframes textMagnetism {
     0% {
-        filter: drop-shadow(0 2px 8px rgba(37, 99, 235, 0.4));
-        text-shadow: 0 0 20px rgba(37, 99, 235, 0.2);
+        filter: drop-shadow(0 4px 12px rgba(37, 99, 235, 0.5)) drop-shadow(0 0 20px rgba(139, 92, 246, 0.3));
+        text-shadow: 
+            0 0 30px rgba(37, 99, 235, 0.4),
+            0 0 60px rgba(139, 92, 246, 0.2);
     }
     100% {
-        filter: drop-shadow(0 4px 12px rgba(99, 102, 241, 0.6));
-        text-shadow: 0 0 30px rgba(99, 102, 241, 0.4);
+        filter: drop-shadow(0 6px 20px rgba(99, 102, 241, 0.7)) drop-shadow(0 0 40px rgba(168, 85, 247, 0.5));
+        text-shadow: 
+            0 0 50px rgba(99, 102, 241, 0.6),
+            0 0 100px rgba(168, 85, 247, 0.4);
+    }
+}
+
+@keyframes hologramPulse {
+    0%, 100% {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+    33% {
+        opacity: 0.8;
+        transform: scale(1.05);
+    }
+    66% {
+        opacity: 0.7;
+        transform: scale(0.98);
+    }
+}
+
+@keyframes rack3DFloat {
+    0%, 100% {
+        transform: translate(30px, 30px) rotateY(0deg);
+    }
+    50% {
+        transform: translate(30px, 28px) rotateY(5deg);
+    }
+}
+
+@keyframes rackBodyGlow {
+    0% {
+        filter: drop-shadow(0 0 5px rgba(14, 165, 233, 0.3));
+    }
+    100% {
+        filter: drop-shadow(0 0 15px rgba(139, 92, 246, 0.6));
+    }
+}
+
+@keyframes serverBayActivity {
+    0% {
+        opacity: 0.7;
+        fill: rgba(255,255,255,0.7);
+    }
+    100% {
+        opacity: 1;
+        fill: rgba(255,255,255,0.95);
+    }
+}
+
+@keyframes statusBlink {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.3;
+        transform: scale(0.8);
+    }
+}
+
+@keyframes ringRotation {
+    0% {
+        stroke-dashoffset: 0;
+        transform: rotate(0deg);
+    }
+    100% {
+        stroke-dashoffset: 30;
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes scanPulse {
+    0%, 100% {
+        opacity: 0.7;
+        stroke-width: 1;
+    }
+    50% {
+        opacity: 1;
+        stroke-width: 2;
+    }
+}
+
+@keyframes nodeEnergyPulse {
+    0% {
+        opacity: 0.8;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1.3);
+    }
+}
+
+@keyframes neuralFlow {
+    0% {
+        stroke-dashoffset: 0;
+        opacity: 0.6;
+    }
+    100% {
+        stroke-dashoffset: 24;
+        opacity: 0.9;
+    }
+}
+
+@keyframes brainRotation {
+    0% {
+        transform: translate(30px, 8px) rotate(0deg);
+    }
+    100% {
+        transform: translate(30px, 8px) rotate(360deg);
+    }
+}
+
+@keyframes brainPulse {
+    0% {
+        opacity: 0.9;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes energyParticleFlow {
+    0%, 100% {
+        transform: translateY(0px) scale(1);
+        opacity: 0.8;
+    }
+    25% {
+        transform: translateY(-4px) scale(1.2);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(2px) scale(0.9);
+        opacity: 0.6;
+    }
+    75% {
+        transform: translateY(-2px) scale(1.1);
+        opacity: 0.9;
     }
 }
 
