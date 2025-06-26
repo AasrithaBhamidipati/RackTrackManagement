@@ -56,7 +56,7 @@
 /* Enhanced Dark Split Hero Layout */
 .hero-section {
     background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
-    min-height: 30vh;
+    min-height: 45vh;
     display: flex;
     align-items: center;
     position: relative;
@@ -111,16 +111,10 @@
 .hero-title {
     font-size: 4.5rem;
     font-weight: 800;
-    color: white !important;
+    color: white;
     line-height: 1.1;
     margin: 0;
     letter-spacing: -0.02em;
-    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-    background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: slideInLeft 1s ease-out;
 }
 
 @keyframes slideInLeft {
@@ -150,28 +144,28 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    animation: slideInRight 1s ease-out;
 }
 
-.hero-image-container {
+.hero-video-container {
     position: relative;
     width: 100%;
-    max-width: 500px;
-    border-radius: 20px;
+    max-width: 700px;
+    border-radius: 25px;
     overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+    background: #000;
 }
 
-.hero-image {
+.hero-video {
     width: 100%;
-    height: auto;
+    height: 500px;
     object-fit: cover;
     filter: brightness(1.1) contrast(1.05);
     transition: transform 0.3s ease;
 }
 
-.hero-image:hover {
-    transform: scale(1.02);
+.hero-video:hover {
+    transform: scale(1.01);
 }
 
 .analysis-badge {
@@ -1079,8 +1073,11 @@
                 </div>
                 <div class="hero-right">
                     <!-- Create an SVG server rack visualization -->
-                    <div class="hero-image-container">
-                        <img class="hero-image" src="{{ url_for('static', filename='images/data-center-analyzing.png') }}" alt="Futuristic Data Center Analysis" />
+                    <div class="hero-video-container">
+                        <video class="hero-video" autoplay muted loop playsinline>
+                            <source src="{{ url_for('static', filename='datacenter-zoom-sequence.mp4') }}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
                         <div class="analysis-badge">
                             <i class="fas fa-eye"></i>
                             <span>AI Vision Analysis</span>
