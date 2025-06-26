@@ -53,103 +53,80 @@
     50% { transform: translateY(-30px) scale(1.2); opacity: 0.8; }
 }
 
-/* Creative Visual Story Layout */
-.story-intro {
-    padding: 4rem 0;
-    background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+/* Floating Card Design */
+.floating-intro {
+    padding: 6rem 0;
+    background: #fafbfc;
     position: relative;
-    overflow: hidden;
 }
 
-.story-intro::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-        radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.1) 0%, transparent 50%);
-}
-
-.story-container {
+.intro-container {
     max-width: 90vw;
     margin: 0 auto;
     padding: 0 2rem;
-    position: relative;
-    z-index: 2;
+    display: flex;
+    justify-content: center;
 }
 
-.story-header {
-    text-align: center;
-    margin-bottom: 4rem;
-}
-
-.story-title {
-    font-size: 3.5rem;
-    font-weight: 200;
-    color: #1e293b;
-    margin-bottom: 1rem;
-    letter-spacing: -0.02em;
-}
-
-.story-subtitle {
-    font-size: 1.3rem;
-    color: #2563eb;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-}
-
-.story-grid {
-    display: grid;
-    grid-template-columns: 1fr 2px 1fr;
-    gap: 4rem;
-    align-items: center;
+.floating-card {
+    background: white;
+    border-radius: 24px;
+    padding: 4rem;
+    box-shadow: 
+        0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -1px rgba(0, 0, 0, 0.06);
     max-width: 70%;
-    margin: 0 auto;
+    position: relative;
+    border: 1px solid #e5e7eb;
 }
 
-.story-divider {
-    width: 2px;
-    height: 200px;
-    background: linear-gradient(to bottom, transparent, #2563eb, transparent);
-    justify-self: center;
+.card-header {
+    text-align: center;
+    margin-bottom: 3rem;
 }
 
-.story-block {
-    padding: 2rem;
-}
-
-.story-block h3 {
-    font-size: 1.5rem;
-    color: #2563eb;
-    margin-bottom: 1.5rem;
+.brand-mark {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    background: #2563eb;
+    color: white;
+    border-radius: 50px;
+    font-size: 0.9rem;
     font-weight: 600;
+    letter-spacing: 0.05em;
+    margin-bottom: 2rem;
 }
 
-.story-block p {
-    font-size: 1.1rem;
-    color: #475569;
+.main-title {
+    font-size: 2.8rem;
+    font-weight: 300;
+    color: #1f2937;
+    margin-bottom: 1rem;
+    letter-spacing: -0.025em;
+}
+
+.content-blocks {
+    display: grid;
+    gap: 2.5rem;
+}
+
+.text-block {
+    font-size: 1.15rem;
+    color: #374151;
     line-height: 1.8;
-    margin-bottom: 1.5rem;
+    text-align: justify;
 }
 
-.story-highlight {
-    background: rgba(37, 99, 235, 0.05);
+.emphasis-block {
+    background: #f8fafc;
+    padding: 2rem;
+    border-radius: 16px;
     border-left: 4px solid #2563eb;
-    padding: 1.5rem;
-    margin: 2rem 0;
-    border-radius: 0 8px 8px 0;
-}
-
-.highlight-text {
     font-size: 1.2rem;
-    color: #1e293b;
+    color: #1f2937;
     font-weight: 500;
+    text-align: center;
     font-style: italic;
-    margin: 0;
 }
 
 /* Interactive Content Sections */
@@ -978,42 +955,32 @@
 </div>
 
 <div class="about-page">
-    <!-- Creative Story Introduction -->
-    <div class="story-intro">
-        <div class="story-container">
-            <div class="story-header">
-                <h2 class="story-subtitle">Our Story</h2>
-                <h1 class="story-title">RackTrack</h1>
-            </div>
-            
-            <div class="story-grid">
-                <div class="story-block">
-                    <h3>The Challenge</h3>
-                    <p>
-                        In today's fast-paced digital world, data centers are the backbone of our connected society. Yet many facilities still rely on time-consuming manual processes for inventory management and component tracking.
-                    </p>
+    <!-- Floating Card Introduction -->
+    <div class="floating-intro">
+        <div class="intro-container">
+            <div class="floating-card">
+                <div class="card-header">
+                    <div class="brand-mark">ABOUT</div>
+                    <h1 class="main-title">RackTrack</h1>
                 </div>
                 
-                <div class="story-divider"></div>
-                
-                <div class="story-block">
-                    <h3>Our Mission</h3>
-                    <p>
+                <div class="content-blocks">
+                    <p class="text-block">
                         To transform the way data centers manage their infrastructure by providing cutting-edge AI solutions that eliminate manual processes and deliver unprecedented accuracy in rack component analysis.
                     </p>
+                    
+                    <p class="text-block">
+                        In today's fast-paced digital world, data centers are the backbone of our connected society. Yet many facilities still rely on time-consuming manual processes for inventory management and component tracking. RackTrack changes that by bringing the power of artificial intelligence to rack management.
+                    </p>
+                    
+                    <div class="emphasis-block">
+                        Our advanced computer vision technology can identify, analyze, and catalog rack components in seconds, providing detailed insights that would take hours to gather manually.
+                    </div>
+                    
+                    <p class="text-block">
+                        This isn't just about efficiency – it's about accuracy, consistency, and giving IT professionals the tools they need to manage modern infrastructure with confidence and precision.
+                    </p>
                 </div>
-            </div>
-            
-            <div class="story-highlight">
-                <p class="highlight-text">
-                    "RackTrack changes everything by bringing the power of artificial intelligence to rack management. Our advanced computer vision technology can identify, analyze, and catalog rack components in seconds, providing detailed insights that would take hours to gather manually."
-                </p>
-            </div>
-            
-            <div style="text-align: center; margin-top: 3rem;">
-                <p style="font-size: 1.2rem; color: #475569; line-height: 1.8; max-width: 70%; margin: 0 auto;">
-                    This isn't just about efficiency – it's about accuracy, consistency, and giving IT professionals the tools they need to manage modern infrastructure with confidence and precision.
-                </p>
             </div>
         </div>
     </div>
