@@ -628,18 +628,95 @@ body::after {
 }
 
 .brand-name-modern {
-    font-size: 1.5rem;
-    font-weight: 800;
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    font-size: 1.6rem;
+    font-weight: 900;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #2563eb 0%, #6366f1 25%, #8b5cf6 50%, #06b6d4 75%, #3b82f6 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    letter-spacing: -0.035em;
-    transition: all 0.3s ease;
+    background-size: 300% 300%;
+    animation: gradientShift 4s ease-in-out infinite, textGlow 2s ease-in-out infinite alternate;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: drop-shadow(0 2px 8px rgba(37, 99, 235, 0.4));
+    text-shadow: 0 0 20px rgba(37, 99, 235, 0.2);
+}
+
+.brand-name-modern::before {
+    content: 'RACKTRACK';
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.15), rgba(99, 102, 241, 0.15));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    z-index: -1;
+    transform: translate(1px, 1px);
+    opacity: 0.4;
+    animation: shadowPulse 3s ease-in-out infinite;
+}
+
+@keyframes shadowPulse {
+    0%, 100% {
+        opacity: 0.4;
+        transform: translate(1px, 1px);
+    }
+    50% {
+        opacity: 0.6;
+        transform: translate(2px, 2px);
+    }
+}
+
+.brand-name-modern::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #2563eb, #6366f1, #8b5cf6, #3b82f6);
+    border-radius: 2px;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+@keyframes gradientShift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    25% {
+        background-position: 100% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    75% {
+        background-position: 0% 100%;
+    }
+}
+
+@keyframes textGlow {
+    0% {
+        filter: drop-shadow(0 2px 8px rgba(37, 99, 235, 0.4));
+        text-shadow: 0 0 20px rgba(37, 99, 235, 0.2);
+    }
+    100% {
+        filter: drop-shadow(0 4px 12px rgba(99, 102, 241, 0.6));
+        text-shadow: 0 0 30px rgba(99, 102, 241, 0.4);
+    }
 }
 
 .brand-link:hover .brand-name-modern {
-    transform: translateY(-1px);
+    transform: translateY(-2px) scale(1.05);
+    filter: drop-shadow(0 4px 16px rgba(37, 99, 235, 0.5));
+}
+
+.brand-link:hover .brand-name-modern::after {
+    transform: scaleX(1);
 }
 
 /* Header Right Container */
