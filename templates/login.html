@@ -10,26 +10,28 @@
         <div class="image-overlay"></div>
     </div>
 
-    <!-- Left Isometric Image Overlay (70%) -->
-    <div class="left-image-overlay">
-        <img src="{{ url_for('static', filename='images/login-background.png') }}" alt="Data Center Infrastructure" class="isometric-image">
-        <div class="image-content-badge">
-            <div class="badge-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2"/>
-                    <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2"/>
-                    <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2"/>
-                </svg>
-            </div>
-            <div class="badge-text">
-                <h3>Data Center Management</h3>
-                <p>Enterprise infrastructure visualization</p>
+    <!-- Main Split Container -->
+    <div class="main-split-container">
+        <!-- Left Image Section (70%) -->
+        <div class="image-section">
+            <img src="{{ url_for('static', filename='images/login-background.png') }}" alt="Data Center Infrastructure" class="isometric-image">
+            <div class="image-content-badge">
+                <div class="badge-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2"/>
+                        <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2"/>
+                        <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </div>
+                <div class="badge-text">
+                    <h3>Data Center Management</h3>
+                    <p>Enterprise infrastructure visualization</p>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- Right Login Container (30%) -->
-    <div class="right-login-container">
+        <!-- Right Login Section (30%) -->
+        <div class="login-section">
             <!-- Holographic Elements -->
             <div class="holographic-elements">
                 <div class="floating-particles">
@@ -144,6 +146,7 @@
                 </div>
             </form>
         </div>
+        </div>
     </div>
 </div>
 
@@ -187,73 +190,91 @@
     z-index: -1;
 }
 
-/* Left Isometric Image Overlay (70%) */
-.left-image-overlay {
-    position: absolute;
-    left: 0;
-    top: 0;
+/* Main Split Container */
+.main-split-container {
+    position: relative;
+    display: flex;
+    max-width: 1400px;
+    width: 90%;
+    height: 85vh;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(25px);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 
+        0 30px 80px rgba(37, 99, 235, 0.12),
+        0 15px 40px rgba(0, 0, 0, 0.08),
+        0 0 0 1px rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(37, 99, 235, 0.08);
+    z-index: 10;
+}
+
+/* Left Image Section (70%) */
+.image-section {
     width: 70%;
-    height: 100vh;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 1;
+    background: linear-gradient(135deg, 
+        rgba(37, 99, 235, 0.02) 0%,
+        rgba(59, 130, 246, 0.01) 50%,
+        rgba(255, 255, 255, 0.02) 100%);
+    padding: 40px;
 }
 
 .isometric-image {
     width: auto;
-    height: 85vh;
-    max-width: 95%;
+    height: 75vh;
+    max-width: 90%;
     object-fit: contain;
-    filter: brightness(1.2) contrast(1.15) saturate(1.1) drop-shadow(0 30px 60px rgba(37, 99, 235, 0.2)) drop-shadow(0 10px 30px rgba(0, 0, 0, 0.4));
+    filter: brightness(1.2) contrast(1.15) saturate(1.1) drop-shadow(0 20px 40px rgba(37, 99, 235, 0.2));
     animation: imageFloat 6s ease-in-out infinite;
 }
 
 @keyframes imageFloat {
     0%, 100% { transform: translateY(0px) scale(1); }
-    50% { transform: translateY(-10px) scale(1.02); }
+    50% { transform: translateY(-8px) scale(1.01); }
 }
 
 .image-content-badge {
     position: absolute;
-    bottom: 50px;
-    left: 50px;
+    bottom: 40px;
+    left: 40px;
     display: flex;
     align-items: center;
-    gap: 18px;
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(20px);
-    border-radius: 20px;
-    padding: 24px 28px;
+    gap: 16px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    border-radius: 16px;
+    padding: 20px 24px;
     box-shadow: 
-        0 20px 60px rgba(37, 99, 235, 0.15),
-        0 8px 32px rgba(0, 0, 0, 0.1),
-        0 0 0 1px rgba(255, 255, 255, 0.3);
-    border: 1px solid rgba(37, 99, 235, 0.1);
-    max-width: 420px;
+        0 15px 40px rgba(37, 99, 235, 0.12),
+        0 6px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(37, 99, 235, 0.08);
+    max-width: 380px;
     animation: badgeSlideIn 1s ease-out 1.5s both;
-    transform: translateZ(0);
 }
 
 .badge-icon {
-    width: 52px;
-    height: 52px;
+    width: 48px;
+    height: 48px;
     background: linear-gradient(135deg, #2563eb 0%, #3b82f6 50%, #60a5fa 100%);
-    border-radius: 16px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
     flex-shrink: 0;
     box-shadow: 
-        0 8px 24px rgba(37, 99, 235, 0.3),
-        0 4px 12px rgba(59, 130, 246, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        0 6px 20px rgba(37, 99, 235, 0.25),
+        0 3px 10px rgba(59, 130, 246, 0.15);
 }
 
 .badge-text h3 {
-    margin: 0 0 6px 0;
-    font-size: 19px;
+    margin: 0 0 4px 0;
+    font-size: 18px;
     font-weight: 700;
     color: #1e293b;
     letter-spacing: -0.02em;
@@ -261,16 +282,16 @@
 
 .badge-text p {
     margin: 0;
-    font-size: 15px;
+    font-size: 14px;
     color: #64748b;
-    line-height: 1.5;
+    line-height: 1.4;
     font-weight: 500;
 }
 
 @keyframes badgeSlideIn {
     0% {
         opacity: 0;
-        transform: translateX(-40px);
+        transform: translateX(-30px);
     }
     100% {
         opacity: 1;
@@ -278,23 +299,18 @@
     }
 }
 
-/* Right Login Container (30%) */
-.right-login-container {
-    position: absolute;
-    right: 0;
-    top: 0;
+/* Right Login Section (30%) */
+.login-section {
     width: 30%;
-    height: 100vh;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 2;
+    padding: 40px 30px;
     background: linear-gradient(135deg, 
-        rgba(255, 255, 255, 0.1) 0%,
-        rgba(255, 255, 255, 0.05) 50%,
-        rgba(37, 99, 235, 0.02) 100%);
-    backdrop-filter: blur(15px);
-    border-left: 1px solid rgba(255, 255, 255, 0.1);
+        rgba(248, 250, 252, 0.8) 0%,
+        rgba(255, 255, 255, 0.9) 100%);
+    border-left: 1px solid rgba(37, 99, 235, 0.1);
 }
 
 /* Enhanced Holographic Elements for Right Section */
@@ -1120,48 +1136,61 @@
 
 /* Mobile Responsive Design */
 @media (max-width: 1024px) {
-    .left-image-overlay {
-        width: 60%;
+    .main-split-container {
+        width: 95%;
+        height: 80vh;
     }
     
-    .right-login-container {
+    .image-section {
+        width: 60%;
+        padding: 30px;
+    }
+    
+    .login-section {
         width: 40%;
+        padding: 30px 20px;
     }
     
     .isometric-image {
-        height: 70vh;
-        max-width: 95%;
+        height: 60vh;
     }
     
     .image-content-badge {
-        max-width: calc(60vw - 80px);
+        max-width: 300px;
     }
 }
 
 @media (max-width: 768px) {
-    .left-image-overlay {
-        width: 100%;
-        height: 40vh;
-        position: relative;
+    .main-split-container {
+        flex-direction: column;
+        width: 95%;
+        height: 90vh;
     }
     
-    .right-login-container {
+    .image-section {
         width: 100%;
-        height: 60vh;
-        position: relative;
-        top: 40vh;
+        height: 50%;
+        padding: 20px;
+    }
+    
+    .login-section {
+        width: 100%;
+        height: 50%;
+        padding: 20px;
+        border-left: none;
+        border-top: 1px solid rgba(37, 99, 235, 0.1);
     }
     
     .isometric-image {
-        height: 35vh;
-        max-width: 90%;
+        height: 30vh;
+        max-width: 80%;
     }
     
     .image-content-badge {
         bottom: 20px;
         left: 20px;
         padding: 16px 20px;
-        max-width: calc(100vw - 40px);
+        max-width: calc(100% - 40px);
     }
     
     .badge-text h3 {
@@ -1174,7 +1203,6 @@
     
     .holographic-form-container {
         padding: 1.5rem;
-        margin: 1rem;
     }
     
     .form-header h1 {
@@ -1191,9 +1219,9 @@
         height: 3px;
     }
     
-    .ring-1 { width: 200px; height: 200px; margin: -100px 0 0 -100px; }
-    .ring-2 { width: 300px; height: 300px; margin: -150px 0 0 -150px; }
-    .ring-3 { width: 400px; height: 400px; margin: -200px 0 0 -200px; }
+    .ring-1 { width: 150px; height: 150px; margin: -75px 0 0 -75px; }
+    .ring-2 { width: 200px; height: 200px; margin: -100px 0 0 -100px; }
+    .ring-3 { width: 250px; height: 250px; margin: -125px 0 0 -125px; }
 }
 
 /* Enhanced Visual Polish */
