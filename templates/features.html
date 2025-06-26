@@ -53,12 +53,18 @@
 
 /* Hero Section with Interactive Demo */
 .hero-interactive {
-    padding: 4rem 0 6rem;
+    padding: 3rem 0 4rem;
     position: relative;
     z-index: 2;
-    text-align: center;
     max-width: 90vw;
     margin: 0 auto;
+}
+
+.hero-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
 }
 
 .hero-badge {
@@ -97,12 +103,21 @@
     background-clip: text;
 }
 
+.hero-left {
+    text-align: left;
+}
+
+.hero-right {
+    display: flex;
+    align-items: center;
+    padding-left: 2rem;
+}
+
 .hero-subtitle {
     font-size: 1.3rem;
     color: #64748b;
-    max-width: 600px;
-    margin: 0 auto 3rem;
     line-height: 1.6;
+    margin: 0;
 }
 
 /* Interactive Feature Cards System */
@@ -431,6 +446,21 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    .hero-left {
+        text-align: center;
+    }
+    
+    .hero-right {
+        padding-left: 0;
+        justify-content: center;
+    }
+    
     .hero-title {
         font-size: 2.5rem;
     }
@@ -469,17 +499,23 @@
 <div class="features-experience">
     <!-- Interactive Hero Section -->
     <section class="hero-interactive">
-        <div class="hero-badge">
-            ⚡ NEXT-GENERATION AI PLATFORM
+        <div class="hero-container">
+            <div class="hero-left">
+                <div class="hero-badge">
+                    ⚡ NEXT-GENERATION AI PLATFORM
+                </div>
+                <h1 class="hero-title">
+                    <span class="hero-gradient-text">Revolutionary</span><br>
+                    Rack Intelligence
+                </h1>
+            </div>
+            <div class="hero-right">
+                <p class="hero-subtitle">
+                    Experience the future of data center management with cutting-edge computer vision, 
+                    real-time analysis, and intelligent automation that transforms how you interact with your infrastructure.
+                </p>
+            </div>
         </div>
-        <h1 class="hero-title">
-            <span class="hero-gradient-text">Revolutionary</span><br>
-            Rack Intelligence
-        </h1>
-        <p class="hero-subtitle">
-            Experience the future of data center management with cutting-edge computer vision, 
-            real-time analysis, and intelligent automation that transforms how you interact with your infrastructure.
-        </p>
     </section>
 
     <!-- Interactive Feature Cards -->
