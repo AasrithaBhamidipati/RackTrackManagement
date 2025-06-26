@@ -12,148 +12,59 @@
     </div>
     
     <!-- Main Login Container -->
-    <div class="login-split-container">
-        <!-- Left Side - Data Center Image -->
-        <div class="login-visual-side">
-            <div class="datacenter-image-container">
-                <img src="/static/attached_assets/A highly detailed and visually striking isometric illustration of a modern data center with multiple server racks, network switches with blinking LEDs, intricate cable management systems with color-coded cables, and detailed port conne_1750932646710.png" 
-                     alt="Data Center Infrastructure" 
-                     class="datacenter-image">
-                <div class="image-overlay">
-                    <div class="scanning-lines"></div>
-                    <div class="holographic-dots"></div>
-                    <div class="data-streams"></div>
-                </div>
-            </div>
-        </div>
+    <div class="login-container">
+        <!-- Blurred Background Image -->
+        <div class="background-image"></div>
         
-        <!-- Right Side - Creative Unique Login Form -->
-        <div class="login-form-side">
-            <div class="form-container">
-                <!-- Creative Morphing Header -->
-                <div class="morphing-header">
-                    <div class="liquid-logo">
-                        <div class="blob blob-1"></div>
-                        <div class="blob blob-2"></div>
-                        <div class="blob blob-3"></div>
-                        <div class="logo-core">RT</div>
+        <!-- Transparent Login Form -->
+        <div class="login-form-container">
+            <div class="login-form-card">
+                <!-- Header -->
+                <div class="login-header">
+                    <div class="logo">
+                        <div class="logo-icon"></div>
                     </div>
-                    <h2 class="liquid-title">
-                        <span class="char" data-char="W">W</span>
-                        <span class="char" data-char="e">e</span>
-                        <span class="char" data-char="l">l</span>
-                        <span class="char" data-char="c">c</span>
-                        <span class="char" data-char="o">o</span>
-                        <span class="char" data-char="m">m</span>
-                        <span class="char" data-char="e">e</span>
-                    </h2>
-                    <div class="wave-subtitle">
-                        <span class="wave-text">Enter the future of infrastructure</span>
-                        <div class="wave-line"></div>
-                    </div>
+                    <h2 class="login-title">Welcome Back</h2>
+                    <p class="login-subtitle">Sign in to your account</p>
                 </div>
                 
-                <!-- Liquid Form -->
-                <form method="POST" class="liquid-form">
-                    <div class="liquid-field">
-                        <div class="field-container">
-                            <input type="text" id="username" name="username" required>
-                            <div class="field-bg"></div>
-                            <div class="field-border"></div>
-                            <label for="username" class="liquid-label">
-                                <span class="label-char">U</span>
-                                <span class="label-char">s</span>
-                                <span class="label-char">e</span>
-                                <span class="label-char">r</span>
-                                <span class="label-char">n</span>
-                                <span class="label-char">a</span>
-                                <span class="label-char">m</span>
-                                <span class="label-char">e</span>
-                            </label>
-                            <div class="field-waves">
-                                <div class="wave wave-1"></div>
-                                <div class="wave wave-2"></div>
-                                <div class="wave wave-3"></div>
-                            </div>
-                        </div>
+                <!-- Form -->
+                <form method="POST" class="login-form">
+                    <div class="form-field">
+                        <input type="text" id="username" name="username" required placeholder=" ">
+                        <label for="username" class="field-label">Username</label>
                     </div>
                     
-                    <div class="liquid-field">
-                        <div class="field-container">
-                            <input type="password" id="password" name="password" required>
-                            <div class="field-bg"></div>
-                            <div class="field-border"></div>
-                            <label for="password" class="liquid-label">
-                                <span class="label-char">P</span>
-                                <span class="label-char">a</span>
-                                <span class="label-char">s</span>
-                                <span class="label-char">s</span>
-                                <span class="label-char">w</span>
-                                <span class="label-char">o</span>
-                                <span class="label-char">r</span>
-                                <span class="label-char">d</span>
-                            </label>
-                            <div class="field-waves">
-                                <div class="wave wave-1"></div>
-                                <div class="wave wave-2"></div>
-                                <div class="wave wave-3"></div>
-                            </div>
-                        </div>
+                    <div class="form-field">
+                        <input type="password" id="password" name="password" required placeholder=" ">
+                        <label for="password" class="field-label">Password</label>
                     </div>
                     
-                    <div class="morphing-options">
-                        <label class="liquid-checkbox">
+                    <div class="form-options">
+                        <label class="checkbox-wrapper">
                             <input type="checkbox">
-                            <div class="check-morph">
-                                <div class="check-blob"></div>
-                                <div class="check-core"></div>
-                            </div>
-                            <span class="liquid-text">Remember me</span>
+                            <span class="checkmark"></span>
+                            <span class="checkbox-label">Remember me</span>
                         </label>
-                        <a href="#" class="morphing-link">Forgot password?</a>
+                        <a href="#" class="forgot-password">Forgot password?</a>
                     </div>
                     
-                    <button type="submit" class="morphing-btn">
-                        <div class="btn-morph">
-                            <div class="morph-layer layer-1"></div>
-                            <div class="morph-layer layer-2"></div>
-                            <div class="morph-layer layer-3"></div>
-                        </div>
-                        <span class="btn-text">Enter System</span>
-                        <div class="btn-ripples">
-                            <div class="ripple"></div>
-                            <div class="ripple"></div>
-                            <div class="ripple"></div>
-                        </div>
+                    <button type="submit" class="signin-btn">
+                        Sign In
                     </button>
                 </form>
                 
-                <div class="liquid-demo">
-                    <div class="demo-morph">
-                        <div class="demo-blob-bg"></div>
-                        <div class="demo-content">
-                            <div class="demo-title">
-                                <span class="demo-pulse"></span>
-                                <span>Demo Portal</span>
-                            </div>
-                            <div class="demo-credentials">
-                                <div class="cred-row">
-                                    <span class="cred-label">User</span>
-                                    <div class="cred-bubble">1234</div>
-                                </div>
-                                <div class="cred-row">
-                                    <span class="cred-label">Pass</span>
-                                    <div class="cred-bubble">1234</div>
-                                </div>
-                            </div>
-                        </div>
+                <div class="demo-info">
+                    <div class="demo-title">Demo Credentials</div>
+                    <div class="demo-creds">
+                        <span class="cred-item">Username: <strong>1234</strong></span>
+                        <span class="cred-item">Password: <strong>1234</strong></span>
                     </div>
                 </div>
                 
-                <div class="liquid-footer">
-                    <a href="{{ url_for('home') }}" class="morphing-back">
-                        <div class="back-morph"></div>
-                        <span class="back-text">← Portal Exit</span>
+                <div class="login-footer">
+                    <a href="{{ url_for('home') }}" class="back-home">
+                        ← Back to Home
                     </a>
                 </div>
             </div>
@@ -199,231 +110,376 @@
     z-index: -1;
 }
 
-/* Elegant Split Layout Container */
-.login-split-container {
-    display: flex;
-    width: 90vw;
-    max-width: 1200px;
-    height: 80vh;
-    min-height: 600px;
-    background: rgba(255, 255, 255, 0.97);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(59, 130, 246, 0.2);
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 
-        0 20px 40px rgba(0, 0, 0, 0.4),
-        0 0 80px rgba(59, 130, 246, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.8);
-}
-
-/* Elegant Left Visual Side */
-.login-visual-side {
-    flex: 1;
+/* Simple Login Container */
+.login-container {
     position: relative;
-    overflow: hidden;
-    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-}
-
-.datacenter-image-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 3rem;
+    overflow: hidden;
 }
 
-.datacenter-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 20px 0 0 20px;
-    filter: contrast(1.1) brightness(0.9);
-}
-
-.image-overlay {
+/* Blurred Background Image */
+.background-image {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-        135deg,
-        rgba(59, 130, 246, 0.2) 0%,
-        rgba(30, 41, 59, 0.3) 50%,
-        rgba(0, 0, 0, 0.4) 100%
-    );
-    border-radius: 20px 0 0 20px;
-    display: flex;
-    align-items: flex-end;
-    padding: 3rem;
+    background: url('/static/attached_assets/A highly detailed and visually striking isometric illustration of a modern data center with multiple server racks, network switches with blinking LEDs, intricate cable management systems with color-coded cables, and detailed port conne_1750932646710.png') center/cover no-repeat;
+    filter: blur(8px);
+    transform: scale(1.1);
+    z-index: 1;
 }
 
-.scanning-lines {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: repeating-linear-gradient(
-        90deg,
-        transparent,
-        transparent 3px,
-        rgba(59, 130, 246, 0.05) 3px,
-        rgba(59, 130, 246, 0.05) 6px
-    );
-    animation: elegantScan 10s linear infinite;
-}
-
-.holographic-dots {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-image: 
-        radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-        radial-gradient(circle at 70% 80%, rgba(59, 130, 246, 0.15) 1px, transparent 1px);
-    background-size: 60px 60px, 90px 90px;
-    opacity: 0.6;
-    animation: elegantFloat 15s ease-in-out infinite;
-}
-
-.data-streams {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-}
-
-/* Elegant Right Form Side */
-.login-form-side {
-    flex: 0 0 450px;
-    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #ffffff 100%);
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    border-left: 1px solid rgba(59, 130, 246, 0.1);
-}
-
-.login-form-side::before {
+.background-image::after {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at 30% 20%, rgba(59, 130, 246, 0.03) 0%, transparent 50%);
-}
-
-.form-container {
-    width: 100%;
-    max-width: 380px;
-    padding: 3rem 2rem;
-    position: relative;
+    background: rgba(15, 23, 42, 0.6);
     z-index: 2;
 }
 
-/* Creative Morphing Header */
-.morphing-header {
+/* Transparent Login Form Container */
+.login-form-container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 420px;
+    padding: 2rem;
+}
+
+.login-form-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 3rem 2.5rem;
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    animation: cardFloat 6s ease-in-out infinite;
+}
+
+/* Login Header */
+.login-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.logo-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    border-radius: 12px;
+    position: relative;
+    animation: logoGlow 3s ease-in-out infinite;
+    box-shadow: 0 8px 32px rgba(59, 130, 246, 0.3);
+}
+
+.logo-icon::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 4px;
+}
+
+.login-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.login-subtitle {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+    font-weight: 400;
+    margin: 0;
+}
+
+/* Login Form Styling */
+.login-form {
+    margin-bottom: 2rem;
+}
+
+.form-field {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.form-field input {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 500;
+    outline: none;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.form-field input:focus {
+    border-color: rgba(59, 130, 246, 0.6);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+}
+
+.form-field input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.field-label {
+    position: absolute;
+    top: 1rem;
+    left: 1.25rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    font-weight: 500;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    background: transparent;
+}
+
+.form-field input:focus + .field-label,
+.form-field input:not(:placeholder-shown) + .field-label {
+    top: -8px;
+    left: 1rem;
+    font-size: 0.8rem;
+    color: #3b82f6;
+    background: rgba(15, 23, 42, 0.8);
+    padding: 0 0.5rem;
+    border-radius: 4px;
+}
+
+/* Form Options */
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+}
+
+.checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.checkbox-wrapper input {
+    display: none;
+}
+
+.checkmark {
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    margin-right: 0.75rem;
+    position: relative;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.checkbox-wrapper input:checked + .checkmark {
+    background: #3b82f6;
+    border-color: #3b82f6;
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.4);
+}
+
+.checkbox-wrapper input:checked + .checkmark::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.checkbox-label {
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.checkbox-wrapper:hover .checkbox-label {
+    color: #ffffff;
+}
+
+.forgot-password {
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.forgot-password:hover {
+    color: #60a5fa;
+    text-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
+}
+
+/* Sign In Button */
+.signin-btn {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    border: none;
+    border-radius: 12px;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+    margin-bottom: 2rem;
+}
+
+.signin-btn:hover {
+    background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px rgba(59, 130, 246, 0.5);
+}
+
+.signin-btn:active {
+    transform: translateY(0);
+}
+
+/* Demo Info */
+.demo-info {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    backdrop-filter: blur(10px);
+}
+
+.demo-title {
+    color: #3b82f6;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.demo-creds {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.cred-item {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+}
+
+.cred-item strong {
+    color: #60a5fa;
+    font-family: 'Courier New', monospace;
+}
+
+/* Footer */
+.login-footer {
+    text-align: center;
+}
+
+.back-home {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.back-home:hover {
+    color: #3b82f6;
+    transform: translateX(-3px);
+}
+
+/* Creative Header */
+.creative-header {
     text-align: center;
     margin-bottom: 3rem;
     position: relative;
 }
 
-.liquid-logo {
+.creative-logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.logo-sphere {
     position: relative;
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 2rem;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     display: flex;
     align-items: center;
     justify-content: center;
+    animation: sphereFloat 3s ease-in-out infinite;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
 }
 
-.blob {
-    position: absolute;
+.sphere-inner {
+    width: 30px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.3);
     border-radius: 50%;
-    animation: blobMorph 6s ease-in-out infinite;
+    animation: innerRotate 4s linear infinite;
 }
 
-.blob-1 {
+.sphere-glow {
+    position: absolute;
     width: 80px;
     height: 80px;
-    background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
-    animation-delay: 0s;
+    border: 2px solid rgba(102, 126, 234, 0.3);
+    border-radius: 50%;
+    border-top-color: #667eea;
+    animation: glowRotate 3s linear infinite;
 }
 
-.blob-2 {
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
-    animation-delay: 2s;
-}
-
-.blob-3 {
-    width: 40px;
-    height: 40px;
-    background: linear-gradient(45deg, #4facfe 0%, #00f2fe 100%);
-    animation-delay: 4s;
-}
-
-.logo-core {
-    position: relative;
-    z-index: 10;
-    font-size: 1.5rem;
-    font-weight: 900;
-    color: #ffffff;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-}
-
-.liquid-title {
-    font-size: 2.5rem;
-    font-weight: 800;
-    margin-bottom: 1rem;
-    display: flex;
-    justify-content: center;
-    gap: 2px;
-}
-
-.char {
-    display: inline-block;
+.creative-title {
+    font-size: 2.2rem;
+    font-weight: 700;
     color: #1e293b;
-    animation: charFloat 3s ease-in-out infinite;
-    transition: all 0.3s ease;
+    margin-bottom: 0.5rem;
+    animation: titleGlow 4s ease-in-out infinite;
 }
 
-.char:nth-child(1) { animation-delay: 0.1s; }
-.char:nth-child(2) { animation-delay: 0.2s; }
-.char:nth-child(3) { animation-delay: 0.3s; }
-.char:nth-child(4) { animation-delay: 0.4s; }
-.char:nth-child(5) { animation-delay: 0.5s; }
-.char:nth-child(6) { animation-delay: 0.6s; }
-.char:nth-child(7) { animation-delay: 0.7s; }
-
-.wave-subtitle {
-    position: relative;
-    margin-bottom: 1rem;
-}
-
-.wave-text {
+.creative-subtitle {
     color: #64748b;
     font-size: 1rem;
     font-weight: 500;
-    position: relative;
-    z-index: 2;
-}
-
-.wave-line {
-    position: absolute;
-    bottom: -5px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #3b82f6, transparent);
-    animation: waveLine 2s ease-in-out infinite;
+    margin: 0;
 }
 
 /* Modern Form Styling */
@@ -679,151 +735,91 @@ tems: center;
     transform: translateX(-3px);
 }
 
-/* Liquid Form Styling */
-.liquid-form {
+/* Creative Form Styling */
+.creative-form {
     margin-bottom: 2.5rem;
 }
 
-.liquid-field {
-    margin-bottom: 2.5rem;
+.creative-field {
+    margin-bottom: 2rem;
     position: relative;
 }
 
-.field-container {
+.field-wrapper {
     position: relative;
-    height: 60px;
+    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+    border-radius: 15px;
+    border: 2px solid #e2e8f0;
     overflow: hidden;
-    border-radius: 30px;
+    transition: all 0.3s ease;
 }
 
-.field-container input {
+.field-wrapper:focus-within {
+    border-color: #667eea;
+    box-shadow: 0 0 20px rgba(102, 126, 234, 0.2);
+}
+
+.field-wrapper input {
     width: 100%;
-    height: 100%;
-    padding: 0 25px;
+    padding: 1.2rem 1.5rem;
     border: none;
     background: transparent;
     color: #1e293b;
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 500;
     outline: none;
     position: relative;
-    z-index: 5;
+    z-index: 2;
 }
 
-.field-bg {
+.creative-label {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, 
-        rgba(255, 255, 255, 0.9) 0%, 
-        rgba(248, 250, 252, 0.8) 100%
-    );
-    border-radius: 30px;
-    z-index: 1;
-}
-
-.field-border {
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    width: calc(100% + 4px);
-    height: calc(100% + 4px);
-    background: linear-gradient(45deg, 
-        #667eea 0%, 
-        #764ba2 25%, 
-        #f093fb 50%, 
-        #f5576c 75%, 
-        #4facfe 100%
-    );
-    border-radius: 32px;
-    z-index: 0;
-    animation: borderFlow 4s linear infinite;
-}
-
-.liquid-label {
-    position: absolute;
-    top: 50%;
-    left: 25px;
-    transform: translateY(-50%);
-    pointer-events: none;
-    z-index: 6;
-    display: flex;
-    gap: 2px;
-}
-
-.label-char {
+    top: 1.2rem;
+    left: 1.5rem;
     color: #64748b;
     font-size: 1rem;
     font-weight: 500;
+    pointer-events: none;
     transition: all 0.3s ease;
-    animation: labelFloat 4s ease-in-out infinite;
+    z-index: 3;
 }
 
-.label-char:nth-child(1) { animation-delay: 0.1s; }
-.label-char:nth-child(2) { animation-delay: 0.2s; }
-.label-char:nth-child(3) { animation-delay: 0.3s; }
-.label-char:nth-child(4) { animation-delay: 0.4s; }
-.label-char:nth-child(5) { animation-delay: 0.5s; }
-.label-char:nth-child(6) { animation-delay: 0.6s; }
-.label-char:nth-child(7) { animation-delay: 0.7s; }
-.label-char:nth-child(8) { animation-delay: 0.8s; }
-
-.field-waves {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.wave {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 30px;
-    animation: waveRipple 2s ease-out infinite;
-}
-
-.wave-1 {
-    background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
-    animation-delay: 0s;
-}
-
-.wave-2 {
-    background: radial-gradient(circle, rgba(240, 147, 251, 0.1) 0%, transparent 70%);
-    animation-delay: 0.7s;
-}
-
-.wave-3 {
-    background: radial-gradient(circle, rgba(79, 172, 254, 0.1) 0%, transparent 70%);
-    animation-delay: 1.4s;
-}
-
-.field-container:focus-within .field-waves {
-    opacity: 1;
-}
-
-.field-container:focus-within .label-char {
-    transform: translateY(-35px) scale(0.8);
+.field-wrapper:focus-within .creative-label,
+.field-wrapper input:not(:placeholder-shown) + .creative-label {
+    top: 0.5rem;
+    font-size: 0.8rem;
     color: #667eea;
     font-weight: 600;
 }
 
-/* Morphing Options */
-.morphing-options {
+.field-glow {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #667eea);
+    border-radius: 17px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+    animation: fieldGlow 4s linear infinite;
+}
+
+.field-wrapper:focus-within .field-glow {
+    opacity: 1;
+}
+
+/* Creative Options */
+.creative-options {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
     font-size: 0.875rem;
 }
 
-.liquid-checkbox {
+.creative-checkbox {
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -831,60 +827,67 @@ tems: center;
     position: relative;
 }
 
-.liquid-checkbox input {
+.creative-checkbox input {
     display: none;
 }
 
-.check-morph {
-    width: 24px;
-    height: 24px;
+.checkbox-design {
+    width: 20px;
+    height: 20px;
     margin-right: 0.75rem;
     position: relative;
-    border-radius: 50%;
-    overflow: hidden;
+    border-radius: 4px;
+    border: 2px solid #d1d5db;
+    background: #ffffff;
+    transition: all 0.3s ease;
 }
 
-.check-blob {
+.check-bg {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
-    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 2px;
     transform: scale(0);
-    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-.check-core {
+.check-mark {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 8px;
-    height: 8px;
-    background: #ffffff;
-    border-radius: 50%;
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: bold;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
 
-.liquid-checkbox input:checked + .check-morph .check-blob {
+.creative-checkbox input:checked + .checkbox-design .check-bg {
     transform: scale(1);
 }
 
-.liquid-checkbox input:checked + .check-morph .check-core {
+.creative-checkbox input:checked + .checkbox-design .check-mark {
     opacity: 1;
 }
 
-.liquid-text {
+.creative-checkbox input:checked + .checkbox-design {
+    border-color: #667eea;
+}
+
+.checkbox-text {
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
-.liquid-checkbox:hover .liquid-text {
+.creative-checkbox:hover .checkbox-text {
     color: #667eea;
 }
 
-.morphing-link {
+.forgot-link {
     color: #667eea;
     text-decoration: none;
     font-weight: 500;
@@ -892,7 +895,7 @@ tems: center;
     transition: all 0.3s ease;
 }
 
-.morphing-link::after {
+.forgot-link::after {
     content: '';
     position: absolute;
     bottom: -2px;
@@ -903,388 +906,220 @@ tems: center;
     transition: width 0.3s ease;
 }
 
-.morphing-link:hover::after {
+.forgot-link:hover::after {
     width: 100%;
 }
 
-.morphing-link:hover {
+.forgot-link:hover {
     color: #764ba2;
 }
 
-/* Morphing Button */
-.morphing-btn {
+/* Creative Button */
+.creative-btn {
     position: relative;
     width: 100%;
-    height: 60px;
+    height: 55px;
     border: none;
-    border-radius: 30px;
+    border-radius: 15px;
     color: #ffffff;
     font-size: 1.1rem;
-    font-weight: 700;
+    font-weight: 600;
     cursor: pointer;
     overflow: hidden;
-    background: transparent;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     margin-bottom: 2rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
 }
 
-.btn-morph {
+.btn-bg {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    border-radius: 30px;
-}
-
-.morph-layer {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 30px;
-    animation: morphLayer 8s ease-in-out infinite;
-}
-
-.layer-1 {
-    background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
-    animation-delay: 0s;
-}
-
-.layer-2 {
-    background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
-    animation-delay: 2.7s;
-}
-
-.layer-3 {
-    background: linear-gradient(45deg, #4facfe 0%, #00f2fe 100%);
-    animation-delay: 5.3s;
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
 }
 
 .btn-text {
     position: relative;
-    z-index: 10;
+    z-index: 2;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100%;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.btn-ripples {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-    z-index: 5;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.ripple {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border: 2px solid rgba(255, 255, 255, 0.5);
-    border-radius: 50%;
-    animation: rippleExpand 2s ease-out infinite;
-}
-
-.ripple:nth-child(1) { animation-delay: 0s; }
-.ripple:nth-child(2) { animation-delay: 0.7s; }
-.ripple:nth-child(3) { animation-delay: 1.4s; }
-
-.morphing-btn:hover .btn-ripples {
-    opacity: 1;
-}
-
-.morphing-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
-}
-
-.morphing-btn:active {
-    transform: translateY(-1px);
-}
-
-/* Liquid Demo Card */
-.liquid-demo {
-    margin-bottom: 2rem;
-}
-
-.demo-morph {
-    position: relative;
-    border-radius: 20px;
-    overflow: hidden;
-    padding: 1.5rem;
-}
-
-.demo-blob-bg {
+.btn-particles {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, 
-        rgba(102, 126, 234, 0.1) 0%, 
-        rgba(118, 75, 162, 0.05) 50%, 
-        rgba(240, 147, 251, 0.1) 100%
-    );
-    border-radius: 20px;
-    animation: demoBlobShift 6s ease-in-out infinite;
+    overflow: hidden;
+    z-index: 1;
 }
 
-.demo-content {
-    position: relative;
-    z-index: 2;
+.btn-particles::before,
+.btn-particles::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    animation: particleMove 3s ease-in-out infinite;
 }
 
-.demo-title {
+.btn-particles::before {
+    top: 20%;
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.btn-particles::after {
+    bottom: 20%;
+    right: 20%;
+    animation-delay: 1.5s;
+}
+
+.creative-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(102, 126, 234, 0.5);
+}
+
+.creative-btn:hover .btn-bg {
+    transform: translateX(0);
+}
+
+.creative-btn:active {
+    transform: translateY(-1px);
+}
+
+/* Demo Section */
+.demo-section {
+    margin-bottom: 2rem;
+}
+
+.demo-card {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border: 2px solid rgba(102, 126, 234, 0.2);
+    border-radius: 15px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.demo-card:hover {
+    border-color: #667eea;
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+}
+
+.demo-header {
     display: flex;
     align-items: center;
     gap: 0.75rem;
     color: #667eea;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 0.9rem;
-    margin-bottom: 1.2rem;
+    margin-bottom: 1rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
 }
 
-.demo-pulse {
-    width: 10px;
-    height: 10px;
-    background: linear-gradient(45deg, #667eea, #764ba2);
+.demo-icon {
+    width: 8px;
+    height: 8px;
+    background: #667eea;
     border-radius: 50%;
-    animation: demoPulse 2s ease-in-out infinite;
-    box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+    animation: iconPulse 2s ease-in-out infinite;
+    box-shadow: 0 0 8px rgba(102, 126, 234, 0.5);
 }
 
-.demo-credentials {
+.demo-body {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.75rem;
 }
 
-.cred-row {
+.demo-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.cred-label {
+.demo-label {
     color: #64748b;
-    font-weight: 600;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    font-weight: 500;
+    font-size: 0.875rem;
 }
 
-.cred-bubble {
-    position: relative;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+.demo-value {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: #ffffff;
-    padding: 0.5rem 1rem;
-    border-radius: 25px;
-    font-weight: 700;
+    padding: 0.4rem 0.8rem;
+    border-radius: 12px;
+    font-weight: 600;
     font-family: 'Courier New', monospace;
-    font-size: 0.9rem;
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-    animation: credBubble 4s ease-in-out infinite;
+    font-size: 0.85rem;
+    box-shadow: 0 3px 10px rgba(102, 126, 234, 0.3);
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
-.cred-bubble::before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #667eea);
-    border-radius: 27px;
-    z-index: -1;
-    animation: credGlow 3s linear infinite;
+.demo-value:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
 }
 
-.cred-row:nth-child(2) .cred-bubble {
-    animation-delay: 2s;
-}
-
-.cred-row:nth-child(2) .cred-bubble::before {
-    animation-delay: 1.5s;
-}
-
-/* Liquid Footer */
-.liquid-footer {
+/* Creative Footer */
+.creative-footer {
     text-align: center;
 }
 
-.morphing-back {
-    position: relative;
+.back-link {
     color: #64748b;
     text-decoration: none;
     font-size: 0.875rem;
-    font-weight: 600;
+    font-weight: 500;
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    border-radius: 25px;
-    transition: all 0.4s ease;
-    overflow: hidden;
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
 }
 
-.back-morph {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, 
-        rgba(102, 126, 234, 0.1) 0%, 
-        rgba(118, 75, 162, 0.05) 100%
-    );
-    border-radius: 25px;
-    transform: scale(0);
-    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+.back-arrow {
+    transition: transform 0.3s ease;
 }
 
-.back-text {
-    position: relative;
-    z-index: 2;
-    transition: color 0.3s ease;
-}
-
-.morphing-back:hover .back-morph {
-    transform: scale(1);
-}
-
-.morphing-back:hover .back-text {
+.back-link:hover {
     color: #667eea;
+    background: rgba(102, 126, 234, 0.1);
+    transform: translateX(-3px);
 }
 
-/* Creative Liquid Morphing Animations */
-@keyframes blobMorph {
-    0%, 100% { 
-        transform: scale(1) rotate(0deg);
-        border-radius: 50% 30% 70% 40%;
-    }
-    25% { 
-        transform: scale(1.1) rotate(90deg);
-        border-radius: 70% 50% 30% 60%;
-    }
-    50% { 
-        transform: scale(0.9) rotate(180deg);
-        border-radius: 40% 70% 50% 30%;
-    }
-    75% { 
-        transform: scale(1.05) rotate(270deg);
-        border-radius: 60% 40% 70% 50%;
-    }
+.back-link:hover .back-arrow {
+    transform: translateX(-3px);
 }
 
-@keyframes charFloat {
+/* Simple Animations */
+@keyframes cardFloat {
     0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-8px); }
+    50% { transform: translateY(-5px); }
 }
 
-@keyframes waveLine {
-    0%, 100% { width: 60px; opacity: 1; }
-    50% { width: 100px; opacity: 0.7; }
-}
-
-@keyframes borderFlow {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-@keyframes labelFloat {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-2px); }
-}
-
-@keyframes waveRipple {
-    0% { 
-        transform: scale(0);
-        opacity: 1;
-    }
-    100% { 
-        transform: scale(2);
-        opacity: 0;
-    }
-}
-
-@keyframes morphLayer {
+@keyframes logoGlow {
     0%, 100% { 
-        opacity: 1;
+        box-shadow: 0 8px 32px rgba(59, 130, 246, 0.3);
         transform: scale(1);
     }
-    33% { 
-        opacity: 0.7;
+    50% { 
+        box-shadow: 0 12px 40px rgba(59, 130, 246, 0.5);
         transform: scale(1.05);
     }
-    66% { 
-        opacity: 0.3;
-        transform: scale(0.95);
-    }
-}
-
-@keyframes rippleExpand {
-    0% { 
-        transform: scale(0);
-        opacity: 1;
-    }
-    100% { 
-        transform: scale(3);
-        opacity: 0;
-    }
-}
-
-@keyframes demoBlobShift {
-    0%, 100% { 
-        background: linear-gradient(135deg, 
-            rgba(102, 126, 234, 0.1) 0%, 
-            rgba(118, 75, 162, 0.05) 50%, 
-            rgba(240, 147, 251, 0.1) 100%
-        );
-    }
-    33% { 
-        background: linear-gradient(135deg, 
-            rgba(240, 147, 251, 0.1) 0%, 
-            rgba(245, 87, 108, 0.05) 50%, 
-            rgba(79, 172, 254, 0.1) 100%
-        );
-    }
-    66% { 
-        background: linear-gradient(135deg, 
-            rgba(79, 172, 254, 0.1) 0%, 
-            rgba(102, 126, 234, 0.05) 50%, 
-            rgba(118, 75, 162, 0.1) 100%
-        );
-    }
-}
-
-@keyframes demoPulse {
-    0%, 100% { 
-        transform: scale(1);
-        box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
-    }
-    50% { 
-        transform: scale(1.2);
-        box-shadow: 0 0 20px rgba(102, 126, 234, 0.8);
-    }
-}
-
-@keyframes credBubble {
-    0%, 100% { transform: translateY(0px) scale(1); }
-    50% { transform: translateY(-3px) scale(1.02); }
-}
-
-@keyframes credGlow {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
 }
 
 /* Responsive Design */
@@ -1362,142 +1197,77 @@ tems: center;
 </style>
 
 <script>
-// Creative liquid morphing form interactions
+// Simple form interactions
 document.addEventListener('DOMContentLoaded', function() {
-    // Liquid form input interactions
-    const liquidFields = document.querySelectorAll('.liquid-field input');
-    liquidFields.forEach(input => {
+    // Form input interactions
+    const formFields = document.querySelectorAll('.form-field input');
+    formFields.forEach(input => {
         input.addEventListener('focus', function() {
-            this.closest('.field-container').classList.add('liquid-focused');
+            this.closest('.form-field').classList.add('focused');
         });
         
         input.addEventListener('blur', function() {
-            this.closest('.field-container').classList.remove('liquid-focused');
-        });
-        
-        // Trigger wave animations on input
-        input.addEventListener('input', function() {
-            const waves = this.closest('.field-container').querySelector('.field-waves');
-            if (waves) {
-                waves.style.opacity = '1';
-                setTimeout(() => {
-                    waves.style.opacity = '0';
-                }, 1000);
-            }
+            this.closest('.form-field').classList.remove('focused');
         });
     });
     
-    // Morphing button interactive effects
-    const morphingBtn = document.querySelector('.morphing-btn');
-    if (morphingBtn) {
-        morphingBtn.addEventListener('mouseenter', function() {
-            // Trigger ripple effects
-            const ripples = this.querySelector('.btn-ripples');
-            if (ripples) {
-                ripples.style.opacity = '1';
-            }
+    // Sign in button effects
+    const signinBtn = document.querySelector('.signin-btn');
+    if (signinBtn) {
+        signinBtn.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-2px)';
+            this.style.boxShadow = '0 12px 35px rgba(59, 130, 246, 0.5)';
         });
         
-        morphingBtn.addEventListener('mouseleave', function() {
-            const ripples = this.querySelector('.btn-ripples');
-            if (ripples) {
-                ripples.style.opacity = '0';
-            }
+        signinBtn.addEventListener('mouseleave', function() {
+            this.style.transform = '';
+            this.style.boxShadow = '0 8px 25px rgba(59, 130, 246, 0.4)';
         });
         
-        // Add click pulse effect
-        morphingBtn.addEventListener('click', function(e) {
-            const rect = this.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            
-            const pulse = document.createElement('div');
-            pulse.style.position = 'absolute';
-            pulse.style.left = x + 'px';
-            pulse.style.top = y + 'px';
-            pulse.style.width = '0';
-            pulse.style.height = '0';
-            pulse.style.background = 'rgba(255, 255, 255, 0.5)';
-            pulse.style.borderRadius = '50%';
-            pulse.style.transform = 'translate(-50%, -50%)';
-            pulse.style.animation = 'clickPulse 0.6s ease-out';
-            pulse.style.pointerEvents = 'none';
-            
-            this.appendChild(pulse);
-            
+        signinBtn.addEventListener('click', function(e) {
+            this.style.transform = 'translateY(0)';
             setTimeout(() => {
-                pulse.remove();
-            }, 600);
+                this.style.transform = '';
+            }, 150);
         });
     }
     
-    // Character hover effects for title
-    const titleChars = document.querySelectorAll('.liquid-title .char');
-    titleChars.forEach((char, index) => {
-        char.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-10px) scale(1.1)';
-            this.style.color = '#667eea';
-            this.style.textShadow = '0 5px 15px rgba(102, 126, 234, 0.5)';
-        });
-        
-        char.addEventListener('mouseleave', function() {
-            this.style.transform = '';
-            this.style.color = '';
-            this.style.textShadow = '';
-        });
-    });
-    
     // Smooth page entry animation
-    const formContainer = document.querySelector('.form-container');
-    if (formContainer) {
-        formContainer.style.opacity = '0';
-        formContainer.style.transform = 'translateY(30px) scale(0.95)';
+    const loginCard = document.querySelector('.login-form-card');
+    if (loginCard) {
+        loginCard.style.opacity = '0';
+        loginCard.style.transform = 'translateY(30px) scale(0.95)';
         
         setTimeout(() => {
-            formContainer.style.transition = 'all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-            formContainer.style.opacity = '1';
-            formContainer.style.transform = 'translateY(0) scale(1)';
+            loginCard.style.transition = 'all 0.8s ease';
+            loginCard.style.opacity = '1';
+            loginCard.style.transform = 'translateY(0) scale(1)';
         }, 300);
     }
     
-    // Interactive demo card effects
-    const credBubbles = document.querySelectorAll('.cred-bubble');
-    credBubbles.forEach(bubble => {
-        bubble.addEventListener('mouseenter', function() {
-            this.style.transform = 'scale(1.05) translateY(-2px)';
-            this.style.boxShadow = '0 8px 25px rgba(102, 126, 234, 0.5)';
-        });
-        
-        bubble.addEventListener('mouseleave', function() {
-            this.style.transform = '';
-            this.style.boxShadow = '';
-        });
-        
-        // Copy to clipboard functionality
-        bubble.addEventListener('click', function() {
+    // Demo credentials click to copy
+    const credItems = document.querySelectorAll('.cred-item strong');
+    credItems.forEach(item => {
+        item.style.cursor = 'pointer';
+        item.addEventListener('click', function() {
             const text = this.textContent;
             navigator.clipboard.writeText(text).then(() => {
                 const originalText = this.textContent;
                 this.textContent = 'Copied!';
-                this.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+                this.style.color = '#10b981';
                 
                 setTimeout(() => {
                     this.textContent = originalText;
-                    this.style.background = '';
+                    this.style.color = '#60a5fa';
                 }, 1000);
+            }).catch(() => {
+                this.style.transform = 'scale(1.1)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 200);
             });
         });
     });
 });
-
-// Add click pulse animation
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes clickPulse {
-        0% { width: 0; height: 0; opacity: 1; }
-        100% { width: 100px; height: 100px; opacity: 0; }
-    }
-`;
-document.head.appendChild(style);
 </script>
 {% endblock %}
