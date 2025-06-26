@@ -68,22 +68,11 @@
     max-width: 90vw;
     margin: 0 auto;
     padding: 0 2rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
+    text-align: center;
 }
 
-.hero-left {
-    text-align: left;
-    animation: slideInLeft 1s ease-out;
-}
-
-.hero-right {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    animation: slideInRight 1s ease-out;
+.hero-content {
+    animation: fadeInUp 1s ease-out;
 }
 
 @keyframes slideInLeft {
@@ -391,8 +380,8 @@
 
 .values-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2.5rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
     margin-top: 3rem;
 }
 
@@ -416,6 +405,8 @@
 .value-card:nth-child(4) { animation-delay: 0.4s; }
 .value-card:nth-child(5) { animation-delay: 0.5s; }
 .value-card:nth-child(6) { animation-delay: 0.6s; }
+.value-card:nth-child(7) { animation-delay: 0.7s; }
+.value-card:nth-child(8) { animation-delay: 0.8s; }
 
 .value-card::after {
     content: '';
@@ -483,24 +474,35 @@
     background: var(--bg-light);
 }
 
+.vision-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
 .vision-content {
-    text-align: center;
-    margin-bottom: 3rem;
+    text-align: left;
 }
 
 .vision-text p {
     font-size: 1.2rem;
     color: var(--text-secondary);
     line-height: 1.8;
-    max-width: 800px;
-    margin: 0 auto 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.vision-features {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .future-features {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
-    margin-top: 3rem;
+    width: 100%;
 }
 
 .future-feature {
@@ -664,10 +666,14 @@
 
 /* Responsive Design */
 @media (max-width: 1024px) {
-    .hero-container,
-    .mission-container {
+    .mission-container,
+    .vision-container {
         grid-template-columns: 1fr;
         gap: 3rem;
+        text-align: center;
+    }
+    
+    .vision-content {
         text-align: center;
     }
     
@@ -679,16 +685,15 @@
     .mission-icon-display i {
         font-size: 4rem;
     }
+    
+    .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 768px) {
     .hero-title {
         font-size: 2.5rem;
-    }
-    
-    .hero-stats-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
     }
     
     .section-title {
@@ -747,34 +752,13 @@
     <!-- Enhanced Hero Section -->
     <section class="hero-section">
         <div class="hero-container">
-            <div class="hero-left">
+            <div class="hero-content">
                 <h1 class="hero-title">
                     <span class="gradient-text">About RackTrack</span>
                 </h1>
                 <p class="hero-subtitle">
                     Revolutionizing data center management through AI-powered automation and intelligent infrastructure analysis.
                 </p>
-            </div>
-            
-            <div class="hero-right">
-                <div class="hero-stats-grid">
-                    <div class="hero-stat">
-                        <div class="hero-stat-value">99.9%</div>
-                        <div class="hero-stat-label">Detection Accuracy</div>
-                    </div>
-                    <div class="hero-stat">
-                        <div class="hero-stat-value">&lt;30s</div>
-                        <div class="hero-stat-label">Processing Time</div>
-                    </div>
-                    <div class="hero-stat">
-                        <div class="hero-stat-value">10,000+</div>
-                        <div class="hero-stat-label">Images Processed</div>
-                    </div>
-                    <div class="hero-stat">
-                        <div class="hero-stat-value">24/7</div>
-                        <div class="hero-stat-label">System Availability</div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -924,6 +908,28 @@
                         needs of modern data center operations worldwide.
                     </p>
                 </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Sustainability</h3>
+                    <p>
+                        We help data centers optimize their operations for environmental efficiency, reducing energy 
+                        consumption through intelligent automation and smart resource management.
+                    </p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Partnership</h3>
+                    <p>
+                        We build lasting relationships with our clients, working as trusted partners to understand 
+                        their unique challenges and deliver customized solutions that drive real results.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
@@ -932,34 +938,38 @@
     <section class="content-section vision-section">
         <div class="section-container">
             <h2 class="section-title">Our Vision</h2>
-            <div class="vision-content">
-                <div class="vision-text">
-                    <p>
-                        We envision a future where data center management is completely automated, intelligent, and predictive. 
-                        Where AI doesn't just analyze what exists, but anticipates what's needed next.
-                    </p>
-                    <p>
-                        Our roadmap includes advanced features that will further revolutionize how data centers operate, 
-                        making them more efficient, reliable, and cost-effective than ever before.
-                    </p>
+            <div class="vision-container">
+                <div class="vision-content">
+                    <div class="vision-text">
+                        <p>
+                            We envision a future where data center management is completely automated, intelligent, and predictive. 
+                            Where AI doesn't just analyze what exists, but anticipates what's needed next.
+                        </p>
+                        <p>
+                            Our roadmap includes advanced features that will further revolutionize how data centers operate, 
+                            making them more efficient, reliable, and cost-effective than ever before.
+                        </p>
+                    </div>
                 </div>
                 
-                <div class="future-features">
-                    <div class="future-feature">
-                        <i class="fas fa-chart-line"></i>
-                        <span>Predictive Analytics</span>
-                    </div>
-                    <div class="future-feature">
-                        <i class="fas fa-mobile-alt"></i>
-                        <span>Mobile Integration</span>
-                    </div>
-                    <div class="future-feature">
-                        <i class="fas fa-cloud"></i>
-                        <span>Cloud Platform</span>
-                    </div>
-                    <div class="future-feature">
-                        <i class="fas fa-robot"></i>
-                        <span>Automation Suite</span>
+                <div class="vision-features">
+                    <div class="future-features">
+                        <div class="future-feature">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Predictive Analytics</span>
+                        </div>
+                        <div class="future-feature">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>Mobile Integration</span>
+                        </div>
+                        <div class="future-feature">
+                            <i class="fas fa-cloud"></i>
+                            <span>Cloud Platform</span>
+                        </div>
+                        <div class="future-feature">
+                            <i class="fas fa-robot"></i>
+                            <span>Automation Suite</span>
+                        </div>
                     </div>
                 </div>
             </div>
