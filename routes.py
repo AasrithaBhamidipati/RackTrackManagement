@@ -153,24 +153,41 @@ def download_all_results():
         # Create a ZIP file in memory
         memory_file = io.BytesIO()
         
-        with zipfile.ZipFile(memory_file, 'w', zipfile.ZIP_DEFLATED) as zf:
+        with zipfile.ZipFile(memory_file, 'w', zipfile.ZIP_DEFLATED, compresslevel=6) as zf:
             # Add coordinates file
-            zf.write(coordinates_file, 'coordinates.json')
+            if os.path.exists(coordinates_file):
+                zf.write(coordinates_file, 'coordinates.json')
             
             # Add all segmented images
-            with open(coordinates_file, 'r') as f:
-                coordinates_data = json.load(f)
-            
-            for image_path in coordinates_data.keys():
-                if os.path.exists(image_path):
-                    # Use relative path in ZIP
-                    arc_name = os.path.relpath(image_path, app.config['SEGMENTED_OUTPUTS'])
-                    zf.write(image_path, f"segmented_images/{arc_name}")
+            try:
+                with open(coordinates_file, 'r') as f:
+                    coordinates_data = json.load(f)
+                
+                for image_path in coordinates_data.keys():
+                    if os.path.exists(image_path):
+                        # Use relative path in ZIP
+                        arc_name = os.path.basename(image_path)
+                        zf.write(image_path, f"segmented_images/{arc_name}")
+                        
+                # Add segmented folders
+                segmented_base = app.config['SEGMENTED_OUTPUTS']
+                for folder_name in ['Cable', 'Port', 'Rack', 'Switch']:
+                    folder_path = os.path.join(segmented_base, folder_name)
+                    if os.path.exists(folder_path):
+                        for filename in os.listdir(folder_path):
+                            file_path = os.path.join(folder_path, filename)
+                            if os.path.isfile(file_path):
+                                zf.write(file_path, f"{folder_name}/{filename}")
+                                
+            except (json.JSONDecodeError, KeyError) as e:
+                logging.error(f"Error reading coordinates file: {str(e)}")
+        
+        memory_file.seek(0)
         
         memory_file.seek(0)
         
         return send_file(
-            io.BytesIO(memory_file.read()),
+            memory_file,
             mimetype='application/zip',
             as_attachment=True,
             download_name='segmentation_results.zip'
