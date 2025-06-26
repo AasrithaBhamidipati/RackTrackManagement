@@ -53,80 +53,106 @@
     50% { transform: translateY(-30px) scale(1.2); opacity: 0.8; }
 }
 
-/* Floating Card Design */
-.floating-intro {
-    padding: 6rem 0;
-    background: #fafbfc;
+/* Dark Split Hero Layout */
+.hero-section {
+    background: #1a1a1a;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
     position: relative;
+    overflow: hidden;
 }
 
-.intro-container {
+.hero-container {
     max-width: 90vw;
     margin: 0 auto;
     padding: 0 2rem;
+    width: 100%;
+}
+
+.hero-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    min-height: 50vh;
+}
+
+.hero-left {
+    padding: 2rem 0;
+}
+
+.hero-title {
+    font-size: 4.5rem;
+    font-weight: 700;
+    color: white;
+    line-height: 1.1;
+    margin: 0;
+    letter-spacing: -0.02em;
+}
+
+.hero-right {
     display: flex;
     justify-content: center;
-}
-
-.floating-card {
-    background: white;
-    border-radius: 24px;
-    padding: 4rem;
-    box-shadow: 
-        0 4px 6px -1px rgba(0, 0, 0, 0.1),
-        0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    max-width: 70%;
+    align-items: center;
     position: relative;
-    border: 1px solid #e5e7eb;
 }
 
-.card-header {
-    text-align: center;
-    margin-bottom: 3rem;
+.hero-image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    object-fit: contain;
 }
 
-.brand-mark {
-    display: inline-block;
-    padding: 0.5rem 1.5rem;
-    background: #2563eb;
-    color: white;
-    border-radius: 50px;
-    font-size: 0.9rem;
+.content-section {
+    background: #f8fafc;
+    padding: 4rem 0;
+}
+
+.content-container {
+    max-width: 90vw;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.content-main {
+    max-width: 70%;
+}
+
+.content-title {
+    font-size: 2rem;
     font-weight: 600;
-    letter-spacing: 0.05em;
+    color: #1f2937;
     margin-bottom: 2rem;
 }
 
-.main-title {
-    font-size: 2.8rem;
-    font-weight: 300;
-    color: #1f2937;
-    margin-bottom: 1rem;
-    letter-spacing: -0.025em;
-}
-
-.content-blocks {
-    display: grid;
-    gap: 2.5rem;
-}
-
-.text-block {
-    font-size: 1.15rem;
-    color: #374151;
+.content-text {
+    font-size: 1.1rem;
+    color: #4b5563;
     line-height: 1.8;
-    text-align: justify;
+    margin-bottom: 1.5rem;
 }
 
-.emphasis-block {
-    background: #f8fafc;
+.content-sidebar {
+    background: white;
     padding: 2rem;
-    border-radius: 16px;
-    border-left: 4px solid #2563eb;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-title {
     font-size: 1.2rem;
-    color: #1f2937;
-    font-weight: 500;
-    text-align: center;
-    font-style: italic;
+    font-weight: 600;
+    color: #2563eb;
+    margin-bottom: 1rem;
 }
 
 /* Interactive Content Sections */
@@ -955,35 +981,95 @@
 </div>
 
 <div class="about-page">
-    <!-- Floating Card Introduction -->
-    <div class="floating-intro">
-        <div class="intro-container">
-            <div class="floating-card">
-                <div class="card-header">
-                    <div class="brand-mark">ABOUT</div>
-                    <h1 class="main-title">RackTrack</h1>
+    <!-- Dark Split Hero Section -->
+    <section class="hero-section">
+        <div class="hero-container">
+            <div class="hero-split">
+                <div class="hero-left">
+                    <h1 class="hero-title">
+                        ABOUT<br>
+                        RACKTRACK
+                    </h1>
                 </div>
-                
-                <div class="content-blocks">
-                    <p class="text-block">
-                        To transform the way data centers manage their infrastructure by providing cutting-edge AI solutions that eliminate manual processes and deliver unprecedented accuracy in rack component analysis.
-                    </p>
-                    
-                    <p class="text-block">
-                        In today's fast-paced digital world, data centers are the backbone of our connected society. Yet many facilities still rely on time-consuming manual processes for inventory management and component tracking. RackTrack changes that by bringing the power of artificial intelligence to rack management.
-                    </p>
-                    
-                    <div class="emphasis-block">
-                        Our advanced computer vision technology can identify, analyze, and catalog rack components in seconds, providing detailed insights that would take hours to gather manually.
-                    </div>
-                    
-                    <p class="text-block">
-                        This isn't just about efficiency – it's about accuracy, consistency, and giving IT professionals the tools they need to manage modern infrastructure with confidence and precision.
-                    </p>
+                <div class="hero-right">
+                    <!-- Create an SVG server rack visualization -->
+                    <svg class="hero-image" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Server rack frame -->
+                        <rect x="50" y="30" width="300" height="240" fill="none" stroke="#94a3b8" stroke-width="3" rx="8"/>
+                        
+                        <!-- Server units -->
+                        <rect x="70" y="50" width="260" height="25" fill="#2563eb" rx="4"/>
+                        <rect x="80" y="55" width="15" height="15" fill="#10b981" rx="2"/>
+                        <rect x="100" y="55" width="15" height="15" fill="#10b981" rx="2"/>
+                        <rect x="120" y="55" width="15" height="15" fill="#f59e0b" rx="2"/>
+                        
+                        <rect x="70" y="85" width="260" height="25" fill="#1e40af" rx="4"/>
+                        <rect x="80" y="90" width="15" height="15" fill="#10b981" rx="2"/>
+                        <rect x="100" y="90" width="15" height="15" fill="#10b981" rx="2"/>
+                        <rect x="120" y="90" width="15" height="15" fill="#10b981" rx="2"/>
+                        
+                        <rect x="70" y="120" width="260" height="25" fill="#2563eb" rx="4"/>
+                        <rect x="80" y="125" width="15" height="15" fill="#ef4444" rx="2"/>
+                        <rect x="100" y="125" width="15" height="15" fill="#10b981" rx="2"/>
+                        <rect x="120" y="125" width="15" height="15" fill="#10b981" rx="2"/>
+                        
+                        <rect x="70" y="155" width="260" height="25" fill="#1e40af" rx="4"/>
+                        <rect x="80" y="160" width="15" height="15" fill="#10b981" rx="2"/>
+                        <rect x="100" y="160" width="15" height="15" fill="#10b981" rx="2"/>
+                        <rect x="120" y="160" width="15" height="15" fill="#10b981" rx="2"/>
+                        
+                        <rect x="70" y="190" width="260" height="25" fill="#2563eb" rx="4"/>
+                        <rect x="80" y="195" width="15" height="15" fill="#10b981" rx="2"/>
+                        <rect x="100" y="195" width="15" height="15" fill="#f59e0b" rx="2"/>
+                        <rect x="120" y="195" width="15" height="15" fill="#10b981" rx="2"/>
+                        
+                        <rect x="70" y="225" width="260" height="25" fill="#1e40af" rx="4"/>
+                        <rect x="80" y="230" width="15" height="15" fill="#10b981" rx="2"/>
+                        <rect x="100" y="230" width="15" height="15" fill="#10b981" rx="2"/>
+                        <rect x="120" y="230" width="15" height="15" fill="#10b981" rx="2"/>
+                        
+                        <!-- Cable management -->
+                        <path d="M 340 60 Q 380 60 380 100 Q 380 140 340 140" fill="none" stroke="#fbbf24" stroke-width="3"/>
+                        <path d="M 340 100 Q 380 100 380 140 Q 380 180 340 180" fill="none" stroke="#10b981" stroke-width="3"/>
+                        <path d="M 340 140 Q 380 140 380 180 Q 380 220 340 220" fill="none" stroke="#3b82f6" stroke-width="3"/>
+                    </svg>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="content-section">
+        <div class="content-container">
+            <div class="content-grid">
+                <div class="content-main">
+                    <h2 class="content-title">The Most Powerful Way to Connect with Every Infrastructure Component</h2>
+                    
+                    <p class="content-text">
+                        To transform the way data centers manage their infrastructure by providing cutting-edge AI solutions that eliminate manual processes and deliver unprecedented accuracy in rack component analysis.
+                    </p>
+                    
+                    <p class="content-text">
+                        In today's fast-paced digital world, data centers are the backbone of our connected society. Yet many facilities still rely on time-consuming manual processes for inventory management and component tracking. RackTrack changes that by bringing the power of artificial intelligence to rack management.
+                    </p>
+                    
+                    <p class="content-text">
+                        Our advanced computer vision technology can identify, analyze, and catalog rack components in seconds, providing detailed insights that would take hours to gather manually. This isn't just about efficiency – it's about accuracy, consistency, and giving IT professionals the tools they need to manage modern infrastructure.
+                    </p>
+                </div>
+                
+                <div class="content-sidebar">
+                    <h3 class="sidebar-title">Why RackTrack</h3>
+                    <ul style="list-style: none; padding: 0; color: #6b7280;">
+                        <li style="margin-bottom: 0.5rem;">✓ AI-powered component detection</li>
+                        <li style="margin-bottom: 0.5rem;">✓ Real-time rack analysis</li>
+                        <li style="margin-bottom: 0.5rem;">✓ Automated documentation</li>
+                        <li style="margin-bottom: 0.5rem;">✓ Enterprise-grade accuracy</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
 
