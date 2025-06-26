@@ -759,7 +759,7 @@ body::after {
 
 .brand-link:hover .brand-name-modern {
     transform: translateY(-3px) scale(1.08);
-    filter: drop-shadow(0 8px 25px rgba(99, 102, 241, 0.8)) drop-shadow(0 0 50px rgba(168, 85, 247, 0.6));
+    filter: drop-shadow(0 8px 25px rgba(30, 41, 59, 0.8)) drop-shadow(0 0 30px rgba(30, 64, 175, 0.4));
 }
 
 .brand-link:hover .brand-name-modern::after {
@@ -772,24 +772,21 @@ body::after {
 }
 
 .brand-name-modern {
-    font-size: 2.2rem;
+    font-size: 2.8rem;
     font-weight: 900;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-    background: linear-gradient(135deg, #0ea5e9 0%, #3b82f6 20%, #6366f1 40%, #8b5cf6 60%, #a855f7 80%, #06b6d4 100%);
+    background: linear-gradient(135deg, #1e293b 0%, #1e40af 30%, #1e3a8a 60%, #000000 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    background-size: 400% 400%;
-    animation: advancedGradientFlow 6s ease-in-out infinite, textMagnetism 3s ease-in-out infinite alternate;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     position: relative;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    filter: drop-shadow(0 4px 12px rgba(37, 99, 235, 0.5)) drop-shadow(0 0 20px rgba(139, 92, 246, 0.3));
+    filter: drop-shadow(0 4px 12px rgba(30, 41, 59, 0.5));
     text-shadow: 
-        0 0 30px rgba(37, 99, 235, 0.4),
-        0 0 60px rgba(139, 92, 246, 0.2),
-        0 2px 4px rgba(0, 0, 0, 0.1);
+        0 2px 4px rgba(0, 0, 0, 0.2),
+        0 1px 2px rgba(30, 64, 175, 0.3);
     font-feature-settings: 'kern' 1, 'liga' 1;
     font-variant: small-caps;
 }
