@@ -746,21 +746,20 @@
         min-height: 500px;
         padding: 0.5rem;
     }
-    
+
     .hero-video {
         height: 400px;
         border-radius: 1.5rem;
     }
-    
+
     .holographic-frame {
         border-radius: 1.5rem;
     }
-    
+
     .ai-analytics-panel {
         padding: 1rem;
-        transform: scale(0.9);
-    }
-    
+        transform: scale(0.9);    }
+
     .mini-analytics {
         gap: 1rem;
     }
@@ -1528,7 +1527,7 @@
     .features-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .datacenter-features {
         grid-template-columns: 1fr;
     }
@@ -1540,7 +1539,7 @@
         margin-bottom: 3rem;
         text-align: center;
     }
-    
+
     .datacenter-features {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -1585,7 +1584,7 @@
     .hero-right {
         padding-left: 0;
     }
-    
+
 
 
     .hero-stats-compact {
@@ -1652,25 +1651,25 @@
     <div class="hw-element rack" style="top: 60%; left: 15%; animation-delay: 8s;"></div>
     <div class="hw-element rack" style="top: 25%; left: 85%; animation-delay: 16s;"></div>
     <div class="hw-element rack" style="top: 75%; left: 90%; animation-delay: 24s;"></div>
-    
+
     <!-- Network Switch Elements -->
     <div class="hw-element switch" style="top: 20%; left: 25%; animation-delay: 2s;"></div>
     <div class="hw-element switch" style="top: 70%; left: 35%; animation-delay: 10s;"></div>
     <div class="hw-element switch" style="top: 40%; left: 75%; animation-delay: 18s;"></div>
     <div class="hw-element switch" style="top: 85%; left: 65%; animation-delay: 26s;"></div>
-    
+
     <!-- Cable Elements -->
     <div class="hw-element cable" style="top: 30%; left: 45%; animation-delay: 4s;"></div>
     <div class="hw-element cable" style="top: 80%; left: 55%; animation-delay: 12s;"></div>
     <div class="hw-element cable" style="top: 15%; left: 65%; animation-delay: 20s;"></div>
     <div class="hw-element cable" style="top: 55%; left: 25%; animation-delay: 28s;"></div>
-    
+
     <!-- Port Elements -->
     <div class="hw-element port" style="top: 35%; left: 15%; animation-delay: 6s;"></div>
     <div class="hw-element port" style="top: 65%; left: 45%; animation-delay: 14s;"></div>
     <div class="hw-element port" style="top: 45%; left: 85%; animation-delay: 22s;"></div>
     <div class="hw-element port" style="top: 90%; left: 35%; animation-delay: 30s;"></div>
-    
+
     <!-- Server Elements -->
     <div class="hw-element server" style="top: 50%; left: 10%; animation-delay: 1s;"></div>
     <div class="hw-element server" style="top: 25%; left: 55%; animation-delay: 9s;"></div>
@@ -1709,14 +1708,14 @@
                             <div class="particle"></div>
                             <div class="particle"></div>
                         </div>
-                        
+
                         <!-- Main Video with Holographic Frame -->
                         <div class="holographic-frame">
                             <video class="hero-video" autoplay muted loop playsinline onloadeddata="this.playbackRate = 1.5;">
                                 <source src="{{ url_for('static', filename='datacenter-cinematic.mp4') }}" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
-                            
+
                             <!-- Scanning Grid Overlay -->
                             <div class="scan-grid">
                                 <div class="grid-line horizontal" style="top: 25%;"></div>
@@ -1726,13 +1725,13 @@
                                 <div class="grid-line vertical" style="left: 50%;"></div>
                                 <div class="grid-line vertical" style="left: 75%;"></div>
                             </div>
-                            
+
                             <!-- Corner Brackets -->
                             <div class="corner-bracket top-left"></div>
                             <div class="corner-bracket top-right"></div>
                             <div class="corner-bracket bottom-left"></div>
                             <div class="corner-bracket bottom-right"></div>
-                            
+
                             <!-- Data Stream Overlay -->
                             <div class="data-streams">
                                 <div class="stream stream-1"></div>
@@ -1740,9 +1739,9 @@
                                 <div class="stream stream-3"></div>
                             </div>
                         </div>
-                        
 
-                        
+
+
                         <!-- Ambient Light Effects -->
                         <div class="ambient-lights">
                             <div class="light-orb orb-1"></div>
@@ -1755,14 +1754,17 @@
                 <!-- Right Side Content -->
                 <div class="col-lg-6">
                     <div class="hero-right">
-                        <div class="hero-badge">Next-Gen AI Technology</div>
-                        <h1 class="hero-title">SprintPark Rack Analysis</h1>
+                        <span class="hero-badge">AI-Powered Analysis</span>
+                        <h1 class="hero-title">
+                            Revolutionary Rack Intelligence for 
+                            <span class="hero-highlight">Modern Infrastructure</span>
+                        </h1>
                         <h2 class="hero-subtitle-header">Powered by AI</h2>
                         <p class="hero-subtitle">
                             Transform your infrastructure with cutting-edge computer vision. 
                             Automatically detect, analyze, and catalog rack components with unprecedented accuracy.
                         </p>
-                        
+
                         <div class="hero-cta">
                             {% if current_user.is_authenticated %}
                                 <a href="{{ url_for('analyze') }}" class="btn-get-started">
