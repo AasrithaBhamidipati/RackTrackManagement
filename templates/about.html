@@ -55,12 +55,13 @@
 
 /* Split Hero Section */
 .hero-section {
-    min-height: 70vh;
+    min-height: 50vh;
     display: flex;
     align-items: center;
     position: relative;
     background: linear-gradient(45deg, #1e3a8a 0%, #1e40af 50%, #3b82f6 100%);
     overflow: hidden;
+    padding: 3rem 0;
 }
 
 .hero-section::before {
@@ -87,7 +88,7 @@
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: center;
-    min-height: 60vh;
+    min-height: 40vh;
 }
 
 @keyframes slideInLeft {
@@ -152,10 +153,38 @@
     display: block;
 }
 
-.stat-label {
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.8);
-    margin-top: 0.5rem;
+.hero-content-text {
+    margin-top: 2rem;
+}
+
+.content-paragraph {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.precision-banner {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-top: 2rem;
+    backdrop-filter: blur(10px);
+}
+
+.banner-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #60a5fa;
+    margin-bottom: 1rem;
+}
+
+.banner-text {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    margin: 0;
 }
 
 .hero-stats-grid {
@@ -1144,27 +1173,23 @@
         <div class="hero-container">
             <div class="hero-split">
                 <div class="hero-left">
-                    <h1 class="hero-title">Revolutionizing Data Center Intelligence</h1>
+                    <h1 class="hero-title">About RackTrack</h1>
                     <p class="hero-subtitle">
-                        We're building the future of infrastructure management with AI-powered solutions that transform how enterprises handle their most critical systems.
+                        To transform the way data centers manage their infrastructure by providing cutting-edge AI solutions that eliminate manual processes and deliver unprecedented accuracy in rack component analysis.
                     </p>
                     
-                    <div class="hero-stats">
-                        <div class="stat-item">
-                            <span class="stat-number">99.9%</span>
-                            <span class="stat-label">Detection Accuracy</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">500+</span>
-                            <span class="stat-label">Data Centers</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">10x</span>
-                            <span class="stat-label">Faster Analysis</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">24/7</span>
-                            <span class="stat-label">AI Monitoring</span>
+                    <div class="hero-content-text">
+                        <p class="content-paragraph">
+                            In today's fast-paced digital world, data centers are the backbone of our connected society. Yet many facilities still rely on time-consuming manual processes for inventory management and component tracking. RackTrack changes that by bringing the power of artificial intelligence to rack management.
+                        </p>
+                        
+                        <p class="content-paragraph">
+                            Our advanced computer vision technology can identify, analyze, and catalog rack components in seconds, providing detailed insights that would take hours to gather manually. This isn't just about efficiency – it's about accuracy, consistency, and giving IT professionals the tools they need to manage modern infrastructure.
+                        </p>
+                        
+                        <div class="precision-banner">
+                            <h3 class="banner-title">Precision & Innovation</h3>
+                            <p class="banner-text">Combining state-of-the-art AI with deep industry expertise to deliver unmatched accuracy in rack component analysis.</p>
                         </div>
                     </div>
                 </div>
