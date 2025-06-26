@@ -588,6 +588,138 @@ body::after {
     border-radius: 16px;
 }
 
+/* Logo Animation Classes */
+.logo-pulse {
+    animation: logoPulse 3s ease-in-out infinite;
+}
+
+.server-slot {
+    animation: serverActivity 2s ease-in-out infinite alternate;
+}
+
+.led-indicator {
+    animation: ledBlink 1.5s ease-in-out infinite;
+}
+
+.neural-path {
+    stroke-dasharray: 5,3;
+    animation: dataFlow 3s linear infinite;
+}
+
+.ai-node {
+    animation: nodeGlow 2s ease-in-out infinite alternate;
+}
+
+.ai-core {
+    animation: coreRotate 4s linear infinite, corePulse 2s ease-in-out infinite alternate;
+}
+
+.data-particle {
+    animation: particleFloat 3s ease-in-out infinite;
+}
+
+.rack-structure {
+    animation: rackGlow 4s ease-in-out infinite alternate;
+}
+
+/* Logo Animations */
+@keyframes logoPulse {
+    0%, 100% {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.05);
+    }
+}
+
+@keyframes serverActivity {
+    0% {
+        opacity: 0.7;
+        fill: rgba(255,255,255,0.7);
+    }
+    100% {
+        opacity: 1;
+        fill: rgba(255,255,255,0.95);
+    }
+}
+
+@keyframes ledBlink {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.3;
+        transform: scale(0.8);
+    }
+}
+
+@keyframes dataFlow {
+    0% {
+        stroke-dashoffset: 0;
+        opacity: 0.7;
+    }
+    100% {
+        stroke-dashoffset: 16;
+        opacity: 0.9;
+    }
+}
+
+@keyframes nodeGlow {
+    0% {
+        opacity: 0.7;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+@keyframes coreRotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes corePulse {
+    0% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes particleFloat {
+    0%, 100% {
+        transform: translateY(0px);
+        opacity: 0.8;
+    }
+    33% {
+        transform: translateY(-3px);
+        opacity: 1;
+    }
+    66% {
+        transform: translateY(2px);
+        opacity: 0.6;
+    }
+}
+
+@keyframes rackGlow {
+    0% {
+        filter: drop-shadow(0 0 5px rgba(37, 99, 235, 0.3));
+    }
+    100% {
+        filter: drop-shadow(0 0 15px rgba(99, 102, 241, 0.6));
+    }
+}
+
 .brand-icon-modern::before {
     content: '';
     position: absolute;
@@ -619,7 +751,41 @@ body::after {
 }
 
 .brand-link:hover .brand-icon-modern svg {
-    transform: scale(1.05);
+    transform: scale(1.1);
+}
+
+.brand-link:hover .logo-pulse {
+    animation-duration: 1.5s;
+    opacity: 1;
+}
+
+.brand-link:hover .server-slot {
+    animation-duration: 1s;
+}
+
+.brand-link:hover .led-indicator {
+    animation-duration: 0.8s;
+}
+
+.brand-link:hover .neural-path {
+    animation-duration: 1.5s;
+    opacity: 1;
+}
+
+.brand-link:hover .ai-node {
+    animation-duration: 1s;
+}
+
+.brand-link:hover .ai-core {
+    animation-duration: 2s, 1s;
+}
+
+.brand-link:hover .data-particle {
+    animation-duration: 1.5s;
+}
+
+.brand-link:hover .rack-structure {
+    filter: drop-shadow(0 0 20px rgba(99, 102, 241, 0.8));
 }
 
 @keyframes logoRotate {
