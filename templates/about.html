@@ -153,17 +153,42 @@
     animation: slideInRight 1s ease-out;
 }
 
+.hero-image-container {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
 .hero-image {
     width: 100%;
-    max-width: 400px;
     height: auto;
-    object-fit: contain;
-    filter: drop-shadow(0 10px 30px rgba(37, 99, 235, 0.3));
+    object-fit: cover;
+    filter: brightness(1.1) contrast(1.05);
     transition: transform 0.3s ease;
 }
 
 .hero-image:hover {
-    transform: scale(1.05);
+    transform: scale(1.02);
+}
+
+.analysis-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(37, 99, 235, 0.9);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
 }
 
 .content-section {
@@ -1054,46 +1079,13 @@
                 </div>
                 <div class="hero-right">
                     <!-- Create an SVG server rack visualization -->
-                    <svg class="hero-image" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Server rack frame -->
-                        <rect x="50" y="30" width="300" height="240" fill="none" stroke="#94a3b8" stroke-width="3" rx="8"/>
-                        
-                        <!-- Server units -->
-                        <rect x="70" y="50" width="260" height="25" fill="#2563eb" rx="4"/>
-                        <rect x="80" y="55" width="15" height="15" fill="#10b981" rx="2"/>
-                        <rect x="100" y="55" width="15" height="15" fill="#10b981" rx="2"/>
-                        <rect x="120" y="55" width="15" height="15" fill="#f59e0b" rx="2"/>
-                        
-                        <rect x="70" y="85" width="260" height="25" fill="#1e40af" rx="4"/>
-                        <rect x="80" y="90" width="15" height="15" fill="#10b981" rx="2"/>
-                        <rect x="100" y="90" width="15" height="15" fill="#10b981" rx="2"/>
-                        <rect x="120" y="90" width="15" height="15" fill="#10b981" rx="2"/>
-                        
-                        <rect x="70" y="120" width="260" height="25" fill="#2563eb" rx="4"/>
-                        <rect x="80" y="125" width="15" height="15" fill="#ef4444" rx="2"/>
-                        <rect x="100" y="125" width="15" height="15" fill="#10b981" rx="2"/>
-                        <rect x="120" y="125" width="15" height="15" fill="#10b981" rx="2"/>
-                        
-                        <rect x="70" y="155" width="260" height="25" fill="#1e40af" rx="4"/>
-                        <rect x="80" y="160" width="15" height="15" fill="#10b981" rx="2"/>
-                        <rect x="100" y="160" width="15" height="15" fill="#10b981" rx="2"/>
-                        <rect x="120" y="160" width="15" height="15" fill="#10b981" rx="2"/>
-                        
-                        <rect x="70" y="190" width="260" height="25" fill="#2563eb" rx="4"/>
-                        <rect x="80" y="195" width="15" height="15" fill="#10b981" rx="2"/>
-                        <rect x="100" y="195" width="15" height="15" fill="#f59e0b" rx="2"/>
-                        <rect x="120" y="195" width="15" height="15" fill="#10b981" rx="2"/>
-                        
-                        <rect x="70" y="225" width="260" height="25" fill="#1e40af" rx="4"/>
-                        <rect x="80" y="230" width="15" height="15" fill="#10b981" rx="2"/>
-                        <rect x="100" y="230" width="15" height="15" fill="#10b981" rx="2"/>
-                        <rect x="120" y="230" width="15" height="15" fill="#10b981" rx="2"/>
-                        
-                        <!-- Cable management -->
-                        <path d="M 340 60 Q 380 60 380 100 Q 380 140 340 140" fill="none" stroke="#fbbf24" stroke-width="3"/>
-                        <path d="M 340 100 Q 380 100 380 140 Q 380 180 340 180" fill="none" stroke="#10b981" stroke-width="3"/>
-                        <path d="M 340 140 Q 380 140 380 180 Q 380 220 340 220" fill="none" stroke="#3b82f6" stroke-width="3"/>
-                    </svg>
+                    <div class="hero-image-container">
+                        <img class="hero-image" src="{{ url_for('static', filename='images/data-center-analyzing.png') }}" alt="Futuristic Data Center Analysis" />
+                        <div class="analysis-badge">
+                            <i class="fas fa-eye"></i>
+                            <span>AI Vision Analysis</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

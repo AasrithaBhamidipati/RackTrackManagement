@@ -51,6 +51,161 @@
     100% { opacity: 0; transform: translateX(100px); }
 }
 
+/* Network Switch Technology Showcase */
+.tech-showcase {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.tech-showcase::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(37, 99, 235, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.showcase-container {
+    max-width: 90vw;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.showcase-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.showcase-title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #1e293b;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.showcase-description {
+    font-size: 1.2rem;
+    color: #64748b;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+}
+
+.showcase-features {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.showcase-feature {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: rgba(37, 99, 235, 0.05);
+    border-radius: 12px;
+    border-left: 4px solid #2563eb;
+}
+
+.showcase-feature i {
+    color: #2563eb;
+    font-size: 1.1rem;
+}
+
+.showcase-feature span {
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.network-switch-display {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    background: #000;
+}
+
+.switch-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: brightness(1.1) contrast(1.05);
+}
+
+.analysis-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+.port-indicator {
+    position: absolute;
+    width: 20px;
+    height: 12px;
+    border: 2px solid #22c55e;
+    border-radius: 4px;
+    background: rgba(34, 197, 94, 0.1);
+    animation: portPulse 2s infinite;
+}
+
+.cable-trace {
+    position: absolute;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+    border-radius: 2px;
+    animation: dataTrace 3s infinite;
+}
+
+.led-status {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    animation: ledBlink 1.5s infinite;
+}
+
+.led-status.active {
+    background: #22c55e;
+    box-shadow: 0 0 10px #22c55e;
+}
+
+.led-status.warning {
+    background: #f59e0b;
+    box-shadow: 0 0 10px #f59e0b;
+    animation-delay: 0.5s;
+}
+
+@keyframes portPulse {
+    0%, 100% { opacity: 0.7; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.05); }
+}
+
+@keyframes dataTrace {
+    0% { opacity: 0; transform: translateX(-20px); }
+    50% { opacity: 1; }
+    100% { opacity: 0; transform: translateX(20px); }
+}
+
+@keyframes ledBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
 /* Hero Section with Interactive Demo */
 .hero-interactive {
     padding: 4rem 0 5rem;
@@ -578,6 +733,49 @@
                     Experience the future of data center management with cutting-edge computer vision, 
                     real-time analysis, and intelligent automation that transforms how you interact with your infrastructure.
                 </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Network Switch Technology Showcase -->
+    <section class="tech-showcase">
+        <div class="showcase-container">
+            <div class="showcase-content">
+                <div class="showcase-text">
+                    <h2 class="showcase-title">Port-Level Precision Analysis</h2>
+                    <p class="showcase-description">
+                        Our advanced computer vision technology analyzes every ethernet port, cable connection, 
+                        and LED status indicator with microscopic precision. See exactly what our AI sees in real-time.
+                    </p>
+                    <div class="showcase-features">
+                        <div class="showcase-feature">
+                            <i class="fas fa-search-plus"></i>
+                            <span>Sub-pixel Port Detection</span>
+                        </div>
+                        <div class="showcase-feature">
+                            <i class="fas fa-palette"></i>
+                            <span>Cable Color Recognition</span>
+                        </div>
+                        <div class="showcase-feature">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>LED Status Monitoring</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="showcase-visual">
+                    <div class="network-switch-display">
+                        <img src="{{ url_for('static', filename='images/network-switch-closeup.png') }}" alt="Network Switch Port Analysis" class="switch-image" />
+                        <div class="analysis-overlay">
+                            <div class="port-indicator" style="left: 15%; top: 45%;"></div>
+                            <div class="port-indicator" style="left: 25%; top: 45%;"></div>
+                            <div class="port-indicator" style="left: 35%; top: 45%;"></div>
+                            <div class="port-indicator" style="left: 45%; top: 45%;"></div>
+                            <div class="cable-trace" style="left: 20%; top: 60%;"></div>
+                            <div class="led-status active" style="left: 30%; top: 30%;"></div>
+                            <div class="led-status warning" style="left: 40%; top: 30%;"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
