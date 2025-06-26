@@ -41,110 +41,140 @@
                 <div class="header-brand">
                     <a href="{{ url_for('home') }}" class="brand-link">
                         <div class="brand-icon-modern">
-                            <svg width="55" height="55" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg width="55" height="55" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <defs>
-                                    <!-- Revolutionary Gradients -->
-                                    <linearGradient id="techGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                        <stop offset="0%" stop-color="#00f5ff"/>
-                                        <stop offset="25%" stop-color="#0066ff"/>
-                                        <stop offset="50%" stop-color="#6633ff"/>
-                                        <stop offset="75%" stop-color="#ff3366"/>
-                                        <stop offset="100%" stop-color="#ff6600"/>
+                                    <!-- 3D Depth Gradients -->
+                                    <linearGradient id="rackGradient3D" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#3b82f6"/>
+                                        <stop offset="30%" stop-color="#1e40af"/>
+                                        <stop offset="70%" stop-color="#1e3a8a"/>
+                                        <stop offset="100%" stop-color="#1e293b"/>
                                     </linearGradient>
-                                    <linearGradient id="neonGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                                        <stop offset="0%" stop-color="#00ffff"/>
-                                        <stop offset="20%" stop-color="#0099ff"/>
-                                        <stop offset="40%" stop-color="#6600ff"/>
-                                        <stop offset="60%" stop-color="#ff0099"/>
-                                        <stop offset="80%" stop-color="#ff3300"/>
-                                        <stop offset="100%" stop-color="#ffff00"/>
+                                    <linearGradient id="topFaceGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#60a5fa"/>
+                                        <stop offset="100%" stop-color="#3b82f6"/>
                                     </linearGradient>
-                                    <radialGradient id="coreGradient" cx="50%" cy="50%" r="50%">
-                                        <stop offset="0%" stop-color="rgba(0, 255, 255, 0.9)"/>
-                                        <stop offset="30%" stop-color="rgba(102, 51, 255, 0.7)"/>
-                                        <stop offset="70%" stop-color="rgba(255, 51, 102, 0.5)"/>
-                                        <stop offset="100%" stop-color="transparent"/>
-                                    </radialGradient>
-                                    <filter id="glow">
-                                        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-                                        <feMerge> 
-                                            <feMergeNode in="coloredBlur"/>
-                                            <feMergeNode in="SourceGraphic"/>
-                                        </feMerge>
+                                    <linearGradient id="rightFaceGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#1e40af"/>
+                                        <stop offset="100%" stop-color="#1e3a8a"/>
+                                    </linearGradient>
+                                    <linearGradient id="aiCoreGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#06b6d4"/>
+                                        <stop offset="50%" stop-color="#3b82f6"/>
+                                        <stop offset="100%" stop-color="#6366f1"/>
+                                    </linearGradient>
+                                    <linearGradient id="connectionGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" stop-color="#10b981"/>
+                                        <stop offset="50%" stop-color="#06b6d4"/>
+                                        <stop offset="100%" stop-color="#8b5cf6"/>
+                                    </linearGradient>
+                                    <!-- 3D Shadow Filter -->
+                                    <filter id="shadow3D" x="-50%" y="-50%" width="200%" height="200%">
+                                        <feDropShadow dx="2" dy="4" stdDeviation="2" flood-color="rgba(0,0,0,0.3)"/>
                                     </filter>
                                 </defs>
                                 
-                                <!-- Quantum Field Background -->
-                                <circle cx="32" cy="32" r="30" fill="url(#coreGradient)" class="quantum-field"/>
-                                
-                                <!-- Central Hexagonal AI Core -->
-                                <g class="ai-core-hex" transform="translate(32, 32)">
-                                    <!-- Hexagonal Base -->
-                                    <path d="M-8 -14 L8 -14 L16 0 L8 14 L-8 14 L-16 0 Z" fill="url(#techGradient)" class="hex-base" filter="url(#glow)"/>
-                                    <path d="M-6 -10.5 L6 -10.5 L12 0 L6 10.5 L-6 10.5 L-12 0 Z" fill="rgba(255,255,255,0.1)" class="hex-inner"/>
+                                <!-- 3D Isometric Server Rack -->
+                                <g class="rack-3d-structure" transform="translate(30, 30)">
+                                    <!-- Main Rack Body (Front Face) -->
+                                    <path d="M-12 -18 L12 -18 L12 15 L-12 15 Z" 
+                                          fill="url(#rackGradient3D)" 
+                                          stroke="rgba(255,255,255,0.2)" 
+                                          stroke-width="0.5"
+                                          filter="url(#shadow3D)"/>
                                     
-                                    <!-- Central Processing Unit -->
-                                    <circle r="6" fill="url(#neonGradient)" class="processing-core"/>
-                                    <circle r="3" fill="rgba(255,255,255,0.9)" class="core-center"/>
-                                    <circle r="1.5" fill="url(#techGradient)" class="core-dot"/>
-                                </g>
-                                
-                                <!-- Rack Component Visualizer -->
-                                <g class="rack-visualizer">
-                                    <!-- Main Rack Structure -->
-                                    <rect x="20" y="12" width="24" height="40" rx="2" fill="none" stroke="url(#neonGradient)" stroke-width="2" class="rack-frame"/>
+                                    <!-- Top Face (3D depth) -->
+                                    <path d="M-12 -18 L-8 -22 L16 -22 L12 -18 Z" 
+                                          fill="url(#topFaceGradient)"/>
                                     
-                                    <!-- Smart Component Slots -->
-                                    <g class="smart-slots">
-                                        <rect x="22" y="16" width="20" height="3" rx="1.5" fill="url(#techGradient)" opacity="0.8" class="slot active-slot"/>
-                                        <rect x="22" y="22" width="20" height="3" rx="1.5" fill="rgba(255,255,255,0.3)" class="slot inactive-slot"/>
-                                        <rect x="22" y="28" width="20" height="3" rx="1.5" fill="url(#techGradient)" opacity="0.6" class="slot active-slot"/>
-                                        <rect x="22" y="34" width="20" height="3" rx="1.5" fill="rgba(255,255,255,0.3)" class="slot inactive-slot"/>
-                                        <rect x="22" y="40" width="20" height="3" rx="1.5" fill="url(#techGradient)" opacity="0.9" class="slot active-slot"/>
-                                        <rect x="22" y="46" width="20" height="3" rx="1.5" fill="rgba(255,255,255,0.3)" class="slot inactive-slot"/>
+                                    <!-- Right Face (3D depth) -->
+                                    <path d="M12 -18 L16 -22 L16 11 L12 15 Z" 
+                                          fill="url(#rightFaceGradient)"/>
+                                    
+                                    <!-- Server Unit Slots with 3D effect -->
+                                    <g class="server-units">
+                                        <!-- Unit 1 -->
+                                        <rect x="-10" y="-14" width="20" height="3" rx="1" fill="rgba(255,255,255,0.9)"/>
+                                        <rect x="10" y="-14" width="4" height="3" fill="rgba(255,255,255,0.6)" transform="skewY(-10)"/>
+                                        
+                                        <!-- Unit 2 -->
+                                        <rect x="-10" y="-9" width="20" height="3" rx="1" fill="rgba(255,255,255,0.8)"/>
+                                        <rect x="10" y="-9" width="4" height="3" fill="rgba(255,255,255,0.5)" transform="skewY(-10)"/>
+                                        
+                                        <!-- Unit 3 -->
+                                        <rect x="-10" y="-4" width="20" height="3" rx="1" fill="rgba(255,255,255,0.9)"/>
+                                        <rect x="10" y="-4" width="4" height="3" fill="rgba(255,255,255,0.6)" transform="skewY(-10)"/>
+                                        
+                                        <!-- Unit 4 -->
+                                        <rect x="-10" y="1" width="20" height="3" rx="1" fill="rgba(255,255,255,0.8)"/>
+                                        <rect x="10" y="1" width="4" height="3" fill="rgba(255,255,255,0.5)" transform="skewY(-10)"/>
+                                        
+                                        <!-- Unit 5 -->
+                                        <rect x="-10" y="6" width="20" height="3" rx="1" fill="rgba(255,255,255,0.9)"/>
+                                        <rect x="10" y="6" width="4" height="3" fill="rgba(255,255,255,0.6)" transform="skewY(-10)"/>
+                                        
+                                        <!-- Unit 6 -->
+                                        <rect x="-10" y="11" width="20" height="3" rx="1" fill="rgba(255,255,255,0.8)"/>
+                                        <rect x="10" y="11" width="4" height="3" fill="rgba(255,255,255,0.5)" transform="skewY(-10)"/>
                                     </g>
                                     
-                                    <!-- AI Analysis Indicators -->
-                                    <g class="analysis-dots">
-                                        <circle cx="40" cy="17.5" r="1" fill="#00ffff" class="analysis-dot"/>
-                                        <circle cx="40" cy="29.5" r="1" fill="#6600ff" class="analysis-dot"/>
-                                        <circle cx="40" cy="41.5" r="1" fill="#ff0099" class="analysis-dot"/>
+                                    <!-- Status LED Indicators -->
+                                    <g class="status-indicators">
+                                        <circle cx="8" cy="-12.5" r="0.8" fill="#10b981"/>
+                                        <circle cx="8" cy="-7.5" r="0.8" fill="#f59e0b"/>
+                                        <circle cx="8" cy="-2.5" r="0.8" fill="#10b981"/>
+                                        <circle cx="8" cy="2.5" r="0.8" fill="#3b82f6"/>
+                                        <circle cx="8" cy="7.5" r="0.8" fill="#10b981"/>
+                                        <circle cx="8" cy="12.5" r="0.8" fill="#ef4444"/>
                                     </g>
                                 </g>
                                 
-                                <!-- Neural Network Matrix -->
-                                <g class="neural-matrix">
-                                    <!-- Network Nodes -->
-                                    <circle cx="12" cy="12" r="2" fill="url(#neonGradient)" class="neural-node"/>
-                                    <circle cx="52" cy="12" r="2" fill="url(#neonGradient)" class="neural-node"/>
-                                    <circle cx="12" cy="52" r="2" fill="url(#neonGradient)" class="neural-node"/>
-                                    <circle cx="52" cy="52" r="2" fill="url(#neonGradient)" class="neural-node"/>
-                                    <circle cx="8" cy="32" r="1.5" fill="url(#techGradient)" class="neural-node"/>
-                                    <circle cx="56" cy="32" r="1.5" fill="url(#techGradient)" class="neural-node"/>
+                                <!-- Central AI Processing Core -->
+                                <g class="ai-core-center" transform="translate(30, 12)">
+                                    <!-- Core Base (3D effect) -->
+                                    <ellipse cx="0" cy="0" rx="6" ry="3" fill="url(#aiCoreGradient)" filter="url(#shadow3D)"/>
+                                    <ellipse cx="0" cy="-1" rx="4" ry="2" fill="rgba(255,255,255,0.3)"/>
+                                    <circle cx="0" cy="-1" r="2" fill="url(#connectionGradient)"/>
+                                    <circle cx="0" cy="-2" r="1" fill="rgba(255,255,255,0.9)"/>
+                                </g>
+                                
+                                <!-- Data Connection Network -->
+                                <g class="connection-network">
+                                    <!-- Primary Connections -->
+                                    <path d="M10 30 Q30 20 50 30" 
+                                          stroke="url(#connectionGradient)" 
+                                          stroke-width="2" 
+                                          fill="none" 
+                                          opacity="0.8"/>
+                                    <path d="M10 30 Q30 40 50 30" 
+                                          stroke="url(#connectionGradient)" 
+                                          stroke-width="2" 
+                                          fill="none" 
+                                          opacity="0.8"/>
                                     
-                                    <!-- Neural Pathways -->
-                                    <path d="M12 12 Q32 2 52 12" stroke="url(#neonGradient)" stroke-width="1.5" fill="none" opacity="0.7" class="neural-path"/>
-                                    <path d="M12 52 Q32 42 52 52" stroke="url(#neonGradient)" stroke-width="1.5" fill="none" opacity="0.7" class="neural-path"/>
-                                    <path d="M12 12 Q2 32 12 52" stroke="url(#neonGradient)" stroke-width="1.5" fill="none" opacity="0.7" class="neural-path"/>
-                                    <path d="M52 12 Q62 32 52 52" stroke="url(#neonGradient)" stroke-width="1.5" fill="none" opacity="0.7" class="neural-path"/>
-                                    <path d="M8 32 L32 18" stroke="url(#techGradient)" stroke-width="1" opacity="0.6" class="neural-path"/>
-                                    <path d="M56 32 L32 46" stroke="url(#techGradient)" stroke-width="1" opacity="0.6" class="neural-path"/>
+                                    <!-- Vertical Connections -->
+                                    <line x1="30" y1="18" x2="30" y2="42" 
+                                          stroke="url(#connectionGradient)" 
+                                          stroke-width="1.5" 
+                                          opacity="0.6"/>
+                                    
+                                    <!-- Corner Nodes -->
+                                    <circle cx="10" cy="30" r="2.5" fill="url(#aiCoreGradient)" filter="url(#shadow3D)"/>
+                                    <circle cx="50" cy="30" r="2.5" fill="url(#aiCoreGradient)" filter="url(#shadow3D)"/>
+                                    <circle cx="30" cy="42" r="2" fill="url(#connectionGradient)"/>
+                                    
+                                    <!-- Node Highlights -->
+                                    <circle cx="10" cy="30" r="1" fill="rgba(255,255,255,0.8)"/>
+                                    <circle cx="50" cy="30" r="1" fill="rgba(255,255,255,0.8)"/>
+                                    <circle cx="30" cy="42" r="0.8" fill="rgba(255,255,255,0.8)"/>
                                 </g>
                                 
-                                <!-- Data Stream Particles -->
-                                <g class="data-particles">
-                                    <circle cx="16" cy="20" r="0.8" fill="#00ffff" class="data-point"/>
-                                    <circle cx="48" cy="24" r="0.8" fill="#6600ff" class="data-point"/>
-                                    <circle cx="20" cy="44" r="0.8" fill="#ff0099" class="data-point"/>
-                                    <circle cx="44" cy="40" r="0.8" fill="#ff3300" class="data-point"/>
-                                    <circle cx="28" cy="16" r="0.8" fill="#ffff00" class="data-point"/>
-                                    <circle cx="36" cy="48" r="0.8" fill="#00ff99" class="data-point"/>
-                                </g>
-                                
-                                <!-- Scanning Beam -->
-                                <g class="scanner">
-                                    <line x1="10" y1="32" x2="54" y2="32" stroke="url(#neonGradient)" stroke-width="0.5" opacity="0.8" class="scan-beam"/>
-                                    <line x1="32" y1="10" x2="32" y2="54" stroke="url(#neonGradient)" stroke-width="0.5" opacity="0.6" class="scan-beam"/>
+                                <!-- Analysis Points -->
+                                <g class="analysis-points">
+                                    <circle cx="15" cy="15" r="1.2" fill="#06b6d4"/>
+                                    <circle cx="45" cy="15" r="1.2" fill="#8b5cf6"/>
+                                    <circle cx="15" cy="45" r="1.2" fill="#10b981"/>
+                                    <circle cx="45" cy="45" r="1.2" fill="#f59e0b"/>
                                 </g>
                             </svg>
                         </div>
