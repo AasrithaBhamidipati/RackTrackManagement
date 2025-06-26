@@ -4,11 +4,11 @@
 
 {% block content %}
 <div class="holographic-login-container">
-    <!-- Background Video -->
-    <video autoplay muted loop class="background-video">
-        <source src="{{ url_for('static', filename='videos/login-background.mp4') }}" type="video/mp4">
-    </video>
-    <div class="video-overlay"></div>
+    <!-- Background Image -->
+    <div class="background-image-container">
+        <img src="{{ url_for('static', filename='images/datacenter-background.png') }}" alt="Data Center" class="background-image">
+        <div class="image-overlay"></div>
+    </div>
 
     <!-- Left Isometric Image Overlay (70%) -->
     <div class="left-image-overlay">
@@ -158,19 +158,25 @@
     overflow: hidden;
 }
 
-/* Background Video */
-.background-video {
+/* Background Image */
+.background-image-container {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
     z-index: -2;
 }
 
-.video-overlay {
-    position: fixed;
+.background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.image-overlay {
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
