@@ -97,11 +97,12 @@ RackTrack is a Flask-based web application that uses AI deep learning models to 
 ## Recent Changes
 - June 26, 2025: Complete website transformation with user's futuristic data center assets
   - Replaced home page hero video with cinematic data center analysis sequence
-  - Updated About page hero with stunning data center analyzing image featuring AI bounding boxes
+  - Updated About page hero with cinematic zoom sequence video in compact layout with white highlighted title
   - Enhanced Features page with detailed network switch closeup showing port-level analysis
-  - Added spectacular Contact page hero with server rack detailed imagery
+  - Updated Contact page hero with professional support dashboard image featuring RackTrack support interface
   - Integrated interactive analysis overlays with port indicators, cable traces, and LED status monitoring
   - Applied consistent futuristic styling with blue accent colors and professional layouts
+  - Optimized About page hero section for compact design with enhanced title visibility
 - June 26, 2025: Replaced home page hero section static image with user-provided data center analysis video
   - Integrated actual data center video showing AI rack analysis with bounding boxes and port detection
   - Added professional video styling with rounded corners, shadows, and hover effects
