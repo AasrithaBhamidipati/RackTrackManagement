@@ -13,62 +13,32 @@
     
     <!-- Main Login Container -->
     <div class="login-split-container">
-        <!-- Left Side - Visual Content -->
+        <!-- Left Side - Data Center Image -->
         <div class="login-visual-side">
-            <div class="visual-content">
-                <div class="brand-section">
-                    <div class="futuristic-logo">
-                        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="64" height="64" rx="16" fill="url(#futuristicGradient)"/>
-                            <path d="M16 24h32M16 32h32M16 40h24" stroke="white" stroke-width="3" stroke-linecap="round"/>
-                            <circle cx="48" cy="16" r="4" fill="#00ff88" opacity="0.8"/>
-                            <circle cx="56" cy="24" r="2" fill="#00ccff" opacity="0.6"/>
-                            <defs>
-                                <linearGradient id="futuristicGradient" x1="0" y1="0" x2="64" y2="64">
-                                    <stop stop-color="#2563eb"/>
-                                    <stop offset="0.5" stop-color="#1e40af"/>
-                                    <stop offset="1" stop-color="#0f172a"/>
-                                </linearGradient>
-                            </defs>
-                        </svg>
-                    </div>
-                    <h1 class="brand-title">RackTrack</h1>
-                    <p class="brand-tagline">AI-Powered Network Infrastructure Analysis</p>
-                </div>
-                
-                <div class="feature-highlights">
-                    <div class="highlight-item">
-                        <div class="highlight-icon">
-                            <i class="fas fa-brain"></i>
+            <div class="datacenter-image-container">
+                <img src="/static/attached_assets/A highly detailed and visually striking isometric illustration of a modern data center with multiple server racks, network switches with blinking LEDs, intricate cable management systems with color-coded cables, and detailed port conne_1750932646710.png" 
+                     alt="Data Center Infrastructure" 
+                     class="datacenter-image">
+                <div class="image-overlay">
+                    <div class="overlay-content">
+                        <div class="brand-badge">
+                            <div class="badge-logo">
+                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="32" height="32" rx="8" fill="url(#badgeGradient)"/>
+                                    <path d="M8 12h16M8 16h16M8 20h12" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                                    <defs>
+                                        <linearGradient id="badgeGradient" x1="0" y1="0" x2="32" y2="32">
+                                            <stop stop-color="#2563eb"/>
+                                            <stop offset="1" stop-color="#3b82f6"/>
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                            </div>
+                            <div class="badge-text">
+                                <h3>RackTrack</h3>
+                                <p>AI Infrastructure Analysis</p>
+                            </div>
                         </div>
-                        <span>Advanced AI Detection</span>
-                    </div>
-                    <div class="highlight-item">
-                        <div class="highlight-icon">
-                            <i class="fas fa-network-wired"></i>
-                        </div>
-                        <span>Real-time Analysis</span>
-                    </div>
-                    <div class="highlight-item">
-                        <div class="highlight-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <span>Enterprise Security</span>
-                    </div>
-                </div>
-                
-                <div class="stats-display">
-                    <div class="stat-item">
-                        <div class="stat-number">99.9%</div>
-                        <div class="stat-label">Accuracy</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">500+</div>
-                        <div class="stat-label">Components</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">24/7</div>
-                        <div class="stat-label">Monitoring</div>
                     </div>
                 </div>
             </div>
@@ -161,100 +131,15 @@
     margin: 0;
 }
 
-/* Background with Data Center Image */
+/* Simple Background */
 .login-background {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
-    z-index: -3;
-}
-
-.login-background::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('/static/attached_assets/A highly detailed and visually striking isometric illustration of a modern data center with multiple server racks, network switches with blinking LEDs, intricate cable management systems with color-coded cables, and detailed port conne_1750932646710.png') center/cover no-repeat;
-    opacity: 0.3;
-    filter: blur(1px);
-    z-index: -2;
-}
-
-.datacenter-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        45deg,
-        rgba(15, 23, 42, 0.9) 0%,
-        rgba(30, 41, 59, 0.8) 25%,
-        rgba(51, 65, 85, 0.7) 50%,
-        rgba(30, 41, 59, 0.8) 75%,
-        rgba(15, 23, 42, 0.9) 100%
-    );
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%);
     z-index: -1;
-}
-
-.tech-grid {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: 
-        linear-gradient(rgba(37, 99, 235, 0.1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(37, 99, 235, 0.1) 1px, transparent 1px);
-    background-size: 50px 50px;
-    animation: gridPulse 4s ease-in-out infinite;
-    z-index: -1;
-}
-
-.floating-particles {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-}
-
-.floating-particles::before,
-.floating-particles::after {
-    content: '';
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    background: #00ccff;
-    border-radius: 50%;
-    box-shadow: 
-        0 0 10px #00ccff,
-        0 0 20px #00ccff,
-        0 0 30px #00ccff;
-    animation: float 6s ease-in-out infinite;
-}
-
-.floating-particles::before {
-    top: 20%;
-    left: 10%;
-    animation-delay: -2s;
-}
-
-.floating-particles::after {
-    top: 70%;
-    right: 15%;
-    animation-delay: -4s;
-    background: #00ff88;
-    box-shadow: 
-        0 0 10px #00ff88,
-        0 0 20px #00ff88,
-        0 0 30px #00ff88;
 }
 
 /* Split Layout Container */
@@ -275,131 +160,79 @@
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
-/* Left Visual Side */
+/* Left Visual Side with Image */
 .login-visual-side {
     flex: 1;
-    background: linear-gradient(135deg, 
-        rgba(37, 99, 235, 0.2) 0%,
-        rgba(59, 130, 246, 0.15) 50%,
-        rgba(147, 197, 253, 0.1) 100%
-    );
-    padding: 3rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     position: relative;
     overflow: hidden;
 }
 
-.login-visual-side::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, 
-        rgba(37, 99, 235, 0.1) 0%,
-        transparent 70%
-    );
-    animation: rotate 20s linear infinite;
-}
-
-.visual-content {
+.datacenter-image-container {
     position: relative;
-    z-index: 2;
-}
-
-.brand-section {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-.futuristic-logo {
-    display: inline-block;
-    margin-bottom: 1.5rem;
-    animation: logoGlow 3s ease-in-out infinite;
-}
-
-.brand-title {
-    font-size: 3rem;
-    font-weight: 800;
-    background: linear-gradient(135deg, #ffffff, #3b82f6, #00ccff);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 0.5rem;
-    text-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
-}
-
-.brand-tagline {
-    color: #cbd5e1;
-    font-size: 1.2rem;
-    font-weight: 300;
-    letter-spacing: 0.5px;
-}
-
-.feature-highlights {
-    margin-bottom: 3rem;
-}
-
-.highlight-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1.5rem;
-    color: #e2e8f0;
-    font-weight: 500;
-    transition: all 0.3s ease;
-}
-
-.highlight-item:hover {
-    transform: translateX(10px);
-    color: #00ccff;
-}
-
-.highlight-icon {
-    width: 48px;
-    height: 48px;
-    background: linear-gradient(135deg, #2563eb, #3b82f6);
-    border-radius: 12px;
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 1rem;
-    font-size: 1.2rem;
-    color: white;
-    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
 }
 
-.stats-display {
+.datacenter-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 24px 0 0 24px;
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(37, 99, 235, 0.15) 0%,
+        rgba(59, 130, 246, 0.1) 50%,
+        rgba(147, 197, 253, 0.05) 100%
+    );
     display: flex;
-    justify-content: space-between;
-    gap: 1rem;
+    align-items: flex-end;
+    padding: 3rem;
+    border-radius: 24px 0 0 24px;
 }
 
-.stat-item {
-    text-align: center;
-    padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.05);
+.overlay-content {
+    width: 100%;
+}
+
+.brand-badge {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
     border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    flex: 1;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    animation: badgeFloat 3s ease-in-out infinite;
 }
 
-.stat-number {
-    font-size: 2rem;
-    font-weight: 800;
-    background: linear-gradient(135deg, #00ccff, #3b82f6);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    display: block;
-    margin-bottom: 0.5rem;
+.badge-logo {
+    flex-shrink: 0;
 }
 
-.stat-label {
-    color: #cbd5e1;
+.badge-text h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0 0 0.25rem 0;
+}
+
+.badge-text p {
     font-size: 0.875rem;
+    color: #64748b;
+    margin: 0;
     font-weight: 500;
 }
 
@@ -691,31 +524,9 @@ tems: center;
 }
 
 /* Animations */
-@keyframes gridPulse {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 0.6; }
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    33% { transform: translateY(-20px) rotate(120deg); }
-    66% { transform: translateY(10px) rotate(240deg); }
-}
-
-@keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-@keyframes logoGlow {
-    0%, 100% { 
-        filter: drop-shadow(0 0 5px rgba(59, 130, 246, 0.5));
-        transform: scale(1);
-    }
-    50% { 
-        filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.8));
-        transform: scale(1.05);
-    }
+@keyframes badgeFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
 }
 
 /* Responsive Design */
@@ -742,29 +553,29 @@ tems: center;
     }
     
     .login-visual-side {
-        flex: 0 0 300px;
-        padding: 2rem 1.5rem;
+        flex: 0 0 250px;
+    }
+    
+    .datacenter-image {
+        border-radius: 24px 24px 0 0;
+    }
+    
+    .image-overlay {
+        border-radius: 24px 24px 0 0;
+        padding: 1.5rem;
+        align-items: center;
+    }
+    
+    .brand-badge {
+        padding: 1.5rem;
+    }
+    
+    .badge-text h3 {
+        font-size: 1.25rem;
     }
     
     .login-form-side {
         flex: 1;
-    }
-    
-    .brand-title {
-        font-size: 2rem;
-    }
-    
-    .stats-display {
-        flex-direction: column;
-        gap: 1rem;
-    }
-    
-    .feature-highlights {
-        margin-bottom: 2rem;
-    }
-    
-    .highlight-item {
-        margin-bottom: 1rem;
     }
 }
 
