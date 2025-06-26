@@ -27,92 +27,75 @@
             </div>
         </div>
         
-        <!-- Right Side - Creative Login Form -->
+        <!-- Right Side - Elegant Login Form -->
         <div class="login-form-side">
             <div class="form-container">
-                <!-- Animated Header -->
-                <div class="creative-header">
-                    <div class="header-icon">
-                        <div class="rotating-rings">
-                            <div class="ring ring-1"></div>
-                            <div class="ring ring-2"></div>
-                            <div class="ring ring-3"></div>
+                <!-- Elegant Header -->
+                <div class="elegant-header">
+                    <div class="header-logo">
+                        <div class="logo-circle">
+                            <div class="inner-circle"></div>
+                            <div class="accent-ring"></div>
                         </div>
-                        <div class="center-dot"></div>
                     </div>
-                    <h2 class="glitch-text" data-text="SECURE ACCESS">SECURE ACCESS</h2>
-                    <div class="typing-text">
-                        <span class="typed-text"></span>
-                        <span class="cursor">|</span>
-                    </div>
+                    <h2 class="elegant-title">Welcome Back</h2>
+                    <p class="elegant-subtitle">Access your data center dashboard</p>
                 </div>
                 
-                <!-- Holographic Form -->
-                <form method="POST" class="holographic-form">
-                    <div class="neural-network-bg"></div>
-                    
-                    <div class="holo-input-group">
-                        <div class="holo-input-wrapper">
-                            <div class="input-scanner"></div>
+                <!-- Elegant Form -->
+                <form method="POST" class="elegant-form">
+                    <div class="elegant-input-group">
+                        <div class="elegant-input-wrapper">
                             <input type="text" id="username" name="username" required placeholder=" ">
-                            <label for="username" class="holo-label">
-                                <span class="label-text">USERNAME</span>
-                                <div class="label-particles"></div>
-                            </label>
-                            <div class="input-grid"></div>
+                            <label for="username" class="elegant-label">Username</label>
+                            <div class="elegant-underline"></div>
                         </div>
                     </div>
                     
-                    <div class="holo-input-group">
-                        <div class="holo-input-wrapper">
-                            <div class="input-scanner"></div>
+                    <div class="elegant-input-group">
+                        <div class="elegant-input-wrapper">
                             <input type="password" id="password" name="password" required placeholder=" ">
-                            <label for="password" class="holo-label">
-                                <span class="label-text">PASSWORD</span>
-                                <div class="label-particles"></div>
-                            </label>
-                            <div class="input-grid"></div>
+                            <label for="password" class="elegant-label">Password</label>
+                            <div class="elegant-underline"></div>
                         </div>
                     </div>
                     
-                    <div class="quantum-options">
-                        <label class="quantum-checkbox">
+                    <div class="elegant-options">
+                        <label class="elegant-checkbox">
                             <input type="checkbox">
-                            <span class="quantum-check"></span>
-                            <span class="quantum-text">Maintain Session</span>
+                            <span class="elegant-check"></span>
+                            <span class="elegant-text">Remember me</span>
                         </label>
-                        <a href="#" class="quantum-link">Recovery Protocol</a>
+                        <a href="#" class="elegant-link">Forgot password?</a>
                     </div>
                     
-                    <button type="submit" class="quantum-btn">
-                        <span class="btn-grid"></span>
-                        <span class="btn-text">INITIATE ACCESS</span>
-                        <div class="btn-particles"></div>
-                        <div class="btn-pulse"></div>
+                    <button type="submit" class="elegant-btn">
+                        <span class="btn-content">Sign In</span>
+                        <div class="btn-shadow"></div>
                     </button>
                 </form>
                 
-                <div class="demo-panel">
-                    <div class="panel-header">
-                        <div class="status-indicator"></div>
-                        <span>DEMO CREDENTIALS</span>
+                <div class="demo-card">
+                    <div class="demo-header">
+                        <i class="demo-icon"></i>
+                        <span>Demo Access</span>
                     </div>
-                    <div class="credential-display">
-                        <div class="cred-line">
-                            <span class="cred-key">USER:</span>
-                            <span class="cred-value">1234</span>
+                    <div class="demo-content">
+                        <div class="demo-item">
+                            <span class="demo-label">Username:</span>
+                            <span class="demo-value">1234</span>
                         </div>
-                        <div class="cred-line">
-                            <span class="cred-key">PASS:</span>
-                            <span class="cred-value">1234</span>
+                        <div class="demo-item">
+                            <span class="demo-label">Password:</span>
+                            <span class="demo-value">1234</span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="exit-protocol">
-                    <a href="{{ url_for('home') }}" class="exit-link">
-                        <span class="exit-icon">←</span>
-                        <span>EXIT TO MAIN</span>
+                <div class="elegant-footer">
+                    <a href="{{ url_for('home') }}" class="elegant-back">
+                        <span class="back-arrow">←</span>
+                        <span>Back to Home</span>
                     </a>
                 </div>
             </div>
@@ -136,40 +119,52 @@
     margin: 0;
 }
 
-/* Simple Background */
+/* Elegant Dark Background */
 .login-background {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%);
+    background: linear-gradient(135deg, #0a1428 0%, #1e293b 50%, #000000 100%);
     z-index: -1;
 }
 
-/* Split Layout Container */
+.login-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at top, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+    z-index: -1;
+}
+
+/* Elegant Split Layout Container */
 .login-split-container {
     display: flex;
     width: 90vw;
-    max-width: 1400px;
-    height: 85vh;
+    max-width: 1200px;
+    height: 80vh;
     min-height: 600px;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.97);
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 24px;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: 20px;
     overflow: hidden;
     box-shadow: 
-        0 25px 50px rgba(0, 0, 0, 0.5),
-        0 0 100px rgba(37, 99, 235, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        0 0 80px rgba(59, 130, 246, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
-/* Left Visual Side with Holographic Effects */
+/* Elegant Left Visual Side */
 .login-visual-side {
     flex: 1;
     position: relative;
     overflow: hidden;
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
 }
 
 .datacenter-image-container {
@@ -179,14 +174,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 3rem;
 }
 
 .datacenter-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 24px 0 0 24px;
-    filter: contrast(1.2) saturate(1.1);
+    border-radius: 20px 0 0 20px;
+    filter: contrast(1.1) brightness(0.9);
 }
 
 .image-overlay {
@@ -197,11 +193,14 @@
     height: 100%;
     background: linear-gradient(
         135deg,
-        rgba(0, 204, 255, 0.1) 0%,
-        rgba(37, 99, 235, 0.15) 50%,
-        rgba(147, 51, 234, 0.1) 100%
+        rgba(59, 130, 246, 0.2) 0%,
+        rgba(30, 41, 59, 0.3) 50%,
+        rgba(0, 0, 0, 0.4) 100%
     );
-    border-radius: 24px 0 0 24px;
+    border-radius: 20px 0 0 20px;
+    display: flex;
+    align-items: flex-end;
+    padding: 3rem;
 }
 
 .scanning-lines {
@@ -213,11 +212,11 @@
     background: repeating-linear-gradient(
         90deg,
         transparent,
-        transparent 2px,
-        rgba(0, 255, 136, 0.03) 2px,
-        rgba(0, 255, 136, 0.03) 4px
+        transparent 3px,
+        rgba(59, 130, 246, 0.05) 3px,
+        rgba(59, 130, 246, 0.05) 6px
     );
-    animation: scanMove 8s linear infinite;
+    animation: elegantScan 10s linear infinite;
 }
 
 .holographic-dots {
@@ -225,11 +224,11 @@
     width: 100%;
     height: 100%;
     background-image: 
-        radial-gradient(circle at 25% 25%, #00ccff 1px, transparent 1px),
-        radial-gradient(circle at 75% 75%, #00ff88 1px, transparent 1px);
-    background-size: 50px 50px, 80px 80px;
-    opacity: 0.4;
-    animation: dotShift 12s ease-in-out infinite;
+        radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+        radial-gradient(circle at 70% 80%, rgba(59, 130, 246, 0.15) 1px, transparent 1px);
+    background-size: 60px 60px, 90px 90px;
+    opacity: 0.6;
+    animation: elegantFloat 15s ease-in-out infinite;
 }
 
 .data-streams {
@@ -238,35 +237,16 @@
     height: 100%;
 }
 
-.data-streams::before,
-.data-streams::after {
-    content: '';
-    position: absolute;
-    width: 2px;
-    height: 60px;
-    background: linear-gradient(to bottom, transparent, #00ccff, transparent);
-    animation: streamFlow 4s linear infinite;
-}
-
-.data-streams::before {
-    left: 20%;
-    animation-delay: 0s;
-}
-
-.data-streams::after {
-    right: 30%;
-    animation-delay: 2s;
-}
-
-/* Right Form Side - Holographic Interface */
+/* Elegant Right Form Side */
 .login-form-side {
     flex: 0 0 450px;
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #ffffff 100%);
     padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
+    border-left: 1px solid rgba(59, 130, 246, 0.1);
 }
 
 .login-form-side::before {
@@ -276,8 +256,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at 50% 50%, rgba(0, 204, 255, 0.1) 0%, transparent 50%);
-    animation: pulseGlow 4s ease-in-out infinite;
+    background: radial-gradient(circle at 30% 20%, rgba(59, 130, 246, 0.03) 0%, transparent 50%);
 }
 
 .form-container {
@@ -288,114 +267,63 @@
     z-index: 2;
 }
 
-/* Creative Animated Header */
-.creative-header {
+/* Elegant Header Styling */
+.elegant-header {
     text-align: center;
     margin-bottom: 3rem;
     position: relative;
 }
 
-.header-icon {
+.header-logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.logo-circle {
     position: relative;
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 2rem;
-}
-
-.rotating-rings {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-}
-
-.ring {
-    position: absolute;
-    border: 2px solid;
-    border-radius: 50%;
-    animation: ringRotate 8s linear infinite;
-}
-
-.ring-1 {
-    width: 80px;
-    height: 80px;
-    border-color: #00ccff;
-    animation-duration: 8s;
-}
-
-.ring-2 {
     width: 60px;
     height: 60px;
-    top: 10px;
-    left: 10px;
-    border-color: #00ff88;
-    animation-duration: 6s;
-    animation-direction: reverse;
-}
-
-.ring-3 {
-    width: 40px;
-    height: 40px;
-    top: 20px;
-    left: 20px;
-    border-color: #9333ea;
-    animation-duration: 4s;
-}
-
-.center-dot {
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    background: radial-gradient(circle, #00ccff, #0066cc);
+    background: linear-gradient(135deg, #1e293b 0%, #3b82f6 100%);
     border-radius: 50%;
-    top: 34px;
-    left: 34px;
-    box-shadow: 0 0 20px #00ccff;
-    animation: dotPulse 2s ease-in-out infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+    animation: elegantPulse 3s ease-in-out infinite;
 }
 
-.glitch-text {
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: #00ccff;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 1rem;
-    position: relative;
-    animation: glitchEffect 3s ease-in-out infinite;
+.inner-circle {
+    width: 30px;
+    height: 30px;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.glitch-text::before,
-.glitch-text::after {
-    content: attr(data-text);
+.accent-ring {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    width: 70px;
+    height: 70px;
+    border: 2px solid rgba(59, 130, 246, 0.3);
+    border-radius: 50%;
+    border-top-color: #3b82f6;
+    animation: elegantRotate 4s linear infinite;
 }
 
-.glitch-text::before {
-    color: #ff0040;
-    animation: glitchTop 3s linear infinite;
-    clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+.elegant-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.5px;
 }
 
-.glitch-text::after {
-    color: #00ff41;
-    animation: glitchBottom 3s linear infinite;
-    clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
-}
-
-.typing-text {
-    color: #cbd5e1;
-    font-family: 'Courier New', monospace;
-    font-size: 0.9rem;
-    height: 1.5rem;
-}
-
-.cursor {
-    animation: cursorBlink 1s infinite;
-    color: #00ccff;
+.elegant-subtitle {
+    color: #64748b;
+    font-size: 1rem;
+    font-weight: 400;
+    margin: 0;
 }
 
 /* Modern Form Styling */
@@ -651,45 +579,156 @@ tems: center;
     transform: translateX(-3px);
 }
 
-/* Holographic Form Styling */
-.holographic-form {
-    position: relative;
-    margin-bottom: 2rem;
-    padding: 2rem;
-    background: rgba(0, 204, 255, 0.05);
-    border: 1px solid rgba(0, 204, 255, 0.2);
-    border-radius: 16px;
-    backdrop-filter: blur(10px);
+/* Elegant Form Styling */
+.elegant-form {
+    margin-bottom: 2.5rem;
 }
 
-.neural-network-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
+.elegant-input-group {
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.elegant-input-wrapper {
+    position: relative;
+}
+
+.elegant-input-wrapper input {
     width: 100%;
-    height: 100%;
-    background-image: 
-        radial-gradient(circle at 20% 30%, rgba(0, 204, 255, 0.1) 1px, transparent 1px),
-        radial-gradient(circle at 80% 70%, rgba(0, 255, 136, 0.1) 1px, transparent 1px);
-    background-size: 30px 30px, 40px 40px;
-    animation: networkPulse 6s ease-in-out infinite;
-    border-radius: 16px;
+    padding: 1rem 0;
+    border: none;
+    border-bottom: 2px solid #e2e8f0;
+    background: transparent;
+    color: #1e293b;
+    font-size: 1rem;
+    font-weight: 500;
+    outline: none;
+    transition: all 0.3s ease;
 }
 
-.holo-input-group {
+.elegant-input-wrapper input:focus {
+    border-bottom-color: #3b82f6;
+}
+
+.elegant-input-wrapper input:focus + .elegant-label,
+.elegant-input-wrapper input:not(:placeholder-shown) + .elegant-label {
+    top: -20px;
+    font-size: 0.875rem;
+    color: #3b82f6;
+    font-weight: 600;
+}
+
+.elegant-label {
+    position: absolute;
+    top: 1rem;
+    left: 0;
+    color: #64748b;
+    font-size: 1rem;
+    font-weight: 500;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    transform-origin: left;
+}
+
+.elegant-underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(135deg, #3b82f6, #1e293b);
+    transition: width 0.3s ease;
+}
+
+.elegant-input-wrapper input:focus ~ .elegant-underline {
+    width: 100%;
+}
+
+/* Elegant Options */
+.elegant-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 2rem;
-    position: relative;
+    font-size: 0.875rem;
 }
 
-.holo-input-wrapper {
+.elegant-checkbox {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: #64748b;
+}
+
+.elegant-checkbox input {
+    display: none;
+}
+
+.elegant-check {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #d1d5db;
+    border-radius: 3px;
+    margin-right: 0.5rem;
     position: relative;
-    border: 1px solid rgba(0, 204, 255, 0.3);
+    background: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.elegant-checkbox input:checked + .elegant-check {
+    background: #3b82f6;
+    border-color: #3b82f6;
+}
+
+.elegant-checkbox input:checked + .elegant-check::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.elegant-text {
+    font-weight: 500;
+}
+
+.elegant-link {
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.elegant-link:hover {
+    color: #1e293b;
+}
+
+/* Elegant Button */
+.elegant-btn {
+    position: relative;
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, #3b82f6 0%, #1e293b 100%);
+    border: none;
     border-radius: 8px;
-    background: rgba(0, 204, 255, 0.02);
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
     overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
 }
 
-.input-scanner {
+.btn-content {
+    position: relative;
+    z-index: 2;
+}
+
+.btn-shadow {
     position: absolute;
     top: 0;
     left: -100%;
@@ -697,432 +736,134 @@ tems: center;
     height: 100%;
     background: linear-gradient(90deg, 
         transparent, 
-        rgba(0, 204, 255, 0.3), 
+        rgba(255, 255, 255, 0.2), 
         transparent
     );
-    animation: scannerMove 3s ease-in-out infinite;
+    transition: left 0.5s ease;
 }
 
-.holo-input-wrapper input {
-    width: 100%;
-    padding: 1rem;
-    border: none;
-    background: transparent;
-    color: #00ccff;
-    font-size: 1rem;
-    font-family: 'Courier New', monospace;
-    font-weight: 500;
-    outline: none;
-    position: relative;
-    z-index: 2;
-}
-
-.holo-input-wrapper input::placeholder {
-    color: rgba(0, 204, 255, 0.3);
-}
-
-.holo-input-wrapper input:focus {
-    color: #ffffff;
-}
-
-.holo-label {
-    position: absolute;
-    top: -12px;
-    left: 12px;
-    background: #1a1a2e;
-    padding: 0 0.5rem;
-    color: #00ccff;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 1px;
-    z-index: 3;
-}
-
-.label-text {
-    position: relative;
-    z-index: 2;
-}
-
-.label-particles {
-    position: absolute;
-    top: 50%;
-    right: -10px;
-    width: 4px;
-    height: 4px;
-    background: #00ccff;
-    border-radius: 50%;
-    animation: particleFloat 2s ease-in-out infinite;
-}
-
-.input-grid {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: repeating-linear-gradient(90deg, 
-        transparent, 
-        transparent 4px, 
-        rgba(0, 204, 255, 0.3) 4px, 
-        rgba(0, 204, 255, 0.3) 8px
-    );
-    animation: gridMove 4s linear infinite;
-}
-
-.holo-input-wrapper:focus-within {
-    border-color: #00ccff;
-    box-shadow: 0 0 20px rgba(0, 204, 255, 0.3);
-}
-
-.holo-input-wrapper:focus-within .input-grid {
-    background: repeating-linear-gradient(90deg, 
-        transparent, 
-        transparent 4px, 
-        #00ccff 4px, 
-        #00ccff 8px
-    );
-}
-
-/* Quantum Options */
-.quantum-options {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2rem;
-    font-size: 0.875rem;
-}
-
-.quantum-checkbox {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    color: #cbd5e1;
-}
-
-.quantum-checkbox input {
-    display: none;
-}
-
-.quantum-check {
-    width: 18px;
-    height: 18px;
-    border: 2px solid #00ccff;
-    margin-right: 0.5rem;
-    position: relative;
-    background: transparent;
-    transition: all 0.3s ease;
-}
-
-.quantum-checkbox input:checked + .quantum-check {
-    background: rgba(0, 204, 255, 0.2);
-    box-shadow: 0 0 10px rgba(0, 204, 255, 0.5);
-}
-
-.quantum-checkbox input:checked + .quantum-check::after {
-    content: '✓';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #00ccff;
-    font-size: 0.75rem;
-    font-weight: bold;
-}
-
-.quantum-text {
-    font-family: 'Courier New', monospace;
-    letter-spacing: 0.5px;
-}
-
-.quantum-link {
-    color: #00ff88;
-    text-decoration: none;
-    font-family: 'Courier New', monospace;
-    letter-spacing: 0.5px;
-    transition: all 0.3s ease;
-}
-
-.quantum-link:hover {
-    color: #00ccff;
-    text-shadow: 0 0 5px #00ccff;
-}
-
-/* Quantum Button */
-.quantum-btn {
-    position: relative;
-    width: 100%;
-    padding: 1rem;
-    background: linear-gradient(135deg, #001122, #003366);
-    border: 2px solid #00ccff;
-    color: #00ccff;
-    font-size: 1rem;
-    font-weight: 700;
-    font-family: 'Courier New', monospace;
-    letter-spacing: 2px;
-    cursor: pointer;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-}
-
-.btn-grid {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: 
-        linear-gradient(rgba(0, 204, 255, 0.1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 204, 255, 0.1) 1px, transparent 1px);
-    background-size: 10px 10px;
-    animation: btnGridMove 2s linear infinite;
-}
-
-.btn-text {
-    position: relative;
-    z-index: 3;
-}
-
-.btn-particles {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    height: 100%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.btn-particles::before,
-.btn-particles::after {
-    content: '';
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    background: #00ccff;
-    border-radius: 50%;
-    animation: btnParticleFloat 2s ease-in-out infinite;
-}
-
-.btn-particles::before {
-    top: 20%;
-    left: 20%;
-}
-
-.btn-particles::after {
-    bottom: 20%;
-    right: 20%;
-    animation-delay: 1s;
-}
-
-.btn-pulse {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: rgba(0, 204, 255, 0.3);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: all 0.3s ease;
-}
-
-.quantum-btn:hover {
-    background: linear-gradient(135deg, #002244, #004488);
-    box-shadow: 0 0 30px rgba(0, 204, 255, 0.5);
+.elegant-btn:hover {
+    background: linear-gradient(135deg, #2563eb 0%, #0f172a 100%);
     transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
 }
 
-.quantum-btn:hover .btn-particles {
-    opacity: 1;
+.elegant-btn:hover .btn-shadow {
+    left: 100%;
 }
 
-.quantum-btn:hover .btn-pulse {
-    width: 100%;
-    height: 100%;
-    opacity: 0;
+.elegant-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
 }
 
-/* Demo Panel */
-.demo-panel {
-    background: linear-gradient(135deg, rgba(0, 204, 255, 0.1), rgba(0, 255, 136, 0.05));
-    border: 1px solid rgba(0, 204, 255, 0.3);
+/* Demo Card */
+.demo-card {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border: 1px solid rgba(59, 130, 246, 0.2);
     border-radius: 12px;
     padding: 1.5rem;
     margin-bottom: 1.5rem;
-    font-family: 'Courier New', monospace;
 }
 
-.panel-header {
+.demo-header {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: #00ccff;
+    color: #3b82f6;
     font-weight: 600;
     font-size: 0.875rem;
     margin-bottom: 1rem;
-    letter-spacing: 1px;
 }
 
-.status-indicator {
+.demo-icon {
     width: 8px;
     height: 8px;
-    background: #00ff88;
+    background: #3b82f6;
     border-radius: 50%;
-    animation: statusBlink 2s ease-in-out infinite;
-    box-shadow: 0 0 10px #00ff88;
+    animation: elegantBlink 2s ease-in-out infinite;
 }
 
-.credential-display {
+.demo-content {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 }
 
-.cred-line {
+.demo-item {
     display: flex;
     justify-content: space-between;
     font-size: 0.875rem;
 }
 
-.cred-key {
-    color: #cbd5e1;
+.demo-label {
+    color: #64748b;
+    font-weight: 500;
 }
 
-.cred-value {
-    color: #00ccff;
+.demo-value {
+    color: #1e293b;
     font-weight: 700;
-    background: rgba(0, 204, 255, 0.1);
+    background: #ffffff;
     padding: 0.25rem 0.5rem;
     border-radius: 4px;
-    border: 1px solid rgba(0, 204, 255, 0.3);
+    border: 1px solid #e2e8f0;
+    font-family: 'Courier New', monospace;
 }
 
-/* Exit Protocol */
-.exit-protocol {
+/* Elegant Footer */
+.elegant-footer {
     text-align: center;
 }
 
-.exit-link {
+.elegant-back {
     color: #64748b;
     text-decoration: none;
     font-size: 0.875rem;
-    font-family: 'Courier New', monospace;
+    font-weight: 500;
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
     transition: all 0.3s ease;
-    letter-spacing: 1px;
 }
 
-.exit-icon {
+.back-arrow {
     transition: transform 0.3s ease;
 }
 
-.exit-link:hover {
-    color: #00ccff;
+.elegant-back:hover {
+    color: #3b82f6;
     transform: translateX(-3px);
 }
 
-.exit-link:hover .exit-icon {
-    transform: translateX(-5px);
+.elegant-back:hover .back-arrow {
+    transform: translateX(-3px);
 }
 
-/* Comprehensive Animations */
-@keyframes scanMove {
-    0%, 100% { left: -100%; }
-    50% { left: 100%; }
+/* Elegant Animations */
+@keyframes elegantScan {
+    0%, 100% { transform: translateX(-100%); }
+    50% { transform: translateX(100%); }
 }
 
-@keyframes dotShift {
+@keyframes elegantFloat {
     0%, 100% { transform: translate(0, 0); }
-    50% { transform: translate(10px, -10px); }
+    50% { transform: translate(5px, -5px); }
 }
 
-@keyframes streamFlow {
-    0% { transform: translateY(-100px); opacity: 0; }
-    50% { opacity: 1; }
-    100% { transform: translateY(100vh); opacity: 0; }
+@keyframes elegantPulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3); }
+    50% { transform: scale(1.05); box-shadow: 0 12px 35px rgba(59, 130, 246, 0.5); }
 }
 
-@keyframes pulseGlow {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 0.7; }
-}
-
-@keyframes ringRotate {
+@keyframes elegantRotate {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
 }
 
-@keyframes dotPulse {
-    0%, 100% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.2); opacity: 0.8; }
-}
-
-@keyframes glitchEffect {
-    0%, 100% { transform: translate(0); }
-    20% { transform: translate(-2px, 2px); }
-    40% { transform: translate(-2px, -2px); }
-    60% { transform: translate(2px, 2px); }
-    80% { transform: translate(2px, -2px); }
-}
-
-@keyframes glitchTop {
-    0%, 100% { transform: translate(0); }
-    20% { transform: translate(-2px); }
-    40% { transform: translate(-2px); }
-    60% { transform: translate(2px); }
-    80% { transform: translate(2px); }
-}
-
-@keyframes glitchBottom {
-    0%, 100% { transform: translate(0); }
-    20% { transform: translate(2px); }
-    40% { transform: translate(2px); }
-    60% { transform: translate(-2px); }
-    80% { transform: translate(-2px); }
-}
-
-@keyframes cursorBlink {
-    0%, 50% { opacity: 1; }
-    51%, 100% { opacity: 0; }
-}
-
-@keyframes networkPulse {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 0.8; }
-}
-
-@keyframes scannerMove {
-    0% { left: -100%; }
-    100% { left: 100%; }
-}
-
-@keyframes particleFloat {
-    0%, 100% { transform: translateY(0px); opacity: 1; }
-    50% { transform: translateY(-10px); opacity: 0.5; }
-}
-
-@keyframes gridMove {
-    0% { background-position: 0 0; }
-    100% { background-position: 20px 0; }
-}
-
-@keyframes btnGridMove {
-    0% { background-position: 0 0; }
-    100% { background-position: 10px 10px; }
-}
-
-@keyframes btnParticleFloat {
-    0%, 100% { transform: translateY(0px) scale(1); opacity: 0.8; }
-    50% { transform: translateY(-5px) scale(1.2); opacity: 1; }
-}
-
-@keyframes statusBlink {
+@keyframes elegantBlink {
     0%, 100% { opacity: 1; }
-    50% { opacity: 0.3; }
+    50% { opacity: 0.4; }
 }
 
 /* Responsive Design */
@@ -1200,119 +941,77 @@ tems: center;
 </style>
 
 <script>
-// Typing effect for the header
-const typingTexts = [
-    'Initializing Neural Network...',
-    'Connecting to Data Center...',
-    'Quantum Encryption Active...',
-    'System Ready for Access...'
-];
-
-let currentTextIndex = 0;
-let currentCharIndex = 0;
-
-function typeText() {
-    const typedTextElement = document.querySelector('.typed-text');
-    if (typedTextElement && currentCharIndex < typingTexts[currentTextIndex].length) {
-        typedTextElement.textContent += typingTexts[currentTextIndex].charAt(currentCharIndex);
-        currentCharIndex++;
-        setTimeout(typeText, 50);
-    } else if (typedTextElement) {
-        setTimeout(eraseText, 2000);
-    }
-}
-
-function eraseText() {
-    const typedTextElement = document.querySelector('.typed-text');
-    if (typedTextElement && currentCharIndex > 0) {
-        typedTextElement.textContent = typingTexts[currentTextIndex].substring(0, currentCharIndex - 1);
-        currentCharIndex--;
-        setTimeout(eraseText, 30);
-    } else {
-        currentTextIndex = (currentTextIndex + 1) % typingTexts.length;
-        setTimeout(typeText, 500);
-    }
-}
-
-// Enhanced form interactions
+// Elegant form interactions
 document.addEventListener('DOMContentLoaded', function() {
-    // Start typing effect
-    setTimeout(typeText, 1000);
-    
-    // Holographic input interactions
-    const holoInputs = document.querySelectorAll('.holo-input-wrapper input');
-    holoInputs.forEach(input => {
+    // Enhanced input interactions
+    const elegantInputs = document.querySelectorAll('.elegant-input-wrapper input');
+    elegantInputs.forEach(input => {
         input.addEventListener('focus', function() {
-            this.closest('.holo-input-wrapper').classList.add('active');
-            const scanner = this.closest('.holo-input-wrapper').querySelector('.input-scanner');
-            if (scanner) scanner.style.animationDuration = '1s';
+            this.closest('.elegant-input-wrapper').classList.add('focused');
         });
         
         input.addEventListener('blur', function() {
-            if (this.value === '') {
-                this.closest('.holo-input-wrapper').classList.remove('active');
+            this.closest('.elegant-input-wrapper').classList.remove('focused');
+        });
+        
+        // Add smooth animation for label movement
+        input.addEventListener('input', function() {
+            if (this.value.length > 0) {
+                this.closest('.elegant-input-wrapper').classList.add('has-content');
+            } else {
+                this.closest('.elegant-input-wrapper').classList.remove('has-content');
             }
-            const scanner = this.closest('.holo-input-wrapper').querySelector('.input-scanner');
-            if (scanner) scanner.style.animationDuration = '3s';
         });
     });
     
-    // Quantum button effects
-    const quantumBtn = document.querySelector('.quantum-btn');
-    if (quantumBtn) {
-        quantumBtn.addEventListener('mouseenter', function() {
-            this.style.boxShadow = '0 0 50px rgba(0, 204, 255, 0.8), inset 0 0 20px rgba(0, 204, 255, 0.2)';
+    // Elegant button effects
+    const elegantBtn = document.querySelector('.elegant-btn');
+    if (elegantBtn) {
+        elegantBtn.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-3px)';
+            this.style.boxShadow = '0 10px 30px rgba(59, 130, 246, 0.5)';
         });
         
-        quantumBtn.addEventListener('mouseleave', function() {
-            this.style.boxShadow = '';
+        elegantBtn.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(-2px)';
+            this.style.boxShadow = '0 8px 25px rgba(59, 130, 246, 0.4)';
+        });
+        
+        elegantBtn.addEventListener('mousedown', function() {
+            this.style.transform = 'translateY(0)';
+        });
+        
+        elegantBtn.addEventListener('mouseup', function() {
+            this.style.transform = 'translateY(-2px)';
         });
     }
     
-    // Particle effects
-    const holographicForm = document.querySelector('.holographic-form');
-    if (holographicForm) {
-        setInterval(() => {
-            if (Math.random() < 0.3) {
-                createParticle(holographicForm);
-            }
-        }, 2000);
+    // Smooth loading effects
+    const formContainer = document.querySelector('.form-container');
+    if (formContainer) {
+        formContainer.style.opacity = '0';
+        formContainer.style.transform = 'translateY(20px)';
+        
+        setTimeout(() => {
+            formContainer.style.transition = 'all 0.6s ease';
+            formContainer.style.opacity = '1';
+            formContainer.style.transform = 'translateY(0)';
+        }, 200);
     }
     
-    // Glitch effects
-    const glitchText = document.querySelector('.glitch-text');
-    if (glitchText) {
-        setInterval(() => {
-            if (Math.random() < 0.1) {
-                glitchText.style.textShadow = '2px 0 #ff0040, -2px 0 #00ff41';
-                setTimeout(() => {
-                    glitchText.style.textShadow = '';
-                }, 150);
-            }
-        }, 2000);
+    // Add elegant hover effects to demo card
+    const demoCard = document.querySelector('.demo-card');
+    if (demoCard) {
+        demoCard.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-2px)';
+            this.style.boxShadow = '0 8px 25px rgba(59, 130, 246, 0.15)';
+        });
+        
+        demoCard.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+            this.style.boxShadow = 'none';
+        });
     }
 });
-
-function createParticle(container) {
-    const particle = document.createElement('div');
-    particle.style.position = 'absolute';
-    particle.style.width = '2px';
-    particle.style.height = '2px';
-    particle.style.background = '#00ccff';
-    particle.style.borderRadius = '50%';
-    particle.style.pointerEvents = 'none';
-    particle.style.left = Math.random() * container.offsetWidth + 'px';
-    particle.style.top = Math.random() * container.offsetHeight + 'px';
-    particle.style.animation = 'particleFloat 3s ease-in-out infinite';
-    particle.style.animationDelay = Math.random() * 3 + 's';
-    
-    container.appendChild(particle);
-    
-    setTimeout(() => {
-        if (particle.parentNode) {
-            particle.parentNode.removeChild(particle);
-        }
-    }, 3000);
-}
 </script>
 {% endblock %}
