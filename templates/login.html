@@ -263,13 +263,17 @@
 
 
 
-/* Holographic Form */
+/* Elegant Form Container */
 .holographic-form-container {
     position: relative;
     width: 100%;
-    backdrop-filter: blur(20px);
-    border-radius: 20px;
+    backdrop-filter: blur(25px);
+    border-radius: 24px;
     overflow: hidden;
+    box-shadow: 
+        0 32px 64px rgba(37, 99, 235, 0.15),
+        0 16px 32px rgba(37, 99, 235, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .form-backdrop {
@@ -280,23 +284,26 @@
     bottom: 0;
     background: linear-gradient(
         135deg,
-        rgba(0, 255, 255, 0.1) 0%,
-        rgba(0, 128, 255, 0.05) 50%,
-        rgba(0, 64, 255, 0.1) 100%
+        rgba(255, 255, 255, 0.95) 0%,
+        rgba(248, 250, 252, 0.9) 25%,
+        rgba(239, 246, 255, 0.9) 50%,
+        rgba(219, 234, 254, 0.85) 75%,
+        rgba(191, 219, 254, 0.8) 100%
     );
-    border-radius: 20px;
+    border-radius: 24px;
 }
 
 .form-border-glow {
     position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: linear-gradient(45deg, #00ffff, #0080ff, #0040ff, #00ffff);
-    border-radius: 22px;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    background: linear-gradient(45deg, #2563eb, #3b82f6, #60a5fa, #93c5fd, #2563eb);
+    border-radius: 25px;
     z-index: -1;
-    animation: borderGlow 3s linear infinite;
+    opacity: 0.6;
+    animation: borderGlow 4s linear infinite;
 }
 
 @keyframes borderGlow {
@@ -307,15 +314,15 @@
 
 .holographic-form {
     position: relative;
-    padding: 2.5rem;
-    background: rgba(0, 20, 40, 0.3);
-    border-radius: 20px;
-    border: 1px solid rgba(0, 255, 255, 0.3);
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 24px;
+    border: 1px solid rgba(37, 99, 235, 0.2);
 }
 
 .form-header {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
 }
 
 .access-indicator {
@@ -326,25 +333,29 @@
 }
 
 .indicator-dot {
-    width: 8px;
-    height: 8px;
-    background: #00ff00;
+    width: 10px;
+    height: 10px;
+    background: linear-gradient(135deg, #2563eb, #3b82f6);
     border-radius: 50%;
-    box-shadow: 0 0 10px #00ff00;
-    animation: pulse 2s infinite;
+    box-shadow: 0 0 15px rgba(37, 99, 235, 0.4);
+    animation: elegantPulse 2s infinite;
 }
 
-@keyframes pulse {
+@keyframes elegantPulse {
     0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.7; transform: scale(1.2); }
+    50% { opacity: 0.7; transform: scale(1.1); }
 }
 
 .access-text {
-    color: #00ffff;
-    font-size: 0.9rem;
+    color: #2563eb;
+    font-size: 1.1rem;
     letter-spacing: 2px;
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: 700;
+    background: linear-gradient(135deg, #2563eb, #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 /* Input Fields */
@@ -365,33 +376,35 @@
     position: absolute;
     left: 1rem;
     z-index: 2;
-    color: rgba(0, 255, 255, 0.7);
+    color: rgba(37, 99, 235, 0.6);
     transition: all 0.3s ease;
 }
 
 .holographic-input {
     width: 100%;
     padding: 1rem 1rem 1rem 3rem;
-    background: rgba(0, 40, 80, 0.3);
-    border: 1px solid rgba(0, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.8);
+    border: 2px solid rgba(37, 99, 235, 0.2);
     border-radius: 12px;
-    color: #ffffff;
+    color: #1f2937;
     font-size: 1rem;
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
 }
 
 .holographic-input::placeholder {
-    color: rgba(0, 255, 255, 0.5);
+    color: rgba(37, 99, 235, 0.5);
 }
 
 .holographic-input:focus {
     outline: none;
-    border-color: #00ffff;
+    border-color: #2563eb;
     box-shadow: 
-        0 0 20px rgba(0, 255, 255, 0.3),
-        inset 0 0 20px rgba(0, 255, 255, 0.1);
-    background: rgba(0, 60, 120, 0.4);
+        0 0 0 3px rgba(37, 99, 235, 0.1),
+        0 8px 24px rgba(37, 99, 235, 0.15);
+    background: rgba(255, 255, 255, 0.95);
+    transform: translateY(-1px);
 }
 
 .holographic-input:focus + .field-underline {
@@ -399,7 +412,7 @@
 }
 
 .holographic-input:focus ~ .field-icon {
-    color: #00ffff;
+    color: #2563eb;
     transform: scale(1.1);
 }
 
@@ -409,7 +422,7 @@
     left: 0;
     width: 100%;
     height: 2px;
-    background: linear-gradient(90deg, #00ffff, #0080ff);
+    background: linear-gradient(90deg, #2563eb, #3b82f6, #60a5fa);
     transform: scaleX(0);
     transition: transform 0.3s ease;
     border-radius: 1px;
@@ -427,8 +440,9 @@
     align-items: center;
     gap: 0.8rem;
     cursor: pointer;
-    color: rgba(0, 255, 255, 0.8);
+    color: #374151;
     font-size: 0.9rem;
+    font-weight: 500;
 }
 
 .checkbox-input {
@@ -438,30 +452,31 @@
 .checkbox-visual {
     width: 20px;
     height: 20px;
-    border: 2px solid rgba(0, 255, 255, 0.5);
-    border-radius: 4px;
+    border: 2px solid rgba(37, 99, 235, 0.3);
+    border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(0, 40, 80, 0.3);
+    background: rgba(255, 255, 255, 0.9);
     transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.1);
 }
 
 .checkbox-inner {
-    width: 8px;
-    height: 8px;
-    background: #00ffff;
-    border-radius: 2px;
+    width: 10px;
+    height: 10px;
+    background: linear-gradient(135deg, #2563eb, #3b82f6);
+    border-radius: 3px;
     opacity: 0;
     transform: scale(0);
     transition: all 0.3s ease;
-    box-shadow: 0 0 10px #00ffff;
+    box-shadow: 0 0 8px rgba(37, 99, 235, 0.3);
 }
 
 .checkbox-input:checked + .checkbox-visual {
-    border-color: #00ffff;
-    background: rgba(0, 255, 255, 0.1);
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+    border-color: #2563eb;
+    background: rgba(37, 99, 235, 0.05);
+    box-shadow: 0 0 12px rgba(37, 99, 235, 0.2);
 }
 
 .checkbox-input:checked + .checkbox-visual .checkbox-inner {
@@ -469,23 +484,26 @@
     transform: scale(1);
 }
 
-/* Holographic Button */
+/* Elegant Button */
 .holographic-button {
     position: relative;
     width: 100%;
     padding: 1rem 2rem;
-    background: transparent;
-    border: 2px solid #00ffff;
+    background: linear-gradient(135deg, #2563eb, #3b82f6);
+    border: none;
     border-radius: 12px;
-    color: #00ffff;
+    color: #ffffff;
     font-size: 1rem;
     font-weight: 600;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     text-transform: uppercase;
     cursor: pointer;
     overflow: hidden;
     transition: all 0.3s ease;
     margin-bottom: 1.5rem;
+    box-shadow: 
+        0 8px 16px rgba(37, 99, 235, 0.3),
+        0 4px 8px rgba(37, 99, 235, 0.2);
 }
 
 .button-background {
@@ -494,7 +512,7 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.2), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
     transition: left 0.5s ease;
 }
 
@@ -510,7 +528,7 @@
     left: -2px;
     right: -2px;
     bottom: -2px;
-    background: linear-gradient(45deg, #00ffff, #0080ff, #0040ff, #00ffff);
+    background: linear-gradient(45deg, #60a5fa, #3b82f6, #2563eb, #1d4ed8);
     border-radius: 14px;
     z-index: -1;
     opacity: 0;
@@ -518,9 +536,11 @@
 }
 
 .holographic-button:hover {
-    color: #ffffff;
-    text-shadow: 0 0 10px #00ffff;
-    transform: translateY(-2px);
+    background: linear-gradient(135deg, #1d4ed8, #2563eb);
+    transform: translateY(-3px);
+    box-shadow: 
+        0 12px 24px rgba(37, 99, 235, 0.4),
+        0 6px 12px rgba(37, 99, 235, 0.3);
 }
 
 .holographic-button:hover .button-background {
@@ -528,11 +548,11 @@
 }
 
 .holographic-button:hover .button-glow {
-    opacity: 0.7;
+    opacity: 0.8;
 }
 
 .holographic-button:active {
-    transform: translateY(0);
+    transform: translateY(-1px);
 }
 
 .button-loader {
@@ -559,23 +579,24 @@
 
 /* Demo Access Panel */
 .demo-access-panel {
-    background: rgba(0, 40, 80, 0.2);
-    border: 1px solid rgba(0, 255, 255, 0.2);
-    border-radius: 10px;
-    padding: 1rem;
+    background: rgba(239, 246, 255, 0.8);
+    border: 1px solid rgba(37, 99, 235, 0.2);
+    border-radius: 12px;
+    padding: 1.5rem;
     backdrop-filter: blur(10px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
 }
 
 .demo-header {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    margin-bottom: 0.8rem;
-    color: rgba(0, 255, 255, 0.8);
+    margin-bottom: 1rem;
+    color: #2563eb;
 }
 
 .demo-icon {
-    color: #00ffff;
+    color: #3b82f6;
 }
 
 .demo-text {
@@ -583,6 +604,7 @@
     font-weight: 600;
     letter-spacing: 1px;
     text-transform: uppercase;
+    color: #1e40af;
 }
 
 .demo-credentials {
@@ -595,31 +617,34 @@
     display: flex;
     flex-direction: column;
     gap: 0.3rem;
-    padding: 0.5rem;
-    background: rgba(0, 60, 120, 0.3);
-    border-radius: 6px;
+    padding: 0.8rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
-    border: 1px solid rgba(0, 255, 255, 0.1);
+    border: 1px solid rgba(37, 99, 235, 0.15);
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.08);
 }
 
 .demo-item:hover {
-    background: rgba(0, 80, 160, 0.4);
-    border-color: rgba(0, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 1);
+    border-color: rgba(37, 99, 235, 0.3);
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
 }
 
 .demo-label {
     font-size: 0.7rem;
-    color: rgba(0, 255, 255, 0.6);
+    color: rgba(37, 99, 235, 0.7);
     text-transform: uppercase;
     letter-spacing: 1px;
+    font-weight: 600;
 }
 
 .demo-value {
     font-size: 0.9rem;
-    color: #00ffff;
-    font-weight: 600;
+    color: #1e40af;
+    font-weight: 700;
     font-family: 'Courier New', monospace;
 }
 
