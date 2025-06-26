@@ -55,13 +55,13 @@
 
 /* Enhanced Hero Section */
 .hero-section {
-    padding: 6rem 0 8rem;
+    padding: 4rem 0 5rem;
     position: relative;
     z-index: 2;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.9), rgba(225, 239, 254, 0.8));
-    border-radius: 0 0 60px 60px;
-    margin-bottom: 6rem;
-    box-shadow: 0 25px 80px rgba(37, 99, 235, 0.12);
+    border-radius: 0 0 40px 40px;
+    margin-bottom: 4rem;
+    box-shadow: 0 20px 60px rgba(37, 99, 235, 0.12);
     overflow: hidden;
 }
 
@@ -104,9 +104,9 @@
 }
 
 .hero-title {
-    font-size: 4rem;
+    font-size: 3.2rem;
     font-weight: 900;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     line-height: 1.1;
     color: var(--text-primary);
     position: relative;
@@ -124,10 +124,10 @@
 .gradient-text::after {
     content: '';
     position: absolute;
-    bottom: -8px;
+    bottom: -6px;
     left: 0;
     right: 0;
-    height: 4px;
+    height: 3px;
     background: var(--gradient-blue);
     opacity: 0.4;
     border-radius: 2px;
@@ -137,17 +137,6 @@
 @keyframes shimmer {
     0%, 100% { opacity: 0.4; transform: scaleX(1); }
     50% { opacity: 0.8; transform: scaleX(1.05); }
-}
-
-.hero-subtitle {
-    font-size: 1.4rem;
-    color: var(--text-secondary);
-    margin-bottom: 3rem;
-    line-height: 1.7;
-    font-weight: 400;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .hero-stats-grid {
@@ -263,16 +252,18 @@
 
 .mission-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
     align-items: center;
     position: relative;
     z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .mission-content {
     animation: slideInLeft 0.8s ease-out;
-    padding: 2rem 0;
+    padding: 1rem 0;
 }
 
 .mission-visual {
@@ -284,8 +275,8 @@
 }
 
 .mission-icon-display {
-    width: 320px;
-    height: 320px;
+    width: 250px;
+    height: 250px;
     background: var(--gradient-blue);
     border-radius: 50%;
     display: flex;
@@ -293,7 +284,7 @@
     justify-content: center;
     position: relative;
     animation: rotateGlow 12s linear infinite;
-    box-shadow: 0 30px 80px rgba(37, 99, 235, 0.2);
+    box-shadow: 0 25px 60px rgba(37, 99, 235, 0.2);
 }
 
 .mission-icon-display::before {
@@ -321,7 +312,7 @@
 }
 
 .mission-icon-display i {
-    font-size: 7rem;
+    font-size: 5rem;
     color: white;
     animation: pulse 3s ease-in-out infinite;
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
@@ -333,18 +324,24 @@
 }
 
 .lead-text {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     font-weight: 600;
     color: var(--text-primary);
     line-height: 1.6;
-    margin-bottom: 2rem;
+    margin-bottom: 1.8rem;
+    padding-right: 1rem;
+}
+
+.mission-text {
+    margin-top: 1rem;
 }
 
 .mission-text p {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: var(--text-secondary);
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
+    line-height: 1.7;
+    margin-bottom: 1.2rem;
+    padding-right: 1rem;
 }
 
 /* Technology Section with Interactive Cards */
@@ -891,16 +888,25 @@
 
 @media (max-width: 768px) {
     .hero-section {
-        padding: 4rem 0 6rem;
-        margin-bottom: 4rem;
+        padding: 3rem 0 4rem;
+        margin-bottom: 3rem;
+        border-radius: 0 0 30px 30px;
     }
     
     .hero-title {
-        font-size: 3rem;
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
     }
     
-    .hero-subtitle {
-        font-size: 1.2rem;
+    .lead-text {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+        padding-right: 0;
+    }
+    
+    .mission-text p {
+        font-size: 0.95rem;
+        padding-right: 0;
     }
     
     .section-title {
