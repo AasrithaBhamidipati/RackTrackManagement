@@ -3,7 +3,7 @@
 {% block title %}Sign In - RackTrack{% endblock %}
 
 {% block content %}
-<div class="modern-login-container">
+<div class="holographic-login-container">
     <!-- Video Background -->
     <div class="video-background">
         <video autoplay muted loop playsinline class="background-video">
@@ -12,65 +12,182 @@
         <div class="video-overlay"></div>
     </div>
 
-    <!-- Login Content -->
-    <div class="login-content-wrapper">
-        <div class="login-box">
-            <h2 class="login-title">LOGIN</h2>
+    <!-- Holographic Elements -->
+    <div class="holographic-elements">
+        <div class="floating-particles">
+            <div class="particle particle-1"></div>
+            <div class="particle particle-2"></div>
+            <div class="particle particle-3"></div>
+            <div class="particle particle-4"></div>
+            <div class="particle particle-5"></div>
+            <div class="particle particle-6"></div>
+        </div>
+        
+        <div class="energy-rings">
+            <div class="ring ring-1"></div>
+            <div class="ring ring-2"></div>
+            <div class="ring ring-3"></div>
+        </div>
+    </div>
+
+    <!-- Main Login Interface -->
+    <div class="login-interface">
+        <!-- Brand Logo -->
+        <div class="brand-logo-container">
+            <div class="logo-glow">
+                <svg width="80" height="80" viewBox="0 0 100 100" class="holographic-logo">
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#00ffff;stop-opacity:1" />
+                            <stop offset="50%" style="stop-color:#0080ff;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#0040ff;stop-opacity:1" />
+                        </linearGradient>
+                        <filter id="glow">
+                            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                            <feMerge> 
+                                <feMergeNode in="coloredBlur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+                    </defs>
+                    <polygon points="50,10 70,30 70,50 50,70 30,50 30,30" 
+                             fill="url(#logoGradient)" 
+                             filter="url(#glow)"
+                             stroke="#00ffff" 
+                             stroke-width="2"/>
+                    <polygon points="50,20 60,30 60,40 50,50 40,40 40,30" 
+                             fill="#00ffff" 
+                             opacity="0.7"/>
+                </svg>
+            </div>
+            <h1 class="brand-title">RackTrack</h1>
+            <div class="brand-subtitle">AI-Powered Network Analysis</div>
+        </div>
+
+        <!-- Holographic Login Form -->
+        <div class="holographic-form-container">
+            <div class="form-backdrop"></div>
+            <div class="form-border-glow"></div>
             
-            <form method="POST" class="login-form">
-                <div class="form-group">
-                    <label for="username" class="form-label">Username</label>
-                    <input type="text" 
-                           id="username" 
-                           name="username" 
-                           class="form-input" 
-                           autocomplete="username"
-                           required>
+            <form method="POST" class="holographic-form">
+                <div class="form-header">
+                    <div class="access-indicator">
+                        <div class="indicator-dot"></div>
+                        <span class="access-text">SECURE ACCESS</span>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" 
-                           id="password" 
-                           name="password" 
-                           class="form-input" 
-                           autocomplete="current-password"
-                           required>
+                <div class="input-field-container">
+                    <div class="field-group">
+                        <div class="field-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <input type="text" 
+                               id="username" 
+                               name="username" 
+                               class="holographic-input" 
+                               placeholder="Username"
+                               autocomplete="username"
+                               required>
+                        <div class="field-underline"></div>
+                    </div>
+
+                    <div class="field-group">
+                        <div class="field-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="12" cy="16" r="1" fill="currentColor"/>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <input type="password" 
+                               id="password" 
+                               name="password" 
+                               class="holographic-input" 
+                               placeholder="Password"
+                               autocomplete="current-password"
+                               required>
+                        <div class="field-underline"></div>
+                    </div>
                 </div>
 
                 <div class="form-options">
-                    <label class="checkbox-wrapper">
+                    <label class="holographic-checkbox">
                         <input type="checkbox" id="remember" class="checkbox-input">
-                        <span class="checkbox-custom">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" class="check-icon">
-                                <polyline points="20,6 9,17 4,12" stroke="currentColor" stroke-width="3"/>
-                            </svg>
+                        <span class="checkbox-visual">
+                            <span class="checkbox-inner"></span>
                         </span>
-                        <span class="checkbox-label">Remember me</span>
+                        <span class="checkbox-text">Remember Session</span>
                     </label>
                 </div>
 
-                <button type="submit" class="signin-button">
-                    <span class="button-text">Sign In</span>
+                <button type="submit" class="holographic-button">
+                    <span class="button-background"></span>
+                    <span class="button-text">INITIALIZE ACCESS</span>
+                    <div class="button-glow"></div>
                     <div class="button-loader">
-                        <div class="loader-spinner"></div>
+                        <div class="loader-ring"></div>
                     </div>
                 </button>
+
+                <!-- Demo Access Panel -->
+                <div class="demo-access-panel">
+                    <div class="demo-header">
+                        <div class="demo-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                <path d="m9,12 2,2 4,-4" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <span class="demo-text">Demo Credentials</span>
+                    </div>
+                    <div class="demo-credentials">
+                        <div class="demo-item" data-field="username">
+                            <span class="demo-label">User:</span>
+                            <span class="demo-value">1234</span>
+                        </div>
+                        <div class="demo-item" data-field="password">
+                            <span class="demo-label">Pass:</span>
+                            <span class="demo-value">1234</span>
+                        </div>
+                    </div>
+                </div>
             </form>
+        </div>
+
+        <!-- System Status Display -->
+        <div class="system-status">
+            <div class="status-grid">
+                <div class="status-item">
+                    <div class="status-indicator online"></div>
+                    <span class="status-label">AI Vision</span>
+                </div>
+                <div class="status-item">
+                    <div class="status-indicator online"></div>
+                    <span class="status-label">Neural Net</span>
+                </div>
+                <div class="status-item">
+                    <div class="status-indicator standby"></div>
+                    <span class="status-label">Analysis</span>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
 <style>
-/* Modern Login Page Styles */
-.modern-login-container {
+/* Holographic Login Container */
+.holographic-login-container {
     min-height: 100vh;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
-    padding: 2rem 1rem;
-    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #e0e7ff 100%);
+    overflow: hidden;
+    background: #0a0a0a;
 }
 
 /* Video Background */
@@ -81,14 +198,13 @@
     width: 100%;
     height: 100%;
     z-index: -2;
-    overflow: hidden;
 }
 
 .background-video {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: blur(8px) brightness(0.3);
+    filter: blur(12px) brightness(0.2);
     transform: scale(1.1);
 }
 
@@ -100,189 +216,436 @@
     height: 100%;
     background: linear-gradient(
         135deg,
-        rgba(255, 255, 255, 0.95) 0%,
-        rgba(248, 250, 252, 0.9) 25%,
-        rgba(224, 231, 255, 0.85) 50%,
-        rgba(219, 234, 254, 0.8) 75%,
-        rgba(191, 219, 254, 0.75) 100%
+        rgba(0, 20, 40, 0.8) 0%,
+        rgba(0, 40, 80, 0.6) 25%,
+        rgba(0, 60, 120, 0.4) 50%,
+        rgba(0, 80, 160, 0.6) 75%,
+        rgba(0, 100, 200, 0.8) 100%
     );
     backdrop-filter: blur(2px);
 }
 
-/* Main Container */
-.login-content-wrapper {
-    position: relative;
-    z-index: 1;
+/* Holographic Elements */
+.holographic-elements {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
 }
 
-.login-box {
-    width: 400px;
-    height: 400px;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(20px);
-    border-radius: 15px;
-    padding: 3rem;
-    box-shadow: 
-        0 25px 50px -12px rgba(37, 99, 235, 0.25),
-        0 0 0 1px rgba(37, 99, 235, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.9);
-    border: 1px solid rgba(37, 99, 235, 0.2);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.login-title {
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #2563eb;
-    margin-bottom: 2rem;
-    margin-top: 0;
-}
-
-/* Form Styles */
-.login-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-}
-
-.form-label {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: #374151;
-    margin-bottom: 0.5rem;
-}
-
-.form-input {
+.floating-particles {
+    position: absolute;
     width: 100%;
-    padding: 0.75rem;
-    font-size: 1rem;
-    border: 2px solid #e5e7eb;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.9);
-    transition: all 0.3s ease;
-    font-family: inherit;
-    box-sizing: border-box;
+    height: 100%;
 }
 
-.form-input:focus {
-    outline: none;
-    border-color: #2563eb;
-    background: rgba(255, 255, 255, 1);
-    box-shadow: 
-        0 0 0 3px rgba(37, 99, 235, 0.1),
-        0 4px 12px rgba(37, 99, 235, 0.15);
-    transform: translateY(-1px);
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #00ffff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #00ffff;
+    animation: floatParticle 8s infinite linear;
 }
 
-.form-options {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+.particle-1 { left: 10%; top: 20%; animation-delay: 0s; animation-duration: 12s; }
+.particle-2 { right: 15%; top: 30%; animation-delay: 2s; animation-duration: 10s; }
+.particle-3 { left: 20%; bottom: 25%; animation-delay: 4s; animation-duration: 14s; }
+.particle-4 { right: 25%; bottom: 40%; animation-delay: 6s; animation-duration: 11s; }
+.particle-5 { left: 60%; top: 15%; animation-delay: 1s; animation-duration: 13s; }
+.particle-6 { right: 40%; top: 60%; animation-delay: 3s; animation-duration: 9s; }
+
+@keyframes floatParticle {
+    0% { transform: translateY(0px) translateX(0px); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(-100px) translateX(50px); opacity: 0; }
 }
 
-.checkbox-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    cursor: pointer;
-}
-
-.checkbox-input {
-    display: none;
-}
-
-.checkbox-custom {
-    width: 20px;
-    height: 20px;
-    border: 2px solid #d1d5db;
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #ffffff;
-    transition: all 0.3s ease;
-}
-
-.checkbox-input:checked + .checkbox-custom {
-    background: #2563eb;
-    border-color: #2563eb;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-}
-
-.check-icon {
-    color: white;
-    opacity: 0;
-    transform: scale(0);
-    transition: all 0.2s ease;
-}
-
-.checkbox-input:checked + .checkbox-custom .check-icon {
-    opacity: 1;
-    transform: scale(1);
-}
-
-.checkbox-label {
-    font-size: 0.9rem;
-    color: #6b7280;
-    font-weight: 500;
-}
-
-/* Sign In Button */
-.signin-button {
-    width: 100%;
-    padding: 0.75rem;
-    background: linear-gradient(135deg, #2563eb, #3b82f6);
-    border: none;
-    border-radius: 8px;
-    color: white;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 
-        0 8px 16px rgba(37, 99, 235, 0.3),
-        0 0 0 1px rgba(37, 99, 235, 0.1);
-}
-
-.signin-button:hover {
-    background: linear-gradient(135deg, #1d4ed8, #2563eb);
-    transform: translateY(-2px);
-    box-shadow: 
-        0 12px 24px rgba(37, 99, 235, 0.4),
-        0 0 0 1px rgba(37, 99, 235, 0.2);
-}
-
-.signin-button:active {
-    transform: translateY(0);
-}
-
-.button-loader {
-    display: none;
+.energy-rings {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-.loader-spinner {
+.ring {
+    position: absolute;
+    border: 2px solid rgba(0, 255, 255, 0.3);
+    border-radius: 50%;
+    animation: pulseRing 4s infinite ease-in-out;
+}
+
+.ring-1 {
+    width: 300px;
+    height: 300px;
+    margin: -150px 0 0 -150px;
+    animation-delay: 0s;
+}
+
+.ring-2 {
+    width: 500px;
+    height: 500px;
+    margin: -250px 0 0 -250px;
+    animation-delay: 1.3s;
+}
+
+.ring-3 {
+    width: 700px;
+    height: 700px;
+    margin: -350px 0 0 -350px;
+    animation-delay: 2.6s;
+}
+
+@keyframes pulseRing {
+    0% { transform: scale(0.1); opacity: 1; }
+    80% { transform: scale(1); opacity: 0; }
+    100% { transform: scale(1); opacity: 0; }
+}
+
+/* Main Login Interface */
+.login-interface {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    max-width: 450px;
+    width: 100%;
+    padding: 2rem;
+}
+
+/* Brand Logo */
+.brand-logo-container {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.logo-glow {
+    display: inline-block;
+    margin-bottom: 1rem;
+    animation: logoFloat 3s ease-in-out infinite;
+}
+
+@keyframes logoFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.holographic-logo {
+    filter: drop-shadow(0 0 20px #00ffff);
+}
+
+.brand-title {
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin: 0;
+    background: linear-gradient(135deg, #00ffff, #0080ff, #0040ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+    letter-spacing: 3px;
+}
+
+.brand-subtitle {
+    color: rgba(0, 255, 255, 0.8);
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 0.5rem;
+}
+
+/* Holographic Form */
+.holographic-form-container {
+    position: relative;
+    width: 100%;
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.form-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(0, 255, 255, 0.1) 0%,
+        rgba(0, 128, 255, 0.05) 50%,
+        rgba(0, 64, 255, 0.1) 100%
+    );
+    border-radius: 20px;
+}
+
+.form-border-glow {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #00ffff, #0080ff, #0040ff, #00ffff);
+    border-radius: 22px;
+    z-index: -1;
+    animation: borderGlow 3s linear infinite;
+}
+
+@keyframes borderGlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.holographic-form {
+    position: relative;
+    padding: 2.5rem;
+    background: rgba(0, 20, 40, 0.3);
+    border-radius: 20px;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.access-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+}
+
+.indicator-dot {
+    width: 8px;
+    height: 8px;
+    background: #00ff00;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #00ff00;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.2); }
+}
+
+.access-text {
+    color: #00ffff;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+/* Input Fields */
+.input-field-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+    margin-bottom: 2rem;
+}
+
+.field-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.field-icon {
+    position: absolute;
+    left: 1rem;
+    z-index: 2;
+    color: rgba(0, 255, 255, 0.7);
+    transition: all 0.3s ease;
+}
+
+.holographic-input {
+    width: 100%;
+    padding: 1rem 1rem 1rem 3rem;
+    background: rgba(0, 40, 80, 0.3);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 12px;
+    color: #ffffff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.holographic-input::placeholder {
+    color: rgba(0, 255, 255, 0.5);
+}
+
+.holographic-input:focus {
+    outline: none;
+    border-color: #00ffff;
+    box-shadow: 
+        0 0 20px rgba(0, 255, 255, 0.3),
+        inset 0 0 20px rgba(0, 255, 255, 0.1);
+    background: rgba(0, 60, 120, 0.4);
+}
+
+.holographic-input:focus + .field-underline {
+    transform: scaleX(1);
+}
+
+.holographic-input:focus ~ .field-icon {
+    color: #00ffff;
+    transform: scale(1.1);
+}
+
+.field-underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #00ffff, #0080ff);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    border-radius: 1px;
+}
+
+/* Form Options */
+.form-options {
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.holographic-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    cursor: pointer;
+    color: rgba(0, 255, 255, 0.8);
+    font-size: 0.9rem;
+}
+
+.checkbox-input {
+    display: none;
+}
+
+.checkbox-visual {
     width: 20px;
     height: 20px;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    border-top: 2px solid white;
+    border: 2px solid rgba(0, 255, 255, 0.5);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 40, 80, 0.3);
+    transition: all 0.3s ease;
+}
+
+.checkbox-inner {
+    width: 8px;
+    height: 8px;
+    background: #00ffff;
+    border-radius: 2px;
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px #00ffff;
+}
+
+.checkbox-input:checked + .checkbox-visual {
+    border-color: #00ffff;
+    background: rgba(0, 255, 255, 0.1);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+}
+
+.checkbox-input:checked + .checkbox-visual .checkbox-inner {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Holographic Button */
+.holographic-button {
+    position: relative;
+    width: 100%;
+    padding: 1rem 2rem;
+    background: transparent;
+    border: 2px solid #00ffff;
+    border-radius: 12px;
+    color: #00ffff;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    margin-bottom: 1.5rem;
+}
+
+.button-background {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.button-text {
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.button-glow {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #00ffff, #0080ff, #0040ff, #00ffff);
+    border-radius: 14px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.holographic-button:hover {
+    color: #ffffff;
+    text-shadow: 0 0 10px #00ffff;
+    transform: translateY(-2px);
+}
+
+.holographic-button:hover .button-background {
+    left: 100%;
+}
+
+.holographic-button:hover .button-glow {
+    opacity: 0.7;
+}
+
+.holographic-button:active {
+    transform: translateY(0);
+}
+
+.button-loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+.loader-ring {
+    width: 24px;
+    height: 24px;
+    border: 2px solid rgba(0, 255, 255, 0.3);
+    border-top: 2px solid #00ffff;
     border-radius: 50%;
     animation: spin 1s linear infinite;
 }
@@ -292,81 +655,204 @@
     100% { transform: rotate(360deg); }
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .modern-login-container {
-        padding: 1rem;
-    }
-    
-    .login-card-container {
-        padding: 2rem 1.5rem;
-    }
-    
-    .brand-title {
-        font-size: 1.5rem;
-    }
-    
-    .form-input,
-    .signin-button {
-        padding: 0.75rem;
-    }
+/* Demo Access Panel */
+.demo-access-panel {
+    background: rgba(0, 40, 80, 0.2);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 1rem;
+    backdrop-filter: blur(10px);
 }
 
-/* Enhanced Animations */
-.login-card-container {
-    animation: slideInUp 0.6s ease-out;
+.demo-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.8rem;
+    color: rgba(0, 255, 255, 0.8);
 }
 
-@keyframes slideInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.demo-icon {
+    color: #00ffff;
 }
 
-/* Loading State */
-.signin-button.loading .button-text {
+.demo-text {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.demo-credentials {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+}
+
+.demo-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 0.5rem;
+    background: rgba(0, 60, 120, 0.3);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 255, 255, 0.1);
+}
+
+.demo-item:hover {
+    background: rgba(0, 80, 160, 0.4);
+    border-color: rgba(0, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.demo-label {
+    font-size: 0.7rem;
+    color: rgba(0, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.demo-value {
+    font-size: 0.9rem;
+    color: #00ffff;
+    font-weight: 600;
+    font-family: 'Courier New', monospace;
+}
+
+/* System Status */
+.system-status {
+    width: 100%;
+    background: rgba(0, 20, 40, 0.4);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 1rem;
+    backdrop-filter: blur(10px);
+}
+
+.status-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.status-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.status-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    position: relative;
+}
+
+.status-indicator.online {
+    background: #00ff00;
+    box-shadow: 0 0 10px #00ff00;
+    animation: pulse 2s infinite;
+}
+
+.status-indicator.standby {
+    background: #ffaa00;
+    box-shadow: 0 0 10px #ffaa00;
+    animation: pulse 2s infinite;
+}
+
+.status-label {
+    font-size: 0.7rem;
+    color: rgba(0, 255, 255, 0.7);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+/* Loading States */
+.holographic-button.loading .button-text {
     opacity: 0;
 }
 
-.signin-button.loading .button-loader {
+.holographic-button.loading .button-loader {
     display: block;
 }
 
-/* Click Effects */
-.credential-value {
-    position: relative;
-    overflow: hidden;
+/* Responsive Design */
+@media (max-width: 768px) {
+    .holographic-login-container {
+        padding: 1rem;
+    }
+    
+    .login-interface {
+        max-width: 100%;
+        padding: 1rem;
+        gap: 1.5rem;
+    }
+    
+    .brand-title {
+        font-size: 2rem;
+    }
+    
+    .holographic-form {
+        padding: 2rem 1.5rem;
+    }
+    
+    .demo-credentials {
+        grid-template-columns: 1fr;
+    }
+    
+    .status-grid {
+        gap: 0.8rem;
+    }
 }
 
-.credential-value::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: rgba(37, 99, 235, 0.3);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: width 0.3s ease, height 0.3s ease;
+/* Animation for form appearance */
+.holographic-form-container {
+    animation: formMaterialize 1s ease-out;
 }
 
-.credential-value:active::after {
-    width: 100px;
-    height: 100px;
+@keyframes formMaterialize {
+    0% {
+        opacity: 0;
+        transform: translateY(50px) scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 </style>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     // Form elements
-    const form = document.querySelector('.login-form');
-    const submitBtn = document.querySelector('.signin-button');
+    const form = document.querySelector('.holographic-form');
+    const submitBtn = document.querySelector('.holographic-button');
+    const inputs = document.querySelectorAll('.holographic-input');
+
+    // Demo credential auto-fill
+    const demoItems = document.querySelectorAll('.demo-item');
+    demoItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const field = this.getAttribute('data-field');
+            const value = this.querySelector('.demo-value').textContent;
+            
+            if (field === 'username') {
+                document.getElementById('username').value = value;
+            } else if (field === 'password') {
+                document.getElementById('password').value = value;
+            }
+            
+            // Visual feedback
+            this.style.background = 'rgba(0, 255, 255, 0.3)';
+            setTimeout(() => {
+                this.style.background = 'rgba(0, 60, 120, 0.3)';
+            }, 300);
+        });
+    });
 
     // Enhanced form submission
     if (form && submitBtn) {
@@ -382,16 +868,27 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Input focus effects
+    inputs.forEach(input => {
+        input.addEventListener('focus', function() {
+            this.parentElement.classList.add('focused');
+        });
+        
+        input.addEventListener('blur', function() {
+            this.parentElement.classList.remove('focused');
+        });
+    });
+
     // Checkbox animation
     const checkbox = document.querySelector('.checkbox-input');
     if (checkbox) {
         checkbox.addEventListener('change', function() {
-            const custom = this.nextElementSibling;
+            const visual = this.nextElementSibling;
             if (this.checked) {
-                custom.style.transform = 'scale(1.1)';
+                visual.style.transform = 'scale(1.1)';
                 setTimeout(() => {
-                    custom.style.transform = 'scale(1)';
-                }, 150);
+                    visual.style.transform = 'scale(1)';
+                }, 200);
             }
         });
     }
@@ -404,6 +901,18 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelector('.video-background').style.display = 'none';
         });
     }
+
+    // Particle interaction
+    const particles = document.querySelectorAll('.particle');
+    particles.forEach(particle => {
+        particle.addEventListener('animationiteration', function() {
+            // Randomize particle positions slightly
+            const randomX = Math.random() * 100;
+            const randomY = Math.random() * 100;
+            this.style.left = randomX + '%';
+            this.style.top = randomY + '%';
+        });
+    });
 });
 </script>
 
