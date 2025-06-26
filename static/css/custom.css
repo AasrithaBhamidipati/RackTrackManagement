@@ -17,7 +17,7 @@
     --text-secondary: #64748b;
     --text-muted: #94a3b8;
     --text-light: #cbd5e1;
-    
+
     /* White and Blue Backgrounds */
     --bg-primary: #ffffff;
     --bg-secondary: #ffffff;
@@ -27,12 +27,12 @@
     --bg-gradient-2: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
     --bg-gradient-3: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
     --bg-gradient-4: linear-gradient(135deg, #ffffff 0%, #e0e7ff 100%);
-    
+
     /* Clean White and Blue Borders */
     --border-color: #e2e8f0;
     --border-light: #f1f5f9;
     --border-gradient: linear-gradient(90deg, #2563eb, #3b82f6, #60a5fa);
-    
+
     /* Advanced Shadows */
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
@@ -42,12 +42,12 @@
     --shadow-creative: 0 35px 60px -12px rgba(99, 102, 241, 0.3);
     --shadow-neon: 0 0 20px rgba(99, 102, 241, 0.6), 0 0 40px rgba(99, 102, 241, 0.4);
     --shadow-glow: 0 0 30px rgba(139, 92, 246, 0.5);
-    
+
     /* Glass Morphism */
     --glass-bg: rgba(255, 255, 255, 0.25);
     --glass-border: rgba(255, 255, 255, 0.18);
     --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    
+
     /* Creative Typography */
     --font-display: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -1400,19 +1400,19 @@ body::after {
     .header-nav {
         display: none;
     }
-    
+
     .header-actions {
         display: none;
     }
-    
+
     .mobile-toggle {
         display: flex;
     }
-    
+
     .mobile-menu.active {
         display: flex;
     }
-    
+
     .brand-name {
         font-size: 1.5rem;
     }
@@ -1423,11 +1423,11 @@ body::after {
         padding: 0.5rem 0;
         min-height: 45px;
     }
-    
+
     .brand-name {
         font-size: 1.25rem;
     }
-    
+
     body {
         padding-top: 45px;
     }
@@ -1652,7 +1652,7 @@ body::after {
 }
 
 .btn-primary-gradient:hover {
-    background: linear-gradient(135deg, #1d4ed8, #2563eb);
+    background: linear-gradient(135deg, #1d4ed8,#2563eb);
     transform: translateY(-3px);
     box-shadow: 0 20px 40px -5px rgb(37 99 235 / 0.4);
     color: white;
@@ -1769,25 +1769,25 @@ body::after {
     .display-4 {
         font-size: 2rem;
     }
-    
+
     .card-body {
         padding: 1rem;
     }
-    
+
     .hero-section {
         padding: 60px 0;
     }
-    
+
     .feature-stat h3 {
         font-size: 1.5rem;
     }
-    
+
     .step-number .badge {
         width: 50px;
         height: 50px;
         font-size: 1.2rem;
     }
-    
+
     .hero-card {
         margin-top: 2rem;
     }
@@ -2482,47 +2482,47 @@ p {
     .header-right {
         display: none;
     }
-    
+
     .hero-title {
         font-size: 2.25rem;
     }
-    
+
     .hero-subtitle {
         font-size: 1rem;
     }
-    
+
     h1 {
         font-size: 2rem;
     }
-    
+
     h2 {
         font-size: 1.75rem;
     }
-    
+
     h3 {
         font-size: 1.25rem;
     }
-    
+
     h4 {
         font-size: 1.125rem;
     }
-    
+
     p {
         font-size: 0.95rem;
     }
-    
+
     .hero-cta {
         flex-direction: column;
         align-items: stretch;
     }
-    
+
     .btn-primary-gradient,
     .btn-outline-primary {
         text-align: center;
         margin-right: 0;
         margin-bottom: 1rem;
     }
-    
+
     .hero-stats {
         justify-content: center;
         gap: 1.5rem;
@@ -3262,43 +3262,43 @@ p {
     .hero-title {
         font-size: 2.5rem;
     }
-    
+
     .hero-subtitle {
         font-size: 1.125rem;
     }
-    
+
     .hero-cta {
         flex-direction: column;
         align-items: stretch;
     }
-    
+
     .hero-stats {
         grid-template-columns: 1fr;
         gap: 1rem;
     }
-    
+
     .stat-number {
         font-size: 2rem;
     }
-    
+
     .upload-card {
         padding: 1.5rem;
     }
-    
+
     .upload-zone {
         padding: 2rem 1rem;
         min-height: 200px;
     }
-    
+
     .upload-actions {
         flex-direction: column;
     }
-    
+
     .features-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
     }
-    
+
     .feature-item {
         padding: 1.5rem;
     }
@@ -3384,3 +3384,9 @@ p, .text-muted, .text-secondary {
 .btn:hover {
     transform: translateY(-1px);
 }
+
+/* Google Fonts + Pluvix Luxury Font */
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
