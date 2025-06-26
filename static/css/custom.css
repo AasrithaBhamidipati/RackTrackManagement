@@ -758,23 +758,12 @@ body::after {
 }
 
 .brand-link:hover .brand-name-modern {
-    transform: translateY(-4px) scale(1.05);
-    filter: 
-        drop-shadow(0 0 15px rgba(6, 182, 212, 0.8))
-        drop-shadow(0 4px 8px rgba(0, 0, 0, 0.6))
-        drop-shadow(0 0 25px rgba(59, 130, 246, 0.6));
-    text-shadow: 
-        0 0 30px rgba(6, 182, 212, 0.9),
-        0 0 60px rgba(59, 130, 246, 0.7),
-        0 4px 8px rgba(0, 0, 0, 0.9);
+    transform: perspective(1000px) rotateX(10deg) translateY(-2px);
+    filter: drop-shadow(0 4px 8px rgba(30, 58, 138, 0.5));
 }
 
 .brand-link:hover .brand-name-modern::after {
-    box-shadow: 
-        0 0 15px rgba(6, 182, 212, 1),
-        0 0 30px rgba(59, 130, 246, 0.8),
-        0 0 45px rgba(30, 64, 175, 0.6);
-    height: 4px;
+    transform: scaleX(1);
 }
 
 @keyframes logoRotate {
@@ -783,43 +772,34 @@ body::after {
 }
 
 .brand-name-modern {
-    font-size: 2.6rem;
-    font-weight: 900;
-    font-family: 'Orbitron', 'Exo 2', 'Rajdhani', 'Space Grotesk', monospace;
-    background: linear-gradient(45deg, #0f172a 0%, #1e40af 25%, #06b6d4 50%, #3b82f6 75%, #1e293b 100%);
+    font-size: 2.4rem;
+    font-weight: 700;
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(135deg, #1e3a8a 0%, #ffffff 50%, #1e40af 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    background-size: 200% 200%;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     position: relative;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    filter: 
-        drop-shadow(0 0 8px rgba(6, 182, 212, 0.4))
-        drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5))
-        drop-shadow(0 0 15px rgba(59, 130, 246, 0.3));
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 3px 6px rgba(30, 58, 138, 0.3));
     text-shadow: 
-        0 0 20px rgba(6, 182, 212, 0.6),
-        0 0 40px rgba(59, 130, 246, 0.4),
-        0 2px 4px rgba(0, 0, 0, 0.8);
-    font-variant: small-caps;
-    transform-style: preserve-3d;
+        0 2px 4px rgba(0, 0, 0, 0.2),
+        0 1px 2px rgba(30, 58, 138, 0.4);
+    transform: perspective(1000px) rotateX(15deg);
+    transform-origin: center bottom;
 }
 
 .brand-name-modern::before {
     content: 'RACKTRACK';
     position: absolute;
-    top: 0;
-    left: 0;
-    background: linear-gradient(45deg, rgba(6, 182, 212, 0.3), rgba(59, 130, 246, 0.3));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    top: 2px;
+    left: 2px;
+    color: rgba(30, 58, 138, 0.4);
     z-index: -1;
-    transform: translate(2px, 2px);
-    opacity: 0.6;
-    filter: blur(1px);
+    transform: perspective(1000px) rotateX(15deg);
+    transform-origin: center bottom;
 }
 
 @keyframes shadowPulse {
@@ -836,17 +816,14 @@ body::after {
 .brand-name-modern::after {
     content: '';
     position: absolute;
-    bottom: -4px;
+    bottom: -2px;
     left: 0;
     width: 100%;
-    height: 3px;
-    background: linear-gradient(90deg, #06b6d4 0%, #3b82f6 50%, #1e40af 100%);
-    border-radius: 2px;
-    box-shadow: 
-        0 0 10px rgba(6, 182, 212, 0.8),
-        0 0 20px rgba(59, 130, 246, 0.6);
-    transform: scaleX(1);
-    opacity: 0.8;
+    height: 2px;
+    background: linear-gradient(90deg, #1e3a8a 0%, #ffffff 50%, #1e40af 100%);
+    border-radius: 1px;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
 }
 
 @keyframes advancedGradientFlow {
