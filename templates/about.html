@@ -53,13 +53,13 @@
     50% { transform: translateY(-30px) scale(1.2); opacity: 0.8; }
 }
 
-/* Modern Hero Section */
+/* Split Hero Section */
 .hero-section {
-    padding: 5rem 0;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
     position: relative;
-    z-index: 2;
-    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-    margin-bottom: 0;
+    background: linear-gradient(45deg, #1e3a8a 0%, #1e40af 50%, #3b82f6 100%);
     overflow: hidden;
 }
 
@@ -70,10 +70,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: 
-        radial-gradient(circle at 25% 25%, rgba(37, 99, 235, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 75% 75%, rgba(59, 130, 246, 0.06) 0%, transparent 50%);
-    pointer-events: none;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="circuit" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M0 20h40M20 0v40M10 10h20M30 30h10M10 30h10" stroke="rgba(255,255,255,0.1)" stroke-width="0.5" fill="none"/></pattern></defs><rect width="100" height="100" fill="url(%23circuit)"/></svg>');
+    opacity: 0.3;
 }
 
 .hero-container {
@@ -84,11 +82,12 @@
     z-index: 2;
 }
 
-.hero-content {
-    text-align: center;
-    max-width: 900px;
-    margin: 0 auto;
-    animation: fadeInUp 1s ease-out;
+.hero-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    min-height: 60vh;
 }
 
 @keyframes slideInLeft {
@@ -101,37 +100,62 @@
     to { opacity: 1; transform: translateX(0); }
 }
 
+.hero-left {
+    color: white;
+    animation: slideInLeft 1s ease-out;
+}
+
+.hero-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: slideInRight 1s ease-out;
+}
+
 .hero-title {
-    font-size: 4rem;
-    font-weight: 800;
+    font-size: 3.5rem;
+    font-weight: 900;
     margin-bottom: 2rem;
     line-height: 1.1;
-    color: var(--text-primary);
-    position: relative;
+    color: white;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
-.gradient-text {
-    background: linear-gradient(135deg, #1e40af, #3b82f6, #60a5fa);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    position: relative;
-    display: inline-block;
+.hero-subtitle {
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    font-weight: 500;
 }
 
-.hero-description {
-    font-size: 1.4rem;
-    color: var(--text-secondary);
-    line-height: 1.7;
-    margin-bottom: 3rem;
-    font-weight: 400;
-}
-
-.hero-mission-cards {
+.hero-stats {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #60a5fa;
+    display: block;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 0.5rem;
 }
 
 .hero-stats-grid {
@@ -350,60 +374,115 @@
     50% { transform: scale(1.08); }
 }
 
-.hero-mission-card {
-    background: white;
-    padding: 2.5rem;
-    border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(37, 99, 235, 0.1);
-    border: 1px solid rgba(37, 99, 235, 0.1);
-    transition: all 0.3s ease;
-    text-align: left;
+.visual-element {
+    width: 400px;
+    height: 400px;
     position: relative;
-    overflow: hidden;
 }
 
-.hero-mission-card::before {
-    content: '';
+.main-circle {
+    width: 300px;
+    height: 300px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #1e40af, #3b82f6, #60a5fa);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: rotate 20s linear infinite;
 }
 
-.hero-mission-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 60px rgba(37, 99, 235, 0.15);
-}
-
-.card-icon {
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(135deg, #dbeafe, #bfdbfe);
-    border-radius: 15px;
+.inner-circle {
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(96, 165, 250, 0.8);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    backdrop-filter: blur(10px);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 1.5rem;
+    animation: pulse 3s ease-in-out infinite;
 }
 
-.card-icon i {
-    font-size: 1.5rem;
-    color: #1e40af;
+.center-icon {
+    font-size: 3rem;
+    color: #60a5fa;
+    animation: float 4s ease-in-out infinite;
 }
 
-.card-title {
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin-bottom: 1rem;
+.orbit-dot {
+    width: 12px;
+    height: 12px;
+    background: #60a5fa;
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: 0 0 20px #60a5fa;
 }
 
-.card-description {
-    font-size: 1rem;
-    color: var(--text-secondary);
-    line-height: 1.6;
+.orbit-dot:nth-child(1) {
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: orbitDot1 8s linear infinite;
+}
+
+.orbit-dot:nth-child(2) {
+    bottom: -6px;
+    right: 50%;
+    transform: translateX(50%);
+    animation: orbitDot2 8s linear infinite reverse;
+}
+
+.orbit-dot:nth-child(3) {
+    top: 50%;
+    right: -6px;
+    transform: translateY(-50%);
+    animation: orbitDot3 8s linear infinite;
+}
+
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-100px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+    from { opacity: 0; transform: translateX(100px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes rotate {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+    50% { transform: translate(-50%, -50%) scale(1.05); opacity: 1; }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes orbitDot1 {
+    0% { transform: translateX(-50%) rotate(0deg) translateX(150px) rotate(0deg); }
+    100% { transform: translateX(-50%) rotate(360deg) translateX(150px) rotate(-360deg); }
+}
+
+@keyframes orbitDot2 {
+    0% { transform: translateX(50%) rotate(0deg) translateX(150px) rotate(0deg); }
+    100% { transform: translateX(50%) rotate(360deg) translateX(150px) rotate(-360deg); }
+}
+
+@keyframes orbitDot3 {
+    0% { transform: translateY(-50%) rotate(0deg) translateX(150px) rotate(0deg); }
+    100% { transform: translateY(-50%) rotate(360deg) translateX(150px) rotate(-360deg); }
 }
 
 /* Technology Section with Interactive Cards */
@@ -950,7 +1029,14 @@
 
 @media (max-width: 768px) {
     .hero-section {
-        padding: 3rem 0 4rem;
+        min-height: auto;
+        padding: 3rem 0;
+    }
+    
+    .hero-split {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
     }
     
     .hero-title {
@@ -958,18 +1044,34 @@
         margin-bottom: 1.5rem;
     }
     
-    .hero-description {
-        font-size: 1.2rem;
-        margin-bottom: 2rem;
+    .hero-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
     }
     
-    .hero-mission-cards {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+    .hero-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
     }
     
-    .hero-mission-card {
-        padding: 2rem;
+    .visual-element {
+        width: 300px;
+        height: 300px;
+        margin: 0 auto;
+    }
+    
+    .main-circle {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .inner-circle {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .center-icon {
+        font-size: 2.5rem;
     }
     
     .section-title {
@@ -1037,46 +1139,46 @@
 </div>
 
 <div class="about-page">
-    <!-- Modern Hero Section -->
+    <!-- Split Hero Section -->
     <section class="hero-section">
         <div class="hero-container">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    <span class="gradient-text">Our Mission</span>
-                </h1>
-                <p class="hero-description">
-                    Transforming data center management through cutting-edge AI solutions that deliver unprecedented accuracy and efficiency.
-                </p>
+            <div class="hero-split">
+                <div class="hero-left">
+                    <h1 class="hero-title">Revolutionizing Data Center Intelligence</h1>
+                    <p class="hero-subtitle">
+                        We're building the future of infrastructure management with AI-powered solutions that transform how enterprises handle their most critical systems.
+                    </p>
+                    
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">99.9%</span>
+                            <span class="stat-label">Detection Accuracy</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Data Centers</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">10x</span>
+                            <span class="stat-label">Faster Analysis</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">24/7</span>
+                            <span class="stat-label">AI Monitoring</span>
+                        </div>
+                    </div>
+                </div>
                 
-                <div class="hero-mission-cards">
-                    <div class="hero-mission-card">
-                        <div class="card-icon">
-                            <i class="fas fa-robot"></i>
+                <div class="hero-right">
+                    <div class="visual-element">
+                        <div class="main-circle">
+                            <div class="orbit-dot"></div>
+                            <div class="orbit-dot"></div>
+                            <div class="orbit-dot"></div>
                         </div>
-                        <h3 class="card-title">AI-Powered Automation</h3>
-                        <p class="card-description">
-                            Eliminate manual processes with intelligent computer vision that identifies and analyzes rack components in seconds.
-                        </p>
-                    </div>
-                    
-                    <div class="hero-mission-card">
-                        <div class="card-icon">
-                            <i class="fas fa-chart-line"></i>
+                        <div class="inner-circle">
+                            <i class="fas fa-brain center-icon"></i>
                         </div>
-                        <h3 class="card-title">Unprecedented Accuracy</h3>
-                        <p class="card-description">
-                            Achieve 99.9% detection accuracy with advanced neural networks trained specifically for data center infrastructure.
-                        </p>
-                    </div>
-                    
-                    <div class="hero-mission-card">
-                        <div class="card-icon">
-                            <i class="fas fa-cogs"></i>
-                        </div>
-                        <h3 class="card-title">Enterprise Integration</h3>
-                        <p class="card-description">
-                            Seamlessly integrate with existing DCIM systems and workflows to enhance your current infrastructure management.
-                        </p>
                     </div>
                 </div>
             </div>
