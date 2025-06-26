@@ -1,27 +1,1076 @@
 {% extends "base.html" %}
 
-{% block title %}Login - RackTrack{% endblock %}
+{% block title %}Sign In - RackTrack{% endblock %}
 
 {% block content %}
-<div class="modern-login-wrapper">
-    <!-- Animated Background -->
-    <div class="login-bg-container">
-        <div class="animated-gradient"></div>
-        <div class="floating-shapes">
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
-            <div class="shape shape-3"></div>
-            <div class="shape shape-4"></div>
+<div class="futuristic-login-container">
+    <!-- AI Neural Network Background -->
+    <div class="neural-background">
+        <div class="neural-grid"></div>
+        <div class="data-streams">
+            <div class="stream stream-1"></div>
+            <div class="stream stream-2"></div>
+            <div class="stream stream-3"></div>
+            <div class="stream stream-4"></div>
         </div>
-        <div class="grid-overlay"></div>
+        <div class="neural-nodes">
+            <div class="node node-1" data-pulse="1"></div>
+            <div class="node node-2" data-pulse="2"></div>
+            <div class="node node-3" data-pulse="3"></div>
+            <div class="node node-4" data-pulse="4"></div>
+            <div class="node node-5" data-pulse="5"></div>
+            <div class="node node-6" data-pulse="6"></div>
+        </div>
+        <div class="scanning-line"></div>
     </div>
 
-    <!-- Main Login Content -->
-    <div class="login-content-wrapper">
-        <div class="login-card-modern">
-            <!-- Brand Header -->
-            <div class="brand-header">
-                <div class="brand-logo-container">
+    <!-- Main Terminal Container -->
+    <div class="terminal-login-wrapper">
+        <!-- Left Side - AI Visualization -->
+        <div class="ai-visualization-panel">
+            <div class="ai-core">
+                <div class="core-ring core-ring-1"></div>
+                <div class="core-ring core-ring-2"></div>
+                <div class="core-ring core-ring-3"></div>
+                <div class="core-center">
+                    <svg width="60" height="60" viewBox="0 0 100 100" class="ai-brain">
+                        <path d="M20,50 Q50,20 80,50 Q50,80 20,50" fill="none" stroke="currentColor" stroke-width="2" class="brain-path"/>
+                        <circle cx="30" cy="40" r="3" fill="currentColor" class="synapse">
+                            <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite"/>
+                        </circle>
+                        <circle cx="50" cy="30" r="3" fill="currentColor" class="synapse">
+                            <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" repeatCount="indefinite"/>
+                        </circle>
+                        <circle cx="70" cy="40" r="3" fill="currentColor" class="synapse">
+                            <animate attributeName="opacity" values="0.3;1;0.3" dur="2.5s" repeatCount="indefinite"/>
+                        </circle>
+                        <circle cx="40" cy="60" r="3" fill="currentColor" class="synapse">
+                            <animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite"/>
+                        </circle>
+                        <circle cx="60" cy="60" r="3" fill="currentColor" class="synapse">
+                            <animate attributeName="opacity" values="0.3;1;0.3" dur="2.2s" repeatCount="indefinite"/>
+                        </circle>
+                    </svg>
+                </div>
+            </div>
+            <div class="ai-status-indicators">
+                <div class="status-item">
+                    <span class="status-dot active"></span>
+                    <span class="status-text">Neural Net Active</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-dot processing"></span>
+                    <span class="status-text">Vision Systems Online</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-dot standby"></span>
+                    <span class="status-text">Authentication Ready</span>
+                </div>
+            </div>
+            <div class="data-readout">
+                <div class="readout-line">
+                    <span class="readout-label">System:</span>
+                    <span class="readout-value typing-effect" data-text="RackTrack AI v2.1"></span>
+                </div>
+                <div class="readout-line">
+                    <span class="readout-label">Status:</span>
+                    <span class="readout-value typing-effect" data-text="Awaiting User Auth"></span>
+                </div>
+                <div class="readout-line">
+                    <span class="readout-label">Security:</span>
+                    <span class="readout-value typing-effect" data-text="Level 5 Encryption"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side - Login Terminal -->
+        <div class="terminal-login-panel">
+            <div class="terminal-header">
+                <div class="terminal-controls">
+                    <span class="control-dot red"></span>
+                    <span class="control-dot yellow"></span>
+                    <span class="control-dot green"></span>
+                </div>
+                <div class="terminal-title">
+                    <span class="terminal-prompt">admin@racktrack:~$</span>
+                    <span class="cursor-blink">_</span>
+                </div>
+            </div>
+
+            <div class="terminal-body">
+                <!-- Brand Identity -->
+                <div class="brand-terminal">
+                    <div class="ascii-logo">
+                        <pre class="logo-text">
+██████╗  █████╗  ██████╗██╗  ██╗████████╗██████╗  █████╗  ██████╗██╗  ██╗
+██╔══██╗██╔══██╗██╔════╝██║ ██╔╝╚══██╔══╝██╔══██╗██╔══██╗██╔════╝██║ ██╔╝
+██████╔╝███████║██║     █████╔╝    ██║   ██████╔╝███████║██║     █████╔╝ 
+██╔══██╗██╔══██║██║     ██╔═██╗    ██║   ██╔══██╗██╔══██║██║     ██╔═██╗ 
+██║  ██║██║  ██║╚██████╗██║  ██╗   ██║   ██║  ██║██║  ██║╚██████╗██║  ██╗
+╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝
+                        </pre>
+                    </div>
+                    <div class="system-info">
+                        <div class="info-line">
+                            <span class="prompt">></span>
+                            <span class="info-text">AI-Powered Network Infrastructure Analysis</span>
+                        </div>
+                        <div class="info-line">
+                            <span class="prompt">></span>
+                            <span class="info-text">Secure Authentication Protocol v3.0</span>
+                        </div>
+                        <div class="info-line">
+                            <span class="prompt">></span>
+                            <span class="info-text typing-effect" data-text="Initializing user verification..."></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Login Form -->
+                <form method="POST" class="terminal-form" id="terminalLoginForm">
+                    <div class="form-section">
+                        <div class="terminal-input-group">
+                            <label class="terminal-label">
+                                <span class="prompt-symbol">$</span>
+                                <span class="label-text">Enter Username:</span>
+                            </label>
+                            <div class="terminal-input-wrapper">
+                                <input type="text" 
+                                       name="username" 
+                                       id="username"
+                                       class="terminal-input" 
+                                       autocomplete="username"
+                                       required>
+                                <div class="input-cursor">|</div>
+                            </div>
+                        </div>
+
+                        <div class="terminal-input-group">
+                            <label class="terminal-label">
+                                <span class="prompt-symbol">$</span>
+                                <span class="label-text">Enter Password:</span>
+                            </label>
+                            <div class="terminal-input-wrapper">
+                                <input type="password" 
+                                       name="password" 
+                                       id="password"
+                                       class="terminal-input" 
+                                       autocomplete="current-password"
+                                       required>
+                                <div class="input-cursor">|</div>
+                            </div>
+                        </div>
+
+                        <div class="terminal-options">
+                            <label class="terminal-checkbox">
+                                <input type="checkbox" id="remember">
+                                <span class="checkbox-custom">
+                                    <span class="checkbox-check">✓</span>
+                                </span>
+                                <span class="checkbox-label">Maintain session</span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="terminal-execute-btn">
+                            <span class="btn-text">EXECUTE LOGIN</span>
+                            <div class="btn-loading">
+                                <div class="loading-dots">
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Demo Credentials Section -->
+                <div class="demo-terminal">
+                    <div class="demo-header">
+                        <span class="prompt">></span>
+                        <span class="demo-title">DEMO ACCESS CREDENTIALS</span>
+                    </div>
+                    <div class="demo-content">
+                        <div class="credential-line">
+                            <span class="cred-label">Username:</span>
+                            <span class="cred-value" data-copy="1234">1234</span>
+                            <button class="copy-btn" data-target="1234" title="Copy to clipboard">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke="currentColor" stroke-width="2" fill="none"/>
+                                    <path d="m5 15-4-4 4-4" stroke="currentColor" stroke-width="2" fill="none"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="credential-line">
+                            <span class="cred-label">Password:</span>
+                            <span class="cred-value" data-copy="1234">1234</span>
+                            <button class="copy-btn" data-target="1234" title="Copy to clipboard">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke="currentColor" stroke-width="2" fill="none"/>
+                                    <path d="m5 15-4-4 4-4" stroke="currentColor" stroke-width="2" fill="none"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- System Status Footer -->
+                <div class="system-status-footer">
+                    <div class="status-line">
+                        <span class="prompt">></span>
+                        <span class="status-text">System uptime: <span id="uptime">00:00:00</span></span>
+                    </div>
+                    <div class="status-line">
+                        <span class="prompt">></span>
+                        <span class="status-text">Security level: <span class="security-level">MAXIMUM</span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Futuristic Login Styles */
+.futuristic-login-container {
+    min-height: 100vh;
+    background: #0a0e1a;
+    color: #00ff88;
+    font-family: 'Courier New', monospace;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+/* Neural Network Background */
+.neural-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.neural-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(0, 255, 136, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 136, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: gridPulse 4s ease-in-out infinite;
+}
+
+@keyframes gridPulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.6; }
+}
+
+.data-streams {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.stream {
+    position: absolute;
+    width: 2px;
+    height: 100px;
+    background: linear-gradient(to bottom, transparent, #00ff88, transparent);
+    animation: streamFlow 3s linear infinite;
+}
+
+.stream-1 { left: 20%; animation-delay: 0s; }
+.stream-2 { left: 40%; animation-delay: 1s; }
+.stream-3 { left: 60%; animation-delay: 2s; }
+.stream-4 { left: 80%; animation-delay: 0.5s; }
+
+@keyframes streamFlow {
+    0% { top: -100px; opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { top: 100vh; opacity: 0; }
+}
+
+.neural-nodes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.node {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #00ff88;
+    border-radius: 50%;
+    box-shadow: 0 0 15px #00ff88;
+    animation: nodePulse 2s ease-in-out infinite;
+}
+
+.node-1 { top: 20%; left: 10%; animation-delay: 0s; }
+.node-2 { top: 30%; right: 15%; animation-delay: 0.5s; }
+.node-3 { bottom: 40%; left: 20%; animation-delay: 1s; }
+.node-4 { top: 60%; right: 25%; animation-delay: 1.5s; }
+.node-5 { bottom: 20%; left: 60%; animation-delay: 2s; }
+.node-6 { top: 40%; left: 50%; animation-delay: 2.5s; }
+
+@keyframes nodePulse {
+    0%, 100% { transform: scale(1); opacity: 0.6; }
+    50% { transform: scale(1.5); opacity: 1; }
+}
+
+.scanning-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00ff88, transparent);
+    animation: scanLine 8s linear infinite;
+}
+
+@keyframes scanLine {
+    0% { top: 0; }
+    100% { top: 100%; }
+}
+
+/* Main Terminal Container */
+.terminal-login-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    max-width: 1400px;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    background: rgba(10, 14, 26, 0.95);
+    border: 1px solid #00ff88;
+    border-radius: 15px;
+    padding: 3rem;
+    box-shadow: 
+        0 0 50px rgba(0, 255, 136, 0.3),
+        inset 0 0 30px rgba(0, 255, 136, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+/* AI Visualization Panel */
+.ai-visualization-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.ai-core {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.core-ring {
+    position: absolute;
+    border: 2px solid #00ff88;
+    border-radius: 50%;
+    animation: coreRotate 10s linear infinite;
+}
+
+.core-ring-1 {
+    width: 200px;
+    height: 200px;
+    border-style: dashed;
+    animation-duration: 8s;
+}
+
+.core-ring-2 {
+    width: 150px;
+    height: 150px;
+    border-style: dotted;
+    animation-duration: 12s;
+    animation-direction: reverse;
+}
+
+.core-ring-3 {
+    width: 100px;
+    height: 100px;
+    animation-duration: 6s;
+}
+
+@keyframes coreRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.core-center {
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, rgba(0, 255, 136, 0.3), rgba(0, 255, 136, 0.1));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #00ff88;
+    box-shadow: 0 0 30px rgba(0, 255, 136, 0.5);
+}
+
+.ai-brain {
+    color: #00ff88;
+    filter: drop-shadow(0 0 10px #00ff88);
+}
+
+.ai-status-indicators {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+}
+
+.status-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 1rem;
+    background: rgba(0, 255, 136, 0.1);
+    border: 1px solid rgba(0, 255, 136, 0.3);
+    border-radius: 8px;
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    position: relative;
+}
+
+.status-dot.active {
+    background: #00ff88;
+    box-shadow: 0 0 10px #00ff88;
+    animation: statusPulse 1.5s ease-in-out infinite;
+}
+
+.status-dot.processing {
+    background: #ffa500;
+    box-shadow: 0 0 10px #ffa500;
+    animation: statusPulse 1s ease-in-out infinite;
+}
+
+.status-dot.standby {
+    background: #0088ff;
+    box-shadow: 0 0 10px #0088ff;
+    animation: statusPulse 2s ease-in-out infinite;
+}
+
+@keyframes statusPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.2); }
+}
+
+.status-text {
+    font-size: 0.9rem;
+    color: #00ff88;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.data-readout {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid #00ff88;
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.readout-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.8rem;
+    font-size: 0.9rem;
+}
+
+.readout-label {
+    color: #00ff88;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.readout-value {
+    color: #ffffff;
+    font-family: 'Courier New', monospace;
+}
+
+.typing-effect {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typewriter 3s steps(40) infinite;
+}
+
+@keyframes typewriter {
+    0% { width: 0; }
+    50% { width: 100%; }
+    100% { width: 100%; }
+}
+
+/* Terminal Login Panel */
+.terminal-login-panel {
+    background: rgba(0, 0, 0, 0.9);
+    border: 2px solid #00ff88;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 
+        0 0 30px rgba(0, 255, 136, 0.4),
+        inset 0 0 20px rgba(0, 255, 136, 0.1);
+}
+
+.terminal-header {
+    background: rgba(0, 255, 136, 0.2);
+    padding: 0.8rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #00ff88;
+}
+
+.terminal-controls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.control-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.control-dot.red { background: #ff5555; }
+.control-dot.yellow { background: #ffff55; }
+.control-dot.green { background: #55ff55; }
+
+.terminal-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: #00ff88;
+    font-weight: bold;
+}
+
+.cursor-blink {
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+.terminal-body {
+    padding: 2rem;
+    min-height: 600px;
+}
+
+/* ASCII Logo */
+.brand-terminal {
+    margin-bottom: 2rem;
+}
+
+.ascii-logo {
+    margin-bottom: 1.5rem;
+}
+
+.logo-text {
+    font-size: 0.4rem;
+    color: #00ff88;
+    text-shadow: 0 0 10px #00ff88;
+    line-height: 1;
+    margin: 0;
+    white-space: pre;
+    overflow-x: auto;
+}
+
+.system-info {
+    margin-bottom: 2rem;
+}
+
+.info-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.prompt {
+    color: #00ff88;
+    font-weight: bold;
+}
+
+.info-text {
+    color: #ffffff;
+}
+
+/* Terminal Form */
+.terminal-form {
+    margin-bottom: 2rem;
+}
+
+.form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.terminal-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.terminal-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: #00ff88;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.prompt-symbol {
+    color: #00ff88;
+    font-weight: bold;
+}
+
+.terminal-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.terminal-input {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #00ff88;
+    border-radius: 6px;
+    padding: 0.8rem 1rem;
+    color: #ffffff;
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.terminal-input:focus {
+    outline: none;
+    border-color: #00ff88;
+    box-shadow: 0 0 15px rgba(0, 255, 136, 0.5);
+    background: rgba(0, 255, 136, 0.1);
+}
+
+.input-cursor {
+    position: absolute;
+    right: 1rem;
+    color: #00ff88;
+    animation: blink 1s step-end infinite;
+    pointer-events: none;
+}
+
+.terminal-options {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.terminal-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: #ffffff;
+}
+
+.terminal-checkbox input[type="checkbox"] {
+    display: none;
+}
+
+.checkbox-custom {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #00ff88;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.8);
+    transition: all 0.3s ease;
+}
+
+.checkbox-check {
+    color: #00ff88;
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.terminal-checkbox input[type="checkbox"]:checked + .checkbox-custom {
+    background: rgba(0, 255, 136, 0.2);
+    box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+}
+
+.terminal-checkbox input[type="checkbox"]:checked + .checkbox-custom .checkbox-check {
+    opacity: 1;
+}
+
+.terminal-execute-btn {
+    width: 100%;
+    background: linear-gradient(45deg, #00ff88, #00cc6a);
+    border: 2px solid #00ff88;
+    border-radius: 8px;
+    padding: 1rem 2rem;
+    color: #000000;
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 
+        0 4px 15px rgba(0, 255, 136, 0.4),
+        inset 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.terminal-execute-btn:hover {
+    background: linear-gradient(45deg, #00cc6a, #00ff88);
+    box-shadow: 
+        0 6px 20px rgba(0, 255, 136, 0.6),
+        inset 0 0 30px rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.terminal-execute-btn:active {
+    transform: translateY(0);
+}
+
+.btn-loading {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.loading-dots {
+    display: flex;
+    gap: 4px;
+}
+
+.loading-dots span {
+    width: 6px;
+    height: 6px;
+    background: #000000;
+    border-radius: 50%;
+    animation: loadingPulse 1.4s ease-in-out infinite both;
+}
+
+.loading-dots span:nth-child(1) { animation-delay: -0.32s; }
+.loading-dots span:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes loadingPulse {
+    0%, 80%, 100% { transform: scale(0); }
+    40% { transform: scale(1); }
+}
+
+/* Demo Terminal */
+.demo-terminal {
+    background: rgba(0, 255, 136, 0.05);
+    border: 1px solid rgba(0, 255, 136, 0.3);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.demo-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #00ff88;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.demo-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.credential-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.9rem;
+}
+
+.cred-label {
+    color: #00ff88;
+    font-weight: bold;
+    min-width: 80px;
+}
+
+.cred-value {
+    color: #ffffff;
+    font-family: 'Courier New', monospace;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 255, 136, 0.3);
+    flex: 1;
+}
+
+.copy-btn {
+    background: transparent;
+    border: 1px solid #00ff88;
+    border-radius: 4px;
+    padding: 0.3rem;
+    color: #00ff88;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.copy-btn:hover {
+    background: rgba(0, 255, 136, 0.2);
+    box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+}
+
+/* System Status Footer */
+.system-status-footer {
+    border-top: 1px solid rgba(0, 255, 136, 0.3);
+    padding-top: 1.5rem;
+    margin-top: 2rem;
+}
+
+.status-line {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+    color: #ffffff;
+}
+
+.security-level {
+    color: #ff5555;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .terminal-login-wrapper {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        max-width: 800px;
+    }
+    
+    .ai-visualization-panel {
+        order: 2;
+    }
+    
+    .terminal-login-panel {
+        order: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .futuristic-login-container {
+        padding: 1rem;
+    }
+    
+    .terminal-login-wrapper {
+        padding: 1.5rem;
+    }
+    
+    .logo-text {
+        font-size: 0.25rem;
+    }
+    
+    .ai-core {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .core-ring-1 { width: 150px; height: 150px; }
+    .core-ring-2 { width: 110px; height: 110px; }
+    .core-ring-3 { width: 70px; height: 70px; }
+    
+    .core-center {
+        width: 60px;
+        height: 60px;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Terminal typing effects
+    const typingElements = document.querySelectorAll('.typing-effect');
+    typingElements.forEach(element => {
+        const text = element.getAttribute('data-text');
+        let i = 0;
+        const speed = 100;
+        
+        function typeWriter() {
+            if (i < text.length) {
+                element.textContent += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, speed);
+            }
+        }
+        
+        // Start typing after a random delay
+        setTimeout(typeWriter, Math.random() * 2000 + 1000);
+    });
+
+    // System uptime counter
+    const uptimeElement = document.getElementById('uptime');
+    let seconds = 0;
+    
+    function updateUptime() {
+        const hours = Math.floor(seconds / 3600);
+        const minutes = Math.floor((seconds % 3600) / 60);
+        const secs = seconds % 60;
+        
+        uptimeElement.textContent = 
+            `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        seconds++;
+    }
+    
+    setInterval(updateUptime, 1000);
+
+    // Terminal input effects
+    const inputs = document.querySelectorAll('.terminal-input');
+    inputs.forEach(input => {
+        input.addEventListener('focus', function() {
+            this.nextElementSibling.style.display = 'block';
+        });
+        
+        input.addEventListener('blur', function() {
+            this.nextElementSibling.style.display = 'none';
+        });
+        
+        input.addEventListener('input', function() {
+            // Add some terminal-like feedback
+            if (this.value.length > 0) {
+                this.style.color = '#00ff88';
+            } else {
+                this.style.color = '#ffffff';
+            }
+        });
+    });
+
+    // Copy functionality for demo credentials
+    const copyButtons = document.querySelectorAll('.copy-btn');
+    copyButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const target = this.getAttribute('data-target');
+            navigator.clipboard.writeText(target).then(() => {
+                // Visual feedback
+                this.style.background = 'rgba(0, 255, 136, 0.5)';
+                setTimeout(() => {
+                    this.style.background = 'transparent';
+                }, 500);
+            });
+        });
+    });
+
+    // Enhanced form submission
+    const form = document.getElementById('terminalLoginForm');
+    const submitBtn = document.querySelector('.terminal-execute-btn');
+    const btnText = document.querySelector('.btn-text');
+    const btnLoading = document.querySelector('.btn-loading');
+    
+    form.addEventListener('submit', function(e) {
+        submitBtn.disabled = true;
+        btnText.style.display = 'none';
+        btnLoading.style.display = 'block';
+        
+        // Add some terminal feedback
+        const statusFooter = document.querySelector('.system-status-footer');
+        const authLine = document.createElement('div');
+        authLine.className = 'status-line';
+        authLine.innerHTML = '<span class="prompt">></span><span class="status-text">Authenticating user...</span>';
+        statusFooter.appendChild(authLine);
+        
+        // Reset if no redirect occurs
+        setTimeout(() => {
+            submitBtn.disabled = false;
+            btnText.style.display = 'inline-block';
+            btnLoading.style.display = 'none';
+            if (authLine) authLine.remove();
+        }, 5000);
+    });
+
+    // Auto-fill demo credentials when clicked
+    document.querySelectorAll('.cred-value').forEach(credValue => {
+        credValue.addEventListener('click', function() {
+            const value = this.textContent;
+            const isPassword = this.closest('.credential-line').querySelector('.cred-label').textContent.includes('Password');
+            
+            if (isPassword) {
+                document.getElementById('password').value = value;
+                document.getElementById('password').style.color = '#00ff88';
+            } else {
+                document.getElementById('username').value = value;
+                document.getElementById('username').style.color = '#00ff88';
+            }
+        });
+    });
+
+    // Neural network effects
+    const nodes = document.querySelectorAll('.node');
+    nodes.forEach((node, index) => {
+        node.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(2)';
+            this.style.boxShadow = '0 0 30px #00ff88';
+        });
+        
+        node.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
+            this.style.boxShadow = '0 0 15px #00ff88';
+        });
+    });
+
+    // Randomize neural node positions slightly over time
+    setInterval(() => {
+        nodes.forEach(node => {
+            const currentLeft = parseFloat(node.style.left || getComputedStyle(node).left);
+            const currentTop = parseFloat(node.style.top || getComputedStyle(node).top);
+            const offsetX = (Math.random() - 0.5) * 10; // ±5px
+            const offsetY = (Math.random() - 0.5) * 10; // ±5px
+            
+            node.style.transform = `translate(${offsetX}px, ${offsetY}px) scale(1)`;
+        });
+    }, 3000);
+});
                     <div class="logo-circle">
                         <svg width="40" height="40" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
                             <!-- Server Rack Structure -->
