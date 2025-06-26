@@ -53,199 +53,46 @@
     50% { transform: translateY(-30px) scale(1.2); opacity: 0.8; }
 }
 
-/* Split Hero Section */
+/* Simple Clean Hero Section */
 .hero-section {
-    min-height: 15vh;
-    display: flex;
-    align-items: center;
-    position: relative;
-    background: linear-gradient(45deg, #1e3a8a 0%, #1e40af 50%, #3b82f6 100%);
-    overflow: hidden;
-    padding: 1rem 0;
-}
-
-.hero-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="circuit" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M0 20h40M20 0v40M10 10h20M30 30h10M10 30h10" stroke="rgba(255,255,255,0.1)" stroke-width="0.5" fill="none"/></pattern></defs><rect width="100" height="100" fill="url(%23circuit)"/></svg>');
-    opacity: 0.3;
+    background: white;
+    padding: 4rem 0;
+    border-bottom: 1px solid #e5e7eb;
 }
 
 .hero-container {
     max-width: 90vw;
     margin: 0 auto;
     padding: 0 2rem;
-    position: relative;
-    z-index: 2;
 }
 
-.hero-split {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-    min-height: 10vh;
-}
-
-.hero-main-content {
-    width: 70%;
-    text-align: justify;
-}
-
-.hero-banner-section {
-    grid-column: 1 / -1;
-    width: 100%;
-    margin-top: 3rem;
-}
-
-@keyframes slideInLeft {
-    from { opacity: 0; transform: translateX(-50px); }
-    to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes slideInRight {
-    from { opacity: 0; transform: translateX(50px); }
-    to { opacity: 1; transform: translateX(0); }
-}
-
-.hero-left {
-    color: white;
-    animation: slideInLeft 1s ease-out;
-}
-
-.hero-right {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    animation: slideInRight 1s ease-out;
+.hero-content {
+    max-width: 70%;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .hero-title {
-    font-size: 3.5rem;
-    font-weight: 900;
+    font-size: 3rem;
+    font-weight: 700;
     margin-bottom: 2rem;
-    line-height: 1.1;
-    color: white;
-    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    color: #2563eb;
+    line-height: 1.2;
 }
 
 .hero-subtitle {
-    font-size: 1.3rem;
-    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.25rem;
+    color: #64748b;
     margin-bottom: 2rem;
     line-height: 1.6;
-    font-weight: 500;
+    font-weight: 400;
 }
 
-.hero-stats {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    margin-top: 2rem;
-}
-
-.stat-item {
-    text-align: center;
-    padding: 1rem;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.stat-number {
-    font-size: 2rem;
-    font-weight: 900;
-    color: #60a5fa;
-    display: block;
-}
-
-.hero-content-text {
-    margin-top: 2rem;
-}
-
-.content-paragraph {
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 0.9);
+.hero-description {
+    font-size: 1.1rem;
+    color: #475569;
     line-height: 1.7;
     margin-bottom: 1.5rem;
-}
-
-.precision-banner {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 15px;
-    padding: 2rem;
-    margin-top: 2rem;
-    backdrop-filter: blur(10px);
-}
-
-.banner-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #60a5fa;
-    margin-bottom: 1rem;
-}
-
-.banner-text {
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 0.9);
-    line-height: 1.6;
-    margin: 0;
-}
-
-.hero-stats-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    width: 100%;
-}
-
-.hero-stat {
-    background: white;
-    padding: 2rem;
-    border-radius: 20px;
-    text-align: center;
-    box-shadow: 0 8px 32px rgba(37, 99, 235, 0.1);
-    border: 1px solid rgba(37, 99, 235, 0.1);
-    transition: all 0.3s ease;
-    animation: fadeInUp 1s ease-out;
-    animation-fill-mode: both;
-}
-
-.hero-stat:nth-child(1) { animation-delay: 0.2s; }
-.hero-stat:nth-child(2) { animation-delay: 0.4s; }
-.hero-stat:nth-child(3) { animation-delay: 0.6s; }
-.hero-stat:nth-child(4) { animation-delay: 0.8s; }
-
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.hero-stat:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(37, 99, 235, 0.2);
-}
-
-.hero-stat-value {
-    font-size: 2.2rem;
-    font-weight: 900;
-    margin-bottom: 0.5rem;
-    background: var(--gradient-blue);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.hero-stat-label {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    font-weight: 600;
 }
 
 /* Interactive Content Sections */
@@ -414,116 +261,7 @@
     50% { transform: scale(1.08); }
 }
 
-.visual-element {
-    width: 400px;
-    height: 400px;
-    position: relative;
-}
 
-.main-circle {
-    width: 300px;
-    height: 300px;
-    border: 3px solid rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    animation: rotate 20s linear infinite;
-}
-
-.inner-circle {
-    width: 200px;
-    height: 200px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 2px solid rgba(96, 165, 250, 0.8);
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    backdrop-filter: blur(10px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: pulse 3s ease-in-out infinite;
-}
-
-.center-icon {
-    font-size: 3rem;
-    color: #60a5fa;
-    animation: float 4s ease-in-out infinite;
-}
-
-.orbit-dot {
-    width: 12px;
-    height: 12px;
-    background: #60a5fa;
-    border-radius: 50%;
-    position: absolute;
-    box-shadow: 0 0 20px #60a5fa;
-}
-
-.orbit-dot:nth-child(1) {
-    top: -6px;
-    left: 50%;
-    transform: translateX(-50%);
-    animation: orbitDot1 8s linear infinite;
-}
-
-.orbit-dot:nth-child(2) {
-    bottom: -6px;
-    right: 50%;
-    transform: translateX(50%);
-    animation: orbitDot2 8s linear infinite reverse;
-}
-
-.orbit-dot:nth-child(3) {
-    top: 50%;
-    right: -6px;
-    transform: translateY(-50%);
-    animation: orbitDot3 8s linear infinite;
-}
-
-@keyframes slideInLeft {
-    from { opacity: 0; transform: translateX(-100px); }
-    to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes slideInRight {
-    from { opacity: 0; transform: translateX(100px); }
-    to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes rotate {
-    from { transform: translate(-50%, -50%) rotate(0deg); }
-    to { transform: translate(-50%, -50%) rotate(360deg); }
-}
-
-@keyframes pulse {
-    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
-    50% { transform: translate(-50%, -50%) scale(1.05); opacity: 1; }
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-}
-
-@keyframes orbitDot1 {
-    0% { transform: translateX(-50%) rotate(0deg) translateX(150px) rotate(0deg); }
-    100% { transform: translateX(-50%) rotate(360deg) translateX(150px) rotate(-360deg); }
-}
-
-@keyframes orbitDot2 {
-    0% { transform: translateX(50%) rotate(0deg) translateX(150px) rotate(0deg); }
-    100% { transform: translateX(50%) rotate(360deg) translateX(150px) rotate(-360deg); }
-}
-
-@keyframes orbitDot3 {
-    0% { transform: translateY(-50%) rotate(0deg) translateX(150px) rotate(0deg); }
-    100% { transform: translateY(-50%) rotate(360deg) translateX(150px) rotate(-360deg); }
-}
 
 /* Technology Section with Interactive Cards */
 .technology-section {
@@ -1183,48 +921,22 @@
 </div>
 
 <div class="about-page">
-    <!-- Split Hero Section -->
+    <!-- Clean Hero Section -->
     <section class="hero-section">
         <div class="hero-container">
-            <div class="hero-split">
-                <div class="hero-left">
-                    <div class="hero-main-content">
-                        <h1 class="hero-title">About RackTrack</h1>
-                        <p class="hero-subtitle">
-                            To transform the way data centers manage their infrastructure by providing cutting-edge AI solutions that eliminate manual processes and deliver unprecedented accuracy in rack component analysis.
-                        </p>
-                        
-                        <div class="hero-content-text">
-                            <p class="content-paragraph">
-                                In today's fast-paced digital world, data centers are the backbone of our connected society. Yet many facilities still rely on time-consuming manual processes for inventory management and component tracking. RackTrack changes that by bringing the power of artificial intelligence to rack management.
-                            </p>
-                            
-                            <p class="content-paragraph">
-                                Our advanced computer vision technology can identify, analyze, and catalog rack components in seconds, providing detailed insights that would take hours to gather manually. This isn't just about efficiency – it's about accuracy, consistency, and giving IT professionals the tools they need to manage modern infrastructure.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+            <div class="hero-content">
+                <h1 class="hero-title">About RackTrack</h1>
+                <p class="hero-subtitle">
+                    To transform the way data centers manage their infrastructure by providing cutting-edge AI solutions that eliminate manual processes and deliver unprecedented accuracy in rack component analysis.
+                </p>
                 
-                <div class="hero-right">
-                    <div class="visual-element">
-                        <div class="main-circle">
-                            <div class="orbit-dot"></div>
-                            <div class="orbit-dot"></div>
-                            <div class="orbit-dot"></div>
-                        </div>
-                        <div class="inner-circle">
-                            <i class="fas fa-brain center-icon"></i>
-                        </div>
-                    </div>
-                </div>
+                <p class="hero-description">
+                    In today's fast-paced digital world, data centers are the backbone of our connected society. Yet many facilities still rely on time-consuming manual processes for inventory management and component tracking. RackTrack changes that by bringing the power of artificial intelligence to rack management.
+                </p>
                 
-                <div class="hero-banner-section">
-                    <div class="precision-banner">
-                        <h3 class="banner-title">Precision & Innovation</h3>
-                        <p class="banner-text">Combining state-of-the-art AI with deep industry expertise to deliver unmatched accuracy in rack component analysis.</p>
-                    </div>
-                </div>
+                <p class="hero-description">
+                    Our advanced computer vision technology can identify, analyze, and catalog rack components in seconds, providing detailed insights that would take hours to gather manually. This isn't just about efficiency – it's about accuracy, consistency, and giving IT professionals the tools they need to manage modern infrastructure.
+                </p>
             </div>
         </div>
     </section>
