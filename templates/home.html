@@ -449,68 +449,245 @@
     margin-bottom: 1rem;
 }
 
+/* Creative Immersive Video Container */
 .hero-video-container {
     padding: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 600px;
+    min-height: 700px;
     position: relative;
+    background: radial-gradient(ellipse at center, rgba(37, 99, 235, 0.03) 0%, transparent 70%);
+    overflow: hidden;
 }
 
-.hero-video {
-    width: 100%;
-    height: 600px;
-    border-radius: 2rem;
-    box-shadow: 
-        0 25px 60px -15px rgba(37, 99, 235, 0.3),
-        0 0 0 1px rgba(37, 99, 235, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    object-fit: cover;
-    transition: all 0.4s ease;
-    border: 3px solid rgba(37, 99, 235, 0.2);
-}
-
-.hero-video:hover {
-    transform: scale(1.03) translateY(-5px);
-    box-shadow: 
-        0 35px 80px -15px rgba(37, 99, 235, 0.4),
-        0 0 0 1px rgba(37, 99, 235, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    border-color: rgba(37, 99, 235, 0.4);
-}
-
-.hero-video-container::before {
-    content: '';
+/* Floating Particle Field */
+.particle-field {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at center, rgba(37, 99, 235, 0.05) 0%, transparent 70%);
-    border-radius: 2rem;
+    pointer-events: none;
     z-index: 1;
 }
 
-.hero-video-container::after {
+.particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: rgba(59, 130, 246, 0.6);
+    border-radius: 50%;
+    animation: particleFloat 8s infinite linear;
+    box-shadow: 0 0 6px rgba(59, 130, 246, 0.4);
+}
+
+.particle:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 12s; }
+.particle:nth-child(2) { left: 20%; animation-delay: -2s; animation-duration: 15s; }
+.particle:nth-child(3) { left: 30%; animation-delay: -4s; animation-duration: 10s; }
+.particle:nth-child(4) { left: 40%; animation-delay: -6s; animation-duration: 18s; }
+.particle:nth-child(5) { left: 50%; animation-delay: -8s; animation-duration: 14s; }
+.particle:nth-child(6) { left: 60%; animation-delay: -10s; animation-duration: 16s; }
+.particle:nth-child(7) { left: 70%; animation-delay: -12s; animation-duration: 11s; }
+.particle:nth-child(8) { left: 80%; animation-delay: -14s; animation-duration: 13s; }
+
+@keyframes particleFloat {
+    0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+}
+
+/* Holographic Frame */
+.holographic-frame {
+    position: relative;
+    width: 100%;
+    max-width: 650px;
+    border-radius: 2.5rem;
+    background: linear-gradient(145deg, 
+        rgba(37, 99, 235, 0.1) 0%, 
+        rgba(59, 130, 246, 0.05) 50%, 
+        rgba(37, 99, 235, 0.1) 100%);
+    padding: 4px;
+    box-shadow: 
+        0 0 60px rgba(37, 99, 235, 0.2),
+        inset 0 0 60px rgba(255, 255, 255, 0.05);
+    animation: holographicPulse 6s infinite ease-in-out;
+}
+
+@keyframes holographicPulse {
+    0%, 100% { 
+        box-shadow: 
+            0 0 60px rgba(37, 99, 235, 0.2),
+            inset 0 0 60px rgba(255, 255, 255, 0.05);
+    }
+    50% { 
+        box-shadow: 
+            0 0 80px rgba(37, 99, 235, 0.4),
+            inset 0 0 80px rgba(255, 255, 255, 0.1);
+    }
+}
+
+.hero-video {
+    width: 100%;
+    height: 600px;
+    border-radius: 2.5rem;
+    object-fit: cover;
+    position: relative;
+    z-index: 2;
+    transition: all 0.5s ease;
+}
+
+.holographic-frame:hover .hero-video {
+    transform: scale(1.02);
+    filter: brightness(1.1) contrast(1.05);
+}
+
+/* Scanning Grid Overlay */
+.scan-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    pointer-events: none;
+    border-radius: 2.5rem;
+    overflow: hidden;
+}
+
+.grid-line {
+    position: absolute;
+    background: linear-gradient(90deg, transparent, rgba(34, 197, 94, 0.8), transparent);
+    animation: gridScan 4s infinite ease-in-out;
+}
+
+.grid-line.horizontal {
+    width: 100%;
+    height: 1px;
+    left: 0;
+}
+
+.grid-line.vertical {
+    height: 100%;
+    width: 1px;
+    top: 0;
+    background: linear-gradient(180deg, transparent, rgba(34, 197, 94, 0.8), transparent);
+}
+
+@keyframes gridScan {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+
+/* Corner Brackets */
+.corner-bracket {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    z-index: 4;
+    pointer-events: none;
+}
+
+.corner-bracket::before,
+.corner-bracket::after {
     content: '';
     position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: linear-gradient(45deg, #2563eb, #3b82f6, #60a5fa, #2563eb);
-    border-radius: 2rem;
-    z-index: -1;
-    animation: borderGlow 4s ease-in-out infinite;
-    opacity: 0.3;
+    background: rgba(34, 197, 94, 0.9);
+    box-shadow: 0 0 10px rgba(34, 197, 94, 0.6);
 }
 
-@keyframes borderGlow {
-    0%, 100% { opacity: 0.3; transform: scale(1); }
-    50% { opacity: 0.6; transform: scale(1.01); }
+.corner-bracket::before {
+    width: 20px;
+    height: 2px;
 }
 
+.corner-bracket::after {
+    width: 2px;
+    height: 20px;
+}
+
+.corner-bracket.top-left {
+    top: 15px;
+    left: 15px;
+}
+
+.corner-bracket.top-left::before { top: 0; left: 0; }
+.corner-bracket.top-left::after { top: 0; left: 0; }
+
+.corner-bracket.top-right {
+    top: 15px;
+    right: 15px;
+}
+
+.corner-bracket.top-right::before { top: 0; right: 0; }
+.corner-bracket.top-right::after { top: 0; right: 0; }
+
+.corner-bracket.bottom-left {
+    bottom: 15px;
+    left: 15px;
+}
+
+.corner-bracket.bottom-left::before { bottom: 0; left: 0; }
+.corner-bracket.bottom-left::after { bottom: 0; left: 0; }
+
+.corner-bracket.bottom-right {
+    bottom: 15px;
+    right: 15px;
+}
+
+.corner-bracket.bottom-right::before { bottom: 0; right: 0; }
+.corner-bracket.bottom-right::after { bottom: 0; right: 0; }
+
+/* Data Streams */
+.data-streams {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    pointer-events: none;
+    border-radius: 2.5rem;
+    overflow: hidden;
+}
+
+.stream {
+    position: absolute;
+    width: 2px;
+    height: 100px;
+    background: linear-gradient(180deg, 
+        transparent, 
+        rgba(59, 130, 246, 0.8), 
+        rgba(37, 99, 235, 0.6), 
+        transparent);
+    animation: streamFlow 3s infinite linear;
+    border-radius: 1px;
+}
+
+.stream-1 {
+    left: 25%;
+    animation-delay: 0s;
+}
+
+.stream-2 {
+    left: 50%;
+    animation-delay: -1s;
+}
+
+.stream-3 {
+    left: 75%;
+    animation-delay: -2s;
+}
+
+@keyframes streamFlow {
+    0% { top: -100px; opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+}
+
+/* Enhanced AI Analytics Panel */
 .video-overlay {
     position: absolute;
     top: 2rem;
@@ -518,50 +695,183 @@
     z-index: 10;
 }
 
-.ai-badge {
-    background: rgba(37, 99, 235, 0.95);
-    color: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: 30px;
-    font-size: 1rem;
-    font-weight: 700;
+.ai-analytics-panel {
+    background: rgba(15, 23, 42, 0.9);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(37, 99, 235, 0.3);
+    border-radius: 20px;
+    padding: 1.5rem;
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.3),
+        0 0 40px rgba(37, 99, 235, 0.1);
+    animation: panelGlow 4s infinite ease-in-out;
+}
+
+@keyframes panelGlow {
+    0%, 100% { 
+        box-shadow: 
+            0 20px 40px rgba(0, 0, 0, 0.3),
+            0 0 40px rgba(37, 99, 235, 0.1);
+    }
+    50% { 
+        box-shadow: 
+            0 25px 50px rgba(0, 0, 0, 0.4),
+            0 0 60px rgba(37, 99, 235, 0.2);
+    }
+}
+
+.ai-badge-advanced {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    backdrop-filter: blur(15px);
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
-    animation: badgePulse 3s infinite ease-in-out;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.badge-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #2563eb, #3b82f6);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: iconPulse 2s infinite ease-in-out;
+}
+
+.badge-icon i {
+    color: white;
+    font-size: 1.2rem;
+}
+
+@keyframes iconPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.badge-content {
+    flex: 1;
+}
+
+.badge-title {
+    color: #60a5fa;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 0.2rem;
+}
+
+.badge-subtitle {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.75rem;
+    font-weight: 400;
+}
+
+.processing-indicator {
+    display: flex;
+    align-items: center;
+}
+
+.pulse-dot {
+    width: 8px;
+    height: 8px;
+    background: #22c55e;
+    border-radius: 50%;
+    animation: dotPulse 1.5s infinite ease-in-out;
+    box-shadow: 0 0 10px rgba(34, 197, 94, 0.6);
+}
+
+@keyframes dotPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(0.8); }
+}
+
+.mini-analytics {
+    display: flex;
+    gap: 1.5rem;
+    border-top: 1px solid rgba(37, 99, 235, 0.2);
+    padding-top: 1rem;
+}
+
+.metric {
+    text-align: center;
+}
+
+.metric-value {
+    display: block;
+    color: #22c55e;
+    font-size: 1.1rem;
+    font-weight: 700;
+    animation: valueFlicker 3s infinite ease-in-out;
+}
+
+.metric-label {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.7rem;
+    font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
-.ai-badge i {
-    font-size: 1.1rem;
-    animation: iconSpin 8s linear infinite;
+@keyframes valueFlicker {
+    0%, 90%, 100% { opacity: 1; }
+    95% { opacity: 0.7; }
 }
 
-@keyframes badgePulse {
-    0%, 100% { transform: scale(1); opacity: 0.95; }
-    50% { transform: scale(1.08); opacity: 1; }
+/* Ambient Light Effects */
+.ambient-lights {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 0;
 }
 
-@keyframes iconSpin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+.light-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(40px);
+    animation: orbFloat 8s infinite ease-in-out;
 }
 
-/* Additional attractive effects */
-.hero-video-container {
-    background: linear-gradient(135deg, 
-        rgba(37, 99, 235, 0.02) 0%, 
-        rgba(59, 130, 246, 0.01) 50%, 
-        rgba(37, 99, 235, 0.02) 100%);
+.orb-1 {
+    width: 150px;
+    height: 150px;
+    background: rgba(37, 99, 235, 0.1);
+    top: 10%;
+    left: -20%;
+    animation-delay: 0s;
 }
 
+.orb-2 {
+    width: 200px;
+    height: 200px;
+    background: rgba(59, 130, 246, 0.08);
+    bottom: 20%;
+    right: -30%;
+    animation-delay: -3s;
+}
+
+.orb-3 {
+    width: 120px;
+    height: 120px;
+    background: rgba(34, 197, 94, 0.06);
+    top: 50%;
+    left: 50%;
+    animation-delay: -6s;
+}
+
+@keyframes orbFloat {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -20px) scale(1.1); }
+    66% { transform: translate(-20px, 30px) scale(0.9); }
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
     .hero-video-container {
-        min-height: 400px;
+        min-height: 500px;
         padding: 0.5rem;
     }
     
@@ -570,9 +880,17 @@
         border-radius: 1.5rem;
     }
     
-    .ai-badge {
-        padding: 0.5rem 1rem;
-        font-size: 0.85rem;
+    .holographic-frame {
+        border-radius: 1.5rem;
+    }
+    
+    .ai-analytics-panel {
+        padding: 1rem;
+        transform: scale(0.9);
+    }
+    
+    .mini-analytics {
+        gap: 1rem;
     }
 }
 
@@ -1508,15 +1826,84 @@
                 <!-- Left Side Image -->
                 <div class="col-lg-6">
                     <div class="hero-video-container">
-                        <video class="hero-video" autoplay muted loop playsinline>
-                            <source src="{{ url_for('static', filename='datacenter-analysis.mp4') }}" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        <div class="video-overlay">
-                            <div class="ai-badge">
-                                <i class="fas fa-eye"></i>
-                                AI Vision Analysis
+                        <!-- Floating Particles Background -->
+                        <div class="particle-field">
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                        </div>
+                        
+                        <!-- Main Video with Holographic Frame -->
+                        <div class="holographic-frame">
+                            <video class="hero-video" autoplay muted loop playsinline>
+                                <source src="{{ url_for('static', filename='datacenter-analysis.mp4') }}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            
+                            <!-- Scanning Grid Overlay -->
+                            <div class="scan-grid">
+                                <div class="grid-line horizontal" style="top: 25%;"></div>
+                                <div class="grid-line horizontal" style="top: 50%;"></div>
+                                <div class="grid-line horizontal" style="top: 75%;"></div>
+                                <div class="grid-line vertical" style="left: 25%;"></div>
+                                <div class="grid-line vertical" style="left: 50%;"></div>
+                                <div class="grid-line vertical" style="left: 75%;"></div>
                             </div>
+                            
+                            <!-- Corner Brackets -->
+                            <div class="corner-bracket top-left"></div>
+                            <div class="corner-bracket top-right"></div>
+                            <div class="corner-bracket bottom-left"></div>
+                            <div class="corner-bracket bottom-right"></div>
+                            
+                            <!-- Data Stream Overlay -->
+                            <div class="data-streams">
+                                <div class="stream stream-1"></div>
+                                <div class="stream stream-2"></div>
+                                <div class="stream stream-3"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Enhanced AI Badge with Analytics -->
+                        <div class="video-overlay">
+                            <div class="ai-analytics-panel">
+                                <div class="ai-badge-advanced">
+                                    <div class="badge-icon">
+                                        <i class="fas fa-brain"></i>
+                                    </div>
+                                    <div class="badge-content">
+                                        <div class="badge-title">AI VISION</div>
+                                        <div class="badge-subtitle">Real-time Analysis</div>
+                                    </div>
+                                    <div class="processing-indicator">
+                                        <div class="pulse-dot"></div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Mini Analytics Display -->
+                                <div class="mini-analytics">
+                                    <div class="metric">
+                                        <span class="metric-value">94%</span>
+                                        <span class="metric-label">Accuracy</span>
+                                    </div>
+                                    <div class="metric">
+                                        <span class="metric-value">2.3s</span>
+                                        <span class="metric-label">Speed</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Ambient Light Effects -->
+                        <div class="ambient-lights">
+                            <div class="light-orb orb-1"></div>
+                            <div class="light-orb orb-2"></div>
+                            <div class="light-orb orb-3"></div>
                         </div>
                     </div>
                 </div>
