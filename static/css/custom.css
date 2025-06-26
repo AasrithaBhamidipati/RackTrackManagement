@@ -570,22 +570,18 @@ body::after {
     align-items: center;
     gap: 0.75rem;
     text-decoration: none;
-    transition: all 0.3s ease;
 }
 
 .brand-link:hover {
     text-decoration: none;
-    transform: translateY(-1px);
 }
 
 .brand-icon-modern {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     filter: drop-shadow(0 6px 12px rgba(99, 102, 241, 0.25));
     position: relative;
-    overflow: hidden;
     border-radius: 16px;
 }
 
@@ -712,57 +708,9 @@ body::after {
     }
 }
 
-.brand-icon-modern::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: conic-gradient(from 0deg, transparent, rgba(99, 102, 241, 0.1), transparent);
-    animation: logoRotate 8s linear infinite;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
+/* Removed all brand logo animations for elegant, clean design */
 
-.brand-link:hover .brand-icon-modern::before {
-    opacity: 1;
-}
-
-.brand-link:hover .brand-icon-modern {
-    transform: scale(1.1) rotate(5deg);
-    filter: 
-        drop-shadow(0 12px 24px rgba(99, 102, 241, 0.4))
-        drop-shadow(0 0 30px rgba(139, 92, 246, 0.3));
-}
-
-.brand-icon-modern svg {
-    position: relative;
-    z-index: 2;
-    transition: all 0.3s ease;
-}
-
-.brand-link:hover .brand-icon-modern svg {
-    transform: scale(1.1);
-}
-
-.brand-link:hover .rack-3d-structure {
-    filter: drop-shadow(0 6px 12px rgba(37, 99, 235, 0.4));
-}
-
-.brand-link:hover .ai-core-center {
-    filter: drop-shadow(0 4px 10px rgba(6, 182, 212, 0.5));
-}
-
-.brand-link:hover .connection-network {
-    filter: drop-shadow(0 2px 6px rgba(16, 185, 129, 0.4));
-}
-
-.brand-link:hover .brand-name-modern {
-    transform: translateY(-1px);
-    filter: drop-shadow(0 3px 6px rgba(30, 64, 175, 0.4));
-    color: #1e3a8a;
-}
+/* Removed brand name hover effects for elegant, clean design */
 
 @keyframes logoRotate {
     0% { transform: rotate(0deg); }
@@ -777,7 +725,6 @@ body::after {
     letter-spacing: 0.08em;
     text-transform: uppercase;
     position: relative;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     filter: drop-shadow(0 3px 8px rgba(30, 64, 175, 0.4));
     background: linear-gradient(135deg, 
         #0f172a 0%, 
@@ -790,8 +737,6 @@ body::after {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    background-size: 300% 300%;
-    animation: uniqueGradientFlow 12s ease-in-out infinite;
     font-feature-settings: 'liga', 'kern', 'ss01', 'cv01';
     text-rendering: optimizeLegibility;
     text-shadow: 
