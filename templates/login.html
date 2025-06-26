@@ -4,12 +4,10 @@
 
 {% block content %}
 <div class="holographic-login-container">
-    <!-- Video Background -->
-    <div class="video-background">
-        <video autoplay muted loop playsinline class="background-video">
-            <source src="{{ url_for('static', filename='videos/login-background.mp4') }}" type="video/mp4">
-        </video>
-        <div class="video-overlay"></div>
+    <!-- Image Background -->
+    <div class="image-background">
+        <img src="{{ url_for('static', filename='images/login-background.png') }}" alt="Background" class="background-image">
+        <div class="image-overlay"></div>
     </div>
 
     <!-- Holographic Elements -->
@@ -32,37 +30,6 @@
 
     <!-- Main Login Interface -->
     <div class="login-interface">
-        <!-- Brand Logo -->
-        <div class="brand-logo-container">
-            <div class="logo-glow">
-                <svg width="80" height="80" viewBox="0 0 100 100" class="holographic-logo">
-                    <defs>
-                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#00ffff;stop-opacity:1" />
-                            <stop offset="50%" style="stop-color:#0080ff;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#0040ff;stop-opacity:1" />
-                        </linearGradient>
-                        <filter id="glow">
-                            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-                            <feMerge> 
-                                <feMergeNode in="coloredBlur"/>
-                                <feMergeNode in="SourceGraphic"/>
-                            </feMerge>
-                        </filter>
-                    </defs>
-                    <polygon points="50,10 70,30 70,50 50,70 30,50 30,30" 
-                             fill="url(#logoGradient)" 
-                             filter="url(#glow)"
-                             stroke="#00ffff" 
-                             stroke-width="2"/>
-                    <polygon points="50,20 60,30 60,40 50,50 40,40 40,30" 
-                             fill="#00ffff" 
-                             opacity="0.7"/>
-                </svg>
-            </div>
-            <h1 class="brand-title">RackTrack</h1>
-            <div class="brand-subtitle">AI-Powered Network Analysis</div>
-        </div>
 
         <!-- Holographic Login Form -->
         <div class="holographic-form-container">
@@ -73,7 +40,7 @@
                 <div class="form-header">
                     <div class="access-indicator">
                         <div class="indicator-dot"></div>
-                        <span class="access-text">SECURE ACCESS</span>
+                        <span class="access-text">LOGIN</span>
                     </div>
                 </div>
 
@@ -120,13 +87,13 @@
                         <span class="checkbox-visual">
                             <span class="checkbox-inner"></span>
                         </span>
-                        <span class="checkbox-text">Remember Session</span>
+                        <span class="checkbox-text">Remember Me</span>
                     </label>
                 </div>
 
                 <button type="submit" class="holographic-button">
                     <span class="button-background"></span>
-                    <span class="button-text">INITIALIZE ACCESS</span>
+                    <span class="button-text">SUBMIT</span>
                     <div class="button-glow"></div>
                     <div class="button-loader">
                         <div class="loader-ring"></div>
@@ -158,23 +125,7 @@
             </form>
         </div>
 
-        <!-- System Status Display -->
-        <div class="system-status">
-            <div class="status-grid">
-                <div class="status-item">
-                    <div class="status-indicator online"></div>
-                    <span class="status-label">AI Vision</span>
-                </div>
-                <div class="status-item">
-                    <div class="status-indicator online"></div>
-                    <span class="status-label">Neural Net</span>
-                </div>
-                <div class="status-item">
-                    <div class="status-indicator standby"></div>
-                    <span class="status-label">Analysis</span>
-                </div>
-            </div>
-        </div>
+
     </div>
 </div>
 
@@ -190,8 +141,8 @@
     background: #0a0a0a;
 }
 
-/* Video Background */
-.video-background {
+/* Image Background */
+.image-background {
     position: fixed;
     top: 0;
     left: 0;
@@ -200,29 +151,20 @@
     z-index: -2;
 }
 
-.background-video {
+.background-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: blur(12px) brightness(0.2);
-    transform: scale(1.1);
+    opacity: 0.7;
 }
 
-.video-overlay {
+.image-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-        135deg,
-        rgba(0, 20, 40, 0.8) 0%,
-        rgba(0, 40, 80, 0.6) 25%,
-        rgba(0, 60, 120, 0.4) 50%,
-        rgba(0, 80, 160, 0.6) 75%,
-        rgba(0, 100, 200, 0.8) 100%
-    );
-    backdrop-filter: blur(2px);
+    background: rgba(0, 0, 0, 0.3);
 }
 
 /* Holographic Elements */
@@ -320,46 +262,7 @@
     padding: 2rem;
 }
 
-/* Brand Logo */
-.brand-logo-container {
-    text-align: center;
-    margin-bottom: 1rem;
-}
 
-.logo-glow {
-    display: inline-block;
-    margin-bottom: 1rem;
-    animation: logoFloat 3s ease-in-out infinite;
-}
-
-@keyframes logoFloat {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-}
-
-.holographic-logo {
-    filter: drop-shadow(0 0 20px #00ffff);
-}
-
-.brand-title {
-    font-size: 2.5rem;
-    font-weight: 300;
-    margin: 0;
-    background: linear-gradient(135deg, #00ffff, #0080ff, #0040ff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
-    letter-spacing: 3px;
-}
-
-.brand-subtitle {
-    color: rgba(0, 255, 255, 0.8);
-    font-size: 0.9rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-top: 0.5rem;
-}
 
 /* Holographic Form */
 .holographic-form-container {
@@ -721,55 +624,7 @@
     font-family: 'Courier New', monospace;
 }
 
-/* System Status */
-.system-status {
-    width: 100%;
-    background: rgba(0, 20, 40, 0.4);
-    border: 1px solid rgba(0, 255, 255, 0.2);
-    border-radius: 12px;
-    padding: 1rem;
-    backdrop-filter: blur(10px);
-}
 
-.status-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-}
-
-.status-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.status-indicator {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    position: relative;
-}
-
-.status-indicator.online {
-    background: #00ff00;
-    box-shadow: 0 0 10px #00ff00;
-    animation: pulse 2s infinite;
-}
-
-.status-indicator.standby {
-    background: #ffaa00;
-    box-shadow: 0 0 10px #ffaa00;
-    animation: pulse 2s infinite;
-}
-
-.status-label {
-    font-size: 0.7rem;
-    color: rgba(0, 255, 255, 0.7);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    text-align: center;
-}
 
 /* Loading States */
 .holographic-button.loading .button-text {
@@ -893,12 +748,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Video error handling
-    const video = document.querySelector('.background-video');
-    if (video) {
-        video.addEventListener('error', function() {
-            console.log('Video failed to load, using fallback background');
-            document.querySelector('.video-background').style.display = 'none';
+    // Image error handling
+    const image = document.querySelector('.background-image');
+    if (image) {
+        image.addEventListener('error', function() {
+            console.log('Background image failed to load');
         });
     }
 
