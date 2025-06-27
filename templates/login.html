@@ -12,10 +12,12 @@
 
     <!-- Main Split Container -->
     <div class="main-split-container">
-        <!-- Left Image Section (70%) -->
+        <!-- Left Video Section (60%) -->
         <div class="image-section">
-            <img src="{{ url_for('static', filename='images/login-background.png') }}" alt="Data Center Infrastructure" class="isometric-image">
-
+            <video class="isometric-video" autoplay muted loop playsinline>
+                <source src="{{ url_for('static', filename='videos/technician-scan.mp4') }}" type="video/mp4">
+                <img src="{{ url_for('static', filename='images/login-background.png') }}" alt="Data Center Infrastructure" class="fallback-image">
+            </video>
         </div>
 
         <!-- Right Login Section (30%) -->
@@ -186,8 +188,8 @@
 .main-split-container {
     position: relative;
     display: flex;
-    max-width: 1000px;
-    width: 85vw;
+    max-width: 1300px;
+    width: 92vw;
     height: 80vh;
     margin: 0;
     background: rgba(255, 255, 255, 0.98);
@@ -213,13 +215,28 @@
     padding: 40px;
 }
 
-.isometric-image {
+.isometric-video {
+    width: auto;
+    height: 75vh;
+    max-width: 90%;
+    object-fit: contain;
+    filter: brightness(1.2) contrast(1.15) saturate(1.1) drop-shadow(0 20px 40px rgba(37, 99, 235, 0.2));
+    animation: videoFloat 6s ease-in-out infinite;
+    border-radius: 8px;
+}
+
+.fallback-image {
     width: auto;
     height: 75vh;
     max-width: 90%;
     object-fit: contain;
     filter: brightness(1.2) contrast(1.15) saturate(1.1) drop-shadow(0 20px 40px rgba(37, 99, 235, 0.2));
     animation: imageFloat 6s ease-in-out infinite;
+}
+
+@keyframes videoFloat {
+    0%, 100% { transform: translateY(0px) scale(1); }
+    50% { transform: translateY(-8px) scale(1.01); }
 }
 
 @keyframes imageFloat {
