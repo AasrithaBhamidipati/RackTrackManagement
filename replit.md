@@ -95,6 +95,13 @@ RackTrack is a Flask-based web application that uses AI deep learning models to 
 - Sufficient storage for model files and temporary processing
 
 ## Recent Changes
+- June 27, 2025: Complete mobile UI redesign for signin page
+  - Implemented mobile-first responsive design with proper touch targets and spacing
+  - Reduced video section to 25% height on mobile (75% for login form)
+  - Added larger touch targets (50px+ height) for inputs and buttons
+  - Simplified UI by hiding decorative particles and animations on mobile for better performance
+  - Added dedicated styles for extra small screens (portrait phones under 480px)
+  - Improved scrolling and form usability on mobile devices
 - June 27, 2025: Updated signin page video playback behavior
   - Removed loop attribute from signin page video to stop at end instead of continuous playback
   - Video now plays once and stops at final frame showing completed rack analysis
