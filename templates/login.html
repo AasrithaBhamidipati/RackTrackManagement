@@ -154,9 +154,12 @@
 /* Holographic Login Container */
 .holographic-login-container {
     height: 100vh;
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
     display: flex;
-    align-items: stretch;
+    align-items: center;
     justify-content: center;
     overflow: hidden;
 }
@@ -196,8 +199,8 @@
     display: flex;
     max-width: 1200px;
     width: 95vw;
-    height: 75vh;
-    margin: 2.5vh auto 1vh auto;
+    height: 90vh;
+    margin: 0;
     background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(25px);
     border-radius: 12px;
@@ -989,10 +992,10 @@
     
     .main-split-container {
         flex-direction: column;
-        width: 95vw;
-        height: 85vh;
-        margin: 2.5vh auto;
-        border-radius: 12px;
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        border-radius: 0;
     }
     
     .image-section {
@@ -1290,9 +1293,18 @@
     box-shadow: 0 8px 32px rgba(37, 99, 235, 0.12);
 }
 
-/* Move footer higher on login page */
+/* Hide body scroll and footer on login page */
+body {
+    overflow: hidden !important;
+    height: 100vh !important;
+}
+
 footer {
-    margin-top: 1rem !important;
+    display: none !important;
+}
+
+main {
+    display: none !important;
 }
 </style>
 
