@@ -96,9 +96,9 @@ RackTrack is a Flask-based web application that uses AI deep learning models to 
 
 ## Recent Changes
 - June 27, 2025: Updated signin page video and transparency settings
-  - Replaced signin page video with technician phone scanning scene
-  - New video shows technician walking into frame and using phone to scan server rack
-  - Features static rack shot transitioning to technician interaction with mobile device
+  - Replaced signin page video with technician rack analysis demonstration
+  - New video shows technician walking into frame and standing directly in front of server rack
+  - Features component-by-component analysis highlighting switches, ports, and cable connections
   - Added loop attribute for continuous video playback
   - Made complete signin container 40% transparent (0.6 opacity) for optimal background visibility
 - June 26, 2025: Complete sign-in page redesign with split-screen layout and isometric data center image
