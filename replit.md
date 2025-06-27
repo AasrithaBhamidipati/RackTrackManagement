@@ -95,10 +95,11 @@ RackTrack is a Flask-based web application that uses AI deep learning models to 
 - Sufficient storage for model files and temporary processing
 
 ## Recent Changes
-- June 27, 2025: Made complete signin container 40% transparent
-  - Updated main split container background opacity from 0.98 to 0.6
-  - Updated form backdrop and holographic form backgrounds to 0.6 opacity
-  - Container maintains good readability while showing background elements
+- June 27, 2025: Updated signin page video and transparency settings
+  - Replaced signin page video with new cinematic data center scene showing person in suit approaching server rack
+  - New video features blue glowing bounding box highlighting different rack components
+  - Added loop attribute for continuous video playback
+  - Made complete signin container 40% transparent (0.6 opacity) for optimal background visibility
 - June 26, 2025: Complete sign-in page redesign with split-screen layout and isometric data center image
   - Implemented 70/30 split layout with isometric data center illustration on left side
   - Moved login container to right side (30%) with elegant white and light blue theme
